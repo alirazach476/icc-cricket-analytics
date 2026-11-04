@@ -207,12 +207,12 @@ def batting_percentiles(pid: str, fmt: str, min_balls: int = 300) -> dict[str, f
     )
 
 
-def bowling_percentiles(pid: str, fmt: str) -> dict[str, float] | None:
+def bowling_percentiles(pid: str, fmt: str, min_balls: int = 300) -> dict[str, float] | None:
     d = run(
         "select * from (select player_id, percent_rank() over (order by wickets) as wickets, percent_rank() over (order by -economy) as economy, "
         "percent_rank() over (order by -average) as average, percent_rank() over (order by -strike_rate) as strike_rate, "
-        "percent_rank() over (order by five_wicket_hauls + four_wicket_hauls) as hauls from gold.mart_bowling_career where format = ? and balls_bowled >= 300) where player_id = ?",
-        (fmt, pid),
+        "percent_rank() over (order by five_wicket_hauls + four_wicket_hauls) as hauls from gold.mart_bowling_career where format = ? and balls_bowled >= ?) where player_id = ?",
+        (fmt, int(min_balls), pid),
     )
     return (
         None

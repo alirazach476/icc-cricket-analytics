@@ -7,6 +7,7 @@ a page whose filters were changed still computes live (and is cached while the i
 
     python scripts/precompute_pages.py            # all competitions, editions and pages
     python scripts/precompute_pages.py --check    # list what is missing or older than the databases
+    python scripts/precompute_pages.py --only players   # rebuild just some pages after changing them
 
 The file name is ``<competition>__<page>__<edition id or all>.json.gz``; the content is exactly what /api/page returns.
 """
@@ -44,10 +45,14 @@ def jobs() -> list[tuple[str, str, dict | None]]:
 def main() -> int:
     ap = argparse.ArgumentParser()
     ap.add_argument("--check", action="store_true")
+    ap.add_argument("--only", help="comma-separated page slugs to rebuild, e.g. players,teams")
     args = ap.parse_args()
     runner.USE_PRECOMPUTED = False  # always compute from the data here
     runner.PRECOMPUTED.mkdir(parents=True, exist_ok=True)
     todo = jobs()
+    if args.only:
+        wanted = set(args.only.split(","))
+        todo = [j for j in todo if j[1] in wanted]
     newest_db = max(f.stat().st_mtime for f in (ROOT / "data" / "warehouse").glob("cricket_gold*.duckdb"))
     started, total, errors = time.time(), 0, []
     for i, (comp, page, ed) in enumerate(todo, 1):

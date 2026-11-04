@@ -43,6 +43,19 @@ def radar_for(pid: str, min_balls: int = 300) -> tuple[list[str], dict[str, list
     return cats, out
 
 
+BOWL_CATS = ["wickets", "economy", "average", "strike rate", "4/5-wicket hauls"]
+
+
+def bowling_radar_for(pid: str, min_balls: int = 300) -> dict[str, list[float]]:
+    """Bowling percentiles per format (higher is better: low economy, average and strike rate rank high)."""
+    out: dict[str, list[float]] = {}
+    for fmt in Q.formats():
+        p = V.bowling_percentiles(pid, fmt, min_balls)
+        if p:
+            out[fmt] = [p[c] for c in ("wickets", "economy", "average", "strike_rate", "hauls")]
+    return out
+
+
 if setup(
     "Player Analytics",
     "🧑",
@@ -53,6 +66,9 @@ if setup(
     # radar percentiles rank a player against everyone with at least this many balls faced in the format
     min_balls = st.sidebar.select_slider(
         "Minimum balls faced (radar)", options=MIN_BALLS_OPTIONS, value=300, key="radar_min_balls"
+    )
+    min_bowled = st.sidebar.select_slider(
+        "Minimum balls bowled (radar)", options=MIN_BALLS_OPTIONS, value=300, key="radar_min_bowled"
     )
     tabs = st.tabs(
         ["Profile", "Batting detail", "Bowling detail", "Comparison", "Consistency", "Clustering"]
@@ -114,6 +130,22 @@ if setup(
                         f"Not enough batting history for a percentile radar (minimum {min_balls} balls). "
                         "Lower the minimum in the filters."
                     )
+                if len(bowl):
+                    bseries = bowling_radar_for(pid, min_bowled)
+                    if bseries:
+                        st.plotly_chart(
+                            C.radar(
+                                BOWL_CATS,
+                                bseries,
+                                f"Bowling percentile vs other qualified bowlers (>= {min_bowled} balls)",
+                            ),
+                            width="stretch",
+                        )
+                    else:
+                        st.info(
+                            f"Not enough bowling history for a percentile radar (minimum {min_bowled} balls bowled). "
+                            "Lower the minimum in the filters."
+                        )
             with b:
                 if len(hist):
                     st.plotly_chart(
@@ -363,7 +395,7 @@ if setup(
                 )
 
     with tabs[3]:
-        who2, pid2 = pick_player("compare with", "Rohit", "b")
+        who2, pid2 = pick_player("compare with", "Rohit Sharma", "b")
         if pid is None or pid2 is None:
             st.info("Pick two players in the sidebar.")
         else:
@@ -387,6 +419,19 @@ if setup(
                     )
                 else:
                     st.info(f"Both players need at least {min_balls} {fmt} balls faced for the radar. Lower the minimum in the filters.")
+                bc1, bc2 = bowling_radar_for(pid, min_bowled), bowling_radar_for(pid2, min_bowled)
+                bser = {}
+                if fmt in bc1:
+                    bser[who] = bc1[fmt]
+                if fmt in bc2:
+                    bser[who2] = bc2[fmt]
+                if len(bser) == 2:
+                    st.plotly_chart(C.radar(BOWL_CATS, bser, f"{fmt} bowling percentiles"), width="stretch")
+                else:
+                    st.info(
+                        f"Both players need at least {min_bowled} {fmt} balls bowled for the bowling radar. "
+                        "Lower the minimum in the filters."
+                    )
             with b:
                 rows = []
                 for name, p in ((who, pid), (who2, pid2)):
