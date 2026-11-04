@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from 'react'
-import { instance } from '@viz-js/viz'
 
 let vizPromise = null
 
@@ -7,7 +6,8 @@ export default function Graphviz({ src }) {
   const [svg, setSvg] = useState('')
   useEffect(() => {
     let live = true
-    vizPromise = vizPromise || instance()
+    // Viz.js (graphviz in WebAssembly) is large and only the lineage diagram needs it: load it on demand
+    vizPromise = vizPromise || import('@viz-js/viz').then((m) => m.instance())
     vizPromise
       .then((v) => {
         const el = v.renderSVGElement(src)

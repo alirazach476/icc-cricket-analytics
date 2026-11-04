@@ -1,3 +1,4 @@
+# ruff: noqa: E501
 """Stage a deployable copy of the React dashboard for Vercel (FastAPI function + static React build).
 
     cd web && npm install && npx vite build && cd ..
@@ -9,6 +10,8 @@ What it does
 * copies only what the dashboard reads (code, config, reports, small feature files),
 * compacts the four gold DuckDB files (about half the size, identical rows) so the function stays under
   Vercel's 500 MB limit,
+* ships the pre-built default view of every page (``scripts/precompute_pages.py``; delete
+  ``server/precomputed`` to rebuild after the data changes),
 * writes ``index.py`` (the FastAPI app), a pinned ``requirements.txt`` / minimal ``pyproject.toml`` and ``vercel.json``,
 * serves the React build from ``public/`` (CDN) and the API from the function.
 
@@ -19,6 +22,7 @@ from __future__ import annotations
 
 import json
 import shutil
+import subprocess
 import sys
 from importlib import metadata
 from pathlib import Path
@@ -42,6 +46,10 @@ def compact(src: Path, dst: Path) -> None:
 
 
 def main() -> None:
+    pre = ROOT / "server" / "precomputed"
+    if not pre.exists() or not any(pre.iterdir()):
+        # default view of every page, built once so the first visit does not wait for the analytics to run
+        subprocess.check_call([sys.executable, str(ROOT / "scripts" / "precompute_pages.py")])
     if not (ROOT / "web" / "dist").exists():
         sys.exit("Build the React app first: cd web && npm install && npx vite build")
     if OUT.exists():
@@ -80,8 +88,21 @@ def main() -> None:
         encoding="utf-8",
     )
     (OUT / ".python-version").write_text("3.12\n", encoding="utf-8")
+    cache = lambda v: [{"key": "Cache-Control", "value": v}]  # noqa: E731
     (OUT / "vercel.json").write_text(
-        json.dumps({"functions": {"index.py": {"maxDuration": 60, "excludeFiles": "{**/tests/**,**/__pycache__/**,**/*.pyc,**/plotly/package_data/datasets/**}"}}}, indent=2),
+        json.dumps(
+            {
+                # run the function in Mumbai: the dashboard is used from South Asia (default is Washington)
+                "regions": ["bom1"],
+                "functions": {"index.py": {"maxDuration": 60, "excludeFiles": "{**/tests/**,**/__pycache__/**,**/*.pyc,**/plotly/package_data/datasets/**}"}},
+                "headers": [
+                    {"source": "/assets/(.*)", "headers": cache("public, max-age=31536000, immutable")},
+                    {"source": "/logos/(.*)", "headers": cache("public, max-age=604800")},
+                    {"source": "/flags/(.*)", "headers": cache("public, max-age=604800")},
+                ],
+            },
+            indent=2,
+        ),
         encoding="utf-8",
     )
     (OUT / ".vercelignore").write_text("__pycache__\n*.pyc\n.env.local\n", encoding="utf-8")

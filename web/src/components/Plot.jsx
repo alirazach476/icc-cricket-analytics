@@ -1,29 +1,19 @@
-import React, { useMemo } from 'react'
-import Plotly from 'plotly.js-dist-min'
-import createPlotlyComponent from 'react-plotly.js/factory'
-import { useDash } from '../ctx.js'
+import React, { Suspense, lazy } from 'react'
 
-const Plot = createPlotlyComponent(Plotly)
+// Plotly is ~4.7 MB: load it as its own chunk so the page chrome, tables and text appear first.
+const PlotImpl = lazy(() => import('./PlotImpl.jsx'))
 
 export default function PlotCard({ fig }) {
-  const { template, recolor } = useDash()
-  const { data, layout, frames } = useMemo(() => {
-    const f = recolor({ data: fig.data, layout: { ...fig.layout, template }, frames: fig.frames })
-    f.layout.autosize = true
-    f.layout.paper_bgcolor = 'rgba(0,0,0,0)'
-    return f
-  }, [fig, template, recolor])
-  const height = layout.height || 380
+  const height = fig?.layout?.height || 380
   return (
-    <div className="plotcard">
-      <Plot
-        data={data}
-        layout={{ ...layout, width: undefined }}
-        frames={frames}
-        config={{ displaylogo: false, responsive: true, displayModeBar: 'hover', modeBarButtonsToRemove: ['lasso2d', 'select2d'] }}
-        useResizeHandler
-        style={{ width: '100%', height }}
-      />
-    </div>
+    <Suspense
+      fallback={
+        <div className="plotcard">
+          <div className="skeleton" style={{ height, margin: 0 }} aria-label="Loading chart" />
+        </div>
+      }
+    >
+      <PlotImpl fig={fig} />
+    </Suspense>
   )
 }

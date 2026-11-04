@@ -9,13 +9,13 @@ from __future__ import annotations
 import re
 from pathlib import Path
 
+from app.utils.flags import flag_map
 from fastapi import FastAPI, HTTPException, Request
 from fastapi.responses import FileResponse, JSONResponse, Response
 from fastapi.staticfiles import StaticFiles
 
 from server import editions as E
 from server import runner
-from app.utils.flags import flag_map
 
 ROOT = Path(__file__).resolve().parents[1]
 DIST = ROOT / "web" / "dist"
@@ -165,7 +165,7 @@ def meta() -> JSONResponse:
             "template": tpl,
             "flags": flag_map(),
         }
-    return JSONResponse(_META)
+    return JSONResponse(_META, headers={"Cache-Control": "public, max-age=300, s-maxage=3600, stale-while-revalidate=86400"})
 
 
 @app.post("/api/page/{slug}")

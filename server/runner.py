@@ -3,6 +3,8 @@
 
 from __future__ import annotations
 
+import gzip
+import os
 import runpy
 import sys
 import threading
@@ -95,6 +97,26 @@ COMPETITION_PAGES = {
 }
 
 
+# Default views (no widget changed) can be built ahead of time by scripts/precompute_pages.py and shipped with a
+# serverless deployment, so the first visit to a page does not wait for the analytics to run.
+PRECOMPUTED = ROOT / "server" / "precomputed"
+USE_PRECOMPUTED = bool(os.environ.get("VERCEL") or os.environ.get("CRICKET_PRECOMPUTED"))
+
+
+def precomputed_name(competition: str, slug: str, edition_id: str | None) -> str:
+    return f"{competition}__{slug}__{edition_id or 'all'}.json.gz"
+
+
+def _precomputed(competition: str, slug: str, edition: dict | None) -> bytes | None:
+    if not USE_PRECOMPUTED:
+        return None
+    f = PRECOMPUTED / precomputed_name(competition, slug, (edition or {}).get("id"))
+    try:
+        return gzip.decompress(f.read_bytes()) if f.exists() else None
+    except OSError:
+        return None
+
+
 def run_page(slug: str, state: dict | None, edition: dict | None, competition: str = "wc") -> bytes:
     """Return the JSON-encoded UI tree for a page (cached per widget state + edition)."""
     if slug not in _BY_SLUG:
@@ -103,6 +125,10 @@ def run_page(slug: str, state: dict | None, edition: dict | None, competition: s
     if key in _CACHE:
         _CACHE.move_to_end(key)
         return _CACHE[key]
+    pre = _precomputed(competition, slug, edition) if not state else None
+    if pre is not None:
+        _CACHE[key] = pre
+        return pre
     path = ROOT / PAGE_OVERRIDES.get((competition, slug), _BY_SLUG[slug][2])
     started = time.perf_counter()
     with LOCK:
