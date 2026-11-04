@@ -6,6 +6,7 @@ from __future__ import annotations
 import pandas as pd
 
 from app.utils.analytics import feature_parquet
+from app.utils.database import competition as database_competition
 from app.utils.database import run
 
 
@@ -284,7 +285,9 @@ def team_year_matrix(fmt: str) -> pd.DataFrame:
 
 
 def elo_history(fmt: str) -> pd.DataFrame:
-    f = feature_parquet("match_features.parquet")
+    # World Cups: match_features.parquet; Champions Trophy / Test Championship: <code>_match_features.parquet
+    code = database_competition()
+    f = feature_parquet("match_features.parquet" if code == "wc" else f"{code}_match_features.parquet")
     if f is None:
         return pd.DataFrame()
     f = f[f["format"] == fmt]
