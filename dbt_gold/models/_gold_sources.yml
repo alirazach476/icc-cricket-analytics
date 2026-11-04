@@ -1,0 +1,54 @@
+version: 2
+
+# Gold layer as loaded into DuckDB (schema `gold`). Keys and foreign keys are tested here as well as
+# enforced in PostgreSQL, so the DuckDB copy is verified independently.
+sources:
+  - name: gold
+    schema: gold
+    tables:
+      - name: dim_teams
+        columns:
+          - {name: team_id, tests: [not_null, unique]}
+      - name: dim_players
+        columns:
+          - {name: player_id, tests: [not_null, unique]}
+      - name: dim_venues
+        columns:
+          - {name: venue_id, tests: [not_null, unique]}
+      - name: dim_tournaments
+        columns:
+          - {name: tournament_id, tests: [not_null, unique]}
+      - name: fact_matches
+        columns:
+          - {name: match_id, tests: [not_null, unique]}
+          - name: tournament_id
+            tests: [not_null, {relationships: {to: "source('gold','dim_tournaments')", field: tournament_id}}]
+          - name: venue_id
+            tests: [{relationships: {to: "source('gold','dim_venues')", field: venue_id}}]
+          - name: team1_id
+            tests: [{relationships: {to: "source('gold','dim_teams')", field: team_id}}]
+          - name: team2_id
+            tests: [{relationships: {to: "source('gold','dim_teams')", field: team_id}}]
+          - name: winner_id
+            tests: [{relationships: {to: "source('gold','dim_teams')", field: team_id}}]
+      - name: fact_innings
+        columns:
+          - {name: innings_id, tests: [not_null, unique]}
+          - name: match_id
+            tests: [not_null, {relationships: {to: "source('gold','fact_matches')", field: match_id}}]
+      - name: fact_deliveries
+        columns:
+          - {name: delivery_id, tests: [not_null, unique]}
+          - name: innings_id
+            tests: [not_null, {relationships: {to: "source('gold','fact_innings')", field: innings_id}}]
+          - name: batter_id
+            tests: [not_null, {relationships: {to: "source('gold','dim_players')", field: player_id}}]
+          - name: bowler_id
+            tests: [not_null, {relationships: {to: "source('gold','dim_players')", field: player_id}}]
+      - name: fact_player_performances
+        columns:
+          - name: player_id
+            tests: [not_null, {relationships: {to: "source('gold','dim_players')", field: player_id}}]
+          - name: match_id
+            tests: [not_null, {relationships: {to: "source('gold','fact_matches')", field: match_id}}]
+      - name: mart_data_coverage

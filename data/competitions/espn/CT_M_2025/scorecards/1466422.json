@@ -1,0 +1,56 @@
+{
+ "match_id": "1466422",
+ "tournament_id": "CT_M_2025",
+ "source_url": "https://www.espncricinfo.com/series/icc-champions-trophy-2024-25-1459031/pakistan-vs-bangladesh-9th-match-group-a-1466422/full-scorecard",
+ "source_name": "ESPNcricinfo",
+ "parse_status": "partial",
+ "scorecard_status": "partial",
+ "warnings": [
+  "No innings found in scorecard payload"
+ ],
+ "match": {
+  "match_id": "1466422",
+  "tournament_id": "CT_M_2025",
+  "source_match_id": "1466422",
+  "match_date": "2025-02-27",
+  "start_time": "2025-02-27T09:00:00.000Z",
+  "venue": "Rawalpindi Cricket Stadium",
+  "city": "Rawalpindi",
+  "title": "9th Match, Group A",
+  "status": "ABANDONED",
+  "status_text": "Match abandoned without a ball bowled",
+  "result_type": "ABANDONED",
+  "result_margin": "Match abandoned without a ball bowled",
+  "is_cancelled": false,
+  "is_super_over": false,
+  "toss_winner_id": null,
+  "toss_decision": null,
+  "winner_id": null,
+  "team1_id": "espn_7",
+  "team2_id": "espn_25",
+  "player_of_match_id": null,
+  "umpires": null,
+  "match_referee": null,
+  "source_url": "https://www.espncricinfo.com/series/icc-champions-trophy-2024-25-1459031/pakistan-vs-bangladesh-9th-match-group-a-1466422/full-scorecard"
+ },
+ "innings": [],
+ "batting_scorecards": [],
+ "bowling_scorecards": [],
+ "fielding_scorecards": [],
+ "awards": [],
+ "players": [],
+ "teams": [
+  {
+   "team_id": "espn_7",
+   "source_team_id": "7",
+   "team_name": "Pakistan",
+   "abbreviation": "PAK"
+  },
+  {
+   "team_id": "espn_25",
+   "source_team_id": "25",
+   "team_name": "Bangladesh",
+   "abbreviation": "BAN"
+  }
+ ]
+}

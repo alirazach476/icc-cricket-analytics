@@ -1,0 +1,58 @@
+# Source access and attribution rules
+# Primary source: ESPNcricinfo. Supplementary: Cricsheet (when needed for gaps).
+
+primary_source:
+  name: ESPNcricinfo
+  base_url: "https://www.espncricinfo.com"
+  attribution_required: true
+  rules:
+    - Respect robots.txt and published terms of use.
+    - Do not bypass authentication, CAPTCHAs, paywalls, or access restrictions.
+    - Do not assume undocumented endpoints are stable or authorized.
+    - Use conservative request rates (see settings.yaml collection.request_delay_seconds).
+    - Stop gracefully if access is restricted; log the failure and source URL.
+    - Store the source URL for every collected record.
+    - Keep source-specific parsing separate from database logic.
+    - Never overwrite existing raw source files; version or skip if already present.
+    - Never fabricate missing records.
+
+supplementary_sources:
+  - name: Cricsheet
+    base_url: "https://cricsheet.org"
+    use_when: Compatible ball-by-ball gaps for verified matching fixtures
+    attribution_required: true
+    rules:
+      - Preserve original source identifiers.
+      - Verify match identity before merge.
+      - Record source precedence; never silently combine conflicting records.
+      - Avoid duplicate deliveries.
+
+robots:
+  respect: true
+  # Checked at collection time; do not hardcode allowances that override robots.txt
+  user_agent_policy: identify_project
+
+rate_limiting:
+  min_delay_seconds: 1.5
+  max_retries: 3
+  backoff_multiplier: 2.0
+  stop_on_http_status:
+    - 401
+    - 403
+    - 429
+
+caching:
+  enabled: true
+  raw_json_dir: data/raw
+  never_overwrite_raw: true
+
+provenance:
+  required_fields:
+    - source_name
+    - source_url
+    - collected_at
+  ball_by_ball_status_values:
+    - complete
+    - partial
+    - unavailable
+    - not_checked

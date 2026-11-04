@@ -1,0 +1,56 @@
+{
+ "match_id": "1213063",
+ "tournament_id": "WTC_M_2021",
+ "source_url": "https://www.espncricinfo.com/series/bangladesh-in-pakistan-2019-20-1213045/pakistan-vs-bangladesh-2nd-test-1213063/full-scorecard",
+ "source_name": "ESPNcricinfo",
+ "parse_status": "partial",
+ "scorecard_status": "partial",
+ "warnings": [
+  "No innings found in scorecard payload"
+ ],
+ "match": {
+  "match_id": "1213063",
+  "tournament_id": "WTC_M_2021",
+  "source_match_id": "1213063",
+  "match_date": "2020-04-05",
+  "start_time": "2020-04-05T05:00:00.000Z",
+  "venue": "National Stadium, Karachi",
+  "city": "Karachi",
+  "title": "2nd test",
+  "status": "POSTPONED",
+  "status_text": null,
+  "result_type": "POSTPONED",
+  "result_margin": null,
+  "is_cancelled": false,
+  "is_super_over": false,
+  "toss_winner_id": null,
+  "toss_decision": null,
+  "winner_id": null,
+  "team1_id": "espn_7",
+  "team2_id": "espn_25",
+  "player_of_match_id": null,
+  "umpires": null,
+  "match_referee": null,
+  "source_url": "https://www.espncricinfo.com/series/bangladesh-in-pakistan-2019-20-1213045/pakistan-vs-bangladesh-2nd-test-1213063/full-scorecard"
+ },
+ "innings": [],
+ "batting_scorecards": [],
+ "bowling_scorecards": [],
+ "fielding_scorecards": [],
+ "awards": [],
+ "players": [],
+ "teams": [
+  {
+   "team_id": "espn_7",
+   "source_team_id": "7",
+   "team_name": "Pakistan",
+   "abbreviation": "PAK"
+  },
+  {
+   "team_id": "espn_25",
+   "source_team_id": "25",
+   "team_name": "Bangladesh",
+   "abbreviation": "BAN"
+  }
+ ]
+}

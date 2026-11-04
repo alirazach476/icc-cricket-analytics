@@ -1,0 +1,31 @@
+format,team_name,matches,wins,win_pct
+ODI,Australia,57,49,86.0
+ODI,India,51,41,80.4
+ODI,New Zealand,55,36,65.5
+ODI,South Africa,49,29,59.2
+ODI,Pakistan,40,22,55.0
+ODI,Sri Lanka,52,28,53.8
+ODI,England,47,24,51.1
+ODI,West Indies,36,15,41.7
+ODI,Ireland,21,7,33.3
+ODI,Bangladesh,43,14,32.6
+ODI,Kenya,18,5,27.8
+ODI,Zimbabwe,22,5,22.7
+ODI,Afghanistan,24,5,20.8
+ODI,Netherlands,24,4,16.7
+ODI,Canada,15,2,13.3
+T20,India,60,44,73.3
+T20,South Africa,56,39,69.6
+T20,Australia,51,32,62.7
+T20,Pakistan,57,34,59.6
+T20,Sri Lanka,61,36,59.0
+T20,England,58,34,58.6
+T20,West Indies,52,30,57.7
+T20,New Zealand,54,30,55.6
+T20,Zimbabwe,25,11,44.0
+T20,Afghanistan,34,14,41.2
+T20,Netherlands,30,11,36.7
+T20,Scotland,24,8,33.3
+T20,Ireland,28,8,28.6
+T20,Bangladesh,44,12,27.3
+T20,Namibia,19,5,26.3

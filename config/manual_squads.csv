@@ -1,0 +1,16 @@
+tournament_id,team_name,player_name,player_id,role_code,is_captain,is_wicketkeeper,playing_role,source,note
+T20_M_2026,United States of America,Monank Patel,,CWK,true,true,Wicketkeeper,user-supplied screenshot,
+T20_M_2026,United States of America,Ehsan Adil,,P,false,false,Fast bowler,user-supplied screenshot,
+T20_M_2026,United States of America,Andries Gous,,WK,false,true,Wicketkeeper-batter,user-supplied screenshot,
+T20_M_2026,United States of America,Shehan Jayasuriya,,P,false,false,All-rounder,user-supplied screenshot,identity inferred from exact name; same ESPN id played for Sri Lanka in T20 2016
+T20_M_2026,United States of America,Milind Kumar,,P,false,false,All-rounder,user-supplied screenshot,
+T20_M_2026,United States of America,Shayan Jahangir,,WK,false,true,Wicketkeeper-batter,user-supplied screenshot,
+T20_M_2026,United States of America,Saiteja Mukkamala,espn_1193310,P,false,false,Batter,user-supplied screenshot,screenshot spells Mukkamala; database spells Mukkamalla (same player on USA 2026 scorecards)
+T20_M_2026,United States of America,Sanjay Krishnamurthi,,P,false,false,Batter,user-supplied screenshot,
+T20_M_2026,United States of America,Harmeet Singh,,P,false,false,All-rounder,user-supplied screenshot,
+T20_M_2026,United States of America,Nosthush Kenjige,,P,false,false,Bowler,user-supplied screenshot,
+T20_M_2026,United States of America,Shadley van Schalkwyk,,P,false,false,All-rounder,user-supplied screenshot,
+T20_M_2026,United States of America,Saurabh Netravalkar,,P,false,false,Bowler,user-supplied screenshot,
+T20_M_2026,United States of America,Ali Khan,,P,false,false,Fast bowler,user-supplied screenshot,
+T20_M_2026,United States of America,Mohammad Mohsin,,P,false,false,Bowler,user-supplied screenshot,
+T20_M_2026,United States of America,Shubham Ranjane,,P,false,false,All-rounder,user-supplied screenshot,

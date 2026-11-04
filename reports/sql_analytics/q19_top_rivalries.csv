@@ -1,0 +1,21 @@
+format,team_a,team_b,matches,team_a_wins,team_b_wins,no_winner
+T20,India,Pakistan,9,8,1,0
+ODI,New Zealand,Sri Lanka,8,3,5,0
+ODI,Australia,Sri Lanka,8,7,0,1
+T20,New Zealand,Pakistan,8,2,5,1
+T20,West Indies,Sri Lanka,8,2,6,0
+T20,England,New Zealand,8,5,3,0
+T20,South Africa,India,8,3,5,0
+T20,England,West Indies,8,2,6,0
+ODI,Australia,New Zealand,7,6,1,0
+ODI,Australia,India,7,4,3,0
+T20,Australia,Pakistan,7,4,3,0
+T20,New Zealand,Sri Lanka,7,3,4,0
+T20,England,South Africa,7,2,5,0
+T20,England,Sri Lanka,7,6,1,0
+ODI,England,Australia,6,1,5,0
+ODI,South Africa,New Zealand,6,1,5,0
+T20,Bangladesh,Pakistan,6,0,6,0
+T20,England,India,6,2,4,0
+T20,Australia,Sri Lanka,6,4,2,0
+T20,South Africa,West Indies,6,5,1,0

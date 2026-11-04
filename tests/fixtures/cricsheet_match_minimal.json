@@ -1,0 +1,71 @@
+{
+  "meta": {"data_version": "1.1.0", "created": "2024-01-01", "revision": 1},
+  "info": {
+    "balls_per_over": 6,
+    "dates": ["2023-10-05"],
+    "event": {"name": "ICC Cricket World Cup", "match_number": 1},
+    "gender": "male",
+    "match_type": "ODI",
+    "officials": {},
+    "outcome": {"winner": "New Zealand", "by": {"wickets": 9}},
+    "overs": 50,
+    "player_of_match": ["DP Conway"],
+    "teams": ["England", "New Zealand"],
+    "toss": {"decision": "field", "winner": "New Zealand"},
+    "venue": "Narendra Modi Stadium"
+  },
+  "innings": [
+    {
+      "team": "England",
+      "overs": [
+        {
+          "over": 0,
+          "deliveries": [
+            {
+              "batter": "JM Bairstow",
+              "bowler": "TA Boult",
+              "non_striker": "DJ Malan",
+              "runs": {"batter": 0, "extras": 0, "total": 0}
+            },
+            {
+              "batter": "JM Bairstow",
+              "bowler": "TA Boult",
+              "non_striker": "DJ Malan",
+              "runs": {"batter": 4, "extras": 0, "total": 4}
+            },
+            {
+              "batter": "JM Bairstow",
+              "bowler": "TA Boult",
+              "non_striker": "DJ Malan",
+              "runs": {"batter": 0, "extras": 1, "total": 1},
+              "extras": {"wides": 1}
+            },
+            {
+              "batter": "JM Bairstow",
+              "bowler": "TA Boult",
+              "non_striker": "DJ Malan",
+              "runs": {"batter": 0, "extras": 0, "total": 0},
+              "wickets": [{"player_out": "JM Bairstow", "kind": "caught", "fielders": [{"name": "DP Conway"}]}]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "team": "New Zealand",
+      "overs": [
+        {
+          "over": 0,
+          "deliveries": [
+            {
+              "batter": "DP Conway",
+              "bowler": "CR Woakes",
+              "non_striker": "WA Young",
+              "runs": {"batter": 1, "extras": 0, "total": 1}
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

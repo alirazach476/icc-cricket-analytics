@@ -1,0 +1,16 @@
+format,dismissal_type,dismissals,pct
+ODI,caught,2281,58.5
+ODI,bowled,719,18.4
+ODI,lbw,425,10.9
+ODI,run out,261,6.7
+ODI,caught and bowled,125,3.2
+ODI,stumped,84,2.2
+ODI,hit wicket,6,0.2
+T20,caught,1765,61.1
+T20,bowled,551,19.1
+T20,lbw,207,7.2
+T20,run out,197,6.8
+T20,stumped,88,3.0
+T20,caught and bowled,77,2.7
+T20,hit wicket,4,0.1
+T20,retired out,2,0.1

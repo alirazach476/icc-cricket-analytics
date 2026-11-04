@@ -1,0 +1,30 @@
+version: 2
+
+models:
+  - name: an_player_phase_batting
+    description: Batting by innings phase, ball-by-ball matches only, Super Overs excluded.
+    columns:
+      - {name: phase_batting_key, tests: [not_null, unique]}
+      - name: player_id
+        tests: [{relationships: {to: "source('gold','dim_players')", field: player_id}}]
+      - name: phase
+        tests: [{accepted_values: {values: [powerplay, middle, death]}}]
+  - name: an_player_phase_bowling
+    description: Bowling by innings phase; wickets exclude run-outs and retirements.
+    columns:
+      - {name: phase_bowling_key, tests: [not_null, unique]}
+      - name: player_id
+        tests: [{relationships: {to: "source('gold','dim_players')", field: player_id}}]
+  - name: an_head_to_head
+    description: Team pair record; one row per format and unordered pair.
+    columns:
+      - {name: head_to_head_key, tests: [not_null, unique]}
+  - name: an_venue_profile
+    description: Scoring and result tendencies per ground and format.
+    columns:
+      - name: venue_id
+        tests: [not_null, {relationships: {to: "source('gold','dim_venues')", field: venue_id}}]
+  - name: an_player_tournament_impact
+    description: Combined bat/bowl/field contribution per player per tournament.
+    columns:
+      - {name: impact_key, tests: [not_null, unique]}

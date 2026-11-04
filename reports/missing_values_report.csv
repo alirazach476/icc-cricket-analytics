@@ -1,0 +1,923 @@
+dataset,rows,column,dtype,kind,null_count,null_pct,unique,blank_strings
+postgres.batting_scorecards,14488,batting_scorecard_id,int64,numeric,0,0.0,14488,0
+postgres.batting_scorecards,14488,match_id,object,text,0,0.0,661,0
+postgres.batting_scorecards,14488,innings_id,object,text,0,0.0,1320,0
+postgres.batting_scorecards,14488,innings_number,int64,numeric,0,0.0,6,0
+postgres.batting_scorecards,14488,player_id,object,text,0,0.0,1240,0
+postgres.batting_scorecards,14488,player_name,object,text,0,0.0,1238,0
+postgres.batting_scorecards,14488,team_id,object,categorical,0,0.0,26,0
+postgres.batting_scorecards,14488,batting_position,int64,numeric,0,0.0,12,0
+postgres.batting_scorecards,14488,runs,float64,numeric,3353,23.14,161,0
+postgres.batting_scorecards,14488,balls_faced,float64,numeric,3353,23.14,152,0
+postgres.batting_scorecards,14488,fours,float64,numeric,3353,23.14,23,0
+postgres.batting_scorecards,14488,sixes,float64,numeric,3353,23.14,14,0
+postgres.batting_scorecards,14488,strike_rate,float64,numeric,3353,23.14,1783,0
+postgres.batting_scorecards,14488,dismissal,object,text,3347,23.1,5099,0
+postgres.batting_scorecards,14488,dismissal_type,object,categorical,3347,23.1,12,0
+postgres.batting_scorecards,14488,dismissed_by,object,text,5516,38.07,717,0
+postgres.batting_scorecards,14488,fielder,object,text,8040,55.49,1285,0
+postgres.batting_scorecards,14488,created_at,"datetime64[ns, UTC]",datetime,0,0.0,661,0
+postgres.batting_scorecards,14488,updated_at,"datetime64[ns, UTC]",datetime,0,0.0,661,0
+postgres.batting_scorecards,14488,source_id,int64,numeric,0,0.0,1,0
+postgres.batting_scorecards,14488,source_url,object,text,0,0.0,661,0
+postgres.batting_scorecards,14488,collected_at,"datetime64[ns, UTC]",datetime,0,0.0,13,0
+postgres.bowling_scorecards,7868,bowling_scorecard_id,int64,numeric,0,0.0,7868,0
+postgres.bowling_scorecards,7868,match_id,object,text,0,0.0,661,0
+postgres.bowling_scorecards,7868,innings_id,object,text,0,0.0,1320,0
+postgres.bowling_scorecards,7868,innings_number,int64,numeric,0,0.0,6,0
+postgres.bowling_scorecards,7868,player_id,object,text,0,0.0,842,0
+postgres.bowling_scorecards,7868,player_name,object,text,0,0.0,841,0
+postgres.bowling_scorecards,7868,team_id,object,categorical,0,0.0,26,0
+postgres.bowling_scorecards,7868,overs,float64,numeric,0,0.0,60,0
+postgres.bowling_scorecards,7868,maidens,int64,numeric,0,0.0,7,0
+postgres.bowling_scorecards,7868,runs_conceded,int64,numeric,0,0.0,102,0
+postgres.bowling_scorecards,7868,wickets,int64,numeric,0,0.0,8,0
+postgres.bowling_scorecards,7868,economy,float64,numeric,0,0.0,578,0
+postgres.bowling_scorecards,7868,dots,float64,numeric,2,0.03,54,0
+postgres.bowling_scorecards,7868,wides,int64,numeric,0,0.0,12,0
+postgres.bowling_scorecards,7868,no_balls,int64,numeric,0,0.0,9,0
+postgres.bowling_scorecards,7868,created_at,"datetime64[ns, UTC]",datetime,0,0.0,661,0
+postgres.bowling_scorecards,7868,updated_at,"datetime64[ns, UTC]",datetime,0,0.0,661,0
+postgres.bowling_scorecards,7868,source_id,int64,numeric,0,0.0,1,0
+postgres.bowling_scorecards,7868,source_url,object,text,0,0.0,661,0
+postgres.bowling_scorecards,7868,collected_at,"datetime64[ns, UTC]",datetime,0,0.0,13,0
+postgres.collection_runs,48,collection_run_id,int64,numeric,0,0.0,48,0
+postgres.collection_runs,48,source_id,object,empty,48,100.0,0,0
+postgres.collection_runs,48,pipeline_stage,object,categorical,0,0.0,3,0
+postgres.collection_runs,48,tournament_id,object,categorical,12,25.0,16,0
+postgres.collection_runs,48,match_id,object,empty,48,100.0,0,0
+postgres.collection_runs,48,status,object,categorical,0,0.0,5,0
+postgres.collection_runs,48,started_at,"datetime64[ns, UTC]",datetime,0,0.0,17,0
+postgres.collection_runs,48,finished_at,"datetime64[ns, UTC]",datetime,35,72.92,13,0
+postgres.collection_runs,48,records_attempted,int64,numeric,0,0.0,5,0
+postgres.collection_runs,48,records_succeeded,int64,numeric,0,0.0,5,0
+postgres.collection_runs,48,records_failed,int64,numeric,0,0.0,3,0
+postgres.collection_runs,48,error_message,object,categorical,39,81.25,1,0
+postgres.collection_runs,48,dry_run,bool,boolean,0,0.0,1,0
+postgres.collection_runs,48,created_at,"datetime64[ns, UTC]",datetime,0,0.0,17,0
+postgres.collection_runs,48,updated_at,"datetime64[ns, UTC]",datetime,0,0.0,17,0
+postgres.data_quality_results,0,result_id,object,empty,0,0.0,0,0
+postgres.data_quality_results,0,collection_run_id,object,empty,0,0.0,0,0
+postgres.data_quality_results,0,entity_type,object,empty,0,0.0,0,0
+postgres.data_quality_results,0,entity_id,object,empty,0,0.0,0,0
+postgres.data_quality_results,0,tournament_id,object,empty,0,0.0,0,0
+postgres.data_quality_results,0,check_name,object,empty,0,0.0,0,0
+postgres.data_quality_results,0,severity,object,empty,0,0.0,0,0
+postgres.data_quality_results,0,status,object,empty,0,0.0,0,0
+postgres.data_quality_results,0,message,object,empty,0,0.0,0,0
+postgres.data_quality_results,0,details_json,object,empty,0,0.0,0,0
+postgres.data_quality_results,0,created_at,object,empty,0,0.0,0,0
+postgres.data_quality_results,0,updated_at,object,empty,0,0.0,0,0
+postgres.deliveries,193779,delivery_id,object,text,0,0.0,193779,0
+postgres.deliveries,193779,match_id,object,text,0,0.0,495,0
+postgres.deliveries,193779,innings_id,object,text,0,0.0,991,0
+postgres.deliveries,193779,innings_number,int64,numeric,0,0.0,4,0
+postgres.deliveries,193779,innings_type,object,categorical,0,0.0,2,0
+postgres.deliveries,193779,over_number,int64,numeric,0,0.0,50,0
+postgres.deliveries,193779,ball_number,int64,numeric,0,0.0,14,0
+postgres.deliveries,193779,delivery_sequence,int64,numeric,0,0.0,323,0
+postgres.deliveries,193779,legal_ball_number,float64,numeric,5144,2.65,312,0
+postgres.deliveries,193779,batter_id,object,text,0,0.0,1052,0
+postgres.deliveries,193779,non_striker_id,object,text,0,0.0,1028,0
+postgres.deliveries,193779,bowler_id,object,text,0,0.0,752,0
+postgres.deliveries,193779,batter_runs,int64,numeric,0,0.0,7,0
+postgres.deliveries,193779,extra_runs,int64,numeric,0,0.0,6,0
+postgres.deliveries,193779,total_runs,int64,numeric,0,0.0,8,0
+postgres.deliveries,193779,extras_type,object,categorical,185090,95.52,5,0
+postgres.deliveries,193779,is_wide,bool,boolean,0,0.0,2,0
+postgres.deliveries,193779,is_no_ball,bool,boolean,0,0.0,2,0
+postgres.deliveries,193779,is_bye,bool,boolean,0,0.0,2,0
+postgres.deliveries,193779,is_leg_bye,bool,boolean,0,0.0,2,0
+postgres.deliveries,193779,is_penalty,bool,boolean,0,0.0,2,0
+postgres.deliveries,193779,is_wicket,bool,boolean,0,0.0,2,0
+postgres.deliveries,193779,dismissal_type,object,categorical,186971,96.49,9,0
+postgres.deliveries,193779,dismissed_player_id,object,text,186971,96.49,992,0
+postgres.deliveries,193779,fielder_id,object,text,189129,97.6,841,0
+postgres.deliveries,193779,commentary_text,object,empty,193779,100.0,0,0
+postgres.deliveries,193779,created_at,"datetime64[ns, UTC]",datetime,0,0.0,495,0
+postgres.deliveries,193779,updated_at,"datetime64[ns, UTC]",datetime,0,0.0,495,0
+postgres.deliveries,193779,source_id,int64,numeric,0,0.0,1,0
+postgres.deliveries,193779,source_url,object,text,0,0.0,495,0
+postgres.deliveries,193779,collected_at,"datetime64[ns, UTC]",datetime,0,0.0,13,0
+postgres.fielding_scorecards,5045,fielding_scorecard_id,int64,numeric,0,0.0,5045,0
+postgres.fielding_scorecards,5045,match_id,object,text,0,0.0,660,0
+postgres.fielding_scorecards,5045,player_id,object,text,0,0.0,993,0
+postgres.fielding_scorecards,5045,player_name,object,text,0,0.0,992,0
+postgres.fielding_scorecards,5045,team_id,object,categorical,0,0.0,26,0
+postgres.fielding_scorecards,5045,catches,int64,numeric,0,0.0,7,0
+postgres.fielding_scorecards,5045,run_outs,int64,numeric,0,0.0,5,0
+postgres.fielding_scorecards,5045,stumpings,int64,numeric,0,0.0,5,0
+postgres.fielding_scorecards,5045,created_at,"datetime64[ns, UTC]",datetime,0,0.0,660,0
+postgres.fielding_scorecards,5045,updated_at,"datetime64[ns, UTC]",datetime,0,0.0,660,0
+postgres.fielding_scorecards,5045,source_id,int64,numeric,0,0.0,1,0
+postgres.fielding_scorecards,5045,source_url,object,text,0,0.0,660,0
+postgres.fielding_scorecards,5045,collected_at,"datetime64[ns, UTC]",datetime,0,0.0,13,0
+postgres.innings,1326,innings_id,object,text,0,0.0,1326,0
+postgres.innings,1326,match_id,object,text,0,0.0,661,0
+postgres.innings,1326,innings_number,int64,numeric,0,0.0,6,0
+postgres.innings,1326,innings_type,object,categorical,0,0.0,2,0
+postgres.innings,1326,batting_team_id,object,categorical,6,0.45,26,0
+postgres.innings,1326,bowling_team_id,object,categorical,6,0.45,26,0
+postgres.innings,1326,total_runs,float64,numeric,6,0.45,319,0
+postgres.innings,1326,wickets,float64,numeric,6,0.45,11,0
+postgres.innings,1326,overs,float64,numeric,10,0.75,205,0
+postgres.innings,1326,extras,float64,numeric,6,0.45,39,0
+postgres.innings,1326,declared,bool,boolean,0,0.0,1,0
+postgres.innings,1326,is_super_over,bool,boolean,0,0.0,2,0
+postgres.innings,1326,target,float64,numeric,669,50.45,266,0
+postgres.innings,1326,created_at,"datetime64[ns, UTC]",datetime,0,0.0,661,0
+postgres.innings,1326,updated_at,"datetime64[ns, UTC]",datetime,0,0.0,661,0
+postgres.innings,1326,source_id,int64,numeric,0,0.0,2,0
+postgres.innings,1326,source_url,object,text,0,0.0,664,0
+postgres.innings,1326,collected_at,"datetime64[ns, UTC]",datetime,0,0.0,13,0
+postgres.match_events,0,event_id,object,empty,0,0.0,0,0
+postgres.match_events,0,tournament_id,object,empty,0,0.0,0,0
+postgres.match_events,0,match_id,object,empty,0,0.0,0,0
+postgres.match_events,0,event_type,object,empty,0,0.0,0,0
+postgres.match_events,0,event_date,object,empty,0,0.0,0,0
+postgres.match_events,0,team_id,object,empty,0,0.0,0,0
+postgres.match_events,0,player_id,object,empty,0,0.0,0,0
+postgres.match_events,0,description,object,empty,0,0.0,0,0
+postgres.match_events,0,created_at,object,empty,0,0.0,0,0
+postgres.match_events,0,updated_at,object,empty,0,0.0,0,0
+postgres.match_events,0,source_id,object,empty,0,0.0,0,0
+postgres.match_events,0,source_url,object,empty,0,0.0,0,0
+postgres.match_events,0,collected_at,object,empty,0,0.0,0,0
+postgres.match_teams,1354,match_team_id,int64,numeric,0,0.0,1354,0
+postgres.match_teams,1354,match_id,object,text,0,0.0,677,0
+postgres.match_teams,1354,team_id,object,categorical,0,0.0,26,0
+postgres.match_teams,1354,is_home,bool,boolean,0,0.0,2,0
+postgres.match_teams,1354,batting_order,int64,numeric,0,0.0,2,0
+postgres.match_teams,1354,created_at,"datetime64[ns, UTC]",datetime,0,0.0,677,0
+postgres.match_teams,1354,updated_at,"datetime64[ns, UTC]",datetime,0,0.0,677,0
+postgres.matches,677,match_id,object,text,0,0.0,677,0
+postgres.matches,677,tournament_id,object,categorical,0,0.0,16,0
+postgres.matches,677,source_match_id,object,text,0,0.0,677,0
+postgres.matches,677,match_number,float64,numeric,65,9.6,52,0
+postgres.matches,677,match_stage,object,categorical,0,0.0,5,0
+postgres.matches,677,match_type,object,empty,677,100.0,0,0
+postgres.matches,677,match_date,object,datetime,0,0.0,432,0
+postgres.matches,677,start_time,object,datetime,0,0.0,663,0
+postgres.matches,677,venue,object,text,0,0.0,83,0
+postgres.matches,677,city,object,text,0,0.0,75,0
+postgres.matches,677,team1_id,object,categorical,0,0.0,25,0
+postgres.matches,677,team2_id,object,categorical,0,0.0,26,0
+postgres.matches,677,toss_winner_id,object,categorical,13,1.92,25,0
+postgres.matches,677,toss_decision,object,categorical,15,2.22,2,0
+postgres.matches,677,winner_id,object,categorical,33,4.87,24,0
+postgres.matches,677,result_type,object,categorical,0,0.0,3,0
+postgres.matches,677,result_margin,object,text,0,0.0,624,0
+postgres.matches,677,player_of_match_id,object,text,25,3.69,340,0
+postgres.matches,677,umpires,object,empty,677,100.0,0,0
+postgres.matches,677,match_referee,object,empty,677,100.0,0,0
+postgres.matches,677,scorecard_url,object,text,0,0.0,677,0
+postgres.matches,677,commentary_url,object,text,0,0.0,677,0
+postgres.matches,677,ball_by_ball_status,object,categorical,0,0.0,2,0
+postgres.matches,677,scorecard_status,object,categorical,0,0.0,2,0
+postgres.matches,677,match_status,object,categorical,0,0.0,3,0
+postgres.matches,677,created_at,"datetime64[ns, UTC]",datetime,0,0.0,677,0
+postgres.matches,677,updated_at,"datetime64[ns, UTC]",datetime,0,0.0,677,0
+postgres.matches,677,source_id,int64,numeric,0,0.0,1,0
+postgres.matches,677,source_url,object,text,0,0.0,677,0
+postgres.matches,677,collected_at,"datetime64[ns, UTC]",datetime,0,0.0,13,0
+postgres.players,2521,player_id,object,text,0,0.0,2521,0
+postgres.players,2521,full_name,object,text,0,0.0,2258,0
+postgres.players,2521,source_name,object,categorical,0,0.0,2,0
+postgres.players,2521,source_player_id,object,text,0,0.0,2521,0
+postgres.players,2521,batting_style,object,categorical,2360,93.61,2,0
+postgres.players,2521,bowling_style,object,categorical,2378,94.33,15,0
+postgres.players,2521,date_of_birth,object,datetime,2359,93.57,159,0
+postgres.players,2521,created_at,"datetime64[ns, UTC]",datetime,0,0.0,396,0
+postgres.players,2521,updated_at,"datetime64[ns, UTC]",datetime,0,0.0,396,0
+postgres.players,2521,source_id,int64,numeric,0,0.0,2,0
+postgres.players,2521,source_url,object,text,1281,50.81,362,0
+postgres.players,2521,collected_at,"datetime64[ns, UTC]",datetime,1281,50.81,13,0
+postgres.sources,2,source_id,int64,numeric,0,0.0,2,0
+postgres.sources,2,name,object,categorical,0,0.0,2,0
+postgres.sources,2,base_url,object,categorical,0,0.0,2,0
+postgres.sources,2,precedence,object,categorical,0,0.0,2,0
+postgres.sources,2,attribution_required,bool,boolean,0,0.0,1,0
+postgres.sources,2,notes,object,categorical,0,0.0,2,0
+postgres.sources,2,created_at,"datetime64[ns, UTC]",datetime,0,0.0,1,0
+postgres.sources,2,updated_at,"datetime64[ns, UTC]",datetime,0,0.0,1,0
+postgres.squads,3609,squad_id,int64,numeric,0,0.0,3609,0
+postgres.squads,3609,tournament_id,object,categorical,0,0.0,16,0
+postgres.squads,3609,team_id,object,categorical,0,0.0,26,0
+postgres.squads,3609,player_id,object,text,0,0.0,1402,0
+postgres.squads,3609,role_code,object,categorical,0,0.0,6,0
+postgres.squads,3609,is_captain,bool,boolean,0,0.0,2,0
+postgres.squads,3609,is_wicketkeeper,bool,boolean,0,0.0,2,0
+postgres.squads,3609,playing_roles,object,categorical,67,1.86,10,0
+postgres.squads,3609,announced_at,object,datetime,0,0.0,157,0
+postgres.squads,3609,is_withdrawn,bool,boolean,0,0.0,2,0
+postgres.squads,3609,note,object,categorical,3586,99.36,19,0
+postgres.squads,3609,created_at,"datetime64[ns, UTC]",datetime,0,0.0,1,0
+postgres.squads,3609,updated_at,"datetime64[ns, UTC]",datetime,0,0.0,1,0
+postgres.squads,3609,source_id,int64,numeric,0,0.0,1,0
+postgres.squads,3609,source_url,object,text,0,0.0,229,0
+postgres.squads,3609,collected_at,"datetime64[ns, UTC]",datetime,0,0.0,6,0
+postgres.standings,304,standing_id,int64,numeric,0,0.0,304,0
+postgres.standings,304,tournament_id,object,categorical,0,0.0,16,0
+postgres.standings,304,group_name,object,categorical,0,0.0,19,0
+postgres.standings,304,team_id,object,categorical,0,0.0,26,0
+postgres.standings,304,matches_played,int64,numeric,0,0.0,7,0
+postgres.standings,304,wins,int64,numeric,0,0.0,9,0
+postgres.standings,304,losses,int64,numeric,0,0.0,9,0
+postgres.standings,304,ties,int64,numeric,0,0.0,2,0
+postgres.standings,304,no_results,int64,numeric,0,0.0,3,0
+postgres.standings,304,points,float64,numeric,0,0.0,21,0
+postgres.standings,304,net_run_rate,float64,numeric,0,0.0,301,0
+postgres.standings,304,position,int64,numeric,0,0.0,10,0
+postgres.standings,304,qualified,object,boolean,20,6.58,2,0
+postgres.standings,304,created_at,"datetime64[ns, UTC]",datetime,0,0.0,1,0
+postgres.standings,304,updated_at,"datetime64[ns, UTC]",datetime,0,0.0,1,0
+postgres.standings,304,source_id,int64,numeric,0,0.0,1,0
+postgres.standings,304,source_url,object,categorical,0,0.0,16,0
+postgres.standings,304,collected_at,"datetime64[ns, UTC]",datetime,0,0.0,6,0
+postgres.teams,28,team_id,object,categorical,0,0.0,28,0
+postgres.teams,28,team_name,object,categorical,0,0.0,28,0
+postgres.teams,28,short_name,object,categorical,2,7.14,26,0
+postgres.teams,28,country_code,object,empty,28,100.0,0,0
+postgres.teams,28,source_team_id,object,categorical,0,0.0,28,0
+postgres.teams,28,created_at,"datetime64[ns, UTC]",datetime,0,0.0,21,0
+postgres.teams,28,updated_at,"datetime64[ns, UTC]",datetime,0,0.0,21,0
+postgres.teams,28,source_id,int64,numeric,0,0.0,1,0
+postgres.teams,28,source_url,object,categorical,0,0.0,20,0
+postgres.teams,28,collected_at,"datetime64[ns, UTC]",datetime,0,0.0,8,0
+postgres.tournament_awards,0,award_id,object,empty,0,0.0,0,0
+postgres.tournament_awards,0,tournament_id,object,empty,0,0.0,0,0
+postgres.tournament_awards,0,award_type,object,empty,0,0.0,0,0
+postgres.tournament_awards,0,player_id,object,empty,0,0.0,0,0
+postgres.tournament_awards,0,team_id,object,empty,0,0.0,0,0
+postgres.tournament_awards,0,award_name,object,empty,0,0.0,0,0
+postgres.tournament_awards,0,created_at,object,empty,0,0.0,0,0
+postgres.tournament_awards,0,updated_at,object,empty,0,0.0,0,0
+postgres.tournament_awards,0,source_id,object,empty,0,0.0,0,0
+postgres.tournament_awards,0,source_url,object,empty,0,0.0,0,0
+postgres.tournament_awards,0,collected_at,object,empty,0,0.0,0,0
+postgres.tournaments,16,tournament_id,object,categorical,0,0.0,16,0
+postgres.tournaments,16,tournament_name,object,categorical,0,0.0,16,0
+postgres.tournaments,16,year,int64,numeric,0,0.0,15,0
+postgres.tournaments,16,format,object,categorical,0,0.0,2,0
+postgres.tournaments,16,gender,object,categorical,0,0.0,1,0
+postgres.tournaments,16,host_country,object,categorical,0,0.0,14,0
+postgres.tournaments,16,start_date,object,datetime,0,0.0,16,0
+postgres.tournaments,16,end_date,object,datetime,0,0.0,16,0
+postgres.tournaments,16,winner,object,categorical,0,0.0,6,0
+postgres.tournaments,16,runner_up,object,categorical,0,0.0,7,0
+postgres.tournaments,16,number_of_teams,int64,numeric,0,0.0,5,0
+postgres.tournaments,16,number_of_matches,object,empty,16,100.0,0,0
+postgres.tournaments,16,collection_status,object,categorical,0,0.0,1,0
+postgres.tournaments,16,completion_status,object,categorical,0,0.0,1,0
+postgres.tournaments,16,metadata_notes,object,categorical,0,0.0,3,0
+postgres.tournaments,16,created_at,"datetime64[ns, UTC]",datetime,0,0.0,1,0
+postgres.tournaments,16,updated_at,"datetime64[ns, UTC]",datetime,0,0.0,2,0
+postgres.tournaments,16,source_id,int64,numeric,0,0.0,1,0
+postgres.tournaments,16,source_url,object,categorical,0,0.0,16,0
+postgres.tournaments,16,collected_at,"datetime64[ns, UTC]",datetime,0,0.0,1,0
+manifest.collection_status,2047,entity_type,object,categorical,0,0.0,4,0
+manifest.collection_status,2047,entity_id,object,text,0,0.0,693,0
+manifest.collection_status,2047,tournament_id,object,categorical,0,0.0,16,0
+manifest.collection_status,2047,status,object,categorical,0,0.0,7,0
+manifest.collection_status,2047,source_url,object,text,182,8.89,1371,0
+manifest.collection_status,2047,attempted_at,object,datetime,0,0.0,650,0
+manifest.collection_status,2047,completed_at,object,datetime,0,0.0,650,0
+manifest.collection_status,2047,error_message,object,categorical,2045,99.9,2,0
+manifest.collection_status,2047,notes,object,text,16,0.78,997,0
+manifest.match_urls,677,match_id,object,text,0,0.0,677,0
+manifest.match_urls,677,tournament_id,object,categorical,0,0.0,16,0
+manifest.match_urls,677,match_number,object,text,65,9.6,52,0
+manifest.match_urls,677,match_stage,object,categorical,0,0.0,5,0
+manifest.match_urls,677,match_date,object,datetime,0,0.0,432,0
+manifest.match_urls,677,source_url,object,text,0,0.0,677,0
+manifest.match_urls,677,scorecard_url,object,text,0,0.0,677,0
+manifest.match_urls,677,commentary_url,object,text,0,0.0,677,0
+manifest.match_urls,677,discovery_status,object,categorical,0,0.0,1,0
+manifest.match_urls,677,discovered_at,object,datetime,0,0.0,15,0
+manifest.match_urls,677,team1_name,object,categorical,0,0.0,25,0
+manifest.match_urls,677,team2_name,object,categorical,0,0.0,26,0
+manifest.match_urls,677,venue,object,text,0,0.0,83,0
+manifest.match_urls,677,city,object,text,0,0.0,75,0
+manifest.match_urls,677,result_type,object,categorical,0,0.0,3,0
+manifest.match_urls,677,result_margin,object,text,0,0.0,624,0
+manifest.match_urls,677,is_cancelled,object,categorical,0,0.0,1,0
+manifest.match_urls,677,is_super_over,object,categorical,0,0.0,2,0
+manifest.match_urls,677,has_scorecard,object,categorical,0,0.0,1,0
+manifest.match_urls,677,has_commentary,object,categorical,0,0.0,2,0
+manifest.match_urls,677,ball_by_ball_status,object,categorical,0,0.0,2,0
+manifest.tournaments,16,tournament_id,object,categorical,0,0.0,16,0
+manifest.tournaments,16,tournament_name,object,categorical,0,0.0,16,0
+manifest.tournaments,16,year,object,categorical,0,0.0,15,0
+manifest.tournaments,16,format,object,categorical,0,0.0,2,0
+manifest.tournaments,16,gender,object,categorical,0,0.0,1,0
+manifest.tournaments,16,host_country,object,categorical,0,0.0,14,0
+manifest.tournaments,16,start_date,object,datetime,0,0.0,16,0
+manifest.tournaments,16,end_date,object,datetime,0,0.0,16,0
+manifest.tournaments,16,winner,object,categorical,0,0.0,6,0
+manifest.tournaments,16,runner_up,object,categorical,0,0.0,7,0
+manifest.tournaments,16,number_of_teams,object,categorical,0,0.0,5,0
+manifest.tournaments,16,number_of_matches,object,empty,16,100.0,0,0
+manifest.tournaments,16,source_url,object,categorical,0,0.0,16,0
+manifest.tournaments,16,collection_status,object,categorical,0,0.0,1,0
+manifest.tournaments,16,completion_status,object,categorical,0,0.0,1,0
+processed.matches,677,match_id,object,text,0,0.0,677,0
+processed.matches,677,tournament_id,object,categorical,0,0.0,16,0
+processed.matches,677,source_match_id,object,text,0,0.0,677,0
+processed.matches,677,match_number,float64,numeric,65,9.6,52,0
+processed.matches,677,match_stage,object,categorical,0,0.0,5,0
+processed.matches,677,match_date,object,datetime,0,0.0,432,0
+processed.matches,677,start_time,object,datetime,0,0.0,663,0
+processed.matches,677,venue,object,text,0,0.0,83,0
+processed.matches,677,city,object,text,0,0.0,75,0
+processed.matches,677,team1_id,object,categorical,0,0.0,25,0
+processed.matches,677,team2_id,object,categorical,0,0.0,26,0
+processed.matches,677,team1_name,object,categorical,0,0.0,25,0
+processed.matches,677,team2_name,object,categorical,0,0.0,26,0
+processed.matches,677,toss_winner_id,object,categorical,13,1.92,25,0
+processed.matches,677,toss_decision,object,categorical,15,2.22,2,0
+processed.matches,677,winner_id,object,categorical,33,4.87,24,0
+processed.matches,677,result_type,object,categorical,0,0.0,3,0
+processed.matches,677,result_margin,object,text,0,0.0,624,0
+processed.matches,677,player_of_match_id,object,text,25,3.69,340,0
+processed.matches,677,umpires,object,empty,677,100.0,0,0
+processed.matches,677,match_referee,object,empty,677,100.0,0,0
+processed.matches,677,scorecard_url,object,text,0,0.0,677,0
+processed.matches,677,commentary_url,object,text,0,0.0,677,0
+processed.matches,677,is_cancelled,bool,boolean,0,0.0,1,0
+processed.matches,677,is_super_over,bool,boolean,0,0.0,2,0
+processed.matches,677,match_status,object,categorical,0,0.0,3,0
+processed.matches,677,scorecard_status,object,categorical,0,0.0,2,0
+processed.matches,677,ball_by_ball_status,object,categorical,0,0.0,2,0
+processed.matches,677,source_name,object,categorical,0,0.0,1,0
+processed.matches,677,source_url,object,text,0,0.0,677,0
+processed.matches,677,normalized_at,object,datetime,0,0.0,13,0
+processed.matches,677,scorecard_parse_status,object,categorical,0,0.0,2,0
+processed.matches,677,ball_by_ball_source,object,categorical,182,26.88,1,0
+processed.matches,677,delivery_count,int64,numeric,0,0.0,229,0
+processed.innings,1320,innings_id,object,text,0,0.0,1320,0
+processed.innings,1320,match_id,object,text,0,0.0,661,0
+processed.innings,1320,innings_number,int64,numeric,0,0.0,6,0
+processed.innings,1320,innings_type,object,categorical,0,0.0,2,0
+processed.innings,1320,batting_team_id,object,categorical,0,0.0,26,0
+processed.innings,1320,bowling_team_id,object,categorical,0,0.0,26,0
+processed.innings,1320,total_runs,int64,numeric,0,0.0,319,0
+processed.innings,1320,wickets,int64,numeric,0,0.0,11,0
+processed.innings,1320,overs,float64,numeric,4,0.3,205,0
+processed.innings,1320,extras,int64,numeric,0,0.0,39,0
+processed.innings,1320,byes,int64,numeric,0,0.0,12,0
+processed.innings,1320,legbyes,int64,numeric,0,0.0,15,0
+processed.innings,1320,wides,int64,numeric,0,0.0,29,0
+processed.innings,1320,noballs,int64,numeric,0,0.0,12,0
+processed.innings,1320,penalties,int64,numeric,0,0.0,2,0
+processed.innings,1320,declared,bool,boolean,0,0.0,1,0
+processed.innings,1320,is_super_over,bool,boolean,0,0.0,2,0
+processed.innings,1320,target,float64,numeric,663,50.23,266,0
+processed.innings,1320,source_name,object,categorical,0,0.0,1,0
+processed.innings,1320,source_url,object,text,0,0.0,661,0
+processed.players,14506,player_id,object,text,0,0.0,1240,0
+processed.players,14506,full_name,object,text,0,0.0,1238,0
+processed.players,14506,batting_name,object,text,0,0.0,1241,0
+processed.players,14506,source_name,object,categorical,0,0.0,1,0
+processed.players,14506,source_player_id,object,text,0,0.0,1240,0
+processed.players,14506,batting_style,object,empty,14506,100.0,0,0
+processed.players,14506,bowling_style,object,empty,14506,100.0,0,0
+processed.players,14506,date_of_birth,object,empty,14506,100.0,0,0
+processed.deliveries,193779,match_id,object,text,0,0.0,495,0
+processed.deliveries,193779,delivery_id,object,text,0,0.0,193779,0
+processed.deliveries,193779,innings_id,object,text,0,0.0,991,0
+processed.deliveries,193779,innings_number,int64,numeric,0,0.0,4,0
+processed.deliveries,193779,innings_type,object,categorical,0,0.0,2,0
+processed.deliveries,193779,over_number,int64,numeric,0,0.0,50,0
+processed.deliveries,193779,ball_number,int64,numeric,0,0.0,14,0
+processed.deliveries,193779,delivery_sequence,int64,numeric,0,0.0,323,0
+processed.deliveries,193779,legal_ball_number,float64,numeric,5144,2.65,312,0
+processed.deliveries,193779,batter_id,object,text,0,0.0,1052,0
+processed.deliveries,193779,non_striker_id,object,text,0,0.0,1028,0
+processed.deliveries,193779,bowler_id,object,text,0,0.0,752,0
+processed.deliveries,193779,batter_runs,int64,numeric,0,0.0,7,0
+processed.deliveries,193779,extra_runs,int64,numeric,0,0.0,6,0
+processed.deliveries,193779,total_runs,int64,numeric,0,0.0,8,0
+processed.deliveries,193779,extras_type,object,categorical,185090,95.52,5,0
+processed.deliveries,193779,is_wide,bool,boolean,0,0.0,2,0
+processed.deliveries,193779,is_no_ball,bool,boolean,0,0.0,2,0
+processed.deliveries,193779,is_bye,bool,boolean,0,0.0,2,0
+processed.deliveries,193779,is_leg_bye,bool,boolean,0,0.0,2,0
+processed.deliveries,193779,is_penalty,bool,boolean,0,0.0,2,0
+processed.deliveries,193779,is_wicket,bool,boolean,0,0.0,2,0
+processed.deliveries,193779,dismissal_type,object,categorical,186971,96.49,9,0
+processed.deliveries,193779,dismissed_player_id,object,text,186971,96.49,992,0
+processed.deliveries,193779,fielder_id,object,text,189129,97.6,841,0
+processed.deliveries,193779,commentary_text,object,empty,193779,100.0,0,0
+processed.deliveries,193779,is_legal_delivery,bool,boolean,0,0.0,2,0
+processed.deliveries,193779,source_name,object,categorical,0,0.0,1,0
+processed.deliveries,193779,source_url,object,text,0,0.0,495,0
+processed.deliveries,193779,source_ball_id,object,text,0,0.0,908,0
+processed.standings,304,tournament_id,object,categorical,0,0.0,16,0
+processed.standings,304,group_name,object,categorical,0,0.0,19,0
+processed.standings,304,team_id,object,categorical,0,0.0,26,0
+processed.standings,304,team_name,object,categorical,0,0.0,26,0
+processed.standings,304,short_name,object,categorical,0,0.0,26,0
+processed.standings,304,source_team_id,object,categorical,0,0.0,26,0
+processed.standings,304,position,int64,numeric,0,0.0,10,0
+processed.standings,304,matches_played,int64,numeric,0,0.0,7,0
+processed.standings,304,wins,int64,numeric,0,0.0,9,0
+processed.standings,304,losses,int64,numeric,0,0.0,9,0
+processed.standings,304,ties,int64,numeric,0,0.0,2,0
+processed.standings,304,no_results,int64,numeric,0,0.0,3,0
+processed.standings,304,points,float64,numeric,0,0.0,21,0
+processed.standings,304,net_run_rate,float64,numeric,0,0.0,301,0
+processed.standings,304,runs_for,object,text,0,0.0,300,0
+processed.standings,304,runs_against,object,text,0,0.0,302,0
+processed.standings,304,group_match_ids,object,text,0,0.0,285,0
+processed.standings,304,qualified,object,boolean,20,6.58,2,0
+processed.squads,3609,tournament_id,object,categorical,0,0.0,16,0
+processed.squads,3609,team_id,object,categorical,0,0.0,26,0
+processed.squads,3609,player_id,object,text,0,0.0,1402,0
+processed.squads,3609,source_player_id,object,text,0,0.0,1402,0
+processed.squads,3609,full_name,object,text,0,0.0,1400,0
+processed.squads,3609,batting_name,object,text,0,0.0,1400,0
+processed.squads,3609,role_code,object,categorical,0,0.0,6,0
+processed.squads,3609,is_captain,bool,boolean,0,0.0,2,0
+processed.squads,3609,is_wicketkeeper,bool,boolean,0,0.0,2,0
+processed.squads,3609,batting_style,object,categorical,1,0.03,2,0
+processed.squads,3609,bowling_style,object,categorical,332,9.2,30,0
+processed.squads,3609,date_of_birth,object,datetime,0,0.0,1319,0
+processed.squads,3609,is_overseas,bool,boolean,0,0.0,2,0
+processed.squads,3609,is_withdrawn,bool,boolean,0,0.0,2,0
+processed.squads,3609,note,object,categorical,3586,99.36,19,0
+processed.teams,26,team_id,object,categorical,0,0.0,26,0
+processed.teams,26,team_name,object,categorical,0,0.0,26,0
+processed.teams,26,short_name,object,categorical,0,0.0,26,0
+processed.teams,26,source_team_id,object,categorical,0,0.0,26,0
+processed.teams,26,source_name,object,categorical,0,0.0,1,0
+processed.teams,26,raw_team_name,object,categorical,0,0.0,26,0
+parquet.batting_scorecards,14488,batting_scorecard_id,int64,numeric,0,0.0,14488,0
+parquet.batting_scorecards,14488,match_id,object,text,0,0.0,661,0
+parquet.batting_scorecards,14488,innings_id,object,text,0,0.0,1320,0
+parquet.batting_scorecards,14488,innings_number,int64,numeric,0,0.0,6,0
+parquet.batting_scorecards,14488,player_id,object,text,0,0.0,1240,0
+parquet.batting_scorecards,14488,player_name,object,text,0,0.0,1238,0
+parquet.batting_scorecards,14488,team_id,object,categorical,0,0.0,26,0
+parquet.batting_scorecards,14488,batting_position,int64,numeric,0,0.0,12,0
+parquet.batting_scorecards,14488,runs,float64,numeric,3353,23.14,161,0
+parquet.batting_scorecards,14488,balls_faced,float64,numeric,3353,23.14,152,0
+parquet.batting_scorecards,14488,fours,float64,numeric,3353,23.14,23,0
+parquet.batting_scorecards,14488,sixes,float64,numeric,3353,23.14,14,0
+parquet.batting_scorecards,14488,strike_rate,float64,numeric,3353,23.14,1783,0
+parquet.batting_scorecards,14488,dismissal,object,text,3347,23.1,5099,0
+parquet.batting_scorecards,14488,dismissal_type,object,categorical,3347,23.1,12,0
+parquet.batting_scorecards,14488,dismissed_by,object,text,5516,38.07,717,0
+parquet.batting_scorecards,14488,fielder,object,text,8040,55.49,1285,0
+parquet.batting_scorecards,14488,created_at,"datetime64[us, UTC]",datetime,0,0.0,661,0
+parquet.batting_scorecards,14488,updated_at,"datetime64[us, UTC]",datetime,0,0.0,661,0
+parquet.batting_scorecards,14488,source_id,int64,numeric,0,0.0,1,0
+parquet.batting_scorecards,14488,source_url,object,text,0,0.0,661,0
+parquet.batting_scorecards,14488,collected_at,"datetime64[us, UTC]",datetime,0,0.0,13,0
+parquet.bowling_scorecards,7868,bowling_scorecard_id,int64,numeric,0,0.0,7868,0
+parquet.bowling_scorecards,7868,match_id,object,text,0,0.0,661,0
+parquet.bowling_scorecards,7868,innings_id,object,text,0,0.0,1320,0
+parquet.bowling_scorecards,7868,innings_number,int64,numeric,0,0.0,6,0
+parquet.bowling_scorecards,7868,player_id,object,text,0,0.0,842,0
+parquet.bowling_scorecards,7868,player_name,object,text,0,0.0,841,0
+parquet.bowling_scorecards,7868,team_id,object,categorical,0,0.0,26,0
+parquet.bowling_scorecards,7868,overs,float64,numeric,0,0.0,60,0
+parquet.bowling_scorecards,7868,maidens,int64,numeric,0,0.0,7,0
+parquet.bowling_scorecards,7868,runs_conceded,int64,numeric,0,0.0,102,0
+parquet.bowling_scorecards,7868,wickets,int64,numeric,0,0.0,8,0
+parquet.bowling_scorecards,7868,economy,float64,numeric,0,0.0,578,0
+parquet.bowling_scorecards,7868,dots,float64,numeric,2,0.03,54,0
+parquet.bowling_scorecards,7868,wides,int64,numeric,0,0.0,12,0
+parquet.bowling_scorecards,7868,no_balls,int64,numeric,0,0.0,9,0
+parquet.bowling_scorecards,7868,created_at,"datetime64[us, UTC]",datetime,0,0.0,661,0
+parquet.bowling_scorecards,7868,updated_at,"datetime64[us, UTC]",datetime,0,0.0,661,0
+parquet.bowling_scorecards,7868,source_id,int64,numeric,0,0.0,1,0
+parquet.bowling_scorecards,7868,source_url,object,text,0,0.0,661,0
+parquet.bowling_scorecards,7868,collected_at,"datetime64[us, UTC]",datetime,0,0.0,13,0
+parquet.collection_runs,46,collection_run_id,int64,numeric,0,0.0,46,0
+parquet.collection_runs,46,source_id,object,empty,46,100.0,0,0
+parquet.collection_runs,46,pipeline_stage,object,categorical,0,0.0,3,0
+parquet.collection_runs,46,tournament_id,object,categorical,10,21.74,16,0
+parquet.collection_runs,46,match_id,object,empty,46,100.0,0,0
+parquet.collection_runs,46,status,object,categorical,0,0.0,5,0
+parquet.collection_runs,46,started_at,"datetime64[us, UTC]",datetime,0,0.0,15,0
+parquet.collection_runs,46,finished_at,"datetime64[us, UTC]",datetime,35,76.09,11,0
+parquet.collection_runs,46,records_attempted,int64,numeric,0,0.0,5,0
+parquet.collection_runs,46,records_succeeded,int64,numeric,0,0.0,5,0
+parquet.collection_runs,46,records_failed,int64,numeric,0,0.0,3,0
+parquet.collection_runs,46,error_message,object,categorical,37,80.43,1,0
+parquet.collection_runs,46,dry_run,bool,boolean,0,0.0,1,0
+parquet.collection_runs,46,created_at,"datetime64[us, UTC]",datetime,0,0.0,15,0
+parquet.collection_runs,46,updated_at,"datetime64[us, UTC]",datetime,0,0.0,15,0
+parquet.data_quality_results,0,result_id,object,empty,0,0.0,0,0
+parquet.data_quality_results,0,collection_run_id,object,empty,0,0.0,0,0
+parquet.data_quality_results,0,entity_type,object,empty,0,0.0,0,0
+parquet.data_quality_results,0,entity_id,object,empty,0,0.0,0,0
+parquet.data_quality_results,0,tournament_id,object,empty,0,0.0,0,0
+parquet.data_quality_results,0,check_name,object,empty,0,0.0,0,0
+parquet.data_quality_results,0,severity,object,empty,0,0.0,0,0
+parquet.data_quality_results,0,status,object,empty,0,0.0,0,0
+parquet.data_quality_results,0,message,object,empty,0,0.0,0,0
+parquet.data_quality_results,0,details_json,object,empty,0,0.0,0,0
+parquet.data_quality_results,0,created_at,object,empty,0,0.0,0,0
+parquet.data_quality_results,0,updated_at,object,empty,0,0.0,0,0
+parquet.deliveries,193779,delivery_id,object,text,0,0.0,193779,0
+parquet.deliveries,193779,match_id,object,text,0,0.0,495,0
+parquet.deliveries,193779,innings_id,object,text,0,0.0,991,0
+parquet.deliveries,193779,innings_number,int64,numeric,0,0.0,4,0
+parquet.deliveries,193779,innings_type,object,categorical,0,0.0,2,0
+parquet.deliveries,193779,over_number,int64,numeric,0,0.0,50,0
+parquet.deliveries,193779,ball_number,int64,numeric,0,0.0,14,0
+parquet.deliveries,193779,delivery_sequence,int64,numeric,0,0.0,323,0
+parquet.deliveries,193779,legal_ball_number,float64,numeric,5144,2.65,312,0
+parquet.deliveries,193779,batter_id,object,text,0,0.0,1052,0
+parquet.deliveries,193779,non_striker_id,object,text,0,0.0,1028,0
+parquet.deliveries,193779,bowler_id,object,text,0,0.0,752,0
+parquet.deliveries,193779,batter_runs,int64,numeric,0,0.0,7,0
+parquet.deliveries,193779,extra_runs,int64,numeric,0,0.0,6,0
+parquet.deliveries,193779,total_runs,int64,numeric,0,0.0,8,0
+parquet.deliveries,193779,extras_type,object,categorical,185090,95.52,5,0
+parquet.deliveries,193779,is_wide,bool,boolean,0,0.0,2,0
+parquet.deliveries,193779,is_no_ball,bool,boolean,0,0.0,2,0
+parquet.deliveries,193779,is_bye,bool,boolean,0,0.0,2,0
+parquet.deliveries,193779,is_leg_bye,bool,boolean,0,0.0,2,0
+parquet.deliveries,193779,is_penalty,bool,boolean,0,0.0,2,0
+parquet.deliveries,193779,is_wicket,bool,boolean,0,0.0,2,0
+parquet.deliveries,193779,dismissal_type,object,categorical,186971,96.49,9,0
+parquet.deliveries,193779,dismissed_player_id,object,text,186971,96.49,992,0
+parquet.deliveries,193779,fielder_id,object,text,189129,97.6,841,0
+parquet.deliveries,193779,commentary_text,object,empty,193779,100.0,0,0
+parquet.deliveries,193779,created_at,"datetime64[us, UTC]",datetime,0,0.0,495,0
+parquet.deliveries,193779,updated_at,"datetime64[us, UTC]",datetime,0,0.0,495,0
+parquet.deliveries,193779,source_id,int64,numeric,0,0.0,1,0
+parquet.deliveries,193779,source_url,object,text,0,0.0,495,0
+parquet.deliveries,193779,collected_at,"datetime64[us, UTC]",datetime,0,0.0,13,0
+parquet.fielding_scorecards,5045,fielding_scorecard_id,int64,numeric,0,0.0,5045,0
+parquet.fielding_scorecards,5045,match_id,object,text,0,0.0,660,0
+parquet.fielding_scorecards,5045,player_id,object,text,0,0.0,993,0
+parquet.fielding_scorecards,5045,player_name,object,text,0,0.0,992,0
+parquet.fielding_scorecards,5045,team_id,object,categorical,0,0.0,26,0
+parquet.fielding_scorecards,5045,catches,int64,numeric,0,0.0,7,0
+parquet.fielding_scorecards,5045,run_outs,int64,numeric,0,0.0,5,0
+parquet.fielding_scorecards,5045,stumpings,int64,numeric,0,0.0,5,0
+parquet.fielding_scorecards,5045,created_at,"datetime64[us, UTC]",datetime,0,0.0,660,0
+parquet.fielding_scorecards,5045,updated_at,"datetime64[us, UTC]",datetime,0,0.0,660,0
+parquet.fielding_scorecards,5045,source_id,int64,numeric,0,0.0,1,0
+parquet.fielding_scorecards,5045,source_url,object,text,0,0.0,660,0
+parquet.fielding_scorecards,5045,collected_at,"datetime64[us, UTC]",datetime,0,0.0,13,0
+parquet.innings,1326,innings_id,object,text,0,0.0,1326,0
+parquet.innings,1326,match_id,object,text,0,0.0,661,0
+parquet.innings,1326,innings_number,int64,numeric,0,0.0,6,0
+parquet.innings,1326,innings_type,object,categorical,0,0.0,2,0
+parquet.innings,1326,batting_team_id,object,categorical,6,0.45,26,0
+parquet.innings,1326,bowling_team_id,object,categorical,6,0.45,26,0
+parquet.innings,1326,total_runs,float64,numeric,6,0.45,319,0
+parquet.innings,1326,wickets,float64,numeric,6,0.45,11,0
+parquet.innings,1326,overs,float64,numeric,10,0.75,205,0
+parquet.innings,1326,extras,float64,numeric,6,0.45,39,0
+parquet.innings,1326,declared,bool,boolean,0,0.0,1,0
+parquet.innings,1326,is_super_over,bool,boolean,0,0.0,2,0
+parquet.innings,1326,target,float64,numeric,669,50.45,266,0
+parquet.innings,1326,created_at,"datetime64[us, UTC]",datetime,0,0.0,661,0
+parquet.innings,1326,updated_at,"datetime64[us, UTC]",datetime,0,0.0,661,0
+parquet.innings,1326,source_id,int64,numeric,0,0.0,2,0
+parquet.innings,1326,source_url,object,text,0,0.0,664,0
+parquet.innings,1326,collected_at,"datetime64[us, UTC]",datetime,0,0.0,13,0
+parquet.match_teams,1354,match_team_id,int64,numeric,0,0.0,1354,0
+parquet.match_teams,1354,match_id,object,text,0,0.0,677,0
+parquet.match_teams,1354,team_id,object,categorical,0,0.0,26,0
+parquet.match_teams,1354,is_home,bool,boolean,0,0.0,2,0
+parquet.match_teams,1354,batting_order,int64,numeric,0,0.0,2,0
+parquet.match_teams,1354,created_at,"datetime64[us, UTC]",datetime,0,0.0,677,0
+parquet.match_teams,1354,updated_at,"datetime64[us, UTC]",datetime,0,0.0,677,0
+parquet.matches,677,match_id,object,text,0,0.0,677,0
+parquet.matches,677,tournament_id,object,categorical,0,0.0,16,0
+parquet.matches,677,source_match_id,object,text,0,0.0,677,0
+parquet.matches,677,match_number,float64,numeric,65,9.6,52,0
+parquet.matches,677,match_stage,object,categorical,0,0.0,5,0
+parquet.matches,677,match_type,object,empty,677,100.0,0,0
+parquet.matches,677,match_date,object,datetime,0,0.0,432,0
+parquet.matches,677,start_time,object,datetime,0,0.0,663,0
+parquet.matches,677,venue,object,text,0,0.0,83,0
+parquet.matches,677,city,object,text,0,0.0,75,0
+parquet.matches,677,team1_id,object,categorical,0,0.0,25,0
+parquet.matches,677,team2_id,object,categorical,0,0.0,26,0
+parquet.matches,677,toss_winner_id,object,categorical,13,1.92,25,0
+parquet.matches,677,toss_decision,object,categorical,15,2.22,2,0
+parquet.matches,677,winner_id,object,categorical,33,4.87,24,0
+parquet.matches,677,result_type,object,categorical,0,0.0,3,0
+parquet.matches,677,result_margin,object,text,0,0.0,624,0
+parquet.matches,677,player_of_match_id,object,text,25,3.69,340,0
+parquet.matches,677,umpires,object,empty,677,100.0,0,0
+parquet.matches,677,match_referee,object,empty,677,100.0,0,0
+parquet.matches,677,scorecard_url,object,text,0,0.0,677,0
+parquet.matches,677,commentary_url,object,text,0,0.0,677,0
+parquet.matches,677,ball_by_ball_status,object,categorical,0,0.0,2,0
+parquet.matches,677,scorecard_status,object,categorical,0,0.0,2,0
+parquet.matches,677,match_status,object,categorical,0,0.0,3,0
+parquet.matches,677,created_at,"datetime64[us, UTC]",datetime,0,0.0,677,0
+parquet.matches,677,updated_at,"datetime64[us, UTC]",datetime,0,0.0,677,0
+parquet.matches,677,source_id,int64,numeric,0,0.0,1,0
+parquet.matches,677,source_url,object,text,0,0.0,677,0
+parquet.matches,677,collected_at,"datetime64[us, UTC]",datetime,0,0.0,13,0
+parquet.players,2521,player_id,object,text,0,0.0,2521,0
+parquet.players,2521,full_name,object,text,0,0.0,2258,0
+parquet.players,2521,source_name,object,categorical,0,0.0,2,0
+parquet.players,2521,source_player_id,object,text,0,0.0,2521,0
+parquet.players,2521,batting_style,object,categorical,2360,93.61,2,0
+parquet.players,2521,bowling_style,object,categorical,2378,94.33,15,0
+parquet.players,2521,date_of_birth,object,datetime,2359,93.57,159,0
+parquet.players,2521,created_at,"datetime64[us, UTC]",datetime,0,0.0,396,0
+parquet.players,2521,updated_at,"datetime64[us, UTC]",datetime,0,0.0,396,0
+parquet.players,2521,source_id,int64,numeric,0,0.0,2,0
+parquet.players,2521,source_url,object,text,1281,50.81,362,0
+parquet.players,2521,collected_at,"datetime64[us, UTC]",datetime,1281,50.81,13,0
+parquet.sources,2,source_id,int64,numeric,0,0.0,2,0
+parquet.sources,2,name,object,categorical,0,0.0,2,0
+parquet.sources,2,base_url,object,categorical,0,0.0,2,0
+parquet.sources,2,precedence,object,categorical,0,0.0,2,0
+parquet.sources,2,attribution_required,bool,boolean,0,0.0,1,0
+parquet.sources,2,notes,object,categorical,0,0.0,2,0
+parquet.sources,2,created_at,"datetime64[us, UTC]",datetime,0,0.0,1,0
+parquet.sources,2,updated_at,"datetime64[us, UTC]",datetime,0,0.0,1,0
+parquet.squads,3609,squad_id,int64,numeric,0,0.0,3609,0
+parquet.squads,3609,tournament_id,object,categorical,0,0.0,16,0
+parquet.squads,3609,team_id,object,categorical,0,0.0,26,0
+parquet.squads,3609,player_id,object,text,0,0.0,1402,0
+parquet.squads,3609,role_code,object,categorical,0,0.0,6,0
+parquet.squads,3609,is_captain,bool,boolean,0,0.0,2,0
+parquet.squads,3609,is_wicketkeeper,bool,boolean,0,0.0,2,0
+parquet.squads,3609,playing_roles,object,categorical,67,1.86,10,0
+parquet.squads,3609,announced_at,object,datetime,0,0.0,157,0
+parquet.squads,3609,is_withdrawn,bool,boolean,0,0.0,2,0
+parquet.squads,3609,note,object,categorical,3586,99.36,19,0
+parquet.squads,3609,created_at,"datetime64[us, UTC]",datetime,0,0.0,1,0
+parquet.squads,3609,updated_at,"datetime64[us, UTC]",datetime,0,0.0,1,0
+parquet.squads,3609,source_id,int64,numeric,0,0.0,1,0
+parquet.squads,3609,source_url,object,text,0,0.0,229,0
+parquet.squads,3609,collected_at,"datetime64[us, UTC]",datetime,0,0.0,6,0
+parquet.standings,304,standing_id,int64,numeric,0,0.0,304,0
+parquet.standings,304,tournament_id,object,categorical,0,0.0,16,0
+parquet.standings,304,group_name,object,categorical,0,0.0,19,0
+parquet.standings,304,team_id,object,categorical,0,0.0,26,0
+parquet.standings,304,matches_played,int64,numeric,0,0.0,7,0
+parquet.standings,304,wins,int64,numeric,0,0.0,9,0
+parquet.standings,304,losses,int64,numeric,0,0.0,9,0
+parquet.standings,304,ties,int64,numeric,0,0.0,2,0
+parquet.standings,304,no_results,int64,numeric,0,0.0,3,0
+parquet.standings,304,points,float64,numeric,0,0.0,21,0
+parquet.standings,304,net_run_rate,float64,numeric,0,0.0,301,0
+parquet.standings,304,position,int64,numeric,0,0.0,10,0
+parquet.standings,304,qualified,object,boolean,20,6.58,2,0
+parquet.standings,304,created_at,"datetime64[us, UTC]",datetime,0,0.0,1,0
+parquet.standings,304,updated_at,"datetime64[us, UTC]",datetime,0,0.0,1,0
+parquet.standings,304,source_id,int64,numeric,0,0.0,1,0
+parquet.standings,304,source_url,object,categorical,0,0.0,16,0
+parquet.standings,304,collected_at,"datetime64[us, UTC]",datetime,0,0.0,6,0
+parquet.teams,28,team_id,object,categorical,0,0.0,28,0
+parquet.teams,28,team_name,object,categorical,0,0.0,28,0
+parquet.teams,28,short_name,object,categorical,2,7.14,26,0
+parquet.teams,28,country_code,object,empty,28,100.0,0,0
+parquet.teams,28,source_team_id,object,categorical,0,0.0,28,0
+parquet.teams,28,created_at,"datetime64[us, UTC]",datetime,0,0.0,21,0
+parquet.teams,28,updated_at,"datetime64[us, UTC]",datetime,0,0.0,21,0
+parquet.teams,28,source_id,int64,numeric,0,0.0,1,0
+parquet.teams,28,source_url,object,categorical,0,0.0,20,0
+parquet.teams,28,collected_at,"datetime64[us, UTC]",datetime,0,0.0,8,0
+parquet.tournaments,16,tournament_id,object,categorical,0,0.0,16,0
+parquet.tournaments,16,tournament_name,object,categorical,0,0.0,16,0
+parquet.tournaments,16,year,int64,numeric,0,0.0,15,0
+parquet.tournaments,16,format,object,categorical,0,0.0,2,0
+parquet.tournaments,16,gender,object,categorical,0,0.0,1,0
+parquet.tournaments,16,host_country,object,categorical,0,0.0,14,0
+parquet.tournaments,16,start_date,object,datetime,0,0.0,16,0
+parquet.tournaments,16,end_date,object,datetime,0,0.0,16,0
+parquet.tournaments,16,winner,object,categorical,0,0.0,6,0
+parquet.tournaments,16,runner_up,object,categorical,0,0.0,7,0
+parquet.tournaments,16,number_of_teams,int64,numeric,0,0.0,5,0
+parquet.tournaments,16,number_of_matches,object,empty,16,100.0,0,0
+parquet.tournaments,16,collection_status,object,categorical,0,0.0,1,0
+parquet.tournaments,16,completion_status,object,categorical,0,0.0,1,0
+parquet.tournaments,16,metadata_notes,object,categorical,0,0.0,3,0
+parquet.tournaments,16,created_at,"datetime64[us, UTC]",datetime,0,0.0,1,0
+parquet.tournaments,16,updated_at,"datetime64[us, UTC]",datetime,0,0.0,2,0
+parquet.tournaments,16,source_id,int64,numeric,0,0.0,1,0
+parquet.tournaments,16,source_url,object,categorical,0,0.0,16,0
+parquet.tournaments,16,collected_at,"datetime64[us, UTC]",datetime,0,0.0,1,0
+parquet.ODI_M_2023.batting_scorecards,1057,batting_scorecard_id,int64,numeric,0,0.0,1057,0
+parquet.ODI_M_2023.batting_scorecards,1057,match_id,object,categorical,0,0.0,48,0
+parquet.ODI_M_2023.batting_scorecards,1057,innings_id,object,text,0,0.0,96,0
+parquet.ODI_M_2023.batting_scorecards,1057,innings_number,int64,numeric,0,0.0,2,0
+parquet.ODI_M_2023.batting_scorecards,1057,player_id,object,text,0,0.0,151,0
+parquet.ODI_M_2023.batting_scorecards,1057,player_name,object,text,0,0.0,151,0
+parquet.ODI_M_2023.batting_scorecards,1057,team_id,object,categorical,0,0.0,10,0
+parquet.ODI_M_2023.batting_scorecards,1057,batting_position,int64,numeric,0,0.0,12,0
+parquet.ODI_M_2023.batting_scorecards,1057,runs,float64,numeric,182,17.22,124,0
+parquet.ODI_M_2023.batting_scorecards,1057,balls_faced,float64,numeric,182,17.22,118,0
+parquet.ODI_M_2023.batting_scorecards,1057,fours,float64,numeric,182,17.22,20,0
+parquet.ODI_M_2023.batting_scorecards,1057,sixes,float64,numeric,182,17.22,12,0
+parquet.ODI_M_2023.batting_scorecards,1057,strike_rate,float64,numeric,182,17.22,434,0
+parquet.ODI_M_2023.batting_scorecards,1057,dismissal,object,text,181,17.12,469,0
+parquet.ODI_M_2023.batting_scorecards,1057,dismissal_type,object,categorical,181,17.12,9,0
+parquet.ODI_M_2023.batting_scorecards,1057,dismissed_by,object,text,328,31.03,84,0
+parquet.ODI_M_2023.batting_scorecards,1057,fielder,object,text,546,51.66,141,0
+parquet.ODI_M_2023.batting_scorecards,1057,created_at,"datetime64[us, UTC]",datetime,0,0.0,48,0
+parquet.ODI_M_2023.batting_scorecards,1057,updated_at,"datetime64[us, UTC]",datetime,0,0.0,48,0
+parquet.ODI_M_2023.batting_scorecards,1057,source_id,int64,numeric,0,0.0,1,0
+parquet.ODI_M_2023.batting_scorecards,1057,source_url,object,categorical,0,0.0,48,0
+parquet.ODI_M_2023.batting_scorecards,1057,collected_at,"datetime64[us, UTC]",datetime,0,0.0,2,0
+parquet.ODI_M_2023.bowling_scorecards,574,bowling_scorecard_id,int64,numeric,0,0.0,574,0
+parquet.ODI_M_2023.bowling_scorecards,574,match_id,object,categorical,0,0.0,48,0
+parquet.ODI_M_2023.bowling_scorecards,574,innings_id,object,text,0,0.0,96,0
+parquet.ODI_M_2023.bowling_scorecards,574,innings_number,int64,numeric,0,0.0,2,0
+parquet.ODI_M_2023.bowling_scorecards,574,player_id,object,text,0,0.0,102,0
+parquet.ODI_M_2023.bowling_scorecards,574,player_name,object,text,0,0.0,102,0
+parquet.ODI_M_2023.bowling_scorecards,574,team_id,object,categorical,0,0.0,10,0
+parquet.ODI_M_2023.bowling_scorecards,574,overs,float64,numeric,0,0.0,38,0
+parquet.ODI_M_2023.bowling_scorecards,574,maidens,int64,numeric,0,0.0,4,0
+parquet.ODI_M_2023.bowling_scorecards,574,runs_conceded,int64,numeric,0,0.0,93,0
+parquet.ODI_M_2023.bowling_scorecards,574,wickets,int64,numeric,0,0.0,7,0
+parquet.ODI_M_2023.bowling_scorecards,574,economy,float64,numeric,0,0.0,231,0
+parquet.ODI_M_2023.bowling_scorecards,574,dots,int64,numeric,0,0.0,48,0
+parquet.ODI_M_2023.bowling_scorecards,574,wides,int64,numeric,0,0.0,11,0
+parquet.ODI_M_2023.bowling_scorecards,574,no_balls,int64,numeric,0,0.0,3,0
+parquet.ODI_M_2023.bowling_scorecards,574,created_at,"datetime64[us, UTC]",datetime,0,0.0,48,0
+parquet.ODI_M_2023.bowling_scorecards,574,updated_at,"datetime64[us, UTC]",datetime,0,0.0,48,0
+parquet.ODI_M_2023.bowling_scorecards,574,source_id,int64,numeric,0,0.0,1,0
+parquet.ODI_M_2023.bowling_scorecards,574,source_url,object,categorical,0,0.0,48,0
+parquet.ODI_M_2023.bowling_scorecards,574,collected_at,"datetime64[us, UTC]",datetime,0,0.0,2,0
+parquet.ODI_M_2023.collection_runs,6,collection_run_id,int64,numeric,0,0.0,6,0
+parquet.ODI_M_2023.collection_runs,6,source_id,float64,empty,6,100.0,0,0
+parquet.ODI_M_2023.collection_runs,6,pipeline_stage,object,categorical,0,0.0,3,0
+parquet.ODI_M_2023.collection_runs,6,tournament_id,object,categorical,1,16.67,1,0
+parquet.ODI_M_2023.collection_runs,6,match_id,float64,empty,6,100.0,0,0
+parquet.ODI_M_2023.collection_runs,6,status,object,categorical,0,0.0,3,0
+parquet.ODI_M_2023.collection_runs,6,started_at,"datetime64[us, UTC]",datetime,0,0.0,6,0
+parquet.ODI_M_2023.collection_runs,6,finished_at,"datetime64[us, UTC]",datetime,4,66.67,2,0
+parquet.ODI_M_2023.collection_runs,6,records_attempted,int64,numeric,0,0.0,2,0
+parquet.ODI_M_2023.collection_runs,6,records_succeeded,int64,numeric,0,0.0,2,0
+parquet.ODI_M_2023.collection_runs,6,records_failed,int64,numeric,0,0.0,1,0
+parquet.ODI_M_2023.collection_runs,6,error_message,float64,empty,6,100.0,0,0
+parquet.ODI_M_2023.collection_runs,6,dry_run,bool,boolean,0,0.0,1,0
+parquet.ODI_M_2023.collection_runs,6,created_at,"datetime64[us, UTC]",datetime,0,0.0,6,0
+parquet.ODI_M_2023.collection_runs,6,updated_at,"datetime64[us, UTC]",datetime,0,0.0,6,0
+parquet.ODI_M_2023.data_quality_results,0,result_id,int32,empty,0,0.0,0,0
+parquet.ODI_M_2023.data_quality_results,0,collection_run_id,int32,empty,0,0.0,0,0
+parquet.ODI_M_2023.data_quality_results,0,entity_type,int32,empty,0,0.0,0,0
+parquet.ODI_M_2023.data_quality_results,0,entity_id,int32,empty,0,0.0,0,0
+parquet.ODI_M_2023.data_quality_results,0,tournament_id,int32,empty,0,0.0,0,0
+parquet.ODI_M_2023.data_quality_results,0,check_name,int32,empty,0,0.0,0,0
+parquet.ODI_M_2023.data_quality_results,0,severity,int32,empty,0,0.0,0,0
+parquet.ODI_M_2023.data_quality_results,0,status,int32,empty,0,0.0,0,0
+parquet.ODI_M_2023.data_quality_results,0,message,int32,empty,0,0.0,0,0
+parquet.ODI_M_2023.data_quality_results,0,details_json,int32,empty,0,0.0,0,0
+parquet.ODI_M_2023.data_quality_results,0,created_at,int32,empty,0,0.0,0,0
+parquet.ODI_M_2023.data_quality_results,0,updated_at,int32,empty,0,0.0,0,0
+parquet.ODI_M_2023.deliveries,21195,delivery_id,object,text,0,0.0,21195,0
+parquet.ODI_M_2023.deliveries,21195,match_id,object,categorical,0,0.0,39,0
+parquet.ODI_M_2023.deliveries,21195,innings_id,object,text,0,0.0,78,0
+parquet.ODI_M_2023.deliveries,21195,innings_number,int64,numeric,0,0.0,2,0
+parquet.ODI_M_2023.deliveries,21195,innings_type,object,categorical,0,0.0,1,0
+parquet.ODI_M_2023.deliveries,21195,over_number,int64,numeric,0,0.0,50,0
+parquet.ODI_M_2023.deliveries,21195,ball_number,int64,numeric,0,0.0,10,0
+parquet.ODI_M_2023.deliveries,21195,delivery_sequence,int64,numeric,0,0.0,320,0
+parquet.ODI_M_2023.deliveries,21195,legal_ball_number,float64,numeric,543,2.56,304,0
+parquet.ODI_M_2023.deliveries,21195,batter_id,object,text,0,0.0,132,0
+parquet.ODI_M_2023.deliveries,21195,non_striker_id,object,text,0,0.0,130,0
+parquet.ODI_M_2023.deliveries,21195,bowler_id,object,text,0,0.0,93,0
+parquet.ODI_M_2023.deliveries,21195,batter_runs,int64,numeric,0,0.0,7,0
+parquet.ODI_M_2023.deliveries,21195,extra_runs,int64,numeric,0,0.0,6,0
+parquet.ODI_M_2023.deliveries,21195,total_runs,int64,numeric,0,0.0,8,0
+parquet.ODI_M_2023.deliveries,21195,extras_type,object,categorical,20411,96.3,5,0
+parquet.ODI_M_2023.deliveries,21195,is_wide,bool,boolean,0,0.0,2,0
+parquet.ODI_M_2023.deliveries,21195,is_no_ball,bool,boolean,0,0.0,2,0
+parquet.ODI_M_2023.deliveries,21195,is_bye,bool,boolean,0,0.0,2,0
+parquet.ODI_M_2023.deliveries,21195,is_leg_bye,bool,boolean,0,0.0,2,0
+parquet.ODI_M_2023.deliveries,21195,is_penalty,bool,boolean,0,0.0,2,0
+parquet.ODI_M_2023.deliveries,21195,is_wicket,bool,boolean,0,0.0,2,0
+parquet.ODI_M_2023.deliveries,21195,dismissal_type,object,categorical,20588,97.14,7,0
+parquet.ODI_M_2023.deliveries,21195,dismissed_player_id,object,text,20588,97.14,127,0
+parquet.ODI_M_2023.deliveries,21195,fielder_id,object,text,20778,98.03,108,0
+parquet.ODI_M_2023.deliveries,21195,commentary_text,object,empty,21195,100.0,0,0
+parquet.ODI_M_2023.deliveries,21195,created_at,"datetime64[us, UTC]",datetime,0,0.0,39,0
+parquet.ODI_M_2023.deliveries,21195,updated_at,"datetime64[us, UTC]",datetime,0,0.0,39,0
+parquet.ODI_M_2023.deliveries,21195,source_id,int64,numeric,0,0.0,1,0
+parquet.ODI_M_2023.deliveries,21195,source_url,object,categorical,0,0.0,39,0
+parquet.ODI_M_2023.deliveries,21195,collected_at,"datetime64[us, UTC]",datetime,0,0.0,2,0
+parquet.ODI_M_2023.fielding_scorecards,378,fielding_scorecard_id,int64,numeric,0,0.0,378,0
+parquet.ODI_M_2023.fielding_scorecards,378,match_id,object,categorical,0,0.0,48,0
+parquet.ODI_M_2023.fielding_scorecards,378,player_id,object,text,0,0.0,127,0
+parquet.ODI_M_2023.fielding_scorecards,378,player_name,object,text,0,0.0,127,0
+parquet.ODI_M_2023.fielding_scorecards,378,team_id,object,categorical,0,0.0,10,0
+parquet.ODI_M_2023.fielding_scorecards,378,catches,int64,numeric,0,0.0,7,0
+parquet.ODI_M_2023.fielding_scorecards,378,run_outs,int64,numeric,0,0.0,4,0
+parquet.ODI_M_2023.fielding_scorecards,378,stumpings,int64,numeric,0,0.0,2,0
+parquet.ODI_M_2023.fielding_scorecards,378,created_at,"datetime64[us, UTC]",datetime,0,0.0,48,0
+parquet.ODI_M_2023.fielding_scorecards,378,updated_at,"datetime64[us, UTC]",datetime,0,0.0,48,0
+parquet.ODI_M_2023.fielding_scorecards,378,source_id,int64,numeric,0,0.0,1,0
+parquet.ODI_M_2023.fielding_scorecards,378,source_url,object,categorical,0,0.0,48,0
+parquet.ODI_M_2023.fielding_scorecards,378,collected_at,"datetime64[us, UTC]",datetime,0,0.0,2,0
+parquet.ODI_M_2023.innings,96,innings_id,object,text,0,0.0,96,0
+parquet.ODI_M_2023.innings,96,match_id,object,categorical,0,0.0,48,0
+parquet.ODI_M_2023.innings,96,innings_number,int64,numeric,0,0.0,2,0
+parquet.ODI_M_2023.innings,96,innings_type,object,categorical,0,0.0,1,0
+parquet.ODI_M_2023.innings,96,batting_team_id,object,categorical,0,0.0,10,0
+parquet.ODI_M_2023.innings,96,bowling_team_id,object,categorical,0,0.0,10,0
+parquet.ODI_M_2023.innings,96,total_runs,int64,numeric,0,0.0,79,0
+parquet.ODI_M_2023.innings,96,wickets,int64,numeric,0,0.0,10,0
+parquet.ODI_M_2023.innings,96,overs,float64,numeric,0,0.0,49,0
+parquet.ODI_M_2023.innings,96,extras,int64,numeric,0,0.0,27,0
+parquet.ODI_M_2023.innings,96,declared,bool,boolean,0,0.0,1,0
+parquet.ODI_M_2023.innings,96,is_super_over,bool,boolean,0,0.0,1,0
+parquet.ODI_M_2023.innings,96,target,float64,numeric,48,50.0,40,0
+parquet.ODI_M_2023.innings,96,created_at,"datetime64[us, UTC]",datetime,0,0.0,48,0
+parquet.ODI_M_2023.innings,96,updated_at,"datetime64[us, UTC]",datetime,0,0.0,48,0
+parquet.ODI_M_2023.innings,96,source_id,int64,numeric,0,0.0,1,0
+parquet.ODI_M_2023.innings,96,source_url,object,categorical,0,0.0,48,0
+parquet.ODI_M_2023.innings,96,collected_at,"datetime64[us, UTC]",datetime,0,0.0,2,0
+parquet.ODI_M_2023.match_teams,96,match_team_id,int64,numeric,0,0.0,96,0
+parquet.ODI_M_2023.match_teams,96,match_id,object,categorical,0,0.0,48,0
+parquet.ODI_M_2023.match_teams,96,team_id,object,categorical,0,0.0,10,0
+parquet.ODI_M_2023.match_teams,96,is_home,bool,boolean,0,0.0,2,0
+parquet.ODI_M_2023.match_teams,96,batting_order,int64,numeric,0,0.0,2,0
+parquet.ODI_M_2023.match_teams,96,created_at,"datetime64[us, UTC]",datetime,0,0.0,48,0
+parquet.ODI_M_2023.match_teams,96,updated_at,"datetime64[us, UTC]",datetime,0,0.0,48,0
+parquet.ODI_M_2023.matches,48,match_id,object,categorical,0,0.0,48,0
+parquet.ODI_M_2023.matches,48,tournament_id,object,categorical,0,0.0,1,0
+parquet.ODI_M_2023.matches,48,source_match_id,object,categorical,0,0.0,48,0
+parquet.ODI_M_2023.matches,48,match_number,float64,numeric,3,6.25,45,0
+parquet.ODI_M_2023.matches,48,match_stage,object,categorical,0,0.0,3,0
+parquet.ODI_M_2023.matches,48,match_type,object,empty,48,100.0,0,0
+parquet.ODI_M_2023.matches,48,match_date,object,datetime,0,0.0,42,0
+parquet.ODI_M_2023.matches,48,start_time,object,datetime,0,0.0,48,0
+parquet.ODI_M_2023.matches,48,venue,object,categorical,0,0.0,10,0
+parquet.ODI_M_2023.matches,48,city,object,categorical,0,0.0,10,0
+parquet.ODI_M_2023.matches,48,team1_id,object,categorical,0,0.0,10,0
+parquet.ODI_M_2023.matches,48,team2_id,object,categorical,0,0.0,10,0
+parquet.ODI_M_2023.matches,48,toss_winner_id,object,categorical,0,0.0,10,0
+parquet.ODI_M_2023.matches,48,toss_decision,object,categorical,0,0.0,2,0
+parquet.ODI_M_2023.matches,48,winner_id,object,categorical,0,0.0,10,0
+parquet.ODI_M_2023.matches,48,result_type,object,categorical,0,0.0,1,0
+parquet.ODI_M_2023.matches,48,result_margin,object,categorical,0,0.0,48,0
+parquet.ODI_M_2023.matches,48,player_of_match_id,object,categorical,0,0.0,37,0
+parquet.ODI_M_2023.matches,48,umpires,object,empty,48,100.0,0,0
+parquet.ODI_M_2023.matches,48,match_referee,object,empty,48,100.0,0,0
+parquet.ODI_M_2023.matches,48,scorecard_url,object,categorical,0,0.0,48,0
+parquet.ODI_M_2023.matches,48,commentary_url,object,categorical,0,0.0,48,0
+parquet.ODI_M_2023.matches,48,ball_by_ball_status,object,categorical,0,0.0,2,0
+parquet.ODI_M_2023.matches,48,scorecard_status,object,categorical,0,0.0,1,0
+parquet.ODI_M_2023.matches,48,match_status,object,categorical,0,0.0,1,0
+parquet.ODI_M_2023.matches,48,created_at,"datetime64[us, UTC]",datetime,0,0.0,48,0
+parquet.ODI_M_2023.matches,48,updated_at,"datetime64[us, UTC]",datetime,0,0.0,48,0
+parquet.ODI_M_2023.matches,48,source_id,int64,numeric,0,0.0,1,0
+parquet.ODI_M_2023.matches,48,source_url,object,categorical,0,0.0,48,0
+parquet.ODI_M_2023.matches,48,collected_at,"datetime64[us, UTC]",datetime,0,0.0,2,0
+parquet.ODI_M_2023.players,289,player_id,object,text,0,0.0,289,0
+parquet.ODI_M_2023.players,289,full_name,object,text,0,0.0,254,0
+parquet.ODI_M_2023.players,289,source_name,object,categorical,0,0.0,2,0
+parquet.ODI_M_2023.players,289,source_player_id,object,text,0,0.0,289,0
+parquet.ODI_M_2023.players,289,batting_style,float64,empty,289,100.0,0,0
+parquet.ODI_M_2023.players,289,bowling_style,float64,empty,289,100.0,0,0
+parquet.ODI_M_2023.players,289,date_of_birth,float64,empty,289,100.0,0,0
+parquet.ODI_M_2023.players,289,created_at,"datetime64[us, UTC]",datetime,0,0.0,30,0
+parquet.ODI_M_2023.players,289,updated_at,"datetime64[us, UTC]",datetime,0,0.0,30,0
+parquet.ODI_M_2023.players,289,source_id,int64,numeric,0,0.0,2,0
+parquet.ODI_M_2023.players,289,source_url,object,categorical,138,47.75,27,0
+parquet.ODI_M_2023.players,289,collected_at,"datetime64[us, UTC]",datetime,138,47.75,2,0
+parquet.ODI_M_2023.sources,2,source_id,int64,numeric,0,0.0,2,0
+parquet.ODI_M_2023.sources,2,name,object,categorical,0,0.0,2,0
+parquet.ODI_M_2023.sources,2,base_url,object,categorical,0,0.0,2,0
+parquet.ODI_M_2023.sources,2,precedence,object,categorical,0,0.0,2,0
+parquet.ODI_M_2023.sources,2,attribution_required,bool,boolean,0,0.0,1,0
+parquet.ODI_M_2023.sources,2,notes,object,categorical,0,0.0,2,0
+parquet.ODI_M_2023.sources,2,created_at,"datetime64[us, UTC]",datetime,0,0.0,1,0
+parquet.ODI_M_2023.sources,2,updated_at,"datetime64[us, UTC]",datetime,0,0.0,1,0
+parquet.ODI_M_2023.teams,10,team_id,object,categorical,0,0.0,10,0
+parquet.ODI_M_2023.teams,10,team_name,object,categorical,0,0.0,10,0
+parquet.ODI_M_2023.teams,10,short_name,object,categorical,0,0.0,10,0
+parquet.ODI_M_2023.teams,10,country_code,object,empty,10,100.0,0,0
+parquet.ODI_M_2023.teams,10,source_team_id,object,categorical,0,0.0,10,0
+parquet.ODI_M_2023.teams,10,created_at,"datetime64[us, UTC]",datetime,0,0.0,5,0
+parquet.ODI_M_2023.teams,10,updated_at,"datetime64[us, UTC]",datetime,0,0.0,5,0
+parquet.ODI_M_2023.teams,10,source_id,int64,numeric,0,0.0,1,0
+parquet.ODI_M_2023.teams,10,source_url,object,categorical,0,0.0,9,0
+parquet.ODI_M_2023.teams,10,collected_at,"datetime64[us, UTC]",datetime,0,0.0,4,0
+parquet.ODI_M_2023.tournaments,1,tournament_id,object,categorical,0,0.0,1,0
+parquet.ODI_M_2023.tournaments,1,tournament_name,object,categorical,0,0.0,1,0
+parquet.ODI_M_2023.tournaments,1,year,int64,numeric,0,0.0,1,0
+parquet.ODI_M_2023.tournaments,1,format,object,categorical,0,0.0,1,0
+parquet.ODI_M_2023.tournaments,1,gender,object,categorical,0,0.0,1,0
+parquet.ODI_M_2023.tournaments,1,host_country,object,categorical,0,0.0,1,0
+parquet.ODI_M_2023.tournaments,1,start_date,object,datetime,0,0.0,1,0
+parquet.ODI_M_2023.tournaments,1,end_date,object,datetime,0,0.0,1,0
+parquet.ODI_M_2023.tournaments,1,winner,object,categorical,0,0.0,1,0
+parquet.ODI_M_2023.tournaments,1,runner_up,object,categorical,0,0.0,1,0
+parquet.ODI_M_2023.tournaments,1,number_of_teams,int64,numeric,0,0.0,1,0
+parquet.ODI_M_2023.tournaments,1,number_of_matches,object,empty,1,100.0,0,0
+parquet.ODI_M_2023.tournaments,1,collection_status,object,categorical,0,0.0,1,0
+parquet.ODI_M_2023.tournaments,1,completion_status,object,categorical,0,0.0,1,0
+parquet.ODI_M_2023.tournaments,1,metadata_notes,object,categorical,0,0.0,1,0
+parquet.ODI_M_2023.tournaments,1,created_at,"datetime64[us, UTC]",datetime,0,0.0,1,0
+parquet.ODI_M_2023.tournaments,1,updated_at,"datetime64[us, UTC]",datetime,0,0.0,1,0
+parquet.ODI_M_2023.tournaments,1,source_id,int64,numeric,0,0.0,1,0
+parquet.ODI_M_2023.tournaments,1,source_url,object,categorical,0,0.0,1,0
+parquet.ODI_M_2023.tournaments,1,collected_at,"datetime64[us, UTC]",datetime,0,0.0,1,0

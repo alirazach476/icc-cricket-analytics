@@ -1,0 +1,14 @@
+format,year,match_date,winner,loser,margin_type,margin_value
+ODI,2007,2007-03-28,South Africa,Sri Lanka,wickets,1.0
+ODI,2007,2007-04-04,Sri Lanka,England,runs,2.0
+ODI,2007,2007-04-21,England,West Indies,wickets,1.0
+T20,2009,2009-06-09,South Africa,New Zealand,runs,1.0
+T20,2010,2010-05-08,New Zealand,Pakistan,runs,1.0
+T20,2012,2012-10-02,India,South Africa,runs,1.0
+T20,2014,2014-03-24,South Africa,New Zealand,runs,2.0
+ODI,2015,2015-02-26,Afghanistan,Scotland,wickets,1.0
+ODI,2015,2015-02-28,New Zealand,Australia,wickets,1.0
+T20,2016,2016-03-23,India,Bangladesh,runs,1.0
+T20,2022,2022-10-27,Zimbabwe,Pakistan,runs,1.0
+ODI,2023,2023-10-27,South Africa,Pakistan,wickets,1.0
+T20,2024,2024-06-14,South Africa,Nepal,runs,1.0

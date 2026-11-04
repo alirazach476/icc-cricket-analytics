@@ -1,0 +1,56 @@
+{
+ "match_id": "1204856",
+ "tournament_id": "WTC_M_2021",
+ "source_url": "https://www.espncricinfo.com/series/england-in-sri-lanka-2019-20-1204852/sri-lanka-vs-england-1st-test-1204856/full-scorecard",
+ "source_name": "ESPNcricinfo",
+ "parse_status": "partial",
+ "scorecard_status": "partial",
+ "warnings": [
+  "No innings found in scorecard payload"
+ ],
+ "match": {
+  "match_id": "1204856",
+  "tournament_id": "WTC_M_2021",
+  "source_match_id": "1204856",
+  "match_date": "2020-03-19",
+  "start_time": "2020-03-19T04:30:00.000Z",
+  "venue": "Galle International Stadium",
+  "city": "Galle",
+  "title": "1st Test",
+  "status": "POSTPONED",
+  "status_text": null,
+  "result_type": "POSTPONED",
+  "result_margin": null,
+  "is_cancelled": false,
+  "is_super_over": false,
+  "toss_winner_id": null,
+  "toss_decision": null,
+  "winner_id": null,
+  "team1_id": "espn_8",
+  "team2_id": "espn_1",
+  "player_of_match_id": null,
+  "umpires": null,
+  "match_referee": null,
+  "source_url": "https://www.espncricinfo.com/series/england-in-sri-lanka-2019-20-1204852/sri-lanka-vs-england-1st-test-1204856/full-scorecard"
+ },
+ "innings": [],
+ "batting_scorecards": [],
+ "bowling_scorecards": [],
+ "fielding_scorecards": [],
+ "awards": [],
+ "players": [],
+ "teams": [
+  {
+   "team_id": "espn_8",
+   "source_team_id": "8",
+   "team_name": "Sri Lanka",
+   "abbreviation": "SL"
+  },
+  {
+   "team_id": "espn_1",
+   "source_team_id": "1",
+   "team_name": "England",
+   "abbreviation": "ENG"
+  }
+ ]
+}

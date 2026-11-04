@@ -1,0 +1,33 @@
+format,year,team_name,furthest_stage,wins,matches,is_champion
+ODI,2003,Australia,Final,11,11,True
+ODI,2003,India,Final,9,11,False
+ODI,2007,Australia,Final,11,11,True
+ODI,2007,Sri Lanka,Final,8,11,False
+ODI,2011,India,Final,7,9,True
+ODI,2011,Sri Lanka,Final,6,9,False
+ODI,2015,Australia,Final,7,9,True
+ODI,2015,New Zealand,Final,8,9,False
+ODI,2019,England,Final,8,11,True
+ODI,2019,New Zealand,Final,6,11,False
+ODI,2023,Australia,Final,9,11,True
+ODI,2023,India,Final,10,11,False
+T20,2007,India,Final,5,7,True
+T20,2007,Pakistan,Final,5,7,False
+T20,2009,Pakistan,Final,5,7,True
+T20,2009,Sri Lanka,Final,6,7,False
+T20,2010,England,Final,5,7,True
+T20,2010,Australia,Final,6,7,False
+T20,2012,West Indies,Final,4,7,True
+T20,2012,Sri Lanka,Final,5,7,False
+T20,2014,Sri Lanka,Final,5,6,True
+T20,2014,India,Final,5,6,False
+T20,2016,West Indies,Final,5,6,True
+T20,2016,England,Final,4,6,False
+T20,2021,Australia,Final,6,7,True
+T20,2021,New Zealand,Final,5,7,False
+T20,2022,England,Final,5,7,True
+T20,2022,Pakistan,Final,4,7,False
+T20,2024,India,Final,8,9,True
+T20,2024,South Africa,Final,8,9,False
+T20,2026,India,Final,8,9,True
+T20,2026,New Zealand,Final,5,9,False

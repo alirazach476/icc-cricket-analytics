@@ -1,0 +1,16 @@
+player,tournament_id,runs,average,prev_average,change
+Daren Sammy,T20_M_2014,101,101.0,18.0,83.0
+Tamim Iqbal,T20_M_2016,295,73.75,11.86,61.89
+Virat Kohli,T20_M_2014,319,106.33,46.25,60.08
+Kumar Sangakkara,ODI_M_2011,465,93.0,35.0,58.0
+Mahela Jayawardene,ODI_M_2007,548,60.89,3.0,57.89
+Yuvraj Singh,ODI_M_2011,362,90.5,34.29,56.21
+AB de Villiers,ODI_M_2011,353,88.25,37.2,51.05
+Kane Williamson,ODI_M_2019,578,82.57,33.43,49.14
+Mohammad Nabi,T20_M_2021,127,63.5,15.0,48.5
+Shakib Al Hasan,ODI_M_2019,606,86.57,39.2,47.37
+Ross Taylor,ODI_M_2011,324,64.8,17.83,46.97
+MS Dhoni,T20_M_2016,89,89.0,42.5,46.5
+Glenn Maxwell,ODI_M_2023,400,66.67,22.12,44.55
+Brendan Taylor,ODI_M_2015,433,72.17,28.33,43.84
+Jos Buttler,T20_M_2021,269,89.67,47.75,41.92

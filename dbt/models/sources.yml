@@ -1,0 +1,50 @@
+version: 2
+
+sources:
+  - name: warehouse
+    description: >
+      Raw analytical tables mirrored from PostgreSQL into DuckDB
+      by scripts/sync_warehouse.py (Stage 11). Never invent rows here.
+    schema: main
+    tables:
+      - name: sources
+      - name: tournaments
+        columns:
+          - name: tournament_id
+            tests: [not_null, unique]
+      - name: teams
+        columns:
+          - name: team_id
+            tests: [not_null, unique]
+      - name: players
+        columns:
+          - name: player_id
+            tests: [not_null, unique]
+      - name: matches
+        columns:
+          - name: match_id
+            tests: [not_null, unique]
+          - name: tournament_id
+            tests: [not_null]
+      - name: match_teams
+      - name: standings
+        columns:
+          - name: standing_id
+            tests: [not_null, unique]
+      - name: squads
+        columns:
+          - name: squad_id
+            tests: [not_null, unique]
+      - name: innings
+        columns:
+          - name: innings_id
+            tests: [not_null, unique]
+      - name: deliveries
+        columns:
+          - name: delivery_id
+            tests: [not_null, unique]
+      - name: batting_scorecards
+      - name: bowling_scorecards
+      - name: fielding_scorecards
+      - name: collection_runs
+      - name: data_quality_results

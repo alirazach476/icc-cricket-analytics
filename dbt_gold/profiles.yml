@@ -1,0 +1,9 @@
+# Paths are relative to the repository root: run dbt from the repo root.
+cricket_gold_analytics:
+  target: dev
+  outputs:
+    dev:
+      type: duckdb
+      path: data/warehouse/cricket_gold.duckdb
+      schema: dbt
+      threads: 4

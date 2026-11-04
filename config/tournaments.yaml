@@ -1,0 +1,306 @@
+# Tournament registry — Men's ICC ODI & T20 World Cups only (16 editions)
+#
+# Tournament-level metadata below is filled from publicly documented ICC /
+# major cricket reference sources (hosts, winners, dates, team counts).
+# number_of_matches stays null until match discovery verifies an actual count.
+# Do not invent a 2002 World Cup edition.
+
+registry_version: "0.2.0"
+scope:
+  formats: [ODI, T20]
+  gender: Men
+  allowed_tournament_ids:
+    - ODI_M_2003
+    - ODI_M_2007
+    - ODI_M_2011
+    - ODI_M_2015
+    - ODI_M_2019
+    - ODI_M_2023
+    - T20_M_2007
+    - T20_M_2009
+    - T20_M_2010
+    - T20_M_2012
+    - T20_M_2014
+    - T20_M_2016
+    - T20_M_2021
+    - T20_M_2022
+    - T20_M_2024
+    - T20_M_2026
+
+tournaments:
+  # --- Men's ODI World Cup ---
+  - tournament_id: ODI_M_2003
+    tournament_name: ICC Cricket World Cup 2003
+    year: 2003
+    format: ODI
+    gender: Men
+    host_country: South Africa; Kenya; Zimbabwe
+    start_date: "2003-02-09"
+    end_date: "2003-03-23"
+    winner: Australia
+    runner_up: India
+    number_of_teams: 14
+    number_of_matches: null
+    source_url: "https://www.espncricinfo.com/series/icc-world-cup-2002-03-61124"
+    collection_status: not_started
+    completion_status: completed
+    metadata_notes: "Tournament-level facts from public cricket references; match count pending discovery."
+
+  - tournament_id: ODI_M_2007
+    tournament_name: ICC Cricket World Cup 2007
+    year: 2007
+    format: ODI
+    gender: Men
+    host_country: West Indies
+    start_date: "2007-03-13"
+    end_date: "2007-04-28"
+    winner: Australia
+    runner_up: Sri Lanka
+    number_of_teams: 16
+    number_of_matches: null
+    source_url: "https://www.espncricinfo.com/series/icc-world-cup-2006-07-125929"
+    collection_status: not_started
+    completion_status: completed
+    metadata_notes: "Tournament-level facts from public cricket references; match count pending discovery."
+
+  - tournament_id: ODI_M_2011
+    tournament_name: ICC Cricket World Cup 2011
+    year: 2011
+    format: ODI
+    gender: Men
+    host_country: India; Sri Lanka; Bangladesh
+    start_date: "2011-02-19"
+    end_date: "2011-04-02"
+    winner: India
+    runner_up: Sri Lanka
+    number_of_teams: 14
+    number_of_matches: null
+    source_url: "https://www.espncricinfo.com/series/icc-cricket-world-cup-2010-11-381449"
+    collection_status: not_started
+    completion_status: completed
+    metadata_notes: "Tournament-level facts from public cricket references; match count pending discovery."
+
+  - tournament_id: ODI_M_2015
+    tournament_name: ICC Cricket World Cup 2015
+    year: 2015
+    format: ODI
+    gender: Men
+    host_country: Australia; New Zealand
+    start_date: "2015-02-14"
+    end_date: "2015-03-29"
+    winner: Australia
+    runner_up: New Zealand
+    number_of_teams: 14
+    number_of_matches: null
+    source_url: "https://www.espncricinfo.com/series/icc-cricket-world-cup-2014-15-509587"
+    collection_status: not_started
+    completion_status: completed
+    metadata_notes: "Tournament-level facts from public cricket references; match count pending discovery."
+
+  - tournament_id: ODI_M_2019
+    tournament_name: ICC Cricket World Cup 2019
+    year: 2019
+    format: ODI
+    gender: Men
+    host_country: England; Wales
+    start_date: "2019-05-30"
+    end_date: "2019-07-14"
+    winner: England
+    runner_up: New Zealand
+    number_of_teams: 10
+    number_of_matches: null
+    source_url: "https://www.espncricinfo.com/series/icc-cricket-world-cup-2019-1144415"
+    collection_status: not_started
+    completion_status: completed
+    metadata_notes: "Tournament-level facts from public cricket references; match count pending discovery."
+
+  - tournament_id: ODI_M_2023
+    tournament_name: ICC Cricket World Cup 2023
+    year: 2023
+    format: ODI
+    gender: Men
+    host_country: India
+    start_date: "2023-10-05"
+    end_date: "2023-11-19"
+    winner: Australia
+    runner_up: India
+    number_of_teams: 10
+    number_of_matches: null
+    source_url: "https://www.espncricinfo.com/series/icc-cricket-world-cup-2023-24-1367856"
+    collection_status: not_started
+    completion_status: completed
+    metadata_notes: "ESPNcricinfo series URL verified via public search; match count pending discovery."
+
+  # --- Men's T20 World Cup ---
+  - tournament_id: T20_M_2007
+    tournament_name: ICC World Twenty20 2007
+    year: 2007
+    format: T20
+    gender: Men
+    host_country: South Africa
+    start_date: "2007-09-11"
+    end_date: "2007-09-24"
+    winner: India
+    runner_up: Pakistan
+    number_of_teams: 12
+    number_of_matches: null
+    source_url: "https://www.espncricinfo.com/series/icc-world-twenty20-2007-08-286109"
+    collection_status: not_started
+    completion_status: completed
+    metadata_notes: "Tournament-level facts from public cricket references; match count pending discovery."
+
+  - tournament_id: T20_M_2009
+    tournament_name: ICC World Twenty20 2009
+    year: 2009
+    format: T20
+    gender: Men
+    host_country: England
+    start_date: "2009-06-05"
+    end_date: "2009-06-21"
+    winner: Pakistan
+    runner_up: Sri Lanka
+    number_of_teams: 12
+    number_of_matches: null
+    source_url: "https://www.espncricinfo.com/series/icc-world-twenty20-2009-335113"
+    collection_status: not_started
+    completion_status: completed
+    metadata_notes: "Tournament-level facts from public cricket references; match count pending discovery."
+
+  - tournament_id: T20_M_2010
+    tournament_name: ICC World Twenty20 2010
+    year: 2010
+    format: T20
+    gender: Men
+    host_country: West Indies
+    start_date: "2010-04-30"
+    end_date: "2010-05-16"
+    winner: England
+    runner_up: Australia
+    number_of_teams: 12
+    number_of_matches: null
+    source_url: "https://www.espncricinfo.com/series/icc-world-twenty20-2010-412671"
+    collection_status: not_started
+    completion_status: completed
+    metadata_notes: "Tournament-level facts from public cricket references; match count pending discovery."
+
+  - tournament_id: T20_M_2012
+    tournament_name: ICC World Twenty20 2012
+    year: 2012
+    format: T20
+    gender: Men
+    host_country: Sri Lanka
+    start_date: "2012-09-18"
+    end_date: "2012-10-07"
+    winner: West Indies
+    runner_up: Sri Lanka
+    number_of_teams: 12
+    number_of_matches: null
+    source_url: "https://www.espncricinfo.com/series/icc-world-twenty20-2012-13-531597"
+    collection_status: not_started
+    completion_status: completed
+    metadata_notes: "Tournament-level facts from public cricket references; match count pending discovery."
+
+  - tournament_id: T20_M_2014
+    tournament_name: ICC World Twenty20 2014
+    year: 2014
+    format: T20
+    gender: Men
+    host_country: Bangladesh
+    start_date: "2014-03-16"
+    end_date: "2014-04-06"
+    winner: Sri Lanka
+    runner_up: India
+    number_of_teams: 16
+    number_of_matches: null
+    source_url: "https://www.espncricinfo.com/series/world-t20-2013-14-628368"
+    collection_status: not_started
+    completion_status: completed
+    metadata_notes: "Tournament-level facts from public cricket references; match count pending discovery."
+
+  - tournament_id: T20_M_2016
+    tournament_name: ICC World Twenty20 2016
+    year: 2016
+    format: T20
+    gender: Men
+    host_country: India
+    start_date: "2016-03-08"
+    end_date: "2016-04-03"
+    winner: West Indies
+    runner_up: England
+    number_of_teams: 16
+    number_of_matches: null
+    source_url: "https://www.espncricinfo.com/series/world-t20-2015-16-901359"
+    collection_status: not_started
+    completion_status: completed
+    metadata_notes: "Tournament-level facts from public cricket references; match count pending discovery."
+
+  - tournament_id: T20_M_2021
+    tournament_name: ICC Men's T20 World Cup 2021
+    year: 2021
+    format: T20
+    gender: Men
+    host_country: United Arab Emirates; Oman
+    start_date: "2021-10-17"
+    end_date: "2021-11-14"
+    winner: Australia
+    runner_up: New Zealand
+    number_of_teams: 16
+    number_of_matches: null
+    source_url: "https://www.espncricinfo.com/series/icc-men-s-t20-world-cup-2021-22-1267897"
+    collection_status: not_started
+    completion_status: completed
+    metadata_notes: "Tournament-level facts from public cricket references; match count pending discovery."
+
+  - tournament_id: T20_M_2022
+    tournament_name: ICC Men's T20 World Cup 2022
+    year: 2022
+    format: T20
+    gender: Men
+    host_country: Australia
+    start_date: "2022-10-16"
+    end_date: "2022-11-13"
+    winner: England
+    runner_up: Pakistan
+    number_of_teams: 16
+    number_of_matches: null
+    source_url: "https://www.espncricinfo.com/series/icc-men-s-t20-world-cup-2022-23-1298134"
+    collection_status: not_started
+    completion_status: completed
+    metadata_notes: "Tournament-level facts from public cricket references; match count pending discovery."
+
+  - tournament_id: T20_M_2024
+    tournament_name: ICC Men's T20 World Cup 2024
+    year: 2024
+    format: T20
+    gender: Men
+    host_country: West Indies; United States
+    start_date: "2024-06-01"
+    end_date: "2024-06-29"
+    winner: India
+    runner_up: South Africa
+    number_of_teams: 20
+    number_of_matches: null
+    source_url: "https://www.espncricinfo.com/series/icc-men-s-t20-world-cup-2024-1411166"
+    collection_status: not_started
+    completion_status: completed
+    metadata_notes: "Tournament-level facts from public cricket references; match count pending discovery."
+
+  - tournament_id: T20_M_2026
+    tournament_name: ICC Men's T20 World Cup 2026
+    year: 2026
+    format: T20
+    gender: Men
+    host_country: India; Sri Lanka
+    start_date: "2026-02-07"
+    end_date: "2026-03-08"
+    winner: India
+    runner_up: New Zealand
+    number_of_teams: 20
+    number_of_matches: null
+    source_url: "https://www.espncricinfo.com/series/icc-men-s-t20-world-cup-2025-26-1502138"
+    collection_status: not_started
+    completion_status: completed
+    metadata_notes: >
+      Completion verified from ICC / ESPNcricinfo / Reuters public reports
+      (India defeated New Zealand in the final, 8 March 2026).
+      Match count still pending discovery. Do not fabricate deliveries.

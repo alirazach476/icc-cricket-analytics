@@ -1,0 +1,56 @@
+{
+ "match_id": "1529247",
+ "tournament_id": "WTC_M_2027",
+ "source_url": "https://www.espncricinfo.com/series/australia-in-india-2026-27-1529225/india-vs-australia-4th-test-1529247/full-scorecard",
+ "source_name": "ESPNcricinfo",
+ "parse_status": "partial",
+ "scorecard_status": "partial",
+ "warnings": [
+  "No innings found in scorecard payload"
+ ],
+ "match": {
+  "match_id": "1529247",
+  "tournament_id": "WTC_M_2027",
+  "source_match_id": "1529247",
+  "match_date": "2027-02-19",
+  "start_time": "2027-02-19T04:00:00.000Z",
+  "venue": "JSCA International Stadium Complex, Ranchi",
+  "city": "Ranchi",
+  "title": "4th Test",
+  "status": "{{MATCH_START_TIME}}",
+  "status_text": "Match yet to begin",
+  "result_type": "{{MATCH_START_TIME}}",
+  "result_margin": "Match yet to begin",
+  "is_cancelled": false,
+  "is_super_over": false,
+  "toss_winner_id": null,
+  "toss_decision": null,
+  "winner_id": null,
+  "team1_id": "espn_6",
+  "team2_id": "espn_2",
+  "player_of_match_id": null,
+  "umpires": null,
+  "match_referee": null,
+  "source_url": "https://www.espncricinfo.com/series/australia-in-india-2026-27-1529225/india-vs-australia-4th-test-1529247/full-scorecard"
+ },
+ "innings": [],
+ "batting_scorecards": [],
+ "bowling_scorecards": [],
+ "fielding_scorecards": [],
+ "awards": [],
+ "players": [],
+ "teams": [
+  {
+   "team_id": "espn_6",
+   "source_team_id": "6",
+   "team_name": "India",
+   "abbreviation": "IND"
+  },
+  {
+   "team_id": "espn_2",
+   "source_team_id": "2",
+   "team_name": "Australia",
+   "abbreviation": "AUS"
+  }
+ ]
+}

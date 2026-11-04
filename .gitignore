@@ -1,0 +1,95 @@
+# Environment
+.env
+.venv/
+venv/
+env/
+ENV/
+
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+*.egg
+*.egg-info/
+dist/
+build/
+.eggs/
+pip-wheel-metadata/
+
+# Testing / coverage
+.pytest_cache/
+.coverage
+htmlcov/
+.mypy_cache/
+.ruff_cache/
+.tox/
+
+# IDE
+.idea/
+.vscode/
+*.swp
+*.swo
+.DS_Store
+Thumbs.db
+
+# Logs
+logs/*
+!logs/.gitkeep
+*.log
+
+# Raw & processed data (keep structure, ignore contents)
+data/raw/**/*
+!data/raw/**/.gitkeep
+data/processed/**/*
+!data/processed/**/.gitkeep
+data/warehouse/*.duckdb
+data/warehouse/*.duckdb.wal
+data/warehouse/parquet/**/*
+!data/warehouse/parquet/.gitkeep
+
+# Manifests may contain runtime status — keep headers via seed, ignore runtime CSVs if needed
+# data/manifests/*.csv is tracked initially; collection_status updates are local
+
+# dbt
+dbt/target/
+dbt/dbt_packages/
+dbt/logs/
+dbt/.user.yml
+
+# Docker
+postgres_data/
+
+# OS / misc
+*.tmp
+*.bak
+.cache/
+
+# Probe / temporary scrape artifacts
+data/raw/tournaments/_probe/
+
+
+# Medallion layers (generated; rebuild with scripts/build_lakehouse.py)
+data/bronze/**/*
+data/silver/**/*
+data/gold/**/*
+
+
+# dbt build artefacts
+dbt_gold/target/
+dbt_gold/logs/
+dbt_gold/dbt_packages/
+
+# The four gold DuckDB files are tracked so the dashboard runs straight after cloning
+!data/warehouse/cricket_gold.duckdb
+!data/warehouse/cricket_gold_ct.duckdb
+!data/warehouse/cricket_gold_wtc.duckdb
+!data/warehouse/cricket_gold_wc27.duckdb
+
+# Frontend / deployment
+web/node_modules/
+web/dist/
+build/
+.vercel
+.env.local

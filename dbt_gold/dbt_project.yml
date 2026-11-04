@@ -1,0 +1,13 @@
+# dbt project on the resolved gold layer (Stage 7). Separate from ./dbt, which models the as-collected tables.
+name: cricket_gold_analytics
+version: "1.0.0"
+config-version: 2
+profile: cricket_gold_analytics
+model-paths: ["models"]
+test-paths: ["tests"]
+target-path: "target"
+clean-targets: ["target", "logs"]
+models:
+  cricket_gold_analytics:
+    +materialized: table
+    +schema: analytics

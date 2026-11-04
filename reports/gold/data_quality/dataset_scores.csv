@@ -1,0 +1,9 @@
+dataset,completeness,uniqueness,validity,referential_integrity,consistency,historical_coverage,overall,rules_evaluated,rules_failing,critical_rules_failing
+gold.dim_players,,99.7,,,,,99.7,1,1,0
+gold.dim_venues,,100.0,,,,,100.0,1,0,0
+gold.fact_deliveries,,,100.0,100.0,,,100.0,4,1,0
+gold.fact_innings,,,,,100.0,,100.0,3,1,1
+gold.fact_matches,100.0,,,100.0,100.0,91.6,97.9,8,1,0
+gold.fact_player_performances,,,100.0,,,,100.0,1,0,0
+gold.fact_tournament_standings,,,,,100.0,,100.0,1,0,0
+gold.mart_data_coverage,,,,,,100.0,100.0,3,0,0

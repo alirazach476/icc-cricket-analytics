@@ -1,0 +1,15 @@
+{
+  "runs_for_diff": 0.5496,
+  "elo_diff": 0.4246,
+  "venue_avg_first_innings": -0.1876,
+  "h2h_rate_a": 0.1774,
+  "win_rate_diff": 0.1605,
+  "toss_field": 0.1212,
+  "runs_against_diff": -0.1008,
+  "is_t20": -0.0836,
+  "is_knockout": -0.0757,
+  "year": -0.0328,
+  "min_prior_matches": 0.0214,
+  "toss_edge_a": -0.0116,
+  "form_diff": 0.0012
+}

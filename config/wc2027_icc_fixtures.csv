@@ -1,0 +1,58 @@
+match_no,date,team1,team2,city,phase
+1,2027-10-02,QF1,QF3,Windhoek,Super Series
+2,2027-10-04,QF1,QF2,Windhoek,Super Series
+3,2027-10-06,QF2,QF3,Windhoek,Super Series
+4,2027-10-07,India,Australia,Cape Town,Group Stage
+5,2027-10-08,Pakistan,Afghanistan,Tshwane,Group Stage
+6,2027-10-08,England,Bangladesh,Windhoek,Group Stage
+7,2027-10-09,Zimbabwe,Qualifier A,Bulawayo,Group Stage
+8,2027-10-09,South Africa,New Zealand,Cape Town,Group Stage
+9,2027-10-10,India,Pakistan,Johannesburg,Group Stage
+10,2027-10-10,Sri Lanka,Qualifier B,Windhoek,Group Stage
+11,2027-10-11,Zimbabwe,Afghanistan,Bulawayo,Group Stage
+12,2027-10-12,Australia,Qualifier A,Paarl,Group Stage
+13,2027-10-12,New Zealand,Bangladesh,KuGompo City,Group Stage
+14,2027-10-13,England,Sri Lanka,Windhoek,Group Stage
+15,2027-10-13,South Africa,Qualifier B,Paarl,Group Stage
+16,2027-10-14,India,Afghanistan,Tshwane,Group Stage
+17,2027-10-15,Pakistan,Qualifier A,Bloemfontein,Group Stage
+18,2027-10-15,Zimbabwe,Australia,Harare,Group Stage
+19,2027-10-16,Sri Lanka,Bangladesh,Durban,Group Stage
+20,2027-10-16,South Africa,England,Gqeberha,Group Stage
+21,2027-10-17,India,Qualifier A,Bloemfontein,Group Stage
+22,2027-10-17,New Zealand,Qualifier B,Harare,Group Stage
+23,2027-10-18,Australia,Afghanistan,KuGompo City,Group Stage
+24,2027-10-19,Zimbabwe,Pakistan,Harare,Group Stage
+25,2027-10-19,South Africa,Bangladesh,Durban,Group Stage
+26,2027-10-20,New Zealand,Sri Lanka,Johannesburg,Group Stage
+27,2027-10-20,England,Qualifier B,Harare,Group Stage
+28,2027-10-21,Afghanistan,Qualifier A,KuGompo City,Group Stage
+29,2027-10-22,Australia,Pakistan,Paarl,Group Stage
+30,2027-10-22,South Africa,Sri Lanka,Johannesburg,Group Stage
+31,2027-10-23,England,New Zealand,Gqeberha,Group Stage
+32,2027-10-23,Bangladesh,Qualifier B,Tshwane,Group Stage
+33,2027-10-24,Zimbabwe,India,Victoria Falls,Group Stage
+34,2027-10-25,A2,B3,Johannesburg,Super 7
+35,2027-10-26,B1,A3,Gqeberha,Super 7
+36,2027-10-27,B2,AB4,Tshwane,Super 7
+37,2027-10-28,A1,A2,Victoria Falls,Super 7
+38,2027-10-29,B1,B3,KuGompo City,Super 7
+39,2027-10-30,A3,AB4,Victoria Falls,Super 7
+40,2027-10-31,B2,A1,Johannesburg,Super 7
+41,2027-11-01,A2,B1,Victoria Falls,Super 7
+42,2027-11-02,B3,AB4,Cape Town,Super 7
+43,2027-11-03,B2,A3,Durban,Super 7
+44,2027-11-04,A1,B1,Paarl,Super 7
+45,2027-11-05,A2,AB4,Durban,Super 7
+46,2027-11-06,B2,B3,Bloemfontein,Super 7
+47,2027-11-07,A1,A3,Cape Town,Super 7
+48,2027-11-08,B1,AB4,Durban,Super 7
+49,2027-11-09,B2,A2,Gqeberha,Super 7
+50,2027-11-10,A3,B3,Bloemfontein,Super 7
+51,2027-11-11,A1,AB4,Gqeberha,Super 7
+52,2027-11-12,B2,B1,Cape Town,Super 7
+53,2027-11-13,A2,A3,Bloemfontein,Super 7
+54,2027-11-14,A1,B3,Durban,Super 7
+55,2027-11-17,Semi-Final 1,,Cape Town,Semi-final
+56,2027-11-18,Semi-Final 2,,Tshwane,Semi-final
+57,2027-11-21,Final,,Johannesburg,Final

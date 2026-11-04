@@ -1,0 +1,56 @@
+{
+ "match_id": "1219117",
+ "tournament_id": "WTC_M_2021",
+ "source_url": "https://www.espncricinfo.com/series/australia-in-bangladesh-2020-1219114/bangladesh-vs-australia-2nd-test-1219117/full-scorecard",
+ "source_name": "ESPNcricinfo",
+ "parse_status": "partial",
+ "scorecard_status": "partial",
+ "warnings": [
+  "No innings found in scorecard payload"
+ ],
+ "match": {
+  "match_id": "1219117",
+  "tournament_id": "WTC_M_2021",
+  "source_match_id": "1219117",
+  "match_date": "2020-06-19",
+  "start_time": "2020-06-19T03:30:00.000Z",
+  "venue": "Shere Bangla National Stadium, Mirpur",
+  "city": "Dhaka",
+  "title": "2nd Test",
+  "status": "POSTPONED",
+  "status_text": null,
+  "result_type": "POSTPONED",
+  "result_margin": null,
+  "is_cancelled": false,
+  "is_super_over": false,
+  "toss_winner_id": null,
+  "toss_decision": null,
+  "winner_id": null,
+  "team1_id": "espn_25",
+  "team2_id": "espn_2",
+  "player_of_match_id": null,
+  "umpires": null,
+  "match_referee": null,
+  "source_url": "https://www.espncricinfo.com/series/australia-in-bangladesh-2020-1219114/bangladesh-vs-australia-2nd-test-1219117/full-scorecard"
+ },
+ "innings": [],
+ "batting_scorecards": [],
+ "bowling_scorecards": [],
+ "fielding_scorecards": [],
+ "awards": [],
+ "players": [],
+ "teams": [
+  {
+   "team_id": "espn_25",
+   "source_team_id": "25",
+   "team_name": "Bangladesh",
+   "abbreviation": "BAN"
+  },
+  {
+   "team_id": "espn_2",
+   "source_team_id": "2",
+   "team_name": "Australia",
+   "abbreviation": "AUS"
+  }
+ ]
+}

@@ -1,0 +1,56 @@
+{
+ "match_id": "1525671",
+ "tournament_id": "WTC_M_2027",
+ "source_url": "https://www.espncricinfo.com/series/england-in-south-africa-2026-27-1525641/south-africa-vs-england-1st-test-1525671/full-scorecard",
+ "source_name": "ESPNcricinfo",
+ "parse_status": "partial",
+ "scorecard_status": "partial",
+ "warnings": [
+  "No innings found in scorecard payload"
+ ],
+ "match": {
+  "match_id": "1525671",
+  "tournament_id": "WTC_M_2027",
+  "source_match_id": "1525671",
+  "match_date": "2026-12-17",
+  "start_time": "2026-12-17T08:00:00.000Z",
+  "venue": "The Wanderers Stadium, Johannesburg",
+  "city": "Johannesburg",
+  "title": "1st Test",
+  "status": "{{MATCH_START_TIME}}",
+  "status_text": "Match yet to begin",
+  "result_type": "{{MATCH_START_TIME}}",
+  "result_margin": "Match yet to begin",
+  "is_cancelled": false,
+  "is_super_over": false,
+  "toss_winner_id": null,
+  "toss_decision": null,
+  "winner_id": null,
+  "team1_id": "espn_3",
+  "team2_id": "espn_1",
+  "player_of_match_id": null,
+  "umpires": null,
+  "match_referee": null,
+  "source_url": "https://www.espncricinfo.com/series/england-in-south-africa-2026-27-1525641/south-africa-vs-england-1st-test-1525671/full-scorecard"
+ },
+ "innings": [],
+ "batting_scorecards": [],
+ "bowling_scorecards": [],
+ "fielding_scorecards": [],
+ "awards": [],
+ "players": [],
+ "teams": [
+  {
+   "team_id": "espn_3",
+   "source_team_id": "3",
+   "team_name": "South Africa",
+   "abbreviation": "SA"
+  },
+  {
+   "team_id": "espn_1",
+   "source_team_id": "1",
+   "team_name": "England",
+   "abbreviation": "ENG"
+  }
+ ]
+}

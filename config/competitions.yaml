@@ -1,0 +1,28 @@
+# Extra ICC competitions (men's). Tournament facts that the data itself cannot give (hosts, official names).
+# Winners / runners-up are NOT written here: they are derived from the final's result in the match data.
+# There is no Champions Trophy in 2026 (the next one is 2029) so none is listed.
+competitions:
+  CT:
+    name: ICC Champions Trophy
+    short: Champions Trophy
+    format: ODI
+    editions:
+      # 2002 (Sri Lanka) is not in Cricsheet: scorecards come from ESPNcricinfo (no ball-by-ball exists).
+      - {year: 2002, host_country: "Sri Lanka", source: espncricinfo, joint_winners: ["India", "Sri Lanka"], espn_series: icc-champions-trophy-2002-03-61114}
+      - {year: 2004, host_country: "England", source: cricsheet, scheduled_matches: 15, espn_series: icc-champions-trophy-2004-61157}
+      - {year: 2006, host_country: "India", source: cricsheet, scheduled_matches: 21, espn_series: icc-champions-trophy-2006-07-232694}
+      - {year: 2009, host_country: "South Africa", source: cricsheet, scheduled_matches: 15, espn_series: icc-champions-trophy-2009-10-374074}
+      - {year: 2013, host_country: "England; Wales", source: cricsheet, scheduled_matches: 15, espn_series: icc-champions-trophy-2013-566910}
+      - {year: 2017, host_country: "England; Wales", source: cricsheet, scheduled_matches: 15, espn_series: icc-champions-trophy-2017-1022345}
+      - {year: 2025, host_country: "Pakistan; United Arab Emirates", source: cricsheet, scheduled_matches: 15, espn_series: icc-champions-trophy-2024-25-1459031}
+  WTC:
+    name: ICC World Test Championship
+    short: World Test Championship
+    format: Test
+    # Each edition is one cycle. Membership (which Tests belong to a cycle) comes from ESPNcricinfo's own series
+    # schedule; ball-by-ball comes from Cricsheet. The 2025-27 cycle is still in progress (no final yet).
+    editions:
+      - {year: 2021, label: "2019-21", host_country: "England", source: cricsheet, espn_series: icc-world-test-championship-2019-2021-1195334}
+      - {year: 2023, label: "2021-23", host_country: "England", source: cricsheet, espn_series: icc-world-test-championship-2021-2023-1268315}
+      - {year: 2025, label: "2023-25", host_country: "England", source: cricsheet, espn_series: icc-world-test-championship-2023-2025-1345943}
+      - {year: 2027, label: "2025-27", host_country: "Various", source: cricsheet, in_progress: true, espn_series: icc-world-test-championship-2025-2027-1472510}

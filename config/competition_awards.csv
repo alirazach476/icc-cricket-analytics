@@ -1,0 +1,10 @@
+tournament_id,award_type,player_name,team_name,source
+CT_M_2004,player_of_the_tournament,Ramnaresh Sarwan,West Indies,user-supplied
+CT_M_2006,player_of_the_tournament,Chris Gayle,West Indies,user-supplied
+CT_M_2009,player_of_the_tournament,Ricky Ponting,Australia,user-supplied
+CT_M_2013,player_of_the_tournament,Shikhar Dhawan,India,user-supplied
+CT_M_2017,player_of_the_tournament,Hasan Ali,Pakistan,user-supplied
+CT_M_2025,player_of_the_tournament,Rachin Ravindra,New Zealand,user-supplied
+WTC_M_2021,player_of_the_tournament,Kyle Jamieson,New Zealand,user-supplied (WTC has no overall award: this is the final's player of the match)
+WTC_M_2023,player_of_the_tournament,Travis Head,Australia,user-supplied (WTC has no overall award: this is the final's player of the match)
+WTC_M_2025,player_of_the_tournament,Aiden Markram,South Africa,user-supplied (WTC has no overall award: this is the final's player of the match)

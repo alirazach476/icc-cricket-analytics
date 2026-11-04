@@ -1,0 +1,16 @@
+# Local DuckDB profile for CricketWorldCup Analytics (Stage 12).
+# Paths are relative to the repository root (run via scripts/run_dbt.py).
+
+cricket_worldcup_analytics:
+  target: dev
+  outputs:
+    dev:
+      type: duckdb
+      path: "data/warehouse/cricket.duckdb"
+      schema: analytics
+      threads: 4
+    odi_2023:
+      type: duckdb
+      path: "data/warehouse/cricket_ODI_M_2023.duckdb"
+      schema: analytics
+      threads: 4

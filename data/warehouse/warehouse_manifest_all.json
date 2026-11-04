@@ -1,0 +1,72 @@
+{
+  "started_at": "2026-11-03T16:28:18+00:00",
+  "finished_at": "2026-11-03T16:28:33+00:00",
+  "tournament_id": null,
+  "duckdb_path": "C:\\Users\\DELL\\Downloads\\icc world cups anaylsis\\cricket-worldcup-analytics\\data\\warehouse\\cricket.duckdb",
+  "parquet_dir": "C:\\Users\\DELL\\Downloads\\icc world cups anaylsis\\cricket-worldcup-analytics\\data\\warehouse\\parquet",
+  "tables": {
+    "sources": {
+      "rows": 2,
+      "parquet": "C:\\Users\\DELL\\Downloads\\icc world cups anaylsis\\cricket-worldcup-analytics\\data\\warehouse\\parquet\\sources.parquet"
+    },
+    "tournaments": {
+      "rows": 16,
+      "parquet": "C:\\Users\\DELL\\Downloads\\icc world cups anaylsis\\cricket-worldcup-analytics\\data\\warehouse\\parquet\\tournaments.parquet"
+    },
+    "teams": {
+      "rows": 28,
+      "parquet": "C:\\Users\\DELL\\Downloads\\icc world cups anaylsis\\cricket-worldcup-analytics\\data\\warehouse\\parquet\\teams.parquet"
+    },
+    "players": {
+      "rows": 2521,
+      "parquet": "C:\\Users\\DELL\\Downloads\\icc world cups anaylsis\\cricket-worldcup-analytics\\data\\warehouse\\parquet\\players.parquet"
+    },
+    "matches": {
+      "rows": 677,
+      "parquet": "C:\\Users\\DELL\\Downloads\\icc world cups anaylsis\\cricket-worldcup-analytics\\data\\warehouse\\parquet\\matches.parquet"
+    },
+    "match_teams": {
+      "rows": 1354,
+      "parquet": "C:\\Users\\DELL\\Downloads\\icc world cups anaylsis\\cricket-worldcup-analytics\\data\\warehouse\\parquet\\match_teams.parquet"
+    },
+    "innings": {
+      "rows": 1326,
+      "parquet": "C:\\Users\\DELL\\Downloads\\icc world cups anaylsis\\cricket-worldcup-analytics\\data\\warehouse\\parquet\\innings.parquet"
+    },
+    "deliveries": {
+      "rows": 193779,
+      "parquet": "C:\\Users\\DELL\\Downloads\\icc world cups anaylsis\\cricket-worldcup-analytics\\data\\warehouse\\parquet\\deliveries.parquet"
+    },
+    "batting_scorecards": {
+      "rows": 14488,
+      "parquet": "C:\\Users\\DELL\\Downloads\\icc world cups anaylsis\\cricket-worldcup-analytics\\data\\warehouse\\parquet\\batting_scorecards.parquet"
+    },
+    "bowling_scorecards": {
+      "rows": 7868,
+      "parquet": "C:\\Users\\DELL\\Downloads\\icc world cups anaylsis\\cricket-worldcup-analytics\\data\\warehouse\\parquet\\bowling_scorecards.parquet"
+    },
+    "fielding_scorecards": {
+      "rows": 5045,
+      "parquet": "C:\\Users\\DELL\\Downloads\\icc world cups anaylsis\\cricket-worldcup-analytics\\data\\warehouse\\parquet\\fielding_scorecards.parquet"
+    },
+    "standings": {
+      "rows": 304,
+      "parquet": "C:\\Users\\DELL\\Downloads\\icc world cups anaylsis\\cricket-worldcup-analytics\\data\\warehouse\\parquet\\standings.parquet"
+    },
+    "squads": {
+      "rows": 3624,
+      "parquet": "C:\\Users\\DELL\\Downloads\\icc world cups anaylsis\\cricket-worldcup-analytics\\data\\warehouse\\parquet\\squads.parquet"
+    },
+    "collection_runs": {
+      "rows": 49,
+      "parquet": "C:\\Users\\DELL\\Downloads\\icc world cups anaylsis\\cricket-worldcup-analytics\\data\\warehouse\\parquet\\collection_runs.parquet"
+    },
+    "data_quality_results": {
+      "rows": 1142,
+      "parquet": "C:\\Users\\DELL\\Downloads\\icc world cups anaylsis\\cricket-worldcup-analytics\\data\\warehouse\\parquet\\data_quality_results.parquet"
+    }
+  },
+  "total_rows": 232223,
+  "claims_complete_coverage": false,
+  "notes": "DuckDB/Parquet mirror PostgreSQL contents only. Tournament-scoped exports use a separate DuckDB file under data/warehouse/."
+}

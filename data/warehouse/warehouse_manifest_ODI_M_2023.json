@@ -1,0 +1,32 @@
+{
+  "started_at": "2026-11-03T19:00:47+00:00",
+  "finished_at": "2026-11-03T19:00:48+00:00",
+  "tournament_id": "ODI_M_2023",
+  "duckdb_path": "C:\\Users\\DELL\\Downloads\\icc world cups anaylsis\\cricket-worldcup-analytics\\data\\warehouse\\cricket_ODI_M_2023.duckdb",
+  "parquet_dir": "C:\\Users\\DELL\\Downloads\\icc world cups anaylsis\\cricket-worldcup-analytics\\data\\warehouse\\parquet\\ODI_M_2023",
+  "tables": {
+    "tournaments": {
+      "rows": 1,
+      "parquet": "C:\\Users\\DELL\\Downloads\\icc world cups anaylsis\\cricket-worldcup-analytics\\data\\warehouse\\parquet\\ODI_M_2023\\tournaments.parquet"
+    },
+    "matches": {
+      "rows": 48,
+      "parquet": "C:\\Users\\DELL\\Downloads\\icc world cups anaylsis\\cricket-worldcup-analytics\\data\\warehouse\\parquet\\ODI_M_2023\\matches.parquet"
+    },
+    "innings": {
+      "rows": 96,
+      "parquet": "C:\\Users\\DELL\\Downloads\\icc world cups anaylsis\\cricket-worldcup-analytics\\data\\warehouse\\parquet\\ODI_M_2023\\innings.parquet"
+    },
+    "deliveries": {
+      "rows": 21195,
+      "parquet": "C:\\Users\\DELL\\Downloads\\icc world cups anaylsis\\cricket-worldcup-analytics\\data\\warehouse\\parquet\\ODI_M_2023\\deliveries.parquet"
+    },
+    "teams": {
+      "rows": 10,
+      "parquet": "C:\\Users\\DELL\\Downloads\\icc world cups anaylsis\\cricket-worldcup-analytics\\data\\warehouse\\parquet\\ODI_M_2023\\teams.parquet"
+    }
+  },
+  "total_rows": 21350,
+  "claims_complete_coverage": false,
+  "notes": "DuckDB/Parquet mirror PostgreSQL contents only. Tournament-scoped exports use a separate DuckDB file under data/warehouse/."
+}

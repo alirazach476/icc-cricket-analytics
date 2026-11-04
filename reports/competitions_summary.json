@@ -1,0 +1,158 @@
+{
+ "started": "2026-11-04T07:54:49.699513+00:00",
+ "competitions": {
+  "CT": {
+   "silver_rows": {
+    "tournaments": 6,
+    "teams": 12,
+    "matches": 90,
+    "innings": 179,
+    "deliveries": 47032,
+    "players": 455,
+    "batting": 1969,
+    "bowling": 1064,
+    "fielding": 662,
+    "squads": 674,
+    "standings": 0,
+    "awards": 86
+   },
+   "gold_rows": {
+    "dim_tournaments": 6,
+    "dim_teams": 12,
+    "dim_players": 455,
+    "dim_venues": 14,
+    "dim_dates": 7486,
+    "fact_deliveries": 47032,
+    "fact_innings": 179,
+    "fact_matches": 90,
+    "fact_player_performances": 1992,
+    "fact_super_over_performances": 0,
+    "fact_tournament_standings": 0,
+    "fact_squads": 674,
+    "mart_batting": 629,
+    "mart_batting_career": 428,
+    "mart_bowling": 419,
+    "mart_bowling_career": 294,
+    "mart_team_performance": 53,
+    "mart_tournament_summary": 6,
+    "mart_data_coverage": 6
+   },
+   "duckdb": "data\\warehouse\\cricket_gold_ct.duckdb",
+   "duckdb_rows": {
+    "dim_dates": 7486,
+    "dim_teams": 12,
+    "dim_players": 455,
+    "dim_venues": 14,
+    "dim_tournaments": 6,
+    "fact_matches": 90,
+    "fact_innings": 179,
+    "fact_deliveries": 47032,
+    "fact_player_performances": 1992,
+    "fact_super_over_performances": 0,
+    "fact_tournament_standings": 0,
+    "fact_squads": 674,
+    "mart_batting": 629,
+    "mart_batting_career": 428,
+    "mart_bowling": 419,
+    "mart_bowling_career": 294,
+    "mart_team_performance": 53,
+    "mart_tournament_summary": 6,
+    "mart_data_coverage": 6
+   },
+   "matches_per_year": {
+    "2004": 14,
+    "2006": 21,
+    "2009": 15,
+    "2013": 15,
+    "2017": 15,
+    "2025": 10
+   },
+   "coverage_gaps": [
+    {
+     "year": 2002,
+     "have": 0,
+     "scheduled": null,
+     "note": "no open data source; not loadable automatically"
+    },
+    {
+     "year": 2004,
+     "have": 14,
+     "scheduled": 15,
+     "note": "Cricsheet omits abandoned / no-result matches (and some others)"
+    },
+    {
+     "year": 2025,
+     "have": 10,
+     "scheduled": 15,
+     "note": "Cricsheet omits abandoned / no-result matches (and some others)"
+    }
+   ]
+  },
+  "WTC": {
+   "silver_rows": {
+    "tournaments": 3,
+    "teams": 4,
+    "matches": 3,
+    "innings": 12,
+    "deliveries": 5539,
+    "players": 51,
+    "batting": 119,
+    "bowling": 62,
+    "fielding": 37,
+    "squads": 66,
+    "standings": 0,
+    "awards": 3
+   },
+   "gold_rows": {
+    "dim_tournaments": 3,
+    "dim_teams": 4,
+    "dim_players": 51,
+    "dim_venues": 3,
+    "dim_dates": 1455,
+    "fact_deliveries": 5539,
+    "fact_innings": 12,
+    "fact_matches": 3,
+    "fact_player_performances": 120,
+    "fact_super_over_performances": 0,
+    "fact_tournament_standings": 0,
+    "fact_squads": 66,
+    "mart_batting": 66,
+    "mart_batting_career": 50,
+    "mart_bowling": 32,
+    "mart_bowling_career": 27,
+    "mart_team_performance": 6,
+    "mart_tournament_summary": 3,
+    "mart_data_coverage": 3
+   },
+   "duckdb": "data\\warehouse\\cricket_gold_wtc.duckdb",
+   "duckdb_rows": {
+    "dim_dates": 1455,
+    "dim_teams": 4,
+    "dim_players": 51,
+    "dim_venues": 3,
+    "dim_tournaments": 3,
+    "fact_matches": 3,
+    "fact_innings": 12,
+    "fact_deliveries": 5539,
+    "fact_player_performances": 120,
+    "fact_super_over_performances": 0,
+    "fact_tournament_standings": 0,
+    "fact_squads": 66,
+    "mart_batting": 66,
+    "mart_batting_career": 50,
+    "mart_bowling": 32,
+    "mart_bowling_career": 27,
+    "mart_team_performance": 6,
+    "mart_tournament_summary": 3,
+    "mart_data_coverage": 3
+   },
+   "matches_per_year": {
+    "2021": 1,
+    "2023": 1,
+    "2025": 1
+   },
+   "coverage_gaps": []
+  }
+ },
+ "finished": "2026-11-04T07:54:53.999494+00:00"
+}

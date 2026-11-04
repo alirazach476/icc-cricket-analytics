@@ -1,0 +1,62 @@
+# Application settings — CricketWorldCup Analytics
+# Override secrets and machine-specific values via .env
+
+app:
+  name: CricketWorldCup Analytics
+  version: "0.13.0"
+  environment: development
+
+paths:
+  data_dir: data
+  raw_dir: data/raw
+  processed_dir: data/processed
+  warehouse_dir: data/warehouse
+  manifests_dir: data/manifests
+  parquet_dir: data/warehouse/parquet
+  logs_dir: logs
+  config_dir: config
+
+database:
+  postgres:
+    # Connection details come primarily from environment variables.
+    # These are non-secret defaults for local Docker Compose.
+    host: localhost
+    port: 5433
+    database: cricket_worldcup
+    user: cricket
+  duckdb:
+    path: data/warehouse/cricket.duckdb
+
+collection:
+  request_delay_seconds: 1.5
+  timeout_seconds: 30
+  max_retries: 3
+  respect_robots_txt: true
+  enable_playwright: false
+  cache_enabled: true
+  user_agent: "CricketWorldCupAnalytics/0.1 (educational research; local use)"
+
+pipeline:
+  dry_run: false
+  incremental: true
+
+dashboard:
+  title: CricketWorldCup Analytics
+  port: 8501
+
+logging:
+  level: INFO
+  format: "%(asctime)s | %(levelname)-8s | %(name)s | %(message)s"
+
+scope:
+  # Only men's ICC ODI and T20 World Cups listed in tournaments.yaml
+  formats:
+    - ODI
+    - T20
+  gender: Men
+  year_start: 2003
+  year_end: 2026
+  # 2002 is the start of the requested historical period; there is no 2002 WC edition.
+  notes: >
+    Do not invent tournament editions. Treat T20_M_2026 as incomplete until
+    completion is verified from a reliable source.

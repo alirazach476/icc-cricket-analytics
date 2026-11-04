@@ -1,0 +1,53 @@
+version: 2
+
+models:
+  - name: stg_tournaments
+    columns:
+      - name: tournament_id
+        tests: [not_null, unique]
+  - name: stg_teams
+    columns:
+      - name: team_id
+        tests: [not_null, unique]
+  - name: stg_players
+    columns:
+      - name: player_id
+        tests: [not_null, unique]
+  - name: stg_matches
+    columns:
+      - name: match_id
+        tests: [not_null, unique]
+      - name: tournament_id
+        tests: [not_null]
+  - name: stg_innings
+    columns:
+      - name: innings_id
+        tests: [not_null, unique]
+      - name: match_id
+        tests: [not_null]
+  - name: stg_deliveries
+    columns:
+      - name: delivery_id
+        tests: [not_null, unique]
+      - name: match_id
+        tests: [not_null]
+      - name: delivery_sequence
+        tests: [not_null]
+  - name: stg_batting_scorecards
+    columns:
+      - name: match_id
+        tests: [not_null]
+      - name: player_id
+        tests: [not_null]
+  - name: stg_bowling_scorecards
+    columns:
+      - name: match_id
+        tests: [not_null]
+      - name: player_id
+        tests: [not_null]
+  - name: stg_fielding_scorecards
+    columns:
+      - name: match_id
+        tests: [not_null]
+      - name: player_id
+        tests: [not_null]

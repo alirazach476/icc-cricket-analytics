@@ -1,0 +1,52 @@
+# CricketWorldCup Analytics — Python dependencies
+# Python 3.12+
+
+# HTTP & scraping
+requests>=2.32.0,<3.0
+beautifulsoup4>=4.12.0,<5.0
+lxml>=5.0.0,<6.0
+playwright>=1.40.0,<2.0
+
+# Data processing
+pandas>=2.2.0,<3.0
+numpy>=1.26.0,<3.0
+scipy>=1.12.0,<2.0
+pyarrow>=15.0.0,<20.0
+
+# Validation & config
+pydantic>=2.6.0,<3.0
+pydantic-settings>=2.2.0,<3.0
+PyYAML>=6.0.1,<7.0
+python-dotenv>=1.0.0,<2.0
+tenacity>=8.2.0,<10.0
+
+# Databases
+psycopg2-binary>=2.9.9,<3.0
+SQLAlchemy>=2.0.25,<3.0
+alembic>=1.13.0,<2.0
+duckdb>=1.0.0,<2.0
+
+# Analytics, machine learning & dashboard
+scikit-learn>=1.4
+statsmodels>=0.14
+xgboost>=2.0
+shap>=0.45
+joblib>=1.3
+fastapi>=0.110
+uvicorn>=0.29
+plotly>=5.18.0,<6.0
+streamlit>=1.31.0,<2.0
+
+# dbt
+dbt-core>=1.7.0,<2.0
+dbt-postgres>=1.7.0,<2.0
+dbt-duckdb>=1.7.0,<2.0
+
+# Testing & quality
+pytest>=8.0.0,<9.0
+pytest-cov>=4.1.0,<6.0
+ruff>=0.3.0,<1.0
+
+# CLI
+click>=8.1.0,<9.0
+rich>=13.7.0,<14.0

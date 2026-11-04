@@ -1,0 +1,9 @@
+feature,mean_importance,std_across_folds,positive_folds,folds,family
+bat_elo_diff,5.781697025277672,5.043435028901041,11,11,team strength
+bat_runs_for,0.16256139926792132,0.9197793318616346,5,11,team strength
+year,0.0,0.0,0,11,context
+is_t20,0.0,0.0,0,11,context
+format_avg_first_innings,-0.0029227800150881554,0.029276201172334784,3,11,context
+venue_prior_n,-0.011833482813726209,0.29679585597538183,4,11,venue
+bowl_runs_against,-0.026906789479345775,0.12387082419710817,5,11,team strength
+venue_avg_first_innings,-0.12781092090808935,0.4646700805063288,6,11,venue

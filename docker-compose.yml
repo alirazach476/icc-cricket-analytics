@@ -1,0 +1,46 @@
+# Optional local stack: PostgreSQL + Streamlit dashboard
+# Usage:
+#   docker compose up -d postgres
+#   docker compose up dashboard
+
+services:
+  postgres:
+    image: postgres:16-alpine
+    container_name: cricket_wc_postgres
+    restart: unless-stopped
+    environment:
+      POSTGRES_DB: cricket_worldcup
+      POSTGRES_USER: cricket
+      POSTGRES_PASSWORD: cricket_dev_password
+    ports:
+      # Host 5433 avoids conflict with any local Postgres already on 5432
+      - "5433:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U cricket -d cricket_worldcup"]
+      interval: 5s
+      timeout: 5s
+      retries: 10
+
+  dashboard:
+    build: .
+    container_name: cricket_wc_dashboard
+    restart: unless-stopped
+    depends_on:
+      postgres:
+        condition: service_healthy
+    env_file:
+      - .env
+    environment:
+      POSTGRES_HOST: postgres
+      DATABASE_URL: postgresql://cricket:cricket_dev_password@postgres:5432/cricket_worldcup
+    ports:
+      - "8501:8501"
+    volumes:
+      - ./data:/app/data
+      - ./config:/app/config
+      - ./logs:/app/logs
+
+volumes:
+  postgres_data:

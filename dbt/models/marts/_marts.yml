@@ -1,0 +1,71 @@
+version: 2
+
+models:
+  - name: dim_tournaments
+    columns:
+      - name: tournament_id
+        tests: [not_null, unique]
+  - name: dim_teams
+    columns:
+      - name: team_id
+        tests: [not_null, unique]
+  - name: dim_players
+    columns:
+      - name: player_id
+        tests: [not_null, unique]
+  - name: dim_matches
+    columns:
+      - name: match_id
+        tests: [not_null, unique]
+      - name: tournament_id
+        tests: [not_null]
+  - name: fct_innings
+    columns:
+      - name: innings_id
+        tests: [not_null, unique]
+  - name: fct_deliveries
+    columns:
+      - name: delivery_id
+        tests: [not_null, unique]
+  - name: fct_batting_scorecards
+    columns:
+      - name: batting_scorecard_id
+        tests: [not_null]
+  - name: fct_bowling_scorecards
+    columns:
+      - name: bowling_scorecard_id
+        tests: [not_null]
+  - name: mart_tournament_summary
+    description: Observed match/BBB coverage counts only; claims_complete_coverage is always false.
+    columns:
+      - name: tournament_id
+        tests: [not_null, unique]
+      - name: claims_complete_coverage
+        tests:
+          - accepted_values:
+              arguments:
+                values: [false]
+  - name: mart_batting_tournament_totals
+    columns:
+      - name: tournament_id
+        tests: [not_null]
+      - name: player_id
+        tests: [not_null]
+  - name: mart_bowling_tournament_totals
+    columns:
+      - name: tournament_id
+        tests: [not_null]
+      - name: player_id
+        tests: [not_null]
+  - name: fct_standings
+    columns:
+      - name: standing_id
+        tests: [not_null, unique]
+      - name: team_id
+        tests: [not_null]
+  - name: dim_squads
+    columns:
+      - name: squad_id
+        tests: [not_null, unique]
+      - name: player_id
+        tests: [not_null]

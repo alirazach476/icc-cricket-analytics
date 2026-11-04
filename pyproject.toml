@@ -1,0 +1,20 @@
+[project]
+name = "cricket-worldcup-analytics"
+version = "0.1.0"
+description = "Men's ICC ODI & T20 World Cup historical data engineering platform (2003–2026)"
+readme = "README.md"
+requires-python = ">=3.12"
+license = { text = "MIT" }
+
+[tool.ruff]
+line-length = 100
+target-version = "py312"
+src = ["src", "app", "scripts", "tests"]
+
+[tool.ruff.lint]
+select = ["E", "F", "I", "B", "UP"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+pythonpath = ["."]
+addopts = "-q"

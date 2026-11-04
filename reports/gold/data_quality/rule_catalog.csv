@@ -1,0 +1,23 @@
+rule_id,dataset,dimension,severity,description,note
+gold.match_has_result,gold.fact_matches,completeness,critical,"completed match has a winner, or is a recorded tie",open genuine ties have is_tie=true and are not counted here
+gold.match_has_scores,gold.fact_matches,completeness,major,completed non-walkover match has both innings totals,
+gold.match_has_venue_city,gold.fact_matches,completeness,minor,match has a venue city,
+gold.completed_match_has_player_of_match,gold.fact_matches,completeness,minor,completed non-walkover match names a player of the match,some early-edition pages do not name one
+gold.venue_unique_name,gold.dim_venues,uniqueness,major,no two venues share a canonical name in the same city,
+gold.player_unique_name_dob,gold.dim_players,uniqueness,minor,"player full names are unique (homonyms are listed, not merged)",different people can share a name; flagged for review only
+gold.delivery_wicket_has_dismissal,gold.fact_deliveries,validity,major,a wicket ball names the dismissal type and dismissed player,
+gold.delivery_boundary_flags,gold.fact_deliveries,validity,major,four/six flags agree with batter runs,
+gold.delivery_wide_no_legal,gold.fact_deliveries,validity,major,wides and no-balls are never counted as legal deliveries,
+gold.performance_strike_rate,gold.fact_player_performances,validity,minor,batting strike rate within 0-600,
+gold.innings_runs_match_deliveries,gold.fact_innings,consistency,critical,innings total equals the sum of its deliveries (ball-by-ball innings),
+gold.innings_wickets_match_deliveries,gold.fact_innings,consistency,critical,innings wickets equal the wickets recorded on its deliveries,"Bangladesh v Sri Lanka 2023-11-06: Mathews was timed out, which the scorecard counts as a wicket but no ball was bowled, so it has no delivery row"
+gold.match_winner_has_more_runs,gold.fact_matches,consistency,major,"the winner scored more runs than the loser (no DLS, tie or super over)",matches decided on run rate or a bowl-out can legitimately differ
+gold.performance_runs_match_scorecard_total,gold.fact_innings,consistency,major,batters' runs + extras equal the innings total (scorecard reconciliation),penalty runs or missing scorecard rows can cause a small difference
+gold.standings_wins_match_results,gold.fact_tournament_standings,consistency,major,"standings wins reconcile with match results, allowing only carried-over matches","Super Sixes (2003) and Super Eights (2007) carry earlier-round results into the table, so derived wins may fall short by at most the matches carried over; any other gap fails"
+gold.deliveries_player_resolved,gold.fact_deliveries,referential_integrity,minor,batter resolved to an ESPN player id (not a Cricsheet-only identity),share of deliveries whose batter could not be matched safely to a scorecard player
+gold.match_has_innings,gold.fact_matches,referential_integrity,critical,completed non-walkover match has at least two innings rows,
+gold.ball_by_ball_available,gold.fact_matches,historical_coverage,minor,played match has ball-by-ball data,source limitation: not in Cricsheet's World Cup bundle (see ball_by_ball_gap_reason)
+gold.ball_by_ball_gap_explained,gold.fact_matches,historical_coverage,major,every match either has ball-by-ball data or states why not,
+gold.tournament_has_standings,gold.mart_data_coverage,historical_coverage,major,tournament has a points table,
+gold.team_has_squad,gold.mart_data_coverage,historical_coverage,major,every participating team has a squad,
+gold.tournament_has_player_of_tournament,gold.mart_data_coverage,historical_coverage,minor,tournament names a player of the tournament,

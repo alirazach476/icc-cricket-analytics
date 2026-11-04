@@ -1,0 +1,11 @@
+version: 2
+
+models:
+  - name: int_match_enriched
+    columns:
+      - name: match_id
+        tests: [not_null, unique]
+  - name: int_innings_enriched
+    columns:
+      - name: innings_id
+        tests: [not_null, unique]

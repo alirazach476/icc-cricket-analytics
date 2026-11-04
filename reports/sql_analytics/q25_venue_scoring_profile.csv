@@ -1,0 +1,29 @@
+venue_name,city,format,matches,avg_first_innings_runs,bat_first_win_pct,toss_winner_win_pct
+"Wankhede Stadium, Mumbai",Mumbai,ODI,8,340.4,75.0,37.5
+"M Chinnaswamy Stadium, Bengaluru",Bengaluru,ODI,10,291.2,33.3,55.6
+"Arun Jaitley Stadium, Delhi",Delhi,ODI,9,289.0,44.4,33.3
+"Eden Gardens, Kolkata",Kolkata,ODI,8,274.3,62.5,62.5
+"MA Chidambaram Stadium, Chepauk, Chennai",Chennai,ODI,9,226.1,44.4,44.4
+"Wankhede Stadium, Mumbai",Mumbai,T20,12,190.5,50.0,66.7
+"New Wanderers Stadium, Johannesburg",Johannesburg,T20,9,182.2,55.6,44.4
+"Eden Gardens, Kolkata",Kolkata,T20,12,170.3,50.0,66.7
+"Daren Sammy National Cricket Stadium, Gros Islet, St Lucia",Gros Islet,T20,16,168.4,50.0,43.8
+Pallekele International Cricket Stadium,Kandy,T20,15,167.5,53.3,26.7
+"R Premadasa Stadium, Colombo",Colombo,T20,21,160.1,61.9,23.8
+"Kingsmead, Durban",Durban,T20,8,157.6,75.0,62.5
+"Kensington Oval, Bridgetown, Barbados",Bridgetown,T20,19,157.4,68.4,63.2
+"Kennington Oval, London",London,T20,9,157.1,55.6,22.2
+"Arun Jaitley Stadium, Delhi",Delhi,T20,10,153.6,30.0,60.0
+"Shere Bangla National Stadium, Mirpur",Dhaka,T20,14,152.8,42.9,57.1
+"Trent Bridge, Nottingham",Nottingham,T20,10,152.6,60.0,70.0
+"Bellerive Oval, Hobart",Hobart,T20,8,151.6,50.0,12.5
+"Lord's, London",London,T20,8,150.4,62.5,50.0
+Sharjah Cricket Stadium,Sharjah,T20,11,150.2,54.5,54.5
+"Providence Stadium, Guyana",Providence,T20,11,147.3,54.5,63.6
+"Zayed Cricket Stadium, Abu Dhabi",Abu Dhabi,T20,15,144.5,33.3,60.0
+"Zahur Ahmed Chowdhury Stadium, Chittagong",Chattogram,T20,15,143.7,53.3,46.7
+"Vidarbha Cricket Association Stadium, Jamtha, Nagpur",Nagpur,T20,9,141.7,66.7,55.6
+"Newlands, Cape Town",Cape Town,T20,9,140.7,22.2,55.6
+"Sir Vivian Richards Stadium, North Sound, Antigua",North Sound,T20,8,132.0,37.5,50.0
+Dubai International Cricket Stadium,Dubai,T20,13,130.4,7.7,84.6
+"Nassau County International Cricket Stadium, New York",New York,T20,8,107.6,37.5,62.5

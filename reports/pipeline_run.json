@@ -1,0 +1,170 @@
+{
+  "run_id": "20261103T194155Z",
+  "started_at": "2026-11-03T19:44:31.444411+00:00",
+  "dry_run": false,
+  "success": true,
+  "steps": [
+    {
+      "name": "bronze",
+      "status": "ok",
+      "seconds": 10.463966999959666,
+      "returncode": 0,
+      "message": "",
+      "log": "logs\\pipeline\\20261103T194155Z\\bronze.log",
+      "extra": {}
+    },
+    {
+      "name": "silver",
+      "status": "ok",
+      "seconds": 8.242365100013558,
+      "returncode": 0,
+      "message": "",
+      "log": "logs\\pipeline\\20261103T194155Z\\silver.log",
+      "extra": {}
+    },
+    {
+      "name": "gold",
+      "status": "ok",
+      "seconds": 3.208799000014551,
+      "returncode": 0,
+      "message": "",
+      "log": "logs\\pipeline\\20261103T194155Z\\gold.log",
+      "extra": {}
+    },
+    {
+      "name": "verify_bronze",
+      "status": "ok",
+      "seconds": 2.5892777999979444,
+      "returncode": 0,
+      "message": "bronze matches its manifest",
+      "log": "logs\\pipeline\\20261103T194155Z\\verify_bronze.log",
+      "extra": {}
+    },
+    {
+      "name": "warehouse",
+      "status": "ok",
+      "seconds": 16.022086500015575,
+      "returncode": 0,
+      "message": "Postgres row counts match gold",
+      "log": "logs\\pipeline\\20261103T194155Z\\warehouse.log",
+      "extra": {}
+    },
+    {
+      "name": "quality_gold",
+      "status": "ok",
+      "seconds": 1.6485862999688834,
+      "returncode": 0,
+      "message": "no critical failures beyond documented residuals (1 within allowance)",
+      "log": "logs\\pipeline\\20261103T194155Z\\quality_gold.log",
+      "extra": {}
+    },
+    {
+      "name": "dbt",
+      "status": "ok",
+      "seconds": 5.371914899966214,
+      "returncode": 0,
+      "message": "",
+      "log": "logs\\pipeline\\20261103T194155Z\\dbt.log",
+      "extra": {}
+    },
+    {
+      "name": "sql_analytics",
+      "status": "ok",
+      "seconds": 0.8646896999562159,
+      "returncode": 0,
+      "message": "",
+      "log": "logs\\pipeline\\20261103T194155Z\\sql_analytics.log",
+      "extra": {}
+    },
+    {
+      "name": "stats",
+      "status": "ok",
+      "seconds": 2.703106199973263,
+      "returncode": 0,
+      "message": "",
+      "log": "logs\\pipeline\\20261103T194155Z\\stats.log",
+      "extra": {}
+    },
+    {
+      "name": "notebooks",
+      "status": "ok",
+      "seconds": 12.46778040000936,
+      "returncode": 0,
+      "message": "",
+      "log": "logs\\pipeline\\20261103T194155Z\\notebooks.log",
+      "extra": {}
+    },
+    {
+      "name": "features",
+      "status": "ok",
+      "seconds": 2.2182342000305653,
+      "returncode": 0,
+      "message": "",
+      "log": "logs\\pipeline\\20261103T194155Z\\features.log",
+      "extra": {}
+    },
+    {
+      "name": "train",
+      "status": "ok",
+      "seconds": 15.087548300041817,
+      "returncode": 0,
+      "message": "",
+      "log": "logs\\pipeline\\20261103T194155Z\\train.log",
+      "extra": {}
+    },
+    {
+      "name": "explain",
+      "status": "ok",
+      "seconds": 44.11086700001033,
+      "returncode": 0,
+      "message": "",
+      "log": "logs\\pipeline\\20261103T194155Z\\explain.log",
+      "extra": {}
+    },
+    {
+      "name": "innings_projection",
+      "status": "ok",
+      "seconds": 16.371087999956217,
+      "returncode": 0,
+      "message": "",
+      "log": "logs\\pipeline\\20261103T194155Z\\innings_projection.log",
+      "extra": {}
+    },
+    {
+      "name": "player_models",
+      "status": "ok",
+      "seconds": 7.2434542999835685,
+      "returncode": 0,
+      "message": "",
+      "log": "logs\\pipeline\\20261103T194155Z\\player_models.log",
+      "extra": {}
+    },
+    {
+      "name": "report",
+      "status": "ok",
+      "seconds": 0.6299269999726675,
+      "returncode": 0,
+      "message": "",
+      "log": "logs\\pipeline\\20261103T194155Z\\report.log",
+      "extra": {}
+    },
+    {
+      "name": "spec_reports",
+      "status": "ok",
+      "seconds": 4.825675099971704,
+      "returncode": 0,
+      "message": "",
+      "log": "logs\\pipeline\\20261103T194155Z\\spec_reports.log",
+      "extra": {}
+    },
+    {
+      "name": "docs",
+      "status": "ok",
+      "seconds": 1.4199987000320107,
+      "returncode": 0,
+      "message": "",
+      "log": "logs\\pipeline\\20261103T194155Z\\docs.log",
+      "extra": {}
+    }
+  ]
+}
