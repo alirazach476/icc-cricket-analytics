@@ -189,12 +189,12 @@ def player_bowling_phases(pid: str) -> pd.DataFrame:
     )
 
 
-def batting_percentiles(pid: str, fmt: str) -> dict[str, float] | None:
+def batting_percentiles(pid: str, fmt: str, min_balls: int = 300) -> dict[str, float] | None:
     d = run(
         "select * from (select player_id, percent_rank() over (order by runs) as runs, percent_rank() over (order by average) as average, "
         "percent_rank() over (order by strike_rate) as strike_rate, percent_rank() over (order by sixes * 1.0 / innings) as sixes, "
-        "percent_rank() over (order by (hundreds + fifties) * 1.0 / innings) as milestones from gold.mart_batting_career where format = ? and balls_faced >= 300) where player_id = ?",
-        (fmt, pid),
+        "percent_rank() over (order by (hundreds + fifties) * 1.0 / innings) as milestones from gold.mart_batting_career where format = ? and balls_faced >= ?) where player_id = ?",
+        (fmt, int(min_balls), pid),
     )
     return (
         None

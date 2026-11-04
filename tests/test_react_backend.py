@@ -57,6 +57,12 @@ for code in ("ct", "wtc", "wc27"):
     for slug in runner.COMPETITION_PAGES[code]:
         d, nodes = page(slug, comp=code)
         out["other_pages"][f"{code}/{slug}"] = {"errors": [n["text"][:300] for n in nodes if n["t"] == "alert" and n["kind"] == "error"], "plots": sum(n["t"] == "plot" for n in nodes), "world_cup_text": any("World Cup" in json.dumps(n) for n in nodes if n["t"] in ("md", "caption", "h3", "metric", "alert"))}
+out["de_checks"] = {}
+for code in ("ct", "wtc"):
+    d, nodes = page("data", comp=code)
+    for n in nodes:
+        if n["t"] == "table" and "status" in n["columns"]:
+            out["de_checks"][code] = [r[n["columns"].index("status")] for r in n["rows"]]
 out["editions"] = {k: {"logo": v["logo"], "chart": len(v["theme"]["chart"]), "start": v["start"], "end": v["end"]} for k, v in eds.items()}
 
 # edition drives the tournament widgets
@@ -193,3 +199,9 @@ def test_new_competition_pages_render_without_errors(probe: dict) -> None:
         assert name.startswith("wc27") or not p["world_cup_text"], (
             name
         )  # wording is adapted to the competition
+
+
+def test_competition_data_engineering_checks_all_pass(probe: dict) -> None:
+    """The Champions Trophy and Test Championship Data Engineering pages reconcile their own gold data."""
+    for code in ("ct", "wtc"):
+        assert probe["de_checks"][code] == ["pass"] * 9, code

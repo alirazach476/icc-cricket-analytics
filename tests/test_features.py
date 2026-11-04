@@ -144,3 +144,44 @@ def test_return_state_gives_final_ratings_without_changing_features() -> None:
     pd.testing.assert_frame_equal(plain, frame)
     assert set(elo) <= {("T20", f"t{i}") for i in range(6)}
     assert abs(sum(elo.values()) - 1500.0 * len(elo)) < 1e-6  # Elo only moves points between teams
+
+
+def _two_team_matches(results: list[str]) -> pd.DataFrame:
+    """Matches between teams a and b in a Test-like format; each result is 'a', 'b' or 'draw'."""
+    rows = []
+    for i, res in enumerate(results):
+        rows.append(
+            {
+                "match_id": f"m{i}", "tournament_id": "T", "format": "Test", "year": 2020 + i // 5,
+                "match_date": pd.Timestamp("2020-01-01") + pd.Timedelta(days=10 * i), "is_knockout": False,
+                "venue_id": "v", "team1_id": "a", "team2_id": "b",
+                "winner_id": {"a": "a", "b": "b", "draw": None}[res], "toss_winner_id": "a", "toss_decision": "bat",
+                "is_completed": True, "is_walkover": False, "is_tie": False, "is_dls": False,
+                "batting_first_team_id": "a", "batting_second_team_id": "b",
+                "first_innings_runs": 300, "second_innings_runs": 250,
+                "margin_type": "draw" if res == "draw" else "runs",
+            }
+        )
+    return pd.DataFrame(rows)
+
+
+def test_test_draw_counts_as_half_a_win_in_elo() -> None:
+    # equal ratings: a draw changes nothing
+    _, elo = build_match_features(_two_team_matches(["draw"]), return_state=True)
+    assert elo[("Test", "a")] == elo[("Test", "b")] == 1500.0
+    # after a wins, the stronger side a gives up points by drawing, b gains them, and the total is conserved
+    _, after_win = build_match_features(_two_team_matches(["a"]), return_state=True)
+    _, after_draw = build_match_features(_two_team_matches(["a", "draw"]), return_state=True)
+    assert after_draw[("Test", "a")] < after_win[("Test", "a")]
+    assert after_draw[("Test", "b")] > after_win[("Test", "b")]
+    assert abs(sum(after_draw.values()) - 3000.0) < 1e-9
+
+
+def test_abandoned_and_unlabelled_draws_do_not_move_elo_or_labels() -> None:
+    m = _two_team_matches(["a", "draw"])
+    m.loc[1, "is_completed"] = False  # abandoned: nothing was played
+    _, elo = build_match_features(m, return_state=True)
+    _, only_win = build_match_features(_two_team_matches(["a"]), return_state=True)
+    assert elo == only_win
+    f = build_match_features(_two_team_matches(["a", "draw"]))
+    assert f["y_a_wins"].isna().tolist() == [False, True]  # a draw has no win/loss label

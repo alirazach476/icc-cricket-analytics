@@ -55,7 +55,11 @@ theme.inject = theme.register_plotly  # type: ignore[assignment]
 
 # pages that make sense for each competition (the ML and statistics pages are trained on World Cup data)
 # the 2027 World Cup has not been played: its home page is the schedule / venues / teams preview
-PAGE_OVERRIDES = {("wc27", "home"): "app/competition_pages/world_cup_2027.py"}
+PAGE_OVERRIDES = {
+    ("wc27", "home"): "app/competition_pages/world_cup_2027.py",
+    ("ct", "data"): "app/competition_pages/competition_data_engineering.py",
+    ("wtc", "data"): "app/competition_pages/competition_data_engineering.py",
+}
 
 COMPETITION_PAGES = {
     "wc27": ["home"],
@@ -69,6 +73,7 @@ COMPETITION_PAGES = {
         "matches",
         "ball-by-ball",
         "insights",
+        "data",
         "records",
     ],
     "wtc": [
@@ -80,6 +85,7 @@ COMPETITION_PAGES = {
         "matches",
         "ball-by-ball",
         "insights",
+        "data",
         "records",
     ],
 }

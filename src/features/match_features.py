@@ -34,7 +34,7 @@ WIN_PRIOR = 5.0  # pseudo-matches at 50% (shrinks win rate for teams with little
 RUN_PRIOR = 3.0  # pseudo-innings at the running format mean
 H2H_PRIOR = 2.0
 VENUE_PRIOR = 2.0
-DEFAULT_FIRST_INNINGS = {"ODI": 250.0, "T20": 150.0}  # only used before any history exists
+DEFAULT_FIRST_INNINGS = {"ODI": 250.0, "T20": 150.0, "Test": 300.0}  # only used before any history exists (round numbers, not fitted to the data)
 
 DB = Path(__file__).resolve().parents[2] / "data" / "warehouse" / "cricket_gold.duckdb"
 
@@ -116,7 +116,7 @@ def load_matches(db: Path = DB) -> pd.DataFrame:
             "select match_id, tournament_id, format, year, match_date, is_knockout, venue_id, "
             "team1_id, team2_id, winner_id, toss_winner_id, toss_decision, is_completed, "
             "is_walkover, is_tie, is_dls, batting_first_team_id, batting_second_team_id, "
-            "first_innings_runs, second_innings_runs from gold.fact_matches"
+            "first_innings_runs, second_innings_runs, margin_type from gold.fact_matches"
         ).fetchdf()
     finally:
         con.close()
@@ -274,6 +274,18 @@ def build_match_features(
             decided = bool(
                 r.is_completed and not r.is_walkover and not r.is_tie and pd.notna(r.winner_id)
             )
+            # a completed Test draw counts as half a win for each side in the Elo rating (nothing else uses it:
+            # win rates, form and head-to-head still count decided matches only)
+            drawn = bool(
+                r.is_completed
+                and not decided
+                and pd.isna(r.winner_id)
+                and getattr(r, "margin_type", None) == "draw"
+            )
+            if drawn:
+                e1 = 1.0 / (1.0 + 10 ** ((t2.elo - t1.elo) / 400.0))
+                t1.elo += ELO_K * (0.5 - e1)
+                t2.elo -= ELO_K * (0.5 - e1)
             if decided:
                 w1 = 1.0 if r.winner_id == r.team1_id else 0.0
                 e1 = 1.0 / (1.0 + 10 ** ((t2.elo - t1.elo) / 400.0))
@@ -329,7 +341,7 @@ def build_match_features(
 FEATURE_CATALOG = [
     (
         "elo_diff",
-        "Elo rating of team A minus team B (per format, K=30, updated after decided matches)",
+        "Elo rating of team A minus team B (per format, K=30, updated after decided matches; a Test draw counts as half a win)",
         "team history",
     ),
     (
