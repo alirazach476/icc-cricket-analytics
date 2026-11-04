@@ -43,9 +43,15 @@ scorecard (`tests/test_competitions.py`). Winners and runners-up are derived fro
   ESPNcricinfo's (points, played, won, lost); the `ties` column holds draws for Tests.
 - **Logos**: your logos for 2002-2025 and the three finals are in `web/public/logos`. The in-progress 2025-27 cycle uses
   the ICC logo (drop `wtc-2027.png` there to replace it).
-- Machine Learning and the World Cup statistics page are trained on World Cup data only and are not offered for these
-  competitions; they have their own **Statistics** page (toss, batting first, scoring trends, team strength with confidence
-  intervals, phases) computed from their data.
+- **Machine Learning** has its own page for these two competitions (the World Cup score and live-projection models are not
+  used). `python scripts/build_competition_features.py` builds leakage-safe features and Elo ratings (a Test draw counts as
+  half a win in Elo only); `python scripts/train_competition_models.py` evaluates winner models chronologically (each edition
+  is predicted from earlier editions only, fixed hyperparameters, bootstrap intervals, coin and Elo baselines).
+  Results: Test Championship, Elo alone 63.8% (95% interval 56-71%) on 163 matches against 49.1% for a coin, and no richer model is
+  clearly better; Champions Trophy, nothing beats a coin on 52 matches (Elo 50%, interval 37-63%).
+- The World Cup statistics page is not offered for these; they have their own **Statistics** page (toss, batting first, scoring
+  trends, team strength with confidence intervals, phases) computed from their data, and a **Data Engineering** page (sources,
+  coverage, row counts, nine live reconciliation checks, lineage).
 
 ## Test cricket in gold
 

@@ -185,7 +185,8 @@ def test_champions_trophy_and_test_championship_are_in_the_switcher(probe: dict)
     ]
     assert c["wtc"]["editions"] == ["wtc-2021", "wtc-2023", "wtc-2025", "wtc-2027"]
     assert (
-        "ml" not in c["ct"]["pages"]
+        "ml" in c["ct"]["pages"]
+        and "data" in c["wtc"]["pages"]
         and "research" not in c["wtc"]["pages"]
         and "insights" in c["ct"]["pages"]
     )

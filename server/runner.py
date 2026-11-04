@@ -59,6 +59,8 @@ PAGE_OVERRIDES = {
     ("wc27", "home"): "app/competition_pages/world_cup_2027.py",
     ("ct", "data"): "app/competition_pages/competition_data_engineering.py",
     ("wtc", "data"): "app/competition_pages/competition_data_engineering.py",
+    ("ct", "ml"): "app/competition_pages/competition_ml.py",
+    ("wtc", "ml"): "app/competition_pages/competition_ml.py",
 }
 
 COMPETITION_PAGES = {
@@ -73,6 +75,7 @@ COMPETITION_PAGES = {
         "matches",
         "ball-by-ball",
         "insights",
+        "ml",
         "data",
         "records",
     ],
@@ -85,6 +88,7 @@ COMPETITION_PAGES = {
         "matches",
         "ball-by-ball",
         "insights",
+        "ml",
         "data",
         "records",
     ],

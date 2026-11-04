@@ -1,4 +1,4 @@
-# ruff: noqa: E402
+# ruff: noqa: E402, E501
 """Leakage-safe match features and Elo ratings for the Champions Trophy and the World Test Championship.
 
 Reuses the World Cup feature builder unchanged (``src.features.match_features``): every feature of a match uses only
@@ -20,8 +20,13 @@ sys.path.insert(0, str(ROOT))
 
 import duckdb
 import pandas as pd
-
-from src.features.match_features import ELO_K, ELO_START, build_match_features, load_matches, load_performances
+from src.features.match_features import (
+    ELO_K,
+    ELO_START,
+    build_match_features,
+    load_matches,
+    load_performances,
+)
 
 DBS = {
     "ct": ROOT / "data" / "warehouse" / "cricket_gold_ct.duckdb",

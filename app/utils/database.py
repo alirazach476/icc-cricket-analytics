@@ -7,6 +7,7 @@ Champions Trophy or World Test Championship gold databases (identical table layo
 
 from __future__ import annotations
 
+from contextvars import ContextVar
 from pathlib import Path
 
 import duckdb
@@ -22,19 +23,21 @@ DB_PATHS = {
     "wc27": WAREHOUSE / "cricket_gold_wc27.duckdb",
 }
 DB_PATH = DB_PATHS["wc"]
-_current = {"code": "wc"}
+# The selected competition is per request / per thread (a ContextVar), not a process-wide global: a server
+# answers /api/meta and /api/page at the same time, and one must never switch the other's database.
+_competition: ContextVar[str] = ContextVar("competition", default="wc")
 
 
 def set_competition(code: str) -> None:
-    _current["code"] = code if code in DB_PATHS else "wc"
+    _competition.set(code if code in DB_PATHS else "wc")
 
 
 def competition() -> str:
-    return _current["code"]
+    return _competition.get()
 
 
 def db_available() -> bool:
-    return DB_PATHS[_current["code"]].exists()
+    return DB_PATHS[competition()].exists()
 
 
 @st.cache_data(ttl=3600, show_spinner=False)
@@ -48,4 +51,4 @@ def _run(sql: str, params: tuple, db: str) -> pd.DataFrame:
 
 def run(sql: str, params: tuple = ()) -> pd.DataFrame:
     """Run a parameterised read-only query. A fresh connection per call keeps threads safe."""
-    return _run(sql, tuple(params), str(DB_PATHS[_current["code"]]))
+    return _run(sql, tuple(params), str(DB_PATHS[competition()]))

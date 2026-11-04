@@ -49,7 +49,7 @@ rail and every page filters to it.
 | **Players / Teams / Squads** | Career and edition stats, strength (Elo), head-to-head, official squads |
 | **Ball by Ball** | Phases, over-by-over, partnerships, wicket types, pressure |
 | **Statistics** | Hypothesis tests with confidence intervals (toss, batting first, scoring trends) |
-| **Machine Learning** | Win-probability and score models, live innings projection, explainability |
+| **Machine Learning** | Win-probability and score models, live innings projection, explainability. The Champions Trophy and Test Championship have their own honest winner models (Elo, logistic, random forest) with bootstrap intervals |
 | **Data Engineering** | Lineage, row counts, data-quality results, coverage gaps |
 | **Records** | Highest totals, best figures, biggest partnerships |
 
@@ -144,7 +144,7 @@ cd build/vercel && vercel link --yes --project icc-cricket-analytics && vercel d
 - **Champions Trophy 2002** has scorecards but no ball-by-ball anywhere open; the final was washed out and India and Sri Lanka are joint winners.
 - **Test Championship:** 2025–27 is still in progress (no champion); five 2019–21 Tests were postponed and never played.
 - **World Cup 2027:** schedule, venues and teams only; start times are not published, and four teams are decided in 2027.
-- **Machine learning and the World Cup statistics page** are trained on World Cup data only.
+- **Machine learning:** the score and live-projection models and the World Cup statistics page use World Cup data only. The Champions Trophy and Test Championship have separate winner models: Elo predicts Test winners at about 64% (interval 56-71%) against 49% for a coin, while for the Champions Trophy nothing beats a coin on 52 test matches, and the page says so.
 - Venue map coordinates and stadium capacities are approximate.
 
 ## Data sources and credit
