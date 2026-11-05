@@ -69,7 +69,9 @@ def edition_stats() -> pd.DataFrame:
 def tournament_innings(tid: str) -> pd.DataFrame:
     return run(
         "select i.match_id, i.match_date, i.stage, i.innings_number, i.batting_team, i.bowling_team, i.total_runs, i.wickets, i.overs, i.run_rate, "
-        "i.fours, i.sixes, i.extras, i.is_chase, i.target from gold.fact_innings i where i.tournament_id = ? and not i.is_super_over order by i.match_date",
+        "i.fours, i.sixes, i.extras, i.is_chase, i.target, v.venue_name as venue from gold.fact_innings i "
+        "join gold.fact_matches m on m.match_id = i.match_id left join gold.dim_venues v on v.venue_id = m.venue_id "
+        "where i.tournament_id = ? and not i.is_super_over order by i.match_date",
         (tid,),
     )
 

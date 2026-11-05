@@ -12,6 +12,7 @@ from typing import Any
 
 import pandas as pd
 import plotly.graph_objects as go
+
 from app.utils.database import run
 from app.utils.flags import canonical, flag_code
 from app.utils.theme import AMBER, BLUE, PINK, TEAL

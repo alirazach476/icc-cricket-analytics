@@ -17,6 +17,7 @@ from app.utils import analytics as A  # noqa: E402
 from app.utils import charts as C  # noqa: E402
 from app.utils import queries as Q  # noqa: E402
 from app.utils import viz_data as V  # noqa: E402
+from app.utils import viz_extra as X  # noqa: E402
 from app.utils.theme import AMBER, BLUE, PINK, RED, TEAL, cards  # noqa: E402
 from app.utils.ui import coverage_note, setup  # noqa: E402
 from src.ml import innings_projection as ip  # noqa: E402
@@ -68,6 +69,7 @@ if setup(
             "Delivery patterns",
             "First-innings projection",
             "Deliveries",
+            "Matchups",
         ]
     )
 
@@ -566,4 +568,67 @@ if setup(
             width="stretch",
             height=460,
         )
+    with tabs[8]:
+        tid_m = X.tournament_id_of(mid)
+        min_m = st.select_slider(
+            "Minimum balls in the matchup", options=[6, 12, 18, 24, 30], value=12, key="matchup_min_balls"
+        )
+        mu = X.matchups(tid_m, min_m) if tid_m else None
+        if mu is None or mu.empty:
+            st.info(f"No batter-bowler pair has {min_m}+ balls in this tournament: lower the minimum.")
+        else:
+            mu = mu.assign(strike_rate=100 * mu["runs"] / mu["balls"], dot_pct=100 * mu["dots"] / mu["balls"])
+            st.caption(
+                f"{len(mu)} batter-bowler pairs with at least {min_m} balls in this tournament (smaller samples are left out: "
+                "a handful of balls says nothing about who has the upper hand)."
+            )
+            tb = mu.groupby("batter")["balls"].sum().nlargest(12).index
+            tw = mu.groupby("bowler")["balls"].sum().nlargest(12).index
+            hm = mu[mu["batter"].isin(tb) & mu["bowler"].isin(tw)]
+            a, b = st.columns(2)
+            with a:
+                if hm.empty:
+                    st.info("Not enough overlapping pairs for a heatmap.")
+                else:
+                    sr = hm.pivot_table(index="batter", columns="bowler", values="strike_rate")
+                    nb = hm.pivot_table(index="batter", columns="bowler", values="balls")
+                    fig = go.Figure(
+                        go.Heatmap(
+                            z=sr.to_numpy(),
+                            x=sr.columns,
+                            y=sr.index,
+                            customdata=nb.reindex(index=sr.index, columns=sr.columns).to_numpy(),
+                            colorscale="RdYlGn",
+                            colorbar=dict(title="Strike rate"),
+                            hovertemplate="%{y} v %{x}<br>strike rate %{z:.0f} off %{customdata} balls<extra></extra>",
+                        )
+                    )
+                    fig.update_layout(
+                        title=f"Batter v bowler strike rate (pairs with {min_m}+ balls; blank = fewer)",
+                        height=520,
+                        xaxis=dict(tickangle=-45),
+                        yaxis=dict(autorange="reversed"),
+                    )
+                    st.plotly_chart(fig, width="stretch")
+            with b:
+                fig = px.scatter(
+                    mu,
+                    x="balls",
+                    y="strike_rate",
+                    size=mu["runs"].clip(lower=1),
+                    color="dismissals",
+                    color_continuous_scale="Reds",
+                    hover_data={"batter": True, "bowler": True, "runs": True, "dismissals": True, "dot_pct": ":.0f", "balls": True},
+                    size_max=28,
+                    title="Every matchup: balls faced against strike rate (colour = dismissals)",
+                    labels={"balls": "Balls faced", "strike_rate": "Strike rate (runs per 100 balls)"},
+                )
+                fig.update_layout(height=520)
+                st.plotly_chart(fig, width="stretch")
+            st.dataframe(
+                mu.sort_values(["dismissals", "balls"], ascending=False)[["batter", "bowler", "balls", "runs", "dismissals", "strike_rate", "dot_pct", "fours", "sixes"]].round(1),
+                hide_index=True,
+                width="stretch",
+                height=360,
+            )
     coverage_note()

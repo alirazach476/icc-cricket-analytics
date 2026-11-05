@@ -53,6 +53,10 @@ rail and every page filters to it.
 | **Data Engineering** | Lineage, row counts, data-quality results, coverage gaps |
 | **Records** | Highest totals, best figures, biggest partnerships |
 
+Every chart has a **CSV** button for the data behind it, and the pages carry filters for edition, format, team, player, venue,
+match stage and date where they apply. Which requirement is covered where, and what the data cannot support, is listed in
+[docs/visualization_coverage.md](docs/visualization_coverage.md).
+
 ### Match centre
 
 <img src="docs/images/match.jpg" alt="Match centre with scoreboard, flags and scorecard" width="860">

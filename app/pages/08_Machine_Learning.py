@@ -16,7 +16,7 @@ import streamlit as st  # noqa: E402
 from app.utils import analytics as A  # noqa: E402
 from app.utils import charts as C  # noqa: E402
 from app.utils import queries as Q  # noqa: E402
-from app.utils.theme import AMBER, BLUE, PINK, TEAL, cards, flag  # noqa: E402
+from app.utils.theme import AMBER, BLUE, FORMAT_COLORS, PINK, TEAL, cards, flag  # noqa: E402
 from app.utils.ui import setup  # noqa: E402
 from src.features.match_features import FEATURES_WINNER, load_matches, load_performances  # noqa: E402
 from src.ml import explain as ex  # noqa: E402
@@ -86,6 +86,7 @@ if setup(
             "Player models",
             "Importance and SHAP",
             "Model comparison",
+            "Diagnostics",
         ]
     )
 
@@ -605,3 +606,83 @@ if setup(
                 ).update_layout(height=340),
                 width="stretch",
             )
+
+    with tabs[6]:
+        from sklearn.metrics import average_precision_score, log_loss, precision_recall_curve
+
+        dpred = A.report_csv("model_evaluation/winner_predictions.csv")
+        if dpred is None or dpred.empty:
+            st.info("Run `python scripts/train_models.py` to produce the out-of-time predictions behind these charts.")
+        else:
+            dm = [c for c in ("elo_only", "logistic", "random_forest", "grad_boosting", "xgboost") if c in dpred]
+            st.caption(f"{len(dpred)} held-out matches: every prediction was made by a model that had not seen that tournament or any later one.")
+            a, b = st.columns(2)
+            with a:
+                fig = go.Figure()
+                for m in dm:
+                    pr, rc, _ = precision_recall_curve(dpred["y"], dpred[m])
+                    fig.add_scatter(x=rc, y=pr, mode="lines", name=f"{m} (AP {average_precision_score(dpred['y'], dpred[m]):.2f})")
+                fig.add_hline(y=float(dpred["y"].mean()), line_dash="dash", line_color="rgba(255,255,255,.5)", annotation_text="no skill (win rate)")
+                fig.update_layout(title="Precision-recall curve (out-of-time predictions)", xaxis_title="Recall", yaxis_title="Precision", yaxis_range=[0, 1.02], height=420, legend=dict(orientation="h", y=-0.25))
+                st.plotly_chart(fig, width="stretch")
+            with b:
+                pick_m = st.selectbox("Model", dm, index=dm.index("logistic") if "logistic" in dm else 0, key="diag_model")
+                dd = dpred.assign(outcome=dpred["y"].map({1: "team A won", 0: "team A lost"}))
+                fig = px.histogram(dd, x=pick_m, color="outcome", barmode="overlay", opacity=0.7, nbins=20, range_x=[0, 1], title=f"Predicted probability of a team-A win ({pick_m}), by what happened", labels={pick_m: "Predicted probability"})
+                fig.update_layout(height=420)
+                st.plotly_chart(fig, width="stretch")
+                st.caption("A useful model separates the two colours: wins pile up on the right, losses on the left.")
+            a, b = st.columns(2)
+            with a:
+                err = pd.concat([pd.DataFrame({"model": m, "error": (dpred["y"] - dpred[m]).abs()}) for m in dm])
+                fig = px.box(err, x="model", y="error", points=False, title="Prediction error |outcome - probability| (0 = certain and right, 1 = certain and wrong)", labels={"error": "Absolute error"})
+                fig.add_hline(y=0.5, line_dash="dash", line_color="rgba(255,255,255,.5)")
+                fig.update_layout(height=400)
+                st.plotly_chart(fig, width="stretch")
+            with b:
+                order = dpred.groupby("tournament_id")["match_date"].min().sort_values().index.tolist()
+                lc = []
+                for i, tid_ in enumerate(order, start=1):
+                    g = dpred[dpred["tournament_id"] == tid_]
+                    if len(g) >= 8 and g["y"].nunique() > 1:
+                        for m in dm:
+                            lc.append({"model": m, "tournaments scored": i, "log loss": log_loss(g["y"], g[m].clip(1e-6, 1 - 1e-6)), "matches": len(g), "tournament": tid_})
+                lc = pd.DataFrame(lc)
+                if lc.empty:
+                    st.info("Not enough tournaments for a learning curve.")
+                else:
+                    fig = px.line(lc, x="tournaments scored", y="log loss", color="model", markers=True, hover_data=["tournament", "matches"], title="Learning curve: log loss on each held-out tournament as the training history grows", labels={"tournaments scored": "Position of the held-out tournament (later = more training history)"})
+                    fig.add_hline(y=0.693, line_dash="dash", line_color="rgba(255,255,255,.5)", annotation_text="coin flip")
+                    fig.update_layout(height=400)
+                    st.plotly_chart(fig, width="stretch")
+                    st.caption("Each point is one tournament (8+ matches), so the curve is noisy; below the dashed line beats a coin flip.")
+        sp = A.report_csv("model_evaluation/score_predictions.csv")
+        if sp is not None and len(sp):
+            st.subheader("Pre-match first-innings score model")
+            sm_ = [c for c in ("ridge", "grad_boosting", "baseline_format_mean") if c in sp]
+            pick_s = st.selectbox("Score model", sm_, key="diag_score_model")
+            a, b = st.columns(2)
+            with a:
+                fig = px.scatter(sp, x=pick_s, y="y", color="format", opacity=0.6, hover_data=["match_id", "tournament_id"], color_discrete_map=FORMAT_COLORS, title=f"Actual against predicted first-innings score ({pick_s})", labels={pick_s: "Predicted runs", "y": "Actual runs"})
+                lo_, hi_ = float(min(sp[pick_s].min(), sp["y"].min())), float(max(sp[pick_s].max(), sp["y"].max()))
+                fig.add_scatter(x=[lo_, hi_], y=[lo_, hi_], mode="lines", name="perfect", line=dict(dash="dash", color="rgba(255,255,255,.6)"))
+                fig.update_layout(height=420)
+                st.plotly_chart(fig, width="stretch")
+            with b:
+                res_ = sp.assign(residual=sp["y"] - sp[pick_s])
+                fig = px.histogram(res_, x="residual", color="format", barmode="overlay", opacity=0.7, nbins=30, color_discrete_map=FORMAT_COLORS, title=f"Error distribution: actual minus predicted ({pick_s})", labels={"residual": "Error (runs)"})
+                fig.add_vline(x=0, line_dash="dash", line_color="rgba(255,255,255,.6)")
+                fig.update_layout(height=420)
+                st.plotly_chart(fig, width="stretch")
+                st.caption(f"Mean error {res_['residual'].mean():+.1f} runs; typical size (MAE) {res_['residual'].abs().mean():.1f} runs, over {len(res_)} held-out matches.")
+        shp = A.report_csv("shap_analysis/shap_values_winner.csv")
+        if shp is not None and len(shp):
+            st.subheader("SHAP dependence")
+            feats_ = [c[5:] for c in shp.columns if c.startswith("shap_")]
+            order_ = sorted(feats_, key=lambda f: -shp[f"shap_{f}"].abs().mean())
+            f_pick = st.selectbox("Feature (most influential first)", order_, key="shap_feature")
+            fig = px.scatter(shp, x=f_pick, y=f"shap_{f_pick}", color="format", opacity=0.7, color_discrete_map=FORMAT_COLORS, hover_data=["match_id", "tournament_id"], title=f"SHAP dependence: how {f_pick} moves the predicted win probability (logistic model, log-odds)", labels={f"shap_{f_pick}": "SHAP value (log-odds)"})
+            fig.add_hline(y=0, line_dash="dash", line_color="rgba(255,255,255,.5)")
+            fig.update_layout(height=420)
+            st.plotly_chart(fig, width="stretch")
+            st.caption("SHAP shows what the model used, not what causes a win: correlated team-strength features share the credit.")

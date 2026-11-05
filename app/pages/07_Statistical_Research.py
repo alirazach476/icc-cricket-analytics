@@ -15,6 +15,7 @@ import plotly.graph_objects as go  # noqa: E402
 import streamlit as st  # noqa: E402
 from app.utils import analytics as A  # noqa: E402
 from app.utils import charts as C  # noqa: E402
+from app.utils import viz_extra as X  # noqa: E402
 from app.utils.database import run  # noqa: E402
 from app.utils.theme import AMBER, BLUE, FORMAT_COLORS, PINK, TEAL, cards  # noqa: E402
 from app.utils.ui import setup  # noqa: E402
@@ -61,6 +62,7 @@ if setup(
                 "Visualisations",
                 "Regression",
                 "Written conclusions",
+                "Stage comparison",
             ]
         )
 
@@ -170,6 +172,7 @@ if setup(
                             {
                                 "format": f,
                                 "residual": g["first_innings_runs"] - np.polyval(coef, g["year"]),
+                                "fitted": np.polyval(coef, g["year"]),
                             }
                         )
                     )
@@ -186,6 +189,20 @@ if setup(
                     ).update_layout(height=400),
                     width="stretch",
                 )
+                rf = pd.concat(res)
+                fig = px.scatter(
+                    rf,
+                    x="fitted",
+                    y="residual",
+                    color="format",
+                    opacity=0.6,
+                    color_discrete_map=FORMAT_COLORS,
+                    title="Residuals against fitted values (no funnel or curve = the line fits evenly)",
+                    labels={"fitted": "Fitted first-innings total (runs)", "residual": "Residual (runs)"},
+                )
+                fig.add_hline(y=0, line_dash="dash", line_color="rgba(255,255,255,.5)")
+                fig.update_layout(height=360)
+                st.plotly_chart(fig, width="stretch")
             a, b = st.columns(2)
             with a:
                 ecdf = px.ecdf(
@@ -381,3 +398,58 @@ if setup(
             st.success(
                 f"{len(sig)} of {len(tests)} tests remain significant after multiple-testing correction."
             )
+
+        with tabs[5]:
+            fmts = run("select distinct format from gold.dim_tournaments order by 1")["format"].tolist()
+            f_sel = st.radio("Format", fmts, horizontal=True, key="stage_cmp_fmt")
+            sc = X.stage_comparison(f_sel)
+            rows = []
+            for g in X.GROUP_ORDER:
+                sub = sc[sc["group"] == g]
+                if sub.empty:
+                    continue
+                m, lo, hi, n = X.mean_ci(sub["total_runs"])
+                dec = sub[sub["decided"]]
+                p, wlo, whi = X.wilson(int(dec["bat_first_won"].sum()), len(dec))
+                rows.append({"stage group": g, "matches": n, "mean first-innings runs": m, "runs low": lo, "runs high": hi, "decided": len(dec), "bat-first win %": 100 * p, "win low": 100 * wlo, "win high": 100 * whi})
+            sg = pd.DataFrame(rows)
+            if sg.empty or sg["matches"].sum() < 10:
+                st.info("Not enough matches with stage information in this format.")
+            else:
+                st.caption("Group stage = group / first round; second stage = Super Six / Eight / Ten / 12; knockout = quarter-final, semi-final and final. Only completed, non-DLS matches.")
+                a, b = st.columns(2)
+                with a:
+                    fig = go.Figure(
+                        go.Scatter(
+                            x=sg["stage group"],
+                            y=sg["mean first-innings runs"],
+                            mode="markers+text",
+                            text=[f"n={int(n)}" for n in sg["matches"]],
+                            textposition="top center",
+                            marker=dict(size=13, color=TEAL),
+                            error_y=dict(type="data", symmetric=False, array=sg["runs high"] - sg["mean first-innings runs"], arrayminus=sg["mean first-innings runs"] - sg["runs low"]),
+                            hovertemplate="%{x}: %{y:.0f} runs<extra></extra>",
+                        )
+                    )
+                    fig.update_layout(title=f"{f_sel}: mean first-innings total by stage group (95% interval, n shown)", yaxis_title="Runs", height=400)
+                    st.plotly_chart(fig, width="stretch")
+                with b:
+                    fig = go.Figure(
+                        go.Scatter(
+                            x=sg["stage group"],
+                            y=sg["bat-first win %"],
+                            mode="markers+text",
+                            text=[f"n={int(n)}" for n in sg["decided"]],
+                            textposition="top center",
+                            marker=dict(size=13, color=AMBER),
+                            error_y=dict(type="data", symmetric=False, array=sg["win high"] - sg["bat-first win %"], arrayminus=sg["bat-first win %"] - sg["win low"]),
+                            hovertemplate="%{x}: %{y:.0f}%<extra></extra>",
+                        )
+                    )
+                    fig.add_hline(y=50, line_dash="dash", line_color="rgba(255,255,255,.5)")
+                    fig.update_layout(title=f"{f_sel}: batting-first win rate by stage group (95% Wilson interval, n shown)", yaxis_title="Win rate %", yaxis_range=[0, 100], height=400)
+                    st.plotly_chart(fig, width="stretch")
+                st.dataframe(sg.round(1), hide_index=True, width="stretch")
+                small = sg[sg["matches"] < 30]
+                if len(small):
+                    st.warning("Groups with fewer than 30 matches (" + ", ".join(small["stage group"]) + ") have wide intervals: do not read a difference into them unless the intervals clearly separate.")

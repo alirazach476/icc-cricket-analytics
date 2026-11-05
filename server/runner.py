@@ -161,7 +161,8 @@ def run_page(slug: str, state: dict | None, edition: dict | None, competition: s
             "notes": ctx.notes,
         }
         payload = json.dumps(out, allow_nan=False, default=str).encode("utf-8")
-    _CACHE[key] = payload
+    if not error:  # never cache a failed page: the next request should try again
+        _CACHE[key] = payload
     while len(_CACHE) > _CACHE_MAX:
         _CACHE.popitem(last=False)
     return payload

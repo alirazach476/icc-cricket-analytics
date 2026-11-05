@@ -15,8 +15,10 @@ from app.utils import analytics as A  # noqa: E402
 from app.utils import charts as C  # noqa: E402
 from app.utils import queries as Q  # noqa: E402
 from app.utils import viz_data as V  # noqa: E402
+from app.utils import viz_extra as X  # noqa: E402
 from app.utils.theme import AMBER, BLUE, TEAL, cards, flag, section  # noqa: E402
 from app.utils.ui import coverage_note, setup  # noqa: E402
+from plotly.subplots import make_subplots  # noqa: E402
 
 if setup(
     "Tournament Explorer",
@@ -47,8 +49,44 @@ if setup(
         ]
     )
     inn = V.tournament_innings(tid)
+    # Filters for the innings-based charts (Overview, Results timeline, Statistics): stage, team and date range
+    stages_here = [x for x in X.STAGE_ORDER if x in set(inn["stage"])] or sorted(inn["stage"].dropna().unique())
+    stage_f = st.sidebar.multiselect("Match stage", stages_here, default=stages_here)
+    teams_here = sorted(set(inn["batting_team"]) | set(inn["bowling_team"]))
+    team_f = st.sidebar.selectbox("Team", ["All teams", *teams_here])
+    venues_here = sorted(inn["venue"].dropna().unique())
+    venue_f = st.sidebar.selectbox("Venue", ["All venues", *venues_here])
+    dates_here = sorted(inn["match_date"].astype(str).str[:10].unique())
+    d_from = st.sidebar.selectbox("From date", dates_here, index=0)
+    d_to = st.sidebar.selectbox("To date", dates_here, index=len(dates_here) - 1)
+    day = inn["match_date"].astype(str).str[:10]
+    keep = day.between(min(d_from, d_to), max(d_from, d_to))
+    if stage_f:
+        keep &= inn["stage"].isin(stage_f)
+    if team_f != "All teams":
+        keep &= (inn["batting_team"] == team_f) | (inn["bowling_team"] == team_f)
+    if venue_f != "All venues":
+        keep &= inn["venue"] == venue_f
+    hidden = len(inn) - int(keep.sum())
+    inn = inn[keep]
+    if hidden:
+        st.caption(
+            f"Filters applied to the innings charts: {len(inn)} of {len(inn) + hidden} innings shown (stage, team, venue, dates)."
+        )
+    if inn.empty:
+        st.warning("No innings match these filters: widen the stage, team, venue or date range.")
+        st.stop()
     tabs = st.tabs(
-        ["Overview", "Standings", "Results", "Awards", "Statistics", "Batting and bowling"]
+        [
+            "Overview",
+            "Standings",
+            "Results",
+            "Awards",
+            "Statistics",
+            "Batting and bowling",
+            "Batting analytics",
+            "Bowling analytics",
+        ]
     )
 
     with tabs[0]:
@@ -387,3 +425,145 @@ if setup(
                 width="stretch",
             )
     coverage_note()
+
+    with tabs[6]:
+        bl = X.batting_leaders(tid)
+        min_b = st.select_slider(
+            "Minimum balls faced", options=[10, 20, 50, 100, 150, 300], value=50, key="bat_min_balls"
+        )
+        q = bl[bl["balls_faced"].fillna(0) >= min_b]
+        if q.empty:
+            st.info(f"No batter has faced {min_b} balls in this edition: lower the minimum.")
+        else:
+            st.caption(f"{len(q)} batters with at least {min_b} balls faced in this edition.")
+            a, b = st.columns(2)
+            with a:
+                ms = q.assign(milestones=q["hundreds"].fillna(0) + q["fifties"].fillna(0)).nlargest(15, "milestones")
+                ms = ms[ms["milestones"] > 0].sort_values("milestones")
+                if ms.empty:
+                    st.info("No fifties or hundreds in this edition (with this minimum).")
+                else:
+                    fig = go.Figure()
+                    fig.add_bar(y=ms["player"], x=ms["hundreds"], orientation="h", name="Hundreds", marker_color=AMBER, hovertemplate="%{y}: %{x} hundreds<extra></extra>")
+                    fig.add_bar(y=ms["player"], x=ms["fifties"], orientation="h", name="Fifties", marker_color=TEAL, hovertemplate="%{y}: %{x} fifties<extra></extra>")
+                    fig.update_layout(barmode="stack", title="Centuries and half-centuries (top 15)", xaxis_title="Scores of 50+ (count)", height=440, legend=dict(orientation="h", y=-0.15))
+                    st.plotly_chart(fig, width="stretch")
+            with b:
+                bd = q.assign(boundary_runs=q["fours"].fillna(0) * 4 + q["sixes"].fillna(0) * 6).nlargest(15, "boundary_runs").sort_values("boundary_runs")
+                fig = go.Figure()
+                fig.add_bar(y=bd["player"], x=bd["fours"], orientation="h", name="Fours", marker_color=BLUE, hovertemplate="%{y}: %{x} fours<extra></extra>")
+                fig.add_bar(y=bd["player"], x=bd["sixes"], orientation="h", name="Sixes", marker_color=AMBER, hovertemplate="%{y}: %{x} sixes<extra></extra>")
+                fig.update_layout(barmode="stack", title="Boundaries: fours and sixes (top 15 by boundary runs)", xaxis_title="Boundaries (count)", height=440, legend=dict(orientation="h", y=-0.15))
+                st.plotly_chart(fig, width="stretch")
+            fig = px.scatter(
+                q.assign(boundaries=q["fours"].fillna(0) + q["sixes"].fillna(0)),
+                x="balls_faced",
+                y="runs",
+                size="boundaries",
+                color="team",
+                hover_name="player",
+                hover_data={"average": ":.1f", "strike_rate": ":.1f", "innings": True},
+                size_max=30,
+                title="Runs against balls faced (size = fours + sixes)",
+                labels={"balls_faced": "Balls faced", "runs": "Runs"},
+            )
+            fig.update_layout(height=430)
+            st.plotly_chart(fig, width="stretch")
+        ed = X.batting_by_edition(fmt, 8)
+        if ed.empty:
+            st.info("No multi-edition batting data for this format.")
+        else:
+            a, b = st.columns(2)
+            with a:
+                fig = px.bar(
+                    ed.assign(edition=ed["year"].astype(str)),
+                    x="player",
+                    y="runs",
+                    color="edition",
+                    barmode="group",
+                    title=f"Runs by player and tournament ({fmt}): the 8 leading career run scorers",
+                    labels={"runs": "Runs", "player": ""},
+                )
+                fig.update_layout(height=430)
+                st.plotly_chart(fig, width="stretch")
+            with b:
+                fig = px.line(
+                    ed.dropna(subset=["average"]),
+                    x="year",
+                    y="average",
+                    color="player",
+                    markers=True,
+                    title=f"Batting average by edition ({fmt}, same 8 players)",
+                    labels={"average": "Batting average (runs per dismissal)", "year": "Edition"},
+                )
+                fig.update_layout(height=430)
+                st.plotly_chart(fig, width="stretch")
+                st.caption("Averages from very few innings are noisy: hover to see runs and innings for each point.")
+
+    with tabs[7]:
+        wl = X.bowling_leaders(tid)
+        min_w = st.select_slider(
+            "Minimum balls bowled", options=[10, 20, 50, 100, 150, 300], value=50, key="bowl_min_balls"
+        )
+        q = wl[wl["balls_bowled"].fillna(0) >= min_w]
+        if q.empty:
+            st.info(f"No bowler has bowled {min_w} balls in this edition: lower the minimum.")
+        else:
+            st.caption(f"{len(q)} bowlers with at least {min_w} balls bowled in this edition.")
+            a, b = st.columns(2)
+            with a:
+                aq = q.dropna(subset=["average", "strike_rate"])
+                if aq.empty:
+                    st.info("Bowling average needs at least one wicket: none among these bowlers.")
+                else:
+                    fig = px.scatter(
+                        aq,
+                        x="strike_rate",
+                        y="average",
+                        size="wickets",
+                        color="team",
+                        hover_name="player",
+                        hover_data={"economy": ":.2f", "overs": True, "wickets": True},
+                        size_max=30,
+                        title="Bowling average against strike rate (size = wickets; bottom-left is best)",
+                        labels={"strike_rate": "Strike rate (balls per wicket)", "average": "Bowling average (runs per wicket)"},
+                    )
+                    fig.update_layout(height=430)
+                    st.plotly_chart(fig, width="stretch")
+            with b:
+                top = q.nlargest(10, "wickets").sort_values("wickets")
+                fig = make_subplots(rows=1, cols=3, shared_yaxes=True, horizontal_spacing=0.04, subplot_titles=("Overs bowled", "Runs conceded", "Wickets"))
+                for i, (col, colour) in enumerate((("overs", BLUE), ("runs_conceded", AMBER), ("wickets", TEAL)), start=1):
+                    fig.add_bar(y=top["player"], x=top[col], orientation="h", marker_color=colour, showlegend=False, hovertemplate="%{y}: %{x}<extra></extra>", row=1, col=i)
+                fig.update_layout(title="Overs, runs conceded and wickets: the 10 leading wicket-takers", height=430)
+                st.plotly_chart(fig, width="stretch")
+        em = X.bowling_economy_matrix(fmt, 12)
+        if len(em):
+            pv = em.pivot_table(index="player", columns="year", values="economy")
+            pv = pv.loc[pv.notna().sum(axis=1).sort_values(ascending=False).index]
+            fig = go.Figure(
+                go.Heatmap(
+                    z=pv.to_numpy(),
+                    x=[str(c) for c in pv.columns],
+                    y=pv.index,
+                    colorscale="RdYlGn_r",
+                    colorbar=dict(title="Economy"),
+                    hovertemplate="%{y}, %{x}: %{z:.2f} runs per over<extra></extra>",
+                )
+            )
+            fig.update_layout(title=f"Economy rate by player and edition ({fmt}; blank = bowled under 30 balls)", height=max(360, 30 * len(pv) + 120), xaxis_title="Edition", yaxis=dict(autorange="reversed"))
+            st.plotly_chart(fig, width="stretch")
+        be = X.bowling_by_edition(fmt, max(min_w, 30))
+        if len(be) >= 10:
+            a, b = st.columns(2)
+            with a:
+                fig = px.box(be.assign(edition=be["year"].astype(str)), x="edition", y="economy", points="all", hover_name="player", title=f"Economy rate distribution by edition ({fmt}, bowlers with {max(min_w, 30)}+ balls)", labels={"economy": "Economy (runs per over)", "edition": "Edition"})
+                fig.update_layout(height=400)
+                st.plotly_chart(fig, width="stretch")
+            with b:
+                bw = be.dropna(subset=["strike_rate"])
+                fig = px.box(bw.assign(edition=bw["year"].astype(str)), x="edition", y="strike_rate", points="all", hover_name="player", title="Strike rate distribution by edition (balls per wicket)", labels={"strike_rate": "Balls per wicket", "edition": "Edition"})
+                fig.update_layout(height=400)
+                st.plotly_chart(fig, width="stretch")
+        else:
+            st.info("Too few qualified bowlers across editions for distribution charts: lower the minimum.")

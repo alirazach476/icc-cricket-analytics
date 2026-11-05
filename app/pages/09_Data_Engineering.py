@@ -122,6 +122,16 @@ if setup(
             "Transformation status = the steps above: bronze, silver and gold are rebuilt from collected files; every step is idempotent."
         )
 
+        hist = A.report_csv("pipeline_run_history.csv")
+        if hist is not None and len(hist):
+            st.subheader("Pipeline run history")
+            hh = hist.assign(label=hist["run_id"].astype(str), result=hist["success"].map({True: "success", False: "failed"}))
+            fig = px.bar(hh, x="label", y="total_seconds", color="result", color_discrete_map={"success": TEAL, "failed": RED}, text=hh["total_seconds"].round(0), hover_data=["steps_ok", "steps_failed", "started_at"], title="Processing time of each pipeline run (seconds)", labels={"label": "Run", "total_seconds": "Seconds"})
+            fig.update_layout(height=340)
+            st.plotly_chart(fig, width="stretch")
+            if len(hist) < 3:
+                st.caption("History starts with the first recorded run and grows by one row for every pipeline run (reports/pipeline_run_history.csv).")
+
     with tabs[1]:
         a, b = st.columns(2)
         with a:
@@ -344,6 +354,14 @@ if setup(
             st.caption(
                 "Each failing rule is explained in reports/data_quality_report.md; the pipeline gate allows only documented, bounded residuals."
             )
+        dup = A.report_csv("duplicate_records_report.csv")
+        if dup is not None and len(dup):
+            dl = dup.melt(id_vars=["dataset", "rows"], value_vars=["duplicate_key_rows", "fully_duplicated_rows", "duplicate_rows_ignoring_keys"], var_name="kind", value_name="rows_affected")
+            dl["kind"] = dl["kind"].str.replace("_", " ")
+            fig = px.bar(dl, x="dataset", y="rows_affected", color="kind", barmode="group", text="rows_affected", title="Duplicate records by table (0 = none found)", labels={"rows_affected": "Rows affected", "dataset": "Table"})
+            fig.update_layout(height=360, xaxis_tickangle=-30)
+            st.plotly_chart(fig, width="stretch")
+            st.caption(f"{int(dup['rows'].sum()):,} rows checked across {len(dup)} tables for duplicate keys and fully duplicated rows.")
 
     with tabs[5]:
         st.graphviz_chart(LINEAGE)

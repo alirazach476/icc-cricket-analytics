@@ -337,4 +337,28 @@ def run_pipeline(
         target = out_json or ROOT / "reports" / "pipeline_run.json"
         target.parent.mkdir(parents=True, exist_ok=True)
         target.write_text(json.dumps(record, indent=2), encoding="utf-8")
+        if out_json is None and not dry_run:
+            _append_history(record)
     return results
+
+
+def _append_history(record: dict) -> None:
+    """One row per real pipeline run in reports/pipeline_run_history.csv (the dashboard plots it)."""
+    import csv
+
+    path = ROOT / "reports" / "pipeline_run_history.csv"
+    steps = record["steps"]
+    row = {
+        "run_id": record["run_id"],
+        "started_at": record["started_at"],
+        "success": record["success"],
+        "total_seconds": round(sum(float(x.get("seconds") or 0) for x in steps), 1),
+        "steps_ok": sum(1 for x in steps if x.get("status") == "ok"),
+        "steps_failed": sum(1 for x in steps if x.get("status") not in ("ok", "dry_run", "skipped")),
+    }
+    new = not path.exists()
+    with path.open("a", newline="", encoding="utf-8") as fh:
+        w = csv.DictWriter(fh, fieldnames=list(row))
+        if new:
+            w.writeheader()
+        w.writerow(row)

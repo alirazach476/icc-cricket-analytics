@@ -18,7 +18,9 @@ import indicator from 'plotly.js/lib/indicator'
 import choropleth from 'plotly.js/lib/choropleth'
 import scattergeo from 'plotly.js/lib/scattergeo'
 import createPlotlyComponent from 'react-plotly.js/factory'
+import { Download } from 'lucide-react'
 import { useDash } from '../ctx.js'
+import { downloadCsv, figureRows, rowsToCsv } from '../chartData.js'
 
 Plotly.register([scatter, bar, pie, heatmap, box, violin, histogram, scatterpolar, sankey, treemap, sunburst, waterfall, indicator, choropleth, scattergeo])
 
@@ -33,8 +35,22 @@ export default function PlotCard({ fig }) {
     return f
   }, [fig, template, recolor])
   const height = layout.height || 380
+  const title = (() => {
+    const t = fig.layout && fig.layout.title
+    return (typeof t === 'string' ? t : t && t.text) || 'chart'
+  })()
+  const rows = useMemo(() => figureRows(fig), [fig])
   return (
     <div className="plotcard">
+      {rows.length > 0 && (
+        <button
+          className="plotdl"
+          title="Download the data behind this chart (CSV)"
+          onClick={() => downloadCsv(rowsToCsv(rows), String(title).replace(/<br>/g, ' '))}
+        >
+          <Download size={12} /> CSV
+        </button>
+      )}
       <Plot
         data={data}
         layout={{ ...layout, width: undefined }}

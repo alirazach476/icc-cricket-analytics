@@ -23,8 +23,9 @@ DB_PATHS = {
     "wc27": WAREHOUSE / "cricket_gold_wc27.duckdb",
 }
 DB_PATH = DB_PATHS["wc"]
-# The selected competition is per request / per thread (a ContextVar), not a process-wide global: a server
-# answers /api/meta and /api/page at the same time, and one must never switch the other's database.
+# The selected competition is per request / per thread (a ContextVar), not a process-wide global:
+# a server answers /api/meta and /api/page at the same time, and one must never switch the
+# other's database.
 _competition: ContextVar[str] = ContextVar("competition", default="wc")
 
 

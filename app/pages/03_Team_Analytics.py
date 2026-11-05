@@ -15,6 +15,7 @@ from app.utils import analytics as A  # noqa: E402
 from app.utils import charts as C  # noqa: E402
 from app.utils import queries as Q  # noqa: E402
 from app.utils import viz_data as V  # noqa: E402
+from app.utils import viz_extra as X  # noqa: E402
 from app.utils.theme import AMBER, BLUE, TEAL, cards, flag  # noqa: E402
 from app.utils.ui import setup  # noqa: E402
 
@@ -58,6 +59,7 @@ if setup(
             "Comparison",
             "Head-to-head",
             "Players",
+            "By stage and trend",
         ]
     )
 
@@ -424,3 +426,51 @@ if setup(
                 width="stretch",
             )
         st.caption("See the Squads page for the full squad lists, roles and ages.")
+
+    with tabs[6]:
+        sr = X.team_stage_record(tid)
+        if sr.empty:
+            st.info("No completed matches for this team.")
+        else:
+            long = sr.melt(id_vars=["format", "stage"], value_vars=["wins", "losses", "no_winner"], var_name="outcome", value_name="count")
+            long["outcome"] = long["outcome"].map({"wins": "Won", "losses": "Lost", "no_winner": "No winner (tie, draw, no result)"})
+            fig = px.bar(
+                long,
+                x="stage",
+                y="count",
+                color="outcome",
+                facet_col="format" if long["format"].nunique() > 1 else None,
+                barmode="stack",
+                color_discrete_map={"Won": TEAL, "Lost": AMBER, "No winner (tie, draw, no result)": "#8a94a8"},
+                title=f"{name}: results by match stage",
+                labels={"count": "Matches", "stage": "Match stage"},
+            )
+            fig.update_layout(height=420, legend=dict(orientation="h", y=-0.25))
+            st.plotly_chart(fig, width="stretch")
+            tot = sr.groupby("stage", observed=True)[["wins", "matches"]].sum().reset_index()
+            tot["win %"] = (100 * tot["wins"] / tot["matches"]).round(1)
+            st.dataframe(tot.rename(columns={"wins": "won", "matches": "played"}), hide_index=True, width="stretch")
+            st.caption("Small counts (a final or semi-final is rarely played more than a few times) say little about strength.")
+        tr = X.team_trend(tid).assign(team=name)
+        tro = X.team_trend(oid).assign(team=other)
+        both = tr if name == other else pd.concat([tr, tro])
+        if both.empty:
+            st.info("No edition-level scoring data.")
+        else:
+            a, b = st.columns(2)
+            for col, label, holder in (("avg_runs_scored", "Average runs scored per innings", a), ("avg_runs_conceded", "Average runs conceded per innings", b)):
+                with holder:
+                    fig = px.line(
+                        both,
+                        x="year",
+                        y=col,
+                        color="team",
+                        line_dash="format" if both["format"].nunique() > 1 else None,
+                        markers=True,
+                        hover_data={"matches": True, "win_pct": ":.1f"},
+                        title=f"{label}, by edition",
+                        labels={col: "Runs", "year": "Edition"},
+                    )
+                    fig.update_layout(height=380)
+                    st.plotly_chart(fig, width="stretch")
+            st.caption("Each point is one edition, so a team's trend rests on only a handful of matches per point.")

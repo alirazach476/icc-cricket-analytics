@@ -146,6 +146,41 @@ if setup(_h[0], "🏏", _h[1], _h[2]):
         fig.update_layout(height=380, margin=dict(l=4, r=4, t=50, b=4))
         st.plotly_chart(fig, width="stretch")
 
+    ov = database.run(
+        "select tournament_name, format, year, matches, number_of_teams from gold.mart_tournament_summary order by year, format"
+    )
+    a, b = st.columns(2)
+    with a:
+        fig = px.bar(
+            ov.assign(edition=ov["year"].astype(str)),
+            x="edition",
+            y="matches",
+            color="format",
+            barmode="group",
+            text="matches",
+            color_discrete_map=FORMAT_COLORS,
+            hover_name="tournament_name",
+            title="Matches played by edition and format",
+            labels={"matches": "Matches", "edition": "Edition"},
+        )
+        fig.update_layout(height=360)
+        st.plotly_chart(fig, width="stretch")
+    with b:
+        fig = px.bar(
+            ov.assign(edition=ov["year"].astype(str)),
+            x="edition",
+            y="number_of_teams",
+            color="format",
+            barmode="group",
+            text="number_of_teams",
+            color_discrete_map=FORMAT_COLORS,
+            hover_name="tournament_name",
+            title="Participating teams by edition",
+            labels={"number_of_teams": "Teams", "edition": "Edition"},
+        )
+        fig.update_layout(height=360)
+        st.plotly_chart(fig, width="stretch")
+
     section(
         "How the game is changing", "Pick a measure to compare the two formats across editions."
     )

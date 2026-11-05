@@ -1,3 +1,4 @@
+# ruff: noqa: E501
 """Team name -> flag asset code.
 
 Flags are local SVG files (web/public/flags, from the MIT-licensed `flag-icons` set), so they render the same on every
