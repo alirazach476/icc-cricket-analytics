@@ -3,8 +3,9 @@
 Flags are local SVG files (web/public/flags, from the MIT-licensed `flag-icons` set), so they render the same on every
 operating system and need no internet. Emoji flags are not used (Windows shows letter pairs instead).
 
-Teams without a national flag (West Indies is a multi-nation board) or not yet known (World Cup 2027 qualifier slots)
-return None and the UI draws a neutral initials badge instead of a wrong flag.
+West Indies is a multi-nation team with no national flag: ``wi.svg`` is a maroon and gold badge in the Cricket West Indies
+colours (replace it with the official artwork if you have it). Teams not yet known (World Cup 2027 qualifier slots) return
+None and the UI draws a neutral initials badge instead of a wrong flag.
 """
 
 from __future__ import annotations
@@ -33,6 +34,7 @@ FLAG_CODES: dict[str, str] = {
     "South Africa": "za",
     "Sri Lanka": "lk",
     "Uganda": "ug",
+    "West Indies": "wi",
     "United Arab Emirates": "ae",
     "United States of America": "us",
     "Zimbabwe": "zw",
@@ -67,6 +69,8 @@ ALIASES: dict[str, str] = {
     "can": "Canada",
     "ber": "Bermuda",
     "hk": "Hong Kong",
+    "windies": "West Indies",
+    "wi": "West Indies",
     "hong kong, china": "Hong Kong",
 }
 

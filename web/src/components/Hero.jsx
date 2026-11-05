@@ -1,6 +1,7 @@
 import React from 'react'
 import { Trophy, MapPin, Swords, Crown, Medal, Flame, Calendar } from 'lucide-react'
 import { LogoTile } from './EditionRail.jsx'
+import { WithFlag } from './Flag.jsx'
 
 const fmtN = (v, d = 0) => (v === null || v === undefined ? '–' : Number(v).toLocaleString('en-US', { maximumFractionDigits: d }))
 
@@ -30,7 +31,7 @@ export function EditionBanner({ e, comp }) {
               <Icon size={15} />
               <div>
                 <span>{label}</span>
-                <b>{value}</b>
+                <b><WithFlag text={value} /></b>
               </div>
             </div>
           ))}
@@ -76,7 +77,7 @@ export function Gallery({ comp, onSelect }) {
                 <LogoTile e={e} size={96} />
                 <div className="gyear">{e.label || e.year}</div>
                 <div className="gname">{e.host || ''}</div>
-                <div className="gwin"><Crown size={13} /> {e.upcoming ? 'Upcoming' : e.winner || 'TBD'}</div>
+                <div className="gwin"><Crown size={13} /> {e.upcoming ? 'Upcoming' : <WithFlag text={e.winner || 'TBD'} h={13} />}</div>
               </button>
             ))}
           </div>

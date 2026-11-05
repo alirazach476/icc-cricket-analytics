@@ -25,3 +25,13 @@ export default function Flag({ team, h = 18, className = '' }) {
     )
   return <img className={`flag ${className}`} src={`/flags/${code}.svg`} width={w} height={h} alt={`${team} flag`} title={team} loading="lazy" />
 }
+
+/** Text that gets a flag in front of it when it is exactly a team name (Champion, Runner-up, metric values...). */
+export function WithFlag({ text, h = 15 }) {
+  return (
+    <>
+      {isTeam(text) && <Flag team={text} h={h} className="inline" />}
+      {text}
+    </>
+  )
+}

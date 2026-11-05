@@ -25,13 +25,15 @@ def _teams() -> set[str]:
     return names
 
 
-def test_every_national_team_has_a_flag_file() -> None:
+def test_every_team_has_a_flag_file() -> None:
     for t in _teams():
         code = flag_code(t)
-        if t == "West Indies":  # a multi-nation board has no national flag: neutral badge, never a wrong flag
-            assert code is None
-        else:
-            assert code and (FLAG_DIR / f"{code}.svg").exists(), t
+        assert code and (FLAG_DIR / f"{code}.svg").exists(), t  # West Indies uses its own badge (wi.svg)
+
+
+def test_west_indies_has_a_badge_and_unknown_teams_do_not_get_a_wrong_flag() -> None:
+    assert flag_code("West Indies") == flag_code("windies") == "wi"
+    assert flag_code("Qualifier A") is None  # a World Cup 2027 slot that is not decided yet
 
 
 def test_flag_aliases() -> None:

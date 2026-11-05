@@ -5,6 +5,7 @@ import Table from './Table.jsx'
 import Markdown from './Markdown.jsx'
 import Graphviz from './Graphviz.jsx'
 import Widget from './Widgets.jsx'
+import { WithFlag } from './Flag.jsx'
 import MatchCentre from './MatchCentre.jsx'
 
 const ALERT_ICON = { info: Info, warning: AlertTriangle, error: XCircle, success: CheckCircle2 }
@@ -61,7 +62,7 @@ export function Node({ n, ctx }) {
       return (
         <div className="metric" title={n.help || ''}>
           <div className="mlabel">{n.label}</div>
-          <div className="mvalue">{n.value}</div>
+          <div className="mvalue"><WithFlag text={n.value} h={20} /></div>
           {n.delta && <div className="mdelta">{n.delta}</div>}
         </div>
       )
