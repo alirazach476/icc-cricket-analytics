@@ -3,8 +3,8 @@
 Flags are local SVG files (web/public/flags, from the MIT-licensed `flag-icons` set), so they render the same on every
 operating system and need no internet. Emoji flags are not used (Windows shows letter pairs instead).
 
-West Indies is a multi-nation team with no national flag: ``wi.svg`` is a maroon and gold badge in the Cricket West Indies
-colours (replace it with the official artwork if you have it). Teams not yet known (World Cup 2027 qualifier slots) return
+West Indies is a multi-nation team with no national flag: ``wi.svg`` is the West Indies cricket flag (maroon with the
+crest, supplied by the project owner). Teams not yet known (World Cup 2027 qualifier slots) return
 None and the UI draws a neutral initials badge instead of a wrong flag.
 """
 
