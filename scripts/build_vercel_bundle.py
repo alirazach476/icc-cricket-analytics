@@ -97,8 +97,8 @@ def main() -> None:
                 "functions": {"index.py": {"maxDuration": 60, "excludeFiles": "{**/tests/**,**/__pycache__/**,**/*.pyc,**/plotly/package_data/datasets/**}"}},
                 "headers": [
                     {"source": "/assets/(.*)", "headers": cache("public, max-age=31536000, immutable")},
-                    {"source": "/logos/(.*)", "headers": cache("public, max-age=604800")},
-                    {"source": "/flags/(.*)", "headers": cache("public, max-age=604800")},
+                    {"source": "/logos/(.*)", "headers": cache("public, max-age=86400")},
+                    {"source": "/flags/(.*)", "headers": cache("public, max-age=86400")},
                 ],
             },
             indent=2,

@@ -3,7 +3,7 @@
 Flags are local SVG files (web/public/flags, from the MIT-licensed `flag-icons` set), so they render the same on every
 operating system and need no internet. Emoji flags are not used (Windows shows letter pairs instead).
 
-West Indies is a multi-nation team with no national flag: ``wi.svg`` is the West Indies cricket flag (maroon with the
+West Indies is a multi-nation team with no national flag: ``wi-crest.svg`` is the West Indies cricket flag (maroon with the
 crest, supplied by the project owner). Teams not yet known (World Cup 2027 qualifier slots) return
 None and the UI draws a neutral initials badge instead of a wrong flag.
 """
@@ -34,7 +34,7 @@ FLAG_CODES: dict[str, str] = {
     "South Africa": "za",
     "Sri Lanka": "lk",
     "Uganda": "ug",
-    "West Indies": "wi",
+    "West Indies": "wi-crest",
     "United Arab Emirates": "ae",
     "United States of America": "us",
     "Zimbabwe": "zw",

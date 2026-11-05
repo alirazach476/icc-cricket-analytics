@@ -28,11 +28,11 @@ def _teams() -> set[str]:
 def test_every_team_has_a_flag_file() -> None:
     for t in _teams():
         code = flag_code(t)
-        assert code and (FLAG_DIR / f"{code}.svg").exists(), t  # West Indies uses its own badge (wi.svg)
+        assert code and (FLAG_DIR / f"{code}.svg").exists(), t  # West Indies uses its own badge (wi-crest.svg)
 
 
 def test_west_indies_has_a_badge_and_unknown_teams_do_not_get_a_wrong_flag() -> None:
-    assert flag_code("West Indies") == flag_code("windies") == "wi"
+    assert flag_code("West Indies") == flag_code("windies") == "wi-crest"
     assert flag_code("Qualifier A") is None  # a World Cup 2027 slot that is not decided yet
 
 
