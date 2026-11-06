@@ -13,6 +13,7 @@ from typing import Any
 import pandas as pd
 import plotly.graph_objects as go
 
+from app.utils import database
 from app.utils.database import run
 from app.utils.flags import canonical, flag_code
 from app.utils.theme import AMBER, BLUE, PINK, TEAL
@@ -200,45 +201,45 @@ def _bowling_from_deliveries(d: pd.DataFrame, names: dict) -> dict[int, list[dic
 
 
 def _chips(d: pd.DataFrame, names: dict) -> list[dict]:
-    """Per innings: overs with their deliveries as compact chips."""
+    """Per innings: overs with their deliveries as compact chips (built on plain arrays: a Test has thousands of balls)."""
     out = []
     for inn, g in d[~d["so"]].groupby("inn"):
+        c = {k: g[k].tolist() for k in ("wkt", "pen", "wd", "nb", "bye", "lb", "six", "four", "tr", "br", "xr", "legal", "cum", "cw", "bowler_id")}
         overs = []
-        legal_total = 0
-        for ov, og in g.groupby("ov", sort=True):
+        for ov, pos in sorted(g.groupby("ov").indices.items()):
             balls = []
-            for r in og.itertuples():
-                if r.wkt:
+            for i in pos:
+                if c["wkt"][i]:
                     txt, kind = "W", "wkt"
-                elif r.pen:
-                    txt, kind = f"{int(r.xr)}pen", "extra"
-                elif r.wd:
-                    txt, kind = (f"{int(r.tr)}wd" if r.tr > 1 else "wd"), "extra"
-                elif r.nb:
-                    txt, kind = (f"{int(r.br)}nb" if r.br else "nb"), "extra"
-                elif r.bye:
-                    txt, kind = f"{int(r.xr)}b", "extra"
-                elif r.lb:
-                    txt, kind = f"{int(r.xr)}lb", "extra"
-                elif r.six:
+                elif c["pen"][i]:
+                    txt, kind = f"{int(c['xr'][i])}pen", "extra"
+                elif c["wd"][i]:
+                    txt, kind = (f"{int(c['tr'][i])}wd" if c["tr"][i] > 1 else "wd"), "extra"
+                elif c["nb"][i]:
+                    txt, kind = (f"{int(c['br'][i])}nb" if c["br"][i] else "nb"), "extra"
+                elif c["bye"][i]:
+                    txt, kind = f"{int(c['xr'][i])}b", "extra"
+                elif c["lb"][i]:
+                    txt, kind = f"{int(c['xr'][i])}lb", "extra"
+                elif c["six"][i]:
                     txt, kind = "6", "six"
-                elif r.four:
+                elif c["four"][i]:
                     txt, kind = "4", "four"
-                elif r.tr == 0:
+                elif c["tr"][i] == 0:
                     txt, kind = "0", "dot"
                 else:
-                    txt, kind = str(int(r.br)), "run"
-                legal_total += int(r.legal)
-                balls.append([txt, kind, int(r.tr)])
-            bowlers = list(dict.fromkeys(names.get(b, b) for b in og["bowler_id"]))
+                    txt, kind = str(int(c["br"][i])), "run"
+                balls.append([txt, kind, int(c["tr"][i])])
+            last = pos[-1]
+            bowlers = list(dict.fromkeys(names.get(c["bowler_id"][i], c["bowler_id"][i]) for i in pos))
             overs.append(
                 {
                     "over": int(ov),
                     "bowler": " / ".join(bowlers),
-                    "runs": int(og["tr"].sum()),
-                    "wickets": int(og["wkt"].sum()),
-                    "complete": int(og["legal"].sum()) >= 6,
-                    "score": f"{int(og['cum'].iloc[-1])}/{int(og['cw'].iloc[-1])}",
+                    "runs": int(sum(c["tr"][i] for i in pos)),
+                    "wickets": int(sum(1 for i in pos if c["wkt"][i])),
+                    "complete": sum(1 for i in pos if c["legal"][i]) >= 6,
+                    "score": f"{int(c['cum'][last])}/{int(c['cw'][last])}",
                     "balls": balls,
                 }
             )
@@ -305,6 +306,42 @@ def _partnerships(d: pd.DataFrame, names: dict) -> dict[int, list[dict]]:
 
 
 # ---------------------------------------------------------------- payload
+def _edition(h: dict) -> dict | None:
+    """The tournament's logo, banner and colour theme, so the scoreboard carries its own branding."""
+    try:
+        from server import editions as E
+
+        comp, year = database.competition(), int(h["year"])
+        eid = E.edition_id(h["format"], year) if comp == "wc" else f"{comp}-{year}"
+        th = E.theme_for(eid)
+        return {
+            "id": eid,
+            "name": h["tournament_name"],
+            "logo": E.logo_for(eid),
+            "banner": E.banner_for(eid),
+            "theme": {k: th[k] for k in ("primary", "secondary", "tertiary", "bg")},
+        }
+    except Exception:  # noqa: BLE001 - branding must never stop a scoreboard from loading
+        return None
+
+
+def neighbours(mid: str, tid: str) -> dict:
+    """Previous and next match of the same tournament (by date) for the match view's arrows."""
+    d = match_options(tid).reset_index(drop=True)
+    hit = d.index[d["match_id"] == mid]
+    if not len(hit):
+        return {"prev": None, "next": None}
+    i = int(hit[0])
+
+    def pick(j: int) -> dict | None:
+        if j < 0 or j >= len(d):
+            return None
+        r = d.iloc[j]
+        return {"id": r["match_id"], "label": f"{r['team1']} v {r['team2']}", "date": str(r["match_date"])[:10]}
+
+    return {"prev": pick(i - 1), "next": pick(i + 1)}
+
+
 def payload(mid: str) -> dict | None:
     h = header(mid)
     if not h:
@@ -479,6 +516,9 @@ def payload(mid: str) -> dict | None:
 
     return {
         "match_id": mid,
+        "competition": database.competition(),
+        "tournament_id": h["tournament_id"],
+        "edition": _edition(h),
         "tournament": h["tournament_name"],
         "format": fmt,
         "year": _num(h["year"]),

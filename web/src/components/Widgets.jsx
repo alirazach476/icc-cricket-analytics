@@ -1,6 +1,7 @@
 import React, { useEffect, useMemo, useRef, useState } from 'react'
 import { Search } from 'lucide-react'
 import Flag, { isTeam } from './Flag.jsx'
+import { useDash } from '../ctx.js'
 
 const same = (a, b) => a === b || String(a) === String(b)
 
@@ -18,6 +19,7 @@ function useDebounced(value, commit, ms = 350) {
 }
 
 function MatchPicker({ w, onChange }) {
+  const { openMatch } = useDash()
   const [q, setQ] = useState('')
   const items = useMemo(() => w.options.map((o, i) => ({ o, r: w.rich[i] || {} })), [w])
   const view = useMemo(() => {
@@ -36,7 +38,7 @@ function MatchPicker({ w, onChange }) {
       </label>
       <div className="mp-list" ref={ref} role="listbox" aria-label="Choose a match">
         {view.map(({ o, r }, i) => (
-          <button key={i} role="option" aria-selected={same(o.v, w.value)} className={`mp-item ${same(o.v, w.value) ? 'on' : ''}`} onClick={() => onChange(o.v)}>
+          <button key={i} role="option" aria-selected={same(o.v, w.value)} className={`mp-item ${same(o.v, w.value) ? 'on' : ''}`} onClick={() => (r.id && openMatch ? openMatch(r.id) : onChange(o.v))}>
             <span className="mp-teams">
               <Flag team={r.t1} h={16} /> <b>{r.t1}</b> <i>v</i> <Flag team={r.t2} h={16} /> <b>{r.t2}</b>
             </span>

@@ -64,6 +64,7 @@ if setup(
             m_index = int(m.index[m["match_id"] == focus][0])
         rich = {
             r["label"]: {
+                "id": r["match_id"],
                 "t1": r["team1"],
                 "t2": r["team2"],
                 "date": str(r["match_date"])[:10],

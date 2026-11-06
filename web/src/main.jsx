@@ -4,6 +4,7 @@ import App from './App.jsx'
 import './styles.css'
 import './matchcentre.css'
 import './design.css'
+import './matchview.css'
 
 createRoot(document.getElementById('root')).render(<App />)
 

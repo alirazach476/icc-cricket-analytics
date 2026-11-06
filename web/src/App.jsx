@@ -1,6 +1,7 @@
 import React, { useCallback, useEffect, useMemo, useRef, useState } from 'react'
 import { Home, Trophy, User, Shield, Users, Swords, Target, FlaskConical, Brain, Database, ScrollText, Loader2, SlidersHorizontal } from 'lucide-react'
 import { getMeta, getPage } from './api.js'
+import MatchView from './components/MatchView.jsx'
 import { setFlags } from './components/Flag.jsx'
 import { applyTheme, makeRecolor } from './theme.js'
 import { DashCtx } from './ctx.js'
@@ -32,6 +33,7 @@ export default function App() {
   const [data, setData] = useState(null)
   const [loading, setLoading] = useState(false)
   const [err, setErr] = useState(null)
+  const [matchEdId, setMatchEdId] = useState(null)
   const states = useRef({})
   const reqId = useRef(0)
   const abort = useRef(null)
@@ -50,7 +52,10 @@ export default function App() {
   }, [])
 
   const allEditions = useMemo(() => (meta ? meta.competitions.flatMap((c) => c.editions) : []), [meta])
-  const edition = useMemo(() => allEditions.find((e) => e.id === route.edition) || null, [allEditions, route.edition])
+  const isMatch = route.slug.startsWith('match/')
+  const matchId = isMatch ? route.slug.slice(6) : null
+  const edId = route.edition || (isMatch ? matchEdId : null)
+  const edition = useMemo(() => allEditions.find((e) => e.id === edId) || null, [allEditions, edId])
   const compCode = edition ? edition.tab || edition.competition : route.comp
   const comp = useMemo(() => meta?.competitions.find((c) => c.code === compCode) || meta?.competitions[0], [meta, compCode])
   // backend competition that serves the page (the 2027 World Cup lives under the World Cups tab)
@@ -87,13 +92,13 @@ export default function App() {
   }, [])
 
   useEffect(() => {
-    if (!meta || !comp) return
+    if (!meta || !comp || isMatch) return
     if (!pages.includes(route.slug)) {
       go('home', route.edition, comp.code)
       return
     }
     load(route.slug, route.edition, dc)
-  }, [meta, comp, dc, pages, route.slug, route.edition, load, go])
+  }, [meta, comp, dc, pages, isMatch, route.slug, route.edition, load, go])
 
   const setWidget = useCallback(
     (wid, value) => {
@@ -106,13 +111,16 @@ export default function App() {
 
   const openMatch = useCallback(
     (matchId) => {
-      // the match page reads this as its default selection (st.session_state['focus_match'])
-      states.current[`${dc}|matches|${route.edition || ''}`] = { __session: { focus_match: matchId } }
-      go('matches', route.edition, comp.code)
-      window.scrollTo({ top: 0, behavior: 'smooth' })
+      // a match opens straight into its own scoreboard view
+      go(`match/${matchId}`, null, dc)
     },
-    [route.edition, comp, dc, go],
+    [dc, go],
   )
+
+  const back = useCallback(() => {
+    if (window.history.length > 1) window.history.back()
+    else go('matches', matchEdId, comp ? comp.code : 'wc')
+  }, [go, matchEdId, comp])
 
   const selectEdition = useCallback(
     (id) => {
@@ -170,7 +178,7 @@ export default function App() {
             {meta.pages.filter((p) => pages.includes(p.slug)).map((p) => {
               const Icon = ICONS[p.icon] || Home
               return (
-                <a key={p.slug} className={p.slug === route.slug ? 'navitem on' : 'navitem'} href={`#${hashFor(p.slug, route.edition, comp.code)}`}>
+                <a key={p.slug} className={p.slug === route.slug ? 'navitem on' : 'navitem'} href={`#${hashFor(p.slug, route.edition || (isMatch ? matchEdId : null), comp.code)}`}>
                   <Icon size={18} /> <span>{p.title}</span>
                 </a>
               )
@@ -194,6 +202,10 @@ export default function App() {
         </aside>
 
         <main className="main">
+          {isMatch ? (
+            <MatchView key={matchId} id={matchId} comp={route.comp} onEdition={setMatchEdId} onBack={back} go={go} />
+          ) : (
+            <>
           <CompetitionTabs competitions={meta.competitions.filter((c) => !c.hidden)} active={comp.code} onSelect={selectCompetition} />
           <EditionRail comp={comp} selected={route.edition} onSelect={selectEdition} />
           {loading && <div className="progress" />}
@@ -231,6 +243,8 @@ export default function App() {
               </div>
             )}
           </div>
+            </>
+          )}
         </main>
       </div>
     </DashCtx.Provider>

@@ -2,6 +2,7 @@ import React, { useEffect, useMemo, useState } from 'react'
 import { Calendar, MapPin, Trophy, Coins, Crown, Target, ChevronLeft, ChevronRight, Info, Star } from 'lucide-react'
 import Flag from './Flag.jsx'
 import { teamColor } from '../teamColors.js'
+import { mix } from '../theme.js'
 
 const dash = (v) => (v === null || v === undefined || v === '' ? '–' : v)
 const fmtDate = (d) => {
@@ -89,9 +90,21 @@ function Hero({ d }) {
     const used = legalBalls(chase.overs)
     if (used !== null && cap * 6 - used > 0 && !d.result.includes('DLS')) spare = cap * 6 - used
   }
+  const ed = d.edition
+  const th = ed && ed.theme
+  // the scoreboard carries its tournament's own colours and logo
+  const brand = th
+    ? { '--primary': th.primary, '--secondary': th.secondary, '--tertiary': th.tertiary, '--bg': th.bg, '--panel': mix(th.bg, '#ffffff', 0.06), '--panel2': mix(th.bg, '#ffffff', 0.11), '--border': mix(th.bg, '#ffffff', 0.17) }
+    : undefined
   return (
-    <section className={`mc-hero sb kind-${d.result_kind}`}>
+    <section className={`mc-hero sb kind-${d.result_kind}`} style={brand}>
+      {ed && <img className="sb-watermark" src={ed.logo} alt="" aria-hidden="true" />}
       <div className="sb-ticker">
+        {ed && (
+          <span className="sb-logo">
+            <img src={ed.logo} alt={`${d.tournament} logo`} />
+          </span>
+        )}
         <span className="sb-tournament">{d.tournament}</span>
         {d.stage && <em>{d.stage}</em>}
         {d.match_number && <span>Match {d.match_number}</span>}

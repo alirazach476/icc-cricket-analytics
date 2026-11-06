@@ -184,6 +184,49 @@ async def page(slug: str, request: Request) -> Response:
     return Response(payload, media_type="application/json")
 
 
+_MATCH_CACHE: dict[tuple[str, str], bytes] = {}
+_CHART_GROUPS = [
+    ("Progression", ["Worm", "Run rate"]),
+    ("Overs and wickets", ["Over by over", "Wickets timeline"]),
+    ("Innings and chase", ["Innings comparison", "Chase"]),
+    ("Partnerships and wickets", ["Partnerships", "Fall of wickets"]),
+]
+
+
+@app.get("/api/match/{match_id}")
+def match(match_id: str, competition: str = "wc") -> Response:
+    """Everything the match view needs in one call: scoreboard data, charts, branding and the neighbouring matches."""
+    import json
+
+    from app.utils import database, match_centre
+    from server import stshim
+
+    if competition not in ("wc", "ct", "wtc"):
+        raise HTTPException(404, "unknown competition")
+    key = (competition, match_id)
+    if key in _MATCH_CACHE:
+        return Response(_MATCH_CACHE[key], media_type="application/json", headers=_MATCH_HEADERS)
+    database.set_competition(competition)
+    pl = match_centre.payload(match_id)
+    if pl is None:
+        raise HTTPException(404, "match not found")
+    figs = match_centre.charts(match_id, pl) if pl["has_ball_by_ball"] else {}
+    groups = []
+    for g, names in _CHART_GROUPS:
+        items = [{"name": n, "fig": stshim.figure_to_json(figs[n])} for n in names if n in figs]
+        if items:
+            groups.append({"group": g, "figs": items})
+    body = {"payload": pl, "charts": groups, "neighbours": match_centre.neighbours(match_id, pl["tournament_id"])}
+    out = json.dumps(body, allow_nan=False, default=str).encode("utf-8")
+    if len(_MATCH_CACHE) > 300:
+        _MATCH_CACHE.pop(next(iter(_MATCH_CACHE)))
+    _MATCH_CACHE[key] = out
+    return Response(out, media_type="application/json", headers=_MATCH_HEADERS)
+
+
+_MATCH_HEADERS = {"Cache-Control": "public, max-age=300, s-maxage=86400, stale-while-revalidate=86400"}
+
+
 def meta_editions() -> list[dict]:
     meta()
     assert _META is not None

@@ -14,3 +14,9 @@ export async function getPage(slug, state, edition, competition, signal) {
   if (!r.ok) throw new Error(`page ${slug}: ${r.status}`)
   return r.json()
 }
+
+export async function getMatch(id, competition, signal) {
+  const r = await fetch(`/api/match/${encodeURIComponent(id)}?competition=${competition || 'wc'}`, { signal })
+  if (!r.ok) throw new Error(r.status === 404 ? 'This match could not be found.' : `match ${id}: ${r.status}`)
+  return r.json()
+}
