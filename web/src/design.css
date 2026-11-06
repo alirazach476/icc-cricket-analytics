@@ -1,0 +1,93 @@
+/* ============ broadcast scoreboard ============ */
+.mc-hero.sb { padding: 0; overflow: hidden; border-radius: 22px; }
+.sb-ticker { position: relative; display: flex; align-items: center; gap: 14px; flex-wrap: wrap; padding: 11px 22px; text-transform: uppercase; letter-spacing: .14em; font-size: 12px; font-weight: 800; color: #fff;
+  background: linear-gradient(100deg, color-mix(in srgb, var(--primary) 78%, #000) 0%, color-mix(in srgb, var(--secondary) 62%, #000) 70%, color-mix(in srgb, var(--secondary) 40%, #000) 100%); }
+.sb-ticker::after { content: ''; position: absolute; left: 0; right: 0; bottom: 0; height: 2px; background: linear-gradient(90deg, var(--tertiary), transparent 70%); }
+.sb-tournament { font-size: 13px; letter-spacing: .16em; }
+.sb-ticker em { font-style: normal; color: #ffe29a; background: rgba(0,0,0,.28); padding: 3px 10px; border-radius: 4px; }
+.sb-ticker span:not(.sb-tournament):not(.mc-status):not(.fmt) { opacity: .88; }
+.sb-ticker .fmt { border: 1px solid rgba(255,255,255,.55); border-radius: 4px; padding: 1px 8px; }
+.sb-ticker .mc-status { margin-left: auto; background: rgba(0,0,0,.3); border-color: rgba(255,255,255,.4); color: #fff; }
+.sb-venue { display: flex; gap: 8px 22px; flex-wrap: wrap; padding: 8px 22px; font-size: 13px; color: var(--muted); background: rgba(0,0,0,.32); }
+.sb-venue span { display: inline-flex; gap: 6px; align-items: center; }
+.sb-bands { position: relative; display: grid; gap: 6px; padding: 16px clamp(10px, 2vw, 24px) 6px; }
+.sb-band { --tc: #4c8dff; position: relative; display: grid; grid-template-columns: 82px minmax(0, 1.5fr) auto auto minmax(110px, 1fr); align-items: center; gap: 4px 18px; padding: 10px 40px 10px 4px; min-height: 96px;
+  border-left: 7px solid var(--tc); border-radius: 8px 0 0 8px;
+  background: linear-gradient(95deg, color-mix(in srgb, var(--tc) 30%, #070b16) 0%, rgba(8, 12, 26, .7) 62%, rgba(8, 12, 26, .35) 100%);
+  clip-path: polygon(0 0, 100% 0, calc(100% - 26px) 100%, 0 100%); opacity: .9; transition: opacity .2s; }
+.sb-band::before { content: ''; position: absolute; inset: 0; pointer-events: none; background: repeating-linear-gradient(115deg, rgba(255,255,255,.03) 0 2px, transparent 2px 18px); }
+.sb-band.win { opacity: 1; border-left-color: var(--tertiary); background: linear-gradient(95deg, color-mix(in srgb, var(--tertiary) 24%, color-mix(in srgb, var(--tc) 28%, #070b16)) 0%, rgba(10, 14, 28, .72) 64%, rgba(10, 14, 28, .4) 100%); box-shadow: 0 0 34px color-mix(in srgb, var(--tertiary) 22%, transparent); }
+.sb-flag { padding-left: 14px; display: grid; place-items: center; }
+.sb-name { min-width: 0; display: flex; flex-direction: column; gap: 3px; }
+.sb-name b { font-size: clamp(18px, 2.7vw, 31px); font-weight: 800; letter-spacing: .035em; text-transform: uppercase; line-height: 1.05; overflow-wrap: anywhere; }
+.sb-name span { display: flex; align-items: center; gap: 10px; font-size: 12.5px; color: var(--muted); letter-spacing: .06em; text-transform: uppercase; }
+.sb-won { font-style: normal; display: inline-flex; align-items: center; gap: 4px; color: #11161f; background: linear-gradient(90deg, var(--tertiary), color-mix(in srgb, var(--tertiary) 55%, #fff)); font-weight: 800; padding: 1px 9px; border-radius: 3px; letter-spacing: .1em; font-size: 11px; }
+.sb-score { display: flex; align-items: baseline; gap: 2px; font-variant-numeric: tabular-nums; line-height: 1; }
+.sb-score b { font-size: clamp(42px, 6.4vw, 72px); font-weight: 800; letter-spacing: -.02em; }
+.sb-band.win .sb-score b { background: linear-gradient(180deg, #fff 10%, color-mix(in srgb, var(--tertiary) 75%, #fff)); -webkit-background-clip: text; background-clip: text; color: transparent; }
+.sb-score i { font-style: normal; font-size: clamp(22px, 3vw, 34px); font-weight: 700; opacity: .75; }
+.sb-dnb { font-size: 30px; color: var(--muted); }
+.sb-meta { display: flex; flex-direction: column; gap: 3px; font-variant-numeric: tabular-nums; }
+.sb-meta b { font-size: 20px; font-weight: 800; }
+.sb-meta small { font-size: 11px; color: var(--muted); font-weight: 600; letter-spacing: .08em; text-transform: uppercase; }
+.sb-meta span { font-size: 12.5px; color: var(--muted); letter-spacing: .06em; }
+.sb-sparkwrap { min-width: 0; }
+.sb-spark { width: 100%; height: 48px; display: block; }
+.sb-result { display: flex; justify-content: center; margin: 12px 0 10px; padding: 0 12px; }
+.sb-result span { display: inline-block; padding: 11px 54px; max-width: 100%; text-align: center; font-weight: 800; letter-spacing: .1em; font-size: clamp(14px, 2vw, 20px); color: #11161f;
+  background: linear-gradient(90deg, var(--tertiary), color-mix(in srgb, var(--tertiary) 55%, #fff) 50%, var(--tertiary));
+  clip-path: polygon(20px 0, 100% 0, calc(100% - 20px) 100%, 0 100%); box-shadow: 0 10px 28px color-mix(in srgb, var(--tertiary) 35%, transparent); }
+.sb.kind-abandoned .sb-result span, .sb.kind-no_result .sb-result span, .sb.kind-draw .sb-result span { background: linear-gradient(90deg, #39425a, #4a556f, #39425a); color: #eaf0ff; box-shadow: none; }
+.sb .mc-chips { padding: 0 20px 18px; }
+@media (max-width: 860px) {
+  .sb-band { grid-template-columns: 58px minmax(0, 1fr) auto; padding-right: 30px; }
+  .sb-meta { grid-column: 2 / 4; flex-direction: row; gap: 14px; align-items: baseline; }
+  .sb-sparkwrap { display: none; }
+  .sb-band .mc-flag { width: 46px; height: auto; }
+  .sb-result span { padding: 10px 34px; }
+}
+
+/* ============ chart cards ============ */
+.plotcard { padding: 0 !important; border-radius: 20px !important; position: relative;
+  background: linear-gradient(180deg, color-mix(in srgb, var(--panel2) 70%, transparent), color-mix(in srgb, var(--panel) 92%, transparent)) !important;
+  border: 1px solid color-mix(in srgb, var(--primary) 16%, var(--border)) !important;
+  box-shadow: 0 14px 34px rgba(0, 0, 0, .3), inset 0 1px 0 rgba(255, 255, 255, .05) !important; transition: border-color .2s, transform .2s, box-shadow .2s; }
+.plotcard:hover { border-color: color-mix(in srgb, var(--primary) 55%, var(--border)) !important; box-shadow: 0 18px 40px rgba(0, 0, 0, .36), 0 0 0 1px color-mix(in srgb, var(--primary) 20%, transparent) !important; }
+.plot-head { display: flex; align-items: flex-start; gap: 10px; padding: 14px 16px 2px 18px; position: relative; }
+.plot-head::before { content: ''; flex: none; width: 4px; align-self: stretch; min-height: 18px; border-radius: 3px; background: linear-gradient(var(--primary), var(--secondary)); }
+.plot-titles { min-width: 0; flex: 1; }
+.plot-titles h4 { margin: 0; font-size: 15px; font-weight: 700; line-height: 1.3; letter-spacing: .01em; overflow-wrap: anywhere; }
+.plot-titles small { display: block; margin-top: 2px; font-size: 12px; color: var(--muted); }
+.plotcard .plotdl { position: static; flex: none; margin-top: 1px; opacity: .6; }
+.plotcard > div:not(.plot-head):not(.skeleton) { padding: 0 6px 6px; }
+.plotcard .skeleton { margin: 8px 12px 12px !important; }
+.plotcard .barlayer .point path, .plotcard .trace.bars .points path { filter: drop-shadow(0 3px 5px rgba(0, 0, 0, .35)); }
+.plotcard .scatterlayer .trace .lines path { filter: drop-shadow(0 0 5px color-mix(in srgb, currentColor 35%, transparent)); }
+.plotcard .modebar { top: -2px !important; }
+.plotcard .hoverlayer .hovertext path { filter: drop-shadow(0 6px 14px rgba(0, 0, 0, .5)); }
+
+/* ============ stat cards ============ */
+.metric { border-radius: 18px !important; border: 1px solid color-mix(in srgb, var(--primary) 18%, var(--border)) !important; overflow: hidden;
+  background: linear-gradient(135deg, color-mix(in srgb, var(--panel2) 88%, transparent), var(--panel)) !important; box-shadow: 0 10px 26px rgba(0, 0, 0, .26); }
+.metric::after { content: ''; position: absolute; right: -30px; top: -30px; width: 110px; height: 110px; border-radius: 50%; background: radial-gradient(circle, color-mix(in srgb, var(--primary) 26%, transparent), transparent 70%); pointer-events: none; }
+.metric .mlabel { text-transform: uppercase; letter-spacing: .1em; font-size: 11.5px; font-weight: 700; }
+.metric .mvalue { background: linear-gradient(180deg, #fff, color-mix(in srgb, var(--primary) 40%, #fff)); -webkit-background-clip: text; background-clip: text; color: transparent; font-weight: 800; }
+.metric:hover { box-shadow: 0 16px 34px rgba(0, 0, 0, .34), 0 0 0 1px color-mix(in srgb, var(--primary) 35%, transparent); }
+
+/* ============ tables ============ */
+.tablecard { border-radius: 20px !important; border: 1px solid color-mix(in srgb, var(--primary) 16%, var(--border)) !important;
+  background: linear-gradient(180deg, color-mix(in srgb, var(--panel2) 55%, transparent), var(--panel)) !important; box-shadow: 0 14px 34px rgba(0, 0, 0, .28); }
+.tablecard table thead th { position: sticky; top: 0; z-index: 1; text-transform: uppercase; letter-spacing: .08em; font-size: 11.5px; font-weight: 800; color: var(--muted);
+  background: linear-gradient(180deg, color-mix(in srgb, var(--primary) 14%, var(--panel2)), color-mix(in srgb, var(--primary) 6%, var(--panel))); border-bottom: 2px solid color-mix(in srgb, var(--primary) 55%, transparent); }
+.tablecard table tbody tr:nth-child(even) td { background: rgba(255, 255, 255, .025); }
+.tablecard table tbody tr:hover td { background: color-mix(in srgb, var(--primary) 11%, transparent); }
+.tablecard table tbody td:first-child { font-weight: 600; }
+.tablecard table tbody tr.link { cursor: pointer; }
+.tablecard table tbody tr.link:hover td:first-child { box-shadow: inset 3px 0 0 var(--primary); }
+
+/* ============ section headings ============ */
+.section-title { letter-spacing: .01em; }
+.section-title::before { width: 6px; box-shadow: 0 0 14px color-mix(in srgb, var(--primary) 55%, transparent); }
+
+.plot-head.notitle { justify-content: flex-end; padding-bottom: 0; }
+.plot-head.notitle::before { display: none; }

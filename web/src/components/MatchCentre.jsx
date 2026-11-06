@@ -1,6 +1,7 @@
 import React, { useEffect, useMemo, useState } from 'react'
 import { Calendar, MapPin, Trophy, Coins, Crown, Target, ChevronLeft, ChevronRight, Info, Star } from 'lucide-react'
 import Flag from './Flag.jsx'
+import { teamColor } from '../teamColors.js'
 
 const dash = (v) => (v === null || v === undefined || v === '' ? '–' : v)
 const fmtDate = (d) => {
@@ -12,67 +13,107 @@ const fmtDate = (d) => {
 }
 const ord = (n) => `${n}${['th', 'st', 'nd', 'rd'][(n % 100 > 10 && n % 100 < 14) || n % 10 > 3 ? 0 : n % 10]}`
 
-function Score({ inn, big }) {
+const MAX_OVERS = { ODI: 50, T20: 20 }
+const legalBalls = (ov) => {
+  if (!ov) return null
+  const [o, b] = String(ov).split('.')
+  return Number(o) * 6 + Number(b || 0)
+}
+
+// tiny over-by-over bars (runs per over; a red dot marks an over with a wicket)
+function Spark({ overs, color }) {
+  if (!overs || overs.length < 2) return null
+  const max = Math.max(8, ...overs.map((o) => o.runs))
+  const w = 6, gap = 2, h = 38
+  const width = overs.length * (w + gap)
   return (
-    <span className={big ? 'mc-score big' : 'mc-score'}>
-      <b>{inn.runs}</b>
-      <i>{inn.wickets !== null && inn.wickets !== undefined && inn.wickets < 10 ? `/${inn.wickets}` : ''}</i>
-    </span>
+    <svg className="sb-spark" viewBox={`0 0 ${width} ${h + 6}`} preserveAspectRatio="none" role="img" aria-label="Runs in each over">
+      {overs.map((o, i) => {
+        const bh = Math.max(2, (o.runs / max) * h)
+        return (
+          <g key={i}>
+            <rect x={i * (w + gap)} y={h - bh + 6} width={w} height={bh} rx="1.5" fill={color} opacity={o.wickets ? 1 : 0.7} />
+            {o.wickets > 0 && <circle cx={i * (w + gap) + w / 2} cy="3" r="2.4" fill="#ff4d6d" />}
+          </g>
+        )
+      })}
+    </svg>
   )
 }
 
-function TeamBlock({ t, d, right }) {
-  const lo = d.format !== 'Test'
+function Band({ t, d, overs, right }) {
+  const color = teamColor(t.name)
+  const last = t.innings[t.innings.length - 1]
+  const inn = d.innings.find((i) => last && i.n === last.n)
+  const rr = inn && inn.run_rate
   return (
-    <div className={`mc-team ${t.winner ? 'win' : ''} ${right ? 'right' : ''}`}>
-      <Flag team={t.name} h={44} className="mc-flag" />
-      <div className="mc-tname">
-        {t.winner && <Crown size={16} className="crown" aria-label="winner" />}
-        {t.name}
+    <div className={`sb-band ${t.winner ? 'win' : ''}`} style={{ '--tc': color }}>
+      <div className="sb-flag"><Flag team={t.name} h={46} className="mc-flag" /></div>
+      <div className="sb-name">
+        <b>{t.name}</b>
+        <span>
+          {t.winner && <em className="sb-won"><Crown size={12} /> WINNER</em>}
+          {t.innings.length > 1 ? t.innings.slice(0, -1).map((i) => `${i.runs}${i.wickets < 10 ? `/${i.wickets}` : ''}`).join(' & ') + ' &' : inn && inn.target ? 'chasing' : inn ? 'batted first' : ''}
+        </span>
       </div>
-      {t.innings.length === 0 ? (
-        <div className="mc-noinn">{d.result_kind === 'won' && d.result.includes('WALKOVER') ? 'Walkover' : 'Did not bat'}</div>
-      ) : (
-        t.innings.map((i, k) => (
-          <div key={k} className="mc-line">
-            <Score inn={i} big={k === t.innings.length - 1} />
-            {lo || true ? <span className="mc-overs">{i.overs ? `${i.overs} ov` : ''}{i.super_over ? ' · super over' : ''}</span> : null}
-          </div>
-        ))
-      )}
+      <div className="sb-score">
+        {last ? (
+          <>
+            <b>{last.runs}</b>
+            {last.wickets !== null && last.wickets < 10 && <i>/{last.wickets}</i>}
+          </>
+        ) : (
+          <span className="sb-dnb">{d.result_kind === 'won' && d.result.includes('WALKOVER') ? 'W/O' : '–'}</span>
+        )}
+      </div>
+      <div className="sb-meta">
+        {last && <b>{last.overs} <small>ov</small></b>}
+        {rr ? <span>RR {rr.toFixed(2)}</span> : null}
+      </div>
+      {overs && <div className="sb-sparkwrap"><Spark overs={overs} color={color} /></div>}
     </div>
   )
 }
 
 function Hero({ d }) {
   const chase = d.innings.find((i) => i.target && !i.super_over)
+  const oversOf = (name) => {
+    const i = d.innings.find((x) => x.team.name === name && !x.super_over)
+    const set = i && d.chips.find((c) => c.innings === i.n)
+    return d.format === 'Test' ? null : set && set.overs
+  }
+  // "won with N balls to spare" for a successful limited-overs chase
+  const cap = MAX_OVERS[d.format]
+  let spare = null
+  if (chase && cap && d.result_kind === 'won' && chase.team.name && d.teams.find((t) => t.winner && t.name === chase.team.name)) {
+    const used = legalBalls(chase.overs)
+    if (used !== null && cap * 6 - used > 0 && !d.result.includes('DLS')) spare = cap * 6 - used
+  }
   return (
-    <section className={`mc-hero kind-${d.result_kind}`}>
-      <div className="mc-kicker">
-        <span>{d.tournament}</span>
+    <section className={`mc-hero sb kind-${d.result_kind}`}>
+      <div className="sb-ticker">
+        <span className="sb-tournament">{d.tournament}</span>
         {d.stage && <em>{d.stage}</em>}
-        <span className={`mc-status s-${d.status.toLowerCase().replace(/\s/g, '-')}`}>{d.status}</span>
-      </div>
-      <div className="mc-meta">
         {d.match_number && <span>Match {d.match_number}</span>}
         {d.group && <span>{d.group}</span>}
-        <span><Calendar size={14} /> {fmtDate(d.date)}</span>
-        {(d.venue || d.city) && (
-          <span><MapPin size={14} /> {[d.venue, d.city].filter(Boolean).join(', ')}</span>
-        )}
         <span className="fmt">{d.format}</span>
+        <span className={`mc-status s-${d.status.toLowerCase().replace(/\s/g, '-')}`}>{d.status}</span>
       </div>
-      <div className="mc-board">
-        <TeamBlock t={d.teams[0]} d={d} />
-        <div className="mc-vs"><span>VS</span></div>
-        <TeamBlock t={d.teams[1]} d={d} right />
+      <div className="sb-venue">
+        <span><Calendar size={13} /> {fmtDate(d.date)}</span>
+        {(d.venue || d.city) && <span><MapPin size={13} /> {[d.venue, d.city].filter(Boolean).join(', ')}</span>}
       </div>
-      <div className="mc-result">{d.result}</div>
+      <div className="sb-bands">
+        <Band t={d.teams[0]} d={d} overs={oversOf(d.teams[0].name)} />
+        <Band t={d.teams[1]} d={d} overs={oversOf(d.teams[1].name)} right />
+      </div>
+      <div className="sb-result"><span>{d.result}</span></div>
       <div className="mc-chips">
+        {spare !== null && <span><Target size={14} /> won with <b>{spare}</b> ball{spare === 1 ? '' : 's'} to spare</span>}
         {d.toss && <span><Coins size={14} /> {d.toss}</span>}
         {chase && (
           <span>
-            <Target size={14} /> Target {chase.target}
+            <Target size={14} /> Target <b>{chase.target}</b>
             {chase.required_rate_start ? ` · required rate ${chase.required_rate_start.toFixed(2)} at the start` : ''}
           </span>
         )}
