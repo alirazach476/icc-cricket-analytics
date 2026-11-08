@@ -2,7 +2,7 @@
 
 ## Where World Cup coverage stands
 
-Played World Cup matches with ball-by-ball: **634 of 695 (91%)**, 235,072 deliveries. Before the T20 additions it was 488 of 652 (75%); the 1999 World Cup (42 matches) is scorecard-only because no open source has its deliveries. Every added innings reconciles to its
+Played World Cup matches with ball-by-ball: **637 of 695 (92%)**, 235,677 deliveries. Before the T20 additions it was 488 of 652 (75%); the 1999 World Cup (42 matches) is scorecard-only because no open source has its deliveries. Every added innings reconciles to its
 scorecard (1,189 of 1,189 innings: runs equal the sum of the deliveries).
 
 | Step | Result |
@@ -58,3 +58,11 @@ when every innings total equals our scorecard and every player name maps to exac
 the Papua New Guinea and India matches (the file is one
 run short in the chase) and the semi-final (the file's totals do not match the real match). No file covered T20 2026
 (4 matches), the 2 Champions Trophy 2025 matches (that competition is built separately) or 1999.
+
+### Known source shortfalls (3 matches loaded with a disclosed gap)
+
+On the owner's request the T20 2024 Papua New Guinea v Afghanistan, India v Afghanistan and Afghanistan v South Africa (semi-final)
+matches are loaded although their file is short of the official scorecard: 1 run in Afghanistan's innings each (100 v 101,
+133 v 134, 55 v 56). The semi-final was listed twice in the file under two phase labels; the "Semifinal 1" copy is used. Scorecard totals
+are unchanged (`fact_innings` keeps the official values); the three matches are listed in `config/bbb_known_shortfalls.csv`
+and each match page says the ball-by-ball is incomplete. Their ball-by-ball charts can differ from the scorecard by a run.

@@ -33,7 +33,7 @@ fabricated**, gaps are reported (not filled), and the dashboard says so wherever
 |---|---|---|---|---|
 | **Editions** | 17 (ODI 1999–2023, T20 2007–2026) | 7 (2002–2025) | 4 cycles (2019–21 … 2025–27) | upcoming |
 | **Matches** | 719 | 112 (incl. abandoned) | 245 | 57 fixtures |
-| **Ball-by-ball** | 91 % of played matches (235,072 deliveries) | all but 2002 (47,032) | every played Test (439,542) | n/a |
+| **Ball-by-ball** | 92 % of played matches (235,677 deliveries) | all but 2002 (47,032) | every played Test (439,542) | n/a |
 | **Sources** | ESPNcricinfo + Cricsheet | ESPNcricinfo + Cricsheet | ESPNcricinfo + Cricsheet | ICC + ESPNcricinfo |
 
 ## The dashboard
@@ -144,7 +144,7 @@ cd build/vercel && vercel link --yes --project icc-cricket-analytics && vercel d
 
 ## Data notes and limits
 
-- **No fabricated records.** Missing data stays missing; ball-by-ball exists for 91 % of played World Cup matches (634 of 695; the 1999 edition has no ball-by-ball source) and the dashboard marks the rest as scorecard-only.
+- **No fabricated records.** Missing data stays missing; ball-by-ball exists for 92 % of played World Cup matches (637 of 695; the 1999 edition has no ball-by-ball source) and the dashboard marks the rest as scorecard-only.
 - **Champions Trophy 2002** has scorecards but no ball-by-ball anywhere open; the final was washed out and India and Sri Lanka are joint winners.
 - **Test Championship:** 2025–27 is still in progress (no champion); five 2019–21 Tests were postponed and never played.
 - **World Cup 2027:** schedule, venues and teams only; start times are not published, and four teams are decided in 2027.

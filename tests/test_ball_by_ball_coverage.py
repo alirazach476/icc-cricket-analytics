@@ -38,9 +38,15 @@ def test_world_twenty20_2007_to_2012_are_now_covered() -> None:
 
 
 def test_added_matches_reconcile_with_their_scorecards() -> None:
+    import csv
+    from pathlib import Path
+
+    known = {r["match_id"] for r in csv.DictReader((Path(__file__).resolve().parents[1] / "config" / "bbb_known_shortfalls.csv").open(encoding="utf-8"))}
+    assert known == {"1415729", "1415743", "1415753"}  # disclosed 1-run source shortfalls, nothing else is allowed to differ
     bad = database.run(
         "select count(*) from gold.fact_innings i join (select innings_id, sum(total_runs) s from gold.fact_deliveries group by 1) t using(innings_id) "
-        "where not i.is_super_over and i.total_runs <> t.s and coalesce(i.penalties, 0) = 0"
+        "where not i.is_super_over and i.total_runs <> t.s and coalesce(i.penalties, 0) = 0 "
+        f"and i.match_id not in ({','.join(repr(k) for k in sorted(known))})"
     ).iloc[0, 0]
     assert int(bad) == 0
 

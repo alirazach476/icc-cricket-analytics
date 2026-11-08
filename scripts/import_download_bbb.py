@@ -38,7 +38,7 @@ def num(v) -> int:
 def normalise(d: pd.DataFrame) -> pd.DataFrame:
     if "runs_of_bat" in d.columns:  # team-code layout
         out = pd.DataFrame({
-            "match_id": d["match_id"], "date": pd.to_datetime(d["date"]).dt.strftime("%Y-%m-%d"), "venue": d["venue"],
+            "match_id": d["match_id"], "phase": d["phase"], "date": pd.to_datetime(d["date"]).dt.strftime("%Y-%m-%d"), "venue": d["venue"],
             "innings": d["innings"], "ball": d["over"],
             "batting_team": d["batting_team"].map(lambda c: CODES.get(c, c)),
             "bowling_team": d["bowling_team"].map(lambda c: CODES.get(c, c)),
@@ -133,16 +133,17 @@ def main() -> int:
     ap.add_argument("fmt", choices=("T20", "ODI"))
     ap.add_argument("db")
     ap.add_argument("--dry-run", action="store_true")
+    ap.add_argument("--allow-shortfall", default="", help="comma list of match ids that may be up to 1 run per innings short (recorded in config/bbb_known_shortfalls.csv)")
     a = ap.parse_args()
     d = normalise(pd.read_csv(a.csv, low_memory=False))
     out_dir = ROOT / "data" / "raw" / "commentary" / "cricsheet" / a.fmt.lower()
     out_dir.mkdir(parents=True, exist_ok=True)
     c = duckdb.connect(str(ROOT / "data" / "warehouse" / f"{a.db}.duckdb"), read_only=True)
     m = c.execute(
-        "select match_id, tournament_id, match_date, team1_name, team2_name from gold.fact_matches "
+        "select match_id, tournament_id, match_date, team1_name, team2_name, stage from gold.fact_matches "
         "where is_completed and not has_ball_by_ball and format = ?", (a.fmt,)
     ).df()
-    wrote, skipped = [], []
+    wrote, skipped, shortfalls = [], [], []
     for r in m.itertuples():
         want = frozenset([r.team1_name, r.team2_name])
         s = d[d["date"] == str(r.match_date)[:10]]
@@ -150,9 +151,19 @@ def main() -> int:
         if len(keys) != 1:
             continue
         g = s[s.match_id == keys[0]]
+        if "phase" in g and g["phase"].nunique() > 1:  # the file lists this match twice under two phase labels
+            stage = str(r.stage or "").lower().replace(" ", "")
+            keep = [p for p in g["phase"].unique() if str(p).lower().replace(" ", "").startswith(stage[:8])]
+            if len(keep) == 1:
+                g = g[g["phase"] == keep[0]]
         kt = {int(i): num(gi.runs_off_bat.sum()) + num(gi.extras.sum()) for i, gi in g.groupby("innings")}
         gt = {int(i): int(t) for i, t in c.execute(
             "select innings_number, total_runs from gold.fact_innings where match_id = ? and not coalesce(is_super_over, false)", (r.match_id,)).fetchall()}
+        allowed = set(filter(None, a.allow_shortfall.split(",")))
+        if kt != gt and str(r.match_id) in allowed and set(kt) == set(gt) and all(0 <= gt[i] - kt[i] <= 1 for i in gt):
+            note = f"{r.match_id},{r.team1_name} v {r.team2_name},file innings totals {kt} vs scorecard {gt}"
+            shortfalls.append(note)
+            kt = gt
         if kt != gt:
             skipped.append((r.match_id, f"{r.team1_name} v {r.team2_name}", f"innings totals differ file={kt} gold={gt}"))
             continue
@@ -196,6 +207,13 @@ def main() -> int:
         if not a.dry_run:
             out.write_text(json.dumps(build_json(g, info)), encoding="utf-8")
         wrote.append((r.match_id, r.tournament_id, str(r.match_date)[:10], r.team1_name, r.team2_name))
+    if shortfalls and not a.dry_run:
+        f = ROOT / "config" / "bbb_known_shortfalls.csv"
+        old = f.read_text(encoding="utf-8") if f.exists() else "match_id,match,detail\n"
+        for n in shortfalls:
+            if n.split(",")[0] not in old:
+                old += n.replace("{", "").replace("}", "").replace(", ", "; ") + "\n"
+        f.write_text(old, encoding="utf-8")
     for w in wrote:
         print("OK  ", *w)
     for s in skipped:

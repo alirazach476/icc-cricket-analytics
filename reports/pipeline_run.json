@@ -1,43 +1,52 @@
 {
-  "run_id": "20261108T105045Z",
-  "started_at": "2026-11-08T10:51:17.022985+00:00",
+  "run_id": "20261108T111030Z",
+  "started_at": "2026-11-08T11:12:37.236255+00:00",
   "dry_run": false,
-  "success": true,
+  "success": false,
   "steps": [
     {
       "name": "bronze",
       "status": "ok",
-      "seconds": 13.638331999999991,
+      "seconds": 14.006573500000286,
       "returncode": 0,
       "message": "",
-      "log": "logs\\pipeline\\20261108T105045Z\\bronze.log",
+      "log": "logs\\pipeline\\20261108T111030Z\\bronze.log",
       "extra": {}
     },
     {
       "name": "silver",
       "status": "ok",
-      "seconds": 10.35561209999969,
+      "seconds": 10.482848700000432,
       "returncode": 0,
       "message": "",
-      "log": "logs\\pipeline\\20261108T105045Z\\silver.log",
+      "log": "logs\\pipeline\\20261108T111030Z\\silver.log",
       "extra": {}
     },
     {
       "name": "gold",
       "status": "ok",
-      "seconds": 3.8108868999997867,
+      "seconds": 3.844445800000358,
       "returncode": 0,
       "message": "",
-      "log": "logs\\pipeline\\20261108T105045Z\\gold.log",
+      "log": "logs\\pipeline\\20261108T111030Z\\gold.log",
       "extra": {}
     },
     {
       "name": "verify_bronze",
       "status": "ok",
-      "seconds": 3.321385199999895,
+      "seconds": 3.2147344999998495,
       "returncode": 0,
       "message": "bronze matches its manifest",
-      "log": "logs\\pipeline\\20261108T105045Z\\verify_bronze.log",
+      "log": "logs\\pipeline\\20261108T111030Z\\verify_bronze.log",
+      "extra": {}
+    },
+    {
+      "name": "quality_gold",
+      "status": "failed",
+      "seconds": 95.25427149999996,
+      "returncode": 1,
+      "message": "\tIs the server running on that host and accepting TCP/IP connections? |  | (Background on this error at: https://sqlalche.me/e/20/e3q8)",
+      "log": "logs\\pipeline\\20261108T111030Z\\quality_gold.log",
       "extra": {}
     }
   ]

@@ -355,6 +355,22 @@ def neighbours(mid: str, tid: str) -> dict:
     return {"prev": pick(i - 1), "next": pick(i + 1)}
 
 
+def _shortfall_note(mid: str) -> str | None:
+    """Matches whose source ball-by-ball file is a run short of the official scorecard (config/bbb_known_shortfalls.csv)."""
+    try:
+        import csv
+        from pathlib import Path
+
+        f = Path(__file__).resolve().parents[2] / "config" / "bbb_known_shortfalls.csv"
+        for r in csv.DictReader(f.open(encoding="utf-8")):
+            if r["match_id"] == str(mid):
+                return ("Ball-by-ball for this match is incomplete in its source: " + r["detail"].replace("file innings totals", "the delivery data adds up to")
+                        + ". The scorecard is the official record; the ball-by-ball charts may differ from it by a run.")
+    except OSError:
+        pass
+    return None
+
+
 def _lineups(mid: str, h: dict) -> list[dict]:
     """Players recorded for each side (the playing XI plus any recorded substitute)."""
     df = run(
@@ -569,6 +585,7 @@ def payload(mid: str) -> dict | None:
         "match_number": _num(h.get("match_number")),
         "match_total": int(run("select count(*) n from gold.fact_matches where tournament_id = ?", (h["tournament_id"],)).iloc[0, 0]),
         "lineups": _lineups(mid, h),
+        "bbb_note": _shortfall_note(mid),
         "date": _py(h["match_date"]),
         "venue": h.get("venue"),
         "city": None if (h.get("venue_city") and str(h.get("venue") or "").endswith(str(h["venue_city"]))) else h.get("venue_city"),
