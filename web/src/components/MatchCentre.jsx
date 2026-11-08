@@ -488,11 +488,12 @@ export default function MatchCentre({ d }) {
   return (
     <div className="matchcentre">
       <Hero d={view} />
+      <Stats stats={view.stats} />
       <TvBoards d={view} />
       {view.innings.length === 0 && (
         <div className="mc-card"><div className="mc-empty"><Trophy size={16} /> No innings were played in this match, so there is no scorecard.</div></div>
       )}
-      <Stats stats={view.stats} />
+      
       <PlayingXI d={view} />
       <Scorecard d={view} />
       <BallByBall d={view} />

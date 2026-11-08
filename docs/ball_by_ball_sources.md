@@ -2,7 +2,7 @@
 
 ## Where World Cup coverage stands
 
-Played World Cup matches with ball-by-ball: **605 of 695 (87%)**, 225,403 deliveries. Before the T20 additions it was 488 of 652 (75%); the 1999 World Cup (42 matches) is scorecard-only because no open source has its deliveries. Every added innings reconciles to its
+Played World Cup matches with ball-by-ball: **632 of 695 (91%)**, 234,633 deliveries. Before the T20 additions it was 488 of 652 (75%); the 1999 World Cup (42 matches) is scorecard-only because no open source has its deliveries. Every added innings reconciles to its
 scorecard (1,189 of 1,189 innings: runs equal the sum of the deliveries).
 
 | Step | Result |
@@ -48,3 +48,13 @@ match only when date and both teams match a completed ODI of ours with no ball-b
 runs + extras) equals our scorecard exactly; all 15 passed, none were skipped. Fielder names are not in that file, so
 catches are not credited from it. Still missing: the 9 Afghanistan matches of 2023 (the file ends before them), the 12
 T20 matches of 2024/2026 and the other gaps listed above.
+
+### User-supplied CSVs (27 more Afghanistan matches)
+
+`scripts/import_download_bbb.py` loads ball-by-ball CSVs the project owner downloaded (CWC 2023 file; T20 World Cup 2016, 2021,
+2022, 2024 files) for matches Cricsheet withholds: 9 of CWC 2023, 7 of 2016, 5 of 2021, 3 of 2022, 3 of 2024. A match loads only
+when every innings total equals our scorecard and every player name maps to exactly one player of that team's recorded XI
+(spelling variants and initials are matched inside that XI; a name that could map to two players skips the match). Skipped:
+2024 Afghanistan v Uganda ("Cosy"), v New Zealand ("Mitchell" - two NZ players), the Papua New Guinea and India matches (the file is one
+run short in the chase) and the semi-final (the file's totals do not match the real match). No file covered T20 2026
+(4 matches), the 2 Champions Trophy 2025 matches (that competition is built separately) or 1999.
