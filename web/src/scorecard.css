@@ -1,0 +1,36 @@
+/* ============ broadcast-style batting and bowling scoreboards ============ */
+.mc-card.sc { --sc: #4c8dff; border-color: color-mix(in srgb, var(--sc) 40%, var(--border)); box-shadow: 0 14px 34px rgba(0, 0, 0, .32); }
+.sc-head { position: relative; display: flex; align-items: center; gap: 10px; padding: 0 0 0 16px; min-height: 52px; overflow: hidden;
+  background: linear-gradient(95deg, color-mix(in srgb, var(--sc) 55%, #070b16) 0%, color-mix(in srgb, var(--sc) 22%, #070b16) 60%, rgba(7, 11, 22, .6) 100%); border-bottom: 2px solid var(--sc); }
+.sc-head::after { content: ''; position: absolute; inset: 0; background: repeating-linear-gradient(115deg, rgba(255,255,255,.04) 0 2px, transparent 2px 18px); pointer-events: none; }
+.sc-head b { text-transform: uppercase; letter-spacing: .16em; font-size: 11.5px; opacity: .8; }
+.sc-team { font-size: 17px; font-weight: 800; letter-spacing: .04em; text-transform: uppercase; }
+.sc-total { margin-left: auto; align-self: stretch; display: flex; align-items: center; gap: 8px; padding: 0 26px 0 36px; font-size: 24px; font-weight: 800; font-variant-numeric: tabular-nums; color: #11161f;
+  background: linear-gradient(90deg, var(--tertiary), color-mix(in srgb, var(--tertiary) 60%, #fff)); clip-path: polygon(18px 0, 100% 0, 100% 100%, 0 100%); }
+.sc-total small { font-size: 12px; font-weight: 700; opacity: .75; text-transform: uppercase; letter-spacing: .06em; }
+
+.mc-card.sc .mc-table { font-size: 14.5px; }
+.mc-card.sc .mc-table thead th { background: color-mix(in srgb, var(--sc) 12%, rgba(0, 0, 0, .35)); color: color-mix(in srgb, var(--sc) 45%, #cfd8ee); padding: 9px 12px; }
+.mc-card.sc .mc-table tbody tr:nth-child(even) td { background: rgba(255, 255, 255, .028); }
+.mc-card.sc .mc-table tbody tr:hover td { background: color-mix(in srgb, var(--sc) 14%, transparent); }
+.mc-card.sc .mc-table td { padding: 8px 12px; border-top: 1px solid rgba(255, 255, 255, .06); }
+.mc-card.sc .mc-table td.name { white-space: nowrap; }
+.ord { display: inline-block; width: 18px; margin-right: 4px; text-align: right; font-size: 11px; color: var(--muted); font-weight: 700; }
+.mc-table td.runs { position: relative; min-width: 84px; }
+.mc-table td.runs .bar { position: absolute; left: 0; top: 18%; bottom: 18%; border-radius: 0 6px 6px 0; background: linear-gradient(90deg, transparent, color-mix(in srgb, var(--sc) 45%, transparent)); pointer-events: none; }
+.mc-table td.runs b { position: relative; font-weight: 800; font-size: 16px; }
+.mc-table tr.top td.runs b { color: var(--tertiary); text-shadow: 0 0 14px color-mix(in srgb, var(--tertiary) 50%, transparent); }
+.mc-table tr.top td.name { box-shadow: inset 3px 0 0 var(--tertiary); }
+.bd4 { color: #5cc8f2; font-weight: 700; }
+.bd6 { color: #c58bff; font-weight: 800; }
+.srb { display: inline-block; min-width: 52px; padding: 1px 8px; border-radius: 999px; text-align: right; background: rgba(255, 255, 255, .06); }
+.srb.hot { background: color-mix(in srgb, #1fbf75 28%, transparent); color: #7ff0b8; font-weight: 700; }
+.srb.cool { background: color-mix(in srgb, #8a94a8 22%, transparent); color: #aeb8cc; }
+.wk { display: inline-grid; place-items: center; min-width: 26px; height: 26px; border-radius: 50%; font-weight: 800; color: #fff; background: linear-gradient(135deg, #ff4d6d, #c21f45); box-shadow: 0 0 12px #ff4d6d55; }
+.ecb { display: inline-block; min-width: 54px; padding: 1px 8px; border-radius: 999px; text-align: right; background: rgba(255, 255, 255, .06); }
+.ecb.good { background: color-mix(in srgb, #1fbf75 28%, transparent); color: #7ff0b8; font-weight: 700; }
+.ecb.poor { background: color-mix(in srgb, #ff4d6d 24%, transparent); color: #ff9db0; }
+.mc-card.sc .mc-table tfoot td { background: rgba(0, 0, 0, .3); }
+.mc-card.sc .mc-table tfoot tr.total td { background: linear-gradient(90deg, color-mix(in srgb, var(--sc) 26%, rgba(0, 0, 0, .4)), rgba(0, 0, 0, .35)); border-top: 2px solid var(--sc); font-size: 15px; }
+.mc-card.sc .mc-fow { background: rgba(0, 0, 0, .22); }
+@media (max-width: 700px) { .sc-total { font-size: 18px; padding: 0 14px 0 26px; } .sc-team { font-size: 14px; } .ord { display: none; } }

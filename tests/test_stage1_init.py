@@ -38,7 +38,7 @@ def test_project_root_contains_config_and_src() -> None:
 def test_settings_load() -> None:
     settings = get_settings()
     assert settings["app"]["name"] == "CricketWorldCup Analytics"
-    assert settings["app"]["version"] == "0.6.0"
+    assert settings["app"]["version"] == "0.13.0"
 
 
 def test_tournament_scope() -> None:

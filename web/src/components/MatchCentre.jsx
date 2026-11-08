@@ -163,9 +163,15 @@ function Batting({ inn, format }) {
     ['pen', ex.penalties],
   ].filter(([, v]) => v)
   const best = rows.length ? Math.max(...rows.map((r) => r.runs ?? -1)) : null
+  const maxRuns = Math.max(1, best || 1)
   return (
-    <div className="mc-card">
-      <div className="mc-cardhead">Batting · {inn.team.name}</div>
+    <div className="mc-card sc" style={{ '--sc': teamColor(inn.team.name) }}>
+      <div className="sc-head">
+        <Flag team={inn.team.name} h={20} />
+        <b>Batting</b>
+        <span className="sc-team">{inn.team.name}</span>
+        <span className="sc-total">{inn.runs}{inn.wickets !== null && inn.wickets < 10 ? `/${inn.wickets}` : ''} <small>{inn.overs} ov</small></span>
+      </div>
       {rows.length === 0 ? (
         <div className="mc-empty">The batting scorecard is not available for this innings.</div>
       ) : (
@@ -177,13 +183,13 @@ function Batting({ inn, format }) {
             <tbody>
               {rows.map((r, i) => (
                 <tr key={i} className={`${r.out ? '' : 'notout'} ${r.runs === best && best > 0 ? 'top' : ''}`}>
-                  <td className="name"><Portrait name={r.batter} team={inn.team.name} /> {r.batter}</td>
+                  <td className="name"><span className="ord">{i + 1}</span><Portrait name={r.batter} team={inn.team.name} /> {r.batter}</td>
                   <td className="how">{r.how}</td>
-                  <td className="num strong">{dash(r.runs)}</td>
+                  <td className="num runs"><span className="bar" style={{ width: `${((r.runs || 0) / maxRuns) * 100}%` }} /><b>{dash(r.runs)}</b></td>
                   <td className="num">{dash(r.balls)}</td>
-                  <td className="num">{dash(r.fours)}</td>
-                  <td className="num">{dash(r.sixes)}</td>
-                  <td className="num">{r.sr !== null && r.sr !== undefined ? r.sr.toFixed(1) : '–'}</td>
+                  <td className={`num ${r.fours ? 'bd4' : ''}`}>{dash(r.fours)}</td>
+                  <td className={`num ${r.sixes ? 'bd6' : ''}`}>{dash(r.sixes)}</td>
+                  <td className="num">{r.sr !== null && r.sr !== undefined ? <span className={`srb ${r.sr >= (format === 'Test' ? 70 : format === 'T20' ? 150 : 100) ? 'hot' : r.sr < (format === 'Test' ? 35 : format === 'T20' ? 100 : 65) ? 'cool' : ''}`}>{r.sr.toFixed(1)}</span> : '–'}</td>
                 </tr>
               ))}
             </tbody>
@@ -228,9 +234,16 @@ function Bowling({ inn }) {
   const hasBd = rows.some((r) => r.fours !== null && r.fours !== undefined)
   const hasWn = rows.some((r) => (r.wd || 0) + (r.nb || 0) > 0)
   const bestW = rows.length ? Math.max(...rows.map((r) => r.w ?? 0)) : 0
+  const econs = rows.map((r) => r.econ).filter((e) => e !== null && e !== undefined).sort((a, b) => a - b)
+  const med = econs.length ? econs[Math.floor(econs.length / 2)] : null
   return (
-    <div className="mc-card">
-      <div className="mc-cardhead">Bowling · {inn.bowling_team}</div>
+    <div className="mc-card sc" style={{ '--sc': teamColor(inn.bowling_team) }}>
+      <div className="sc-head">
+        <Flag team={inn.bowling_team} h={20} />
+        <b>Bowling</b>
+        <span className="sc-team">{inn.bowling_team}</span>
+        <span className="sc-total">{inn.wickets}{inn.wickets === 1 ? ' wicket' : ' wickets'} <small>{inn.overs} ov</small></span>
+      </div>
       {rows.length === 0 ? (
         <div className="mc-empty">The bowling scorecard is not available for this innings.</div>
       ) : (
@@ -246,8 +259,8 @@ function Bowling({ inn }) {
                   <td className="num">{dash(r.overs)}</td>
                   <td className="num">{dash(r.m)}</td>
                   <td className="num">{dash(r.runs)}</td>
-                  <td className="num strong">{dash(r.w)}</td>
-                  <td className="num">{r.econ !== null && r.econ !== undefined ? Number(r.econ).toFixed(2) : '–'}</td>
+                  <td className="num">{r.w ? <span className="wk">{r.w}</span> : dash(r.w)}</td>
+                  <td className="num">{r.econ !== null && r.econ !== undefined ? <span className={`ecb ${med && r.econ <= med * 0.85 ? 'good' : med && r.econ >= med * 1.25 ? 'poor' : ''}`}>{Number(r.econ).toFixed(2)}</span> : '–'}</td>
                   {hasDots && <td className="num">{dash(r.dots)}</td>}
                   {hasBd && <td className="num">{dash(r.fours)}</td>}
                   {hasBd && <td className="num">{dash(r.sixes)}</td>}

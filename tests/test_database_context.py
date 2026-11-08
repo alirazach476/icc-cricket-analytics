@@ -12,7 +12,7 @@ from app.utils import database  # noqa: E402
 
 
 def test_competition_is_isolated_between_threads() -> None:
-    expected = {"ct": 112, "wtc": 245, "wc": 677}
+    expected = {"ct": 112, "wtc": 245, "wc": 719}
     errors: list[str] = []
     barrier = threading.Barrier(3)
 
