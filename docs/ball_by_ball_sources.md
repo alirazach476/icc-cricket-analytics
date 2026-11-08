@@ -49,10 +49,10 @@ runs + extras) equals our scorecard exactly; all 15 passed, none were skipped. F
 catches are not credited from it. Still missing: the 9 Afghanistan matches of 2023 (the file ends before them), the 12
 T20 matches of 2024/2026 and the other gaps listed above.
 
-### User-supplied CSVs (27 more Afghanistan matches)
+### User-supplied CSVs (29 more Afghanistan matches)
 
 `scripts/import_download_bbb.py` loads ball-by-ball CSVs the project owner downloaded (CWC 2023 file; T20 World Cup 2016, 2021,
-2022, 2024 files) for matches Cricsheet withholds: 9 of CWC 2023, 7 of 2016, 5 of 2021, 3 of 2022, 3 of 2024. A match loads only
+2022, 2024 files) for matches Cricsheet withholds: 9 of CWC 2023, 7 of 2016, 5 of 2021, 3 of 2022, 5 of 2024 (Uganda and New Zealand were added after the owner confirmed "Cosy" = Cosmas Kyewuta and "Mitchell" = Daryl Mitchell). A match loads only
 when every innings total equals our scorecard and every player name maps to exactly one player of that team's recorded XI
 (spelling variants and initials are matched inside that XI; a name that could map to two players skips the match). Skipped:
 the Papua New Guinea and India matches (the file is one
