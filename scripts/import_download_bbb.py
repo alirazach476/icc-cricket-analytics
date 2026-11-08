@@ -57,10 +57,18 @@ def _tokens(name: str) -> list[str]:
     return [t.lower().strip(".,") for t in str(name).replace("-", " ").split() if t.strip()]
 
 
+ALIASES = {  # confirmed by the project owner
+    "Cosy": "Cosmas Kyewuta",
+    "Mitchell": "Daryl Mitchell",
+}
+
+
 def resolve(raw: str, roster: list[str]) -> str | None:
     """Map a file name (surname, given name or 'AB Surname') to exactly one roster player, else None."""
     if not isinstance(raw, str) or not raw.strip():
         return None
+    if raw in ALIASES and ALIASES[raw] in roster:
+        return ALIASES[raw]
     rt = _tokens(raw)
     exact = [n for n in roster if _tokens(n) == rt]
     if len(exact) == 1:

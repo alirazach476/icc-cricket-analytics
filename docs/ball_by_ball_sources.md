@@ -2,7 +2,7 @@
 
 ## Where World Cup coverage stands
 
-Played World Cup matches with ball-by-ball: **632 of 695 (91%)**, 234,633 deliveries. Before the T20 additions it was 488 of 652 (75%); the 1999 World Cup (42 matches) is scorecard-only because no open source has its deliveries. Every added innings reconciles to its
+Played World Cup matches with ball-by-ball: **634 of 695 (91%)**, 235,072 deliveries. Before the T20 additions it was 488 of 652 (75%); the 1999 World Cup (42 matches) is scorecard-only because no open source has its deliveries. Every added innings reconciles to its
 scorecard (1,189 of 1,189 innings: runs equal the sum of the deliveries).
 
 | Step | Result |
