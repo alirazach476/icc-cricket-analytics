@@ -1,43 +1,43 @@
 {
-  "run_id": "20261108T045642Z",
-  "started_at": "2026-11-08T04:57:49.686222+00:00",
+  "run_id": "20261108T071632Z",
+  "started_at": "2026-11-08T07:18:03.132531+00:00",
   "dry_run": false,
   "success": true,
   "steps": [
     {
       "name": "bronze",
       "status": "ok",
-      "seconds": 27.813363300054334,
+      "seconds": 44.79829100007191,
       "returncode": 0,
       "message": "",
-      "log": "logs\\pipeline\\20261108T045642Z\\bronze.log",
+      "log": "logs\\pipeline\\20261108T071632Z\\bronze.log",
       "extra": {}
     },
     {
       "name": "silver",
       "status": "ok",
-      "seconds": 23.867571000009775,
+      "seconds": 28.543581300065853,
       "returncode": 0,
       "message": "",
-      "log": "logs\\pipeline\\20261108T045642Z\\silver.log",
+      "log": "logs\\pipeline\\20261108T071632Z\\silver.log",
       "extra": {}
     },
     {
       "name": "gold",
       "status": "ok",
-      "seconds": 8.95587439998053,
+      "seconds": 9.980918899993412,
       "returncode": 0,
       "message": "",
-      "log": "logs\\pipeline\\20261108T045642Z\\gold.log",
+      "log": "logs\\pipeline\\20261108T071632Z\\gold.log",
       "extra": {}
     },
     {
       "name": "verify_bronze",
       "status": "ok",
-      "seconds": 6.582620200002566,
+      "seconds": 7.343632699921727,
       "returncode": 0,
       "message": "bronze matches its manifest",
-      "log": "logs\\pipeline\\20261108T045642Z\\verify_bronze.log",
+      "log": "logs\\pipeline\\20261108T071632Z\\verify_bronze.log",
       "extra": {}
     }
   ]

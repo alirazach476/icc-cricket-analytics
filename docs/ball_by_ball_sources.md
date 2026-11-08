@@ -2,7 +2,7 @@
 
 ## Where World Cup coverage stands
 
-Played World Cup matches with ball-by-ball: **590 of 695 (85%)**, 217,442 deliveries. Before the T20 additions it was 488 of 652 (75%); the 1999 World Cup (42 matches) is scorecard-only because no open source has its deliveries. Every added innings reconciles to its
+Played World Cup matches with ball-by-ball: **605 of 695 (87%)**, 225,403 deliveries. Before the T20 additions it was 488 of 652 (75%); the 1999 World Cup (42 matches) is scorecard-only because no open source has its deliveries. Every added innings reconciles to its
 scorecard (1,189 of 1,189 innings: runs equal the sum of the deliveries).
 
 | Step | Result |
@@ -38,3 +38,13 @@ is to ask the operator for written permission or a licensed export (support@crex
   window, so it gives partial coverage that this project labels `partial`, not complete ball-by-ball.
 - Licensed data from the ICC or a commercial provider.
 - Leaving those matches as scorecard-only, which is what the dashboard does today, with the reason shown.
+
+## Afghanistan matches (Kaggle copy of Cricsheet data)
+
+Cricsheet withholds Afghanistan men's matches by policy (see its README and cricsheet.org/withheld-matches), so no current
+Cricsheet archive has them. The Kaggle dataset "ODI ball by ball 2003 to 2025" (CC0, a copy of earlier Cricsheet data, ends
+June 2023) holds 15 of them: 6 from the 2015 and 9 from the 2019 World Cup. `scripts/import_kaggle_odi_bbb.py` loads a
+match only when date and both teams match a completed ODI of ours with no ball-by-ball and every innings total (batter
+runs + extras) equals our scorecard exactly; all 15 passed, none were skipped. Fielder names are not in that file, so
+catches are not credited from it. Still missing: the 9 Afghanistan matches of 2023 (the file ends before them), the 12
+T20 matches of 2024/2026 and the other gaps listed above.
