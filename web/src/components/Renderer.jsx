@@ -71,7 +71,7 @@ export function Node({ n, ctx }) {
     case 'table': return <Table node={n} />
     case 'graphviz': return <div className="plotcard"><Graphviz src={n.src} /></div>
     case 'fixtures': return <Fixtures data={n.data} />
-    case 'matchcentre': return <MatchCentre d={n.data} />
+    case 'matchcentre': return <MatchCentre d={n.data} charts={n.charts} />
     case 'w': return <Widget w={n} onChange={ctx.setWidget} />
     default: return null
   }

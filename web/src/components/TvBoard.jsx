@@ -1,4 +1,5 @@
 import React from 'react'
+import { stageInfo } from '../stage.js'
 import Flag from './Flag.jsx'
 
 // "#CWC23"-style hashtag from the tournament name and year (never invented for unknown names)
@@ -30,7 +31,7 @@ function Board({ d, inn, kind }) {
     <div className="tv">
       <div className="tv-flags">
         <Flag team={bat} h={22} />
-        <span className="tv-stage">{d.match_number ? `MATCH ${d.match_number}${d.match_total ? ` OF ${d.match_total}` : ''}` : (d.stage || d.format).toUpperCase()}</span>
+        <span className="tv-stage">{stageInfo(d.stage).ko ? `${stageInfo(d.stage).short} · ${stageInfo(d.stage).long.toUpperCase()}` : d.match_number ? `MATCH ${d.match_number}${d.match_total ? ` OF ${d.match_total}` : ''}` : (d.stage || d.format).toUpperCase()}</span>
         <Flag team={bowl} h={22} />
       </div>
       <div className="tv-body">

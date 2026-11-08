@@ -355,6 +355,15 @@ def neighbours(mid: str, tid: str) -> dict:
     return {"prev": pick(i - 1), "next": pick(i + 1)}
 
 
+CHART_GROUPS = [
+    ("Progression", ["Worm", "Run rate"]),
+    ("Overs and wickets", ["Over by over", "Wickets timeline"]),
+    ("Innings and chase", ["Innings comparison", "Chase"]),
+    ("Partnerships and wickets", ["Partnerships", "Fall of wickets"]),
+    ("Bowling", ["Dot balls", "Maidens"]),
+]
+
+
 def _shortfall_note(mid: str) -> str | None:
     """Matches whose source ball-by-ball file is a run short of the official scorecard (config/bbb_known_shortfalls.csv)."""
     try:

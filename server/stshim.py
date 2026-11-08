@@ -321,8 +321,15 @@ class Container:
     def fixtures(self, data: Any) -> None:
         self._add({"t": "fixtures", "data": jsonable(data)})
 
-    def match_centre(self, payload: Any) -> None:
-        self._add({"t": "matchcentre", "data": jsonable(payload)})
+    def match_centre(self, payload: Any, figs: dict | None = None) -> None:
+        from app.utils.match_centre import CHART_GROUPS
+
+        groups = []
+        for g, names in CHART_GROUPS:
+            items = [{"name": n, "fig": figure_to_json(figs[n])} for n in names if figs and n in figs]
+            if items:
+                groups.append({"group": g, "figs": items})
+        self._add({"t": "matchcentre", "data": jsonable(payload), "charts": groups})
 
     def plotly_chart(self, fig: Any, **_: Any) -> None:
         self._add({"t": "plot", "fig": figure_to_json(fig)})

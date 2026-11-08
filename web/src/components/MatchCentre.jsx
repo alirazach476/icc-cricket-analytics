@@ -5,6 +5,7 @@ import { teamColor } from '../teamColors.js'
 import { mix } from '../theme.js'
 import Portrait from './Portrait.jsx'
 import TvBoards from './TvBoard.jsx'
+import MatchAnalysis from './MatchAnalysis.jsx'
 
 const dash = (v) => (v === null || v === undefined || v === '' ? '–' : v)
 const fmtDate = (d) => {
@@ -482,12 +483,13 @@ function PlayingXI({ d }) {
   )
 }
 
-export default function MatchCentre({ d }) {
+export default function MatchCentre({ d, charts }) {
   const view = useMemo(() => d, [d])
   if (!view) return <div className="alert warning">This match could not be loaded.</div>
   return (
     <div className="matchcentre">
       <Hero d={view} />
+      <MatchAnalysis groups={charts} />
       <Stats stats={view.stats} />
       {view.bbb_note && <p className="mc-note"><Info size={14} /> {view.bbb_note}</p>}
       <TvBoards d={view} />

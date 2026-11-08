@@ -1,3 +1,4 @@
+import { stageInfo } from '../stage.js'
 import React, { useMemo, useState } from 'react'
 import { Crown, MapPin, Calendar, ChevronRight } from 'lucide-react'
 import Flag from './Flag.jsx'
@@ -40,7 +41,7 @@ function Card({ f, onOpen }) {
   return (
     <button className={`fx-card s-${f.status.toLowerCase().replace(/\s/g, '-')}`} onClick={() => onOpen(f.id)} aria-label={`${f.teams[0].name} v ${f.teams[1].name}, ${f.result}`}>
       <div className="fx-top">
-        <span className="fx-stage">{f.stage || 'Match'}</span>
+        <span className={`fx-stage ${stageInfo(f.stage).ko ? 'ko' : ''}`}>{stageInfo(f.stage).ko ? `${stageInfo(f.stage).short} · ${stageInfo(f.stage).long}` : (f.stage || 'Match')}</span>
         {f.no && <span>Match {f.no}</span>}
         {f.group && f.group !== 'Overall' && <span>{f.group}</span>}
         <span className="fx-date"><Calendar size={12} /> {fmtDate(f.date)}</span>

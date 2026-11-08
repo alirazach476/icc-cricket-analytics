@@ -57,3 +57,7 @@
 .xi-list b { grid-column: 3; grid-row: 1; }
 .xi-list li > :nth-child(2) { grid-row: 1 / span 2; }
 .xi .mc-note { margin: 8px 14px 12px; }
+
+.mp-no.ko { background: linear-gradient(180deg, var(--tertiary), color-mix(in srgb, var(--tertiary) 60%, #000)) !important; color: #11161f !important; font-size: 17px; }
+.mp-no.ko small { opacity: .8; font-size: 8px; }
+.fx-stage.ko { background: var(--tertiary) !important; color: #11161f !important; font-weight: 900; letter-spacing: .06em; }

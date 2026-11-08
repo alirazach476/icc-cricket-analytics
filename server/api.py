@@ -185,13 +185,7 @@ async def page(slug: str, request: Request) -> Response:
 
 
 _MATCH_CACHE: dict[tuple[str, str], bytes] = {}
-_CHART_GROUPS = [
-    ("Progression", ["Worm", "Run rate"]),
-    ("Overs and wickets", ["Over by over", "Wickets timeline"]),
-    ("Innings and chase", ["Innings comparison", "Chase"]),
-    ("Partnerships and wickets", ["Partnerships", "Fall of wickets"]),
-    ("Bowling", ["Dot balls", "Maidens"]),
-]
+from app.utils.match_centre import CHART_GROUPS as _CHART_GROUPS  # noqa: E402
 
 
 @app.get("/api/match/{match_id}")

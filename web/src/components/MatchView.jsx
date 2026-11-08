@@ -2,16 +2,13 @@ import React, { useEffect, useState } from 'react'
 import { ArrowLeft, ChevronLeft, ChevronRight, AlertTriangle } from 'lucide-react'
 import { getMatch } from '../api.js'
 import MatchCentre from './MatchCentre.jsx'
-import Plot from './Plot.jsx'
 
 /** A match opens straight into its scoreboard: the whole page is the broadcast graphic, the scorecard and the charts. */
 export default function MatchView({ id, comp, onEdition, onBack, go }) {
   const [st, setSt] = useState({ loading: true })
-  const [g, setG] = useState(0)
   useEffect(() => {
     const ctl = new AbortController()
     setSt({ loading: true })
-    setG(0)
     window.scrollTo({ top: 0 })
     getMatch(id, comp, ctl.signal)
       .then((d) => {
@@ -61,24 +58,7 @@ export default function MatchView({ id, comp, onEdition, onBack, go }) {
       )}
       {d && (
         <>
-          <MatchCentre d={d.payload} />
-          {d.charts.length > 0 && (
-            <section className="mc-section">
-              <h3 className="mc-h">Match analysis</h3>
-              <div className="mc-seg" role="tablist">
-                {d.charts.map((c, i) => (
-                  <button key={c.group} role="tab" aria-selected={i === g} className={i === g ? 'on' : ''} onClick={() => setG(i)}>
-                    {c.group}
-                  </button>
-                ))}
-              </div>
-              <div className="mv-charts">
-                {d.charts[Math.min(g, d.charts.length - 1)].figs.map((f) => (
-                  <Plot key={f.name} fig={f.fig} />
-                ))}
-              </div>
-            </section>
-          )}
+          <MatchCentre d={d.payload} charts={d.charts} />
         </>
       )}
     </div>

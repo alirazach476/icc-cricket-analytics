@@ -1,3 +1,4 @@
+import { stageInfo } from '../stage.js'
 import React, { useEffect, useMemo, useRef, useState } from 'react'
 import { Search } from 'lucide-react'
 import Flag, { isTeam } from './Flag.jsx'
@@ -39,13 +40,13 @@ function MatchPicker({ w, onChange }) {
       <div className="mp-list" ref={ref} role="listbox" aria-label="Choose a match">
         {view.map(({ o, r }, i) => (
           <button key={i} role="option" aria-selected={same(o.v, w.value)} className={`mp-item ${same(o.v, w.value) ? 'on' : ''}`} onClick={() => (r.id && openMatch ? openMatch(r.id) : onChange(o.v))}>
-            {r.no ? <span className="mp-no"><small>M</small>{r.no}</span> : null}
+            {stageInfo(r.stage).ko ? <span className="mp-no ko"><small>{stageInfo(r.stage).long.toUpperCase().slice(0, 4)}</small>{stageInfo(r.stage).short}</span> : r.no ? <span className="mp-no"><small>M</small>{r.no}</span> : null}
             <span className="mp-teams">
               <Flag team={r.t1} h={18} /> <b className={r.result && r.result.startsWith(r.t1) ? 'w' : ''}>{r.t1}</b> <i>v</i> <Flag team={r.t2} h={18} /> <b className={r.result && r.result.startsWith(r.t2) ? 'w' : ''}>{r.t2}</b>
             </span>
             <span className="mp-meta">
               {r.date}
-              {r.stage ? ` · ${r.stage}` : ''}
+              {r.stage ? ` · ${stageInfo(r.stage).long}` : ''}
               {r.no ? ` · Match ${r.no}` : ''}
             </span>
             <span className="mp-result">{r.result}</span>

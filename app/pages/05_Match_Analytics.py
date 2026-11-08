@@ -87,24 +87,7 @@ if setup(
             # the premium match centre (React dashboard); the classic charts and tables stay below
             pl = MC.payload(mid)
             figs = MC.charts(mid, pl) if pl and pl["has_ball_by_ball"] else {}
-            if figs:
-                st.markdown("### Match analysis")
-                groups = [
-                    ("Progression", ["Worm", "Run rate"]),
-                    ("Overs and wickets", ["Over by over", "Wickets timeline"]),
-                    ("Innings and chase", ["Innings comparison", "Chase"]),
-                    ("Partnerships and wickets", ["Partnerships", "Fall of wickets"]),
-                    ("Bowling", ["Dot balls", "Maidens"]),
-                ]
-                groups = [(g, [n for n in ns if n in figs]) for g, ns in groups]
-                groups = [(g, ns) for g, ns in groups if ns]
-                for tab, (_, names_) in zip(st.tabs([g for g, _ in groups]), groups, strict=True):
-                    with tab:
-                        cols = st.columns(len(names_))
-                        for col, n in zip(cols, names_, strict=True):
-                            with col:
-                                st.plotly_chart(figs[n], width="stretch")
-            centre(pl)  # the scoreboard and scorecards sit below the analysis
+            centre(pl, figs)  # the analysis charts render right under the match header
             box = st.expander("Classic charts and tables")
         else:
             box = contextlib.nullcontext()
