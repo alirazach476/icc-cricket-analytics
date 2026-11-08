@@ -55,6 +55,6 @@ T20 matches of 2024/2026 and the other gaps listed above.
 2022, 2024 files) for matches Cricsheet withholds: 9 of CWC 2023, 7 of 2016, 5 of 2021, 3 of 2022, 3 of 2024. A match loads only
 when every innings total equals our scorecard and every player name maps to exactly one player of that team's recorded XI
 (spelling variants and initials are matched inside that XI; a name that could map to two players skips the match). Skipped:
-2024 Afghanistan v Uganda ("Cosy"), v New Zealand ("Mitchell" - two NZ players), the Papua New Guinea and India matches (the file is one
+the Papua New Guinea and India matches (the file is one
 run short in the chase) and the semi-final (the file's totals do not match the real match). No file covered T20 2026
 (4 matches), the 2 Champions Trophy 2025 matches (that competition is built separately) or 1999.
