@@ -23,6 +23,7 @@ logger = get_logger(__name__)
 
 EXPECTED_TOURNAMENT_IDS: frozenset[str] = frozenset(
     {
+        "ODI_M_1999",
         "ODI_M_2003",
         "ODI_M_2007",
         "ODI_M_2011",
@@ -70,7 +71,7 @@ class TournamentRecord(BaseModel):
 
     tournament_id: str = Field(..., min_length=5, max_length=32)
     tournament_name: str = Field(..., min_length=3)
-    year: int = Field(..., ge=2003, le=2026)
+    year: int = Field(..., ge=1999, le=2026)
     format: MatchFormat
     gender: Literal["Men"] = "Men"
     host_country: str | None = None
@@ -169,8 +170,8 @@ class TournamentRegistry(BaseModel):
             raise ValueError(f"Registry missing required tournament_ids: {missing}")
         if unexpected:
             raise ValueError(f"Registry contains out-of-scope tournament_ids: {unexpected}")
-        if len(self.tournaments) != 16:
-            raise ValueError(f"Expected 16 tournaments, found {len(self.tournaments)}")
+        if len(self.tournaments) != 17:
+            raise ValueError(f"Expected 17 tournaments, found {len(self.tournaments)}")
         return self
 
     def get(self, tournament_id: str) -> TournamentRecord:

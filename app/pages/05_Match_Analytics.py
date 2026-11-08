@@ -95,6 +95,7 @@ if setup(
                     ("Overs and wickets", ["Over by over", "Wickets timeline"]),
                     ("Innings and chase", ["Innings comparison", "Chase"]),
                     ("Partnerships and wickets", ["Partnerships", "Fall of wickets"]),
+                    ("Bowling", ["Dot balls", "Maidens"]),
                 ]
                 groups = [(g, [n for n in ns if n in figs]) for g, ns in groups]
                 groups = [(g, ns) for g, ns in groups if ns]

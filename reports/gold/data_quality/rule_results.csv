@@ -1,299 +1,299 @@
 rule_id,dataset,dimension,severity,description,tournament_id,total,failed,examples,note,seconds,pass_rate
-gold.match_has_result,gold.fact_matches,completeness,critical,"completed match has a winner, or is a recorded tie",T20_M_2021,45,0,,open genuine ties have is_tie=true and are not counted here,0.032,1.0
-gold.match_has_result,gold.fact_matches,completeness,critical,"completed match has a winner, or is a recorded tie",ODI_M_2011,48,0,,open genuine ties have is_tie=true and are not counted here,0.032,1.0
-gold.match_has_result,gold.fact_matches,completeness,critical,"completed match has a winner, or is a recorded tie",ODI_M_2023,48,0,,open genuine ties have is_tie=true and are not counted here,0.032,1.0
-gold.match_has_result,gold.fact_matches,completeness,critical,"completed match has a winner, or is a recorded tie",T20_M_2014,35,0,,open genuine ties have is_tie=true and are not counted here,0.032,1.0
-gold.match_has_result,gold.fact_matches,completeness,critical,"completed match has a winner, or is a recorded tie",T20_M_2007,26,0,,open genuine ties have is_tie=true and are not counted here,0.032,1.0
-gold.match_has_result,gold.fact_matches,completeness,critical,"completed match has a winner, or is a recorded tie",T20_M_2026,53,0,,open genuine ties have is_tie=true and are not counted here,0.032,1.0
-gold.match_has_result,gold.fact_matches,completeness,critical,"completed match has a winner, or is a recorded tie",T20_M_2016,33,0,,open genuine ties have is_tie=true and are not counted here,0.032,1.0
-gold.match_has_result,gold.fact_matches,completeness,critical,"completed match has a winner, or is a recorded tie",T20_M_2022,41,0,,open genuine ties have is_tie=true and are not counted here,0.032,1.0
-gold.match_has_result,gold.fact_matches,completeness,critical,"completed match has a winner, or is a recorded tie",ODI_M_2015,48,0,,open genuine ties have is_tie=true and are not counted here,0.032,1.0
-gold.match_has_result,gold.fact_matches,completeness,critical,"completed match has a winner, or is a recorded tie",ODI_M_2007,51,0,,open genuine ties have is_tie=true and are not counted here,0.032,1.0
-gold.match_has_result,gold.fact_matches,completeness,critical,"completed match has a winner, or is a recorded tie",ODI_M_2003,52,0,,open genuine ties have is_tie=true and are not counted here,0.032,1.0
-gold.match_has_result,gold.fact_matches,completeness,critical,"completed match has a winner, or is a recorded tie",ODI_M_2019,44,0,,open genuine ties have is_tie=true and are not counted here,0.032,1.0
-gold.match_has_result,gold.fact_matches,completeness,critical,"completed match has a winner, or is a recorded tie",T20_M_2024,51,0,,open genuine ties have is_tie=true and are not counted here,0.032,1.0
-gold.match_has_result,gold.fact_matches,completeness,critical,"completed match has a winner, or is a recorded tie",T20_M_2009,27,0,,open genuine ties have is_tie=true and are not counted here,0.032,1.0
-gold.match_has_result,gold.fact_matches,completeness,critical,"completed match has a winner, or is a recorded tie",T20_M_2010,26,0,,open genuine ties have is_tie=true and are not counted here,0.032,1.0
-gold.match_has_result,gold.fact_matches,completeness,critical,"completed match has a winner, or is a recorded tie",T20_M_2012,26,0,,open genuine ties have is_tie=true and are not counted here,0.032,1.0
-gold.match_has_scores,gold.fact_matches,completeness,major,completed non-walkover match has both innings totals,T20_M_2021,45,0,,,0.004,1.0
-gold.match_has_scores,gold.fact_matches,completeness,major,completed non-walkover match has both innings totals,ODI_M_2011,48,0,,,0.004,1.0
-gold.match_has_scores,gold.fact_matches,completeness,major,completed non-walkover match has both innings totals,ODI_M_2023,48,0,,,0.004,1.0
-gold.match_has_scores,gold.fact_matches,completeness,major,completed non-walkover match has both innings totals,T20_M_2014,35,0,,,0.004,1.0
-gold.match_has_scores,gold.fact_matches,completeness,major,completed non-walkover match has both innings totals,T20_M_2007,26,0,,,0.004,1.0
-gold.match_has_scores,gold.fact_matches,completeness,major,completed non-walkover match has both innings totals,T20_M_2026,53,0,,,0.004,1.0
-gold.match_has_scores,gold.fact_matches,completeness,major,completed non-walkover match has both innings totals,T20_M_2016,33,0,,,0.004,1.0
-gold.match_has_scores,gold.fact_matches,completeness,major,completed non-walkover match has both innings totals,T20_M_2022,41,0,,,0.004,1.0
-gold.match_has_scores,gold.fact_matches,completeness,major,completed non-walkover match has both innings totals,ODI_M_2015,48,0,,,0.004,1.0
-gold.match_has_scores,gold.fact_matches,completeness,major,completed non-walkover match has both innings totals,ODI_M_2007,51,0,,,0.004,1.0
-gold.match_has_scores,gold.fact_matches,completeness,major,completed non-walkover match has both innings totals,ODI_M_2003,50,0,,,0.004,1.0
-gold.match_has_scores,gold.fact_matches,completeness,major,completed non-walkover match has both innings totals,ODI_M_2019,44,0,,,0.004,1.0
-gold.match_has_scores,gold.fact_matches,completeness,major,completed non-walkover match has both innings totals,T20_M_2024,51,0,,,0.004,1.0
-gold.match_has_scores,gold.fact_matches,completeness,major,completed non-walkover match has both innings totals,T20_M_2009,27,0,,,0.004,1.0
-gold.match_has_scores,gold.fact_matches,completeness,major,completed non-walkover match has both innings totals,T20_M_2010,26,0,,,0.004,1.0
-gold.match_has_scores,gold.fact_matches,completeness,major,completed non-walkover match has both innings totals,T20_M_2012,26,0,,,0.004,1.0
-gold.match_has_venue_city,gold.fact_matches,completeness,minor,match has a venue city,T20_M_2021,45,0,,,0.003,1.0
-gold.match_has_venue_city,gold.fact_matches,completeness,minor,match has a venue city,ODI_M_2011,49,0,,,0.003,1.0
-gold.match_has_venue_city,gold.fact_matches,completeness,minor,match has a venue city,ODI_M_2023,48,0,,,0.003,1.0
-gold.match_has_venue_city,gold.fact_matches,completeness,minor,match has a venue city,T20_M_2014,35,0,,,0.003,1.0
-gold.match_has_venue_city,gold.fact_matches,completeness,minor,match has a venue city,T20_M_2007,27,0,,,0.003,1.0
-gold.match_has_venue_city,gold.fact_matches,completeness,minor,match has a venue city,T20_M_2026,55,0,,,0.003,1.0
-gold.match_has_venue_city,gold.fact_matches,completeness,minor,match has a venue city,T20_M_2016,35,0,,,0.003,1.0
-gold.match_has_venue_city,gold.fact_matches,completeness,minor,match has a venue city,T20_M_2022,45,0,,,0.003,1.0
-gold.match_has_venue_city,gold.fact_matches,completeness,minor,match has a venue city,ODI_M_2015,49,0,,,0.003,1.0
-gold.match_has_venue_city,gold.fact_matches,completeness,minor,match has a venue city,ODI_M_2007,51,0,,,0.003,1.0
-gold.match_has_venue_city,gold.fact_matches,completeness,minor,match has a venue city,ODI_M_2003,54,0,,,0.003,1.0
-gold.match_has_venue_city,gold.fact_matches,completeness,minor,match has a venue city,ODI_M_2019,48,0,,,0.003,1.0
-gold.match_has_venue_city,gold.fact_matches,completeness,minor,match has a venue city,T20_M_2024,55,0,,,0.003,1.0
-gold.match_has_venue_city,gold.fact_matches,completeness,minor,match has a venue city,T20_M_2009,27,0,,,0.003,1.0
-gold.match_has_venue_city,gold.fact_matches,completeness,minor,match has a venue city,T20_M_2010,27,0,,,0.003,1.0
-gold.match_has_venue_city,gold.fact_matches,completeness,minor,match has a venue city,T20_M_2012,27,0,,,0.003,1.0
-gold.completed_match_has_player_of_match,gold.fact_matches,completeness,minor,completed non-walkover match names a player of the match,T20_M_2021,45,0,,some early-edition pages do not name one,0.003,1.0
-gold.completed_match_has_player_of_match,gold.fact_matches,completeness,minor,completed non-walkover match names a player of the match,ODI_M_2011,48,0,,some early-edition pages do not name one,0.003,1.0
-gold.completed_match_has_player_of_match,gold.fact_matches,completeness,minor,completed non-walkover match names a player of the match,ODI_M_2023,48,0,,some early-edition pages do not name one,0.003,1.0
-gold.completed_match_has_player_of_match,gold.fact_matches,completeness,minor,completed non-walkover match names a player of the match,T20_M_2014,35,0,,some early-edition pages do not name one,0.003,1.0
-gold.completed_match_has_player_of_match,gold.fact_matches,completeness,minor,completed non-walkover match names a player of the match,T20_M_2007,26,0,,some early-edition pages do not name one,0.003,1.0
-gold.completed_match_has_player_of_match,gold.fact_matches,completeness,minor,completed non-walkover match names a player of the match,T20_M_2026,53,0,,some early-edition pages do not name one,0.003,1.0
-gold.completed_match_has_player_of_match,gold.fact_matches,completeness,minor,completed non-walkover match names a player of the match,T20_M_2016,33,0,,some early-edition pages do not name one,0.003,1.0
-gold.completed_match_has_player_of_match,gold.fact_matches,completeness,minor,completed non-walkover match names a player of the match,T20_M_2022,41,0,,some early-edition pages do not name one,0.003,1.0
-gold.completed_match_has_player_of_match,gold.fact_matches,completeness,minor,completed non-walkover match names a player of the match,ODI_M_2015,48,0,,some early-edition pages do not name one,0.003,1.0
-gold.completed_match_has_player_of_match,gold.fact_matches,completeness,minor,completed non-walkover match names a player of the match,ODI_M_2007,51,0,,some early-edition pages do not name one,0.003,1.0
-gold.completed_match_has_player_of_match,gold.fact_matches,completeness,minor,completed non-walkover match names a player of the match,ODI_M_2003,50,0,,some early-edition pages do not name one,0.003,1.0
-gold.completed_match_has_player_of_match,gold.fact_matches,completeness,minor,completed non-walkover match names a player of the match,ODI_M_2019,44,0,,some early-edition pages do not name one,0.003,1.0
-gold.completed_match_has_player_of_match,gold.fact_matches,completeness,minor,completed non-walkover match names a player of the match,T20_M_2024,51,0,,some early-edition pages do not name one,0.003,1.0
-gold.completed_match_has_player_of_match,gold.fact_matches,completeness,minor,completed non-walkover match names a player of the match,T20_M_2009,27,0,,some early-edition pages do not name one,0.003,1.0
-gold.completed_match_has_player_of_match,gold.fact_matches,completeness,minor,completed non-walkover match names a player of the match,T20_M_2010,26,0,,some early-edition pages do not name one,0.003,1.0
-gold.completed_match_has_player_of_match,gold.fact_matches,completeness,minor,completed non-walkover match names a player of the match,T20_M_2012,26,0,,some early-edition pages do not name one,0.003,1.0
-gold.venue_unique_name,gold.dim_venues,uniqueness,major,no two venues share a canonical name in the same city,(global),79,0,,,0.004,1.0
-gold.player_unique_name_dob,gold.dim_players,uniqueness,minor,"player full names are unique (homonyms are listed, not merged)",(global),1418,4,"espn_1015399, espn_1160970, espn_1168651, espn_56167",different people can share a name; flagged for review only,0.012,0.997179
-gold.delivery_wicket_has_dismissal,gold.fact_deliveries,validity,major,a wicket ball names the dismissal type and dismissed player,ODI_M_2003,695,0,,,0.033,1.0
-gold.delivery_wicket_has_dismissal,gold.fact_deliveries,validity,major,a wicket ball names the dismissal type and dismissed player,ODI_M_2007,712,0,,,0.033,1.0
-gold.delivery_wicket_has_dismissal,gold.fact_deliveries,validity,major,a wicket ball names the dismissal type and dismissed player,ODI_M_2011,731,0,,,0.033,1.0
-gold.delivery_wicket_has_dismissal,gold.fact_deliveries,validity,major,a wicket ball names the dismissal type and dismissed player,ODI_M_2015,622,0,,,0.033,1.0
-gold.delivery_wicket_has_dismissal,gold.fact_deliveries,validity,major,a wicket ball names the dismissal type and dismissed player,ODI_M_2019,536,0,,,0.033,1.0
-gold.delivery_wicket_has_dismissal,gold.fact_deliveries,validity,major,a wicket ball names the dismissal type and dismissed player,ODI_M_2023,606,0,,,0.033,1.0
-gold.delivery_wicket_has_dismissal,gold.fact_deliveries,validity,major,a wicket ball names the dismissal type and dismissed player,T20_M_2014,390,0,,,0.033,1.0
-gold.delivery_wicket_has_dismissal,gold.fact_deliveries,validity,major,a wicket ball names the dismissal type and dismissed player,T20_M_2016,314,0,,,0.033,1.0
-gold.delivery_wicket_has_dismissal,gold.fact_deliveries,validity,major,a wicket ball names the dismissal type and dismissed player,T20_M_2021,468,0,,,0.033,1.0
-gold.delivery_wicket_has_dismissal,gold.fact_deliveries,validity,major,a wicket ball names the dismissal type and dismissed player,T20_M_2022,512,0,,,0.033,1.0
-gold.delivery_wicket_has_dismissal,gold.fact_deliveries,validity,major,a wicket ball names the dismissal type and dismissed player,T20_M_2024,563,0,,,0.033,1.0
-gold.delivery_wicket_has_dismissal,gold.fact_deliveries,validity,major,a wicket ball names the dismissal type and dismissed player,T20_M_2026,647,0,,,0.033,1.0
-gold.delivery_boundary_flags,gold.fact_deliveries,validity,major,four/six flags agree with batter runs,ODI_M_2003,25390,0,,,0.04,1.0
-gold.delivery_boundary_flags,gold.fact_deliveries,validity,major,four/six flags agree with batter runs,ODI_M_2007,26163,0,,,0.04,1.0
-gold.delivery_boundary_flags,gold.fact_deliveries,validity,major,four/six flags agree with batter runs,ODI_M_2011,26036,0,,,0.04,1.0
-gold.delivery_boundary_flags,gold.fact_deliveries,validity,major,four/six flags agree with batter runs,ODI_M_2015,22541,0,,,0.04,1.0
-gold.delivery_boundary_flags,gold.fact_deliveries,validity,major,four/six flags agree with batter runs,ODI_M_2019,19933,0,,,0.04,1.0
-gold.delivery_boundary_flags,gold.fact_deliveries,validity,major,four/six flags agree with batter runs,ODI_M_2023,21195,0,,,0.04,1.0
-gold.delivery_boundary_flags,gold.fact_deliveries,validity,major,four/six flags agree with batter runs,T20_M_2014,7304,0,,,0.04,1.0
-gold.delivery_boundary_flags,gold.fact_deliveries,validity,major,four/six flags agree with batter runs,T20_M_2016,5791,0,,,0.04,1.0
-gold.delivery_boundary_flags,gold.fact_deliveries,validity,major,four/six flags agree with batter runs,T20_M_2021,9023,0,,,0.04,1.0
-gold.delivery_boundary_flags,gold.fact_deliveries,validity,major,four/six flags agree with batter runs,T20_M_2022,9126,0,,,0.04,1.0
-gold.delivery_boundary_flags,gold.fact_deliveries,validity,major,four/six flags agree with batter runs,T20_M_2024,9722,0,,,0.04,1.0
-gold.delivery_boundary_flags,gold.fact_deliveries,validity,major,four/six flags agree with batter runs,T20_M_2026,11555,0,,,0.04,1.0
-gold.delivery_wide_no_legal,gold.fact_deliveries,validity,major,wides and no-balls are never counted as legal deliveries,ODI_M_2003,25390,0,,,0.039,1.0
-gold.delivery_wide_no_legal,gold.fact_deliveries,validity,major,wides and no-balls are never counted as legal deliveries,ODI_M_2007,26163,0,,,0.039,1.0
-gold.delivery_wide_no_legal,gold.fact_deliveries,validity,major,wides and no-balls are never counted as legal deliveries,ODI_M_2011,26036,0,,,0.039,1.0
-gold.delivery_wide_no_legal,gold.fact_deliveries,validity,major,wides and no-balls are never counted as legal deliveries,ODI_M_2015,22541,0,,,0.039,1.0
-gold.delivery_wide_no_legal,gold.fact_deliveries,validity,major,wides and no-balls are never counted as legal deliveries,ODI_M_2019,19933,0,,,0.039,1.0
-gold.delivery_wide_no_legal,gold.fact_deliveries,validity,major,wides and no-balls are never counted as legal deliveries,ODI_M_2023,21195,0,,,0.039,1.0
-gold.delivery_wide_no_legal,gold.fact_deliveries,validity,major,wides and no-balls are never counted as legal deliveries,T20_M_2014,7304,0,,,0.039,1.0
-gold.delivery_wide_no_legal,gold.fact_deliveries,validity,major,wides and no-balls are never counted as legal deliveries,T20_M_2016,5791,0,,,0.039,1.0
-gold.delivery_wide_no_legal,gold.fact_deliveries,validity,major,wides and no-balls are never counted as legal deliveries,T20_M_2021,9023,0,,,0.039,1.0
-gold.delivery_wide_no_legal,gold.fact_deliveries,validity,major,wides and no-balls are never counted as legal deliveries,T20_M_2022,9126,0,,,0.039,1.0
-gold.delivery_wide_no_legal,gold.fact_deliveries,validity,major,wides and no-balls are never counted as legal deliveries,T20_M_2024,9722,0,,,0.039,1.0
-gold.delivery_wide_no_legal,gold.fact_deliveries,validity,major,wides and no-balls are never counted as legal deliveries,T20_M_2026,11555,0,,,0.039,1.0
-gold.performance_strike_rate,gold.fact_player_performances,validity,minor,batting strike rate within 0-600,T20_M_2021,685,0,,,0.01,1.0
-gold.performance_strike_rate,gold.fact_player_performances,validity,minor,batting strike rate within 0-600,ODI_M_2011,878,0,,,0.01,1.0
-gold.performance_strike_rate,gold.fact_player_performances,validity,minor,batting strike rate within 0-600,ODI_M_2023,875,0,,,0.01,1.0
-gold.performance_strike_rate,gold.fact_player_performances,validity,minor,batting strike rate within 0-600,T20_M_2014,543,0,,,0.01,1.0
-gold.performance_strike_rate,gold.fact_player_performances,validity,minor,batting strike rate within 0-600,T20_M_2007,434,0,,,0.01,1.0
-gold.performance_strike_rate,gold.fact_player_performances,validity,minor,batting strike rate within 0-600,T20_M_2026,876,0,,,0.01,1.0
-gold.performance_strike_rate,gold.fact_player_performances,validity,minor,batting strike rate within 0-600,T20_M_2022,699,0,,,0.01,1.0
-gold.performance_strike_rate,gold.fact_player_performances,validity,minor,batting strike rate within 0-600,T20_M_2016,542,0,,,0.01,1.0
-gold.performance_strike_rate,gold.fact_player_performances,validity,minor,batting strike rate within 0-600,ODI_M_2015,863,0,,,0.01,1.0
-gold.performance_strike_rate,gold.fact_player_performances,validity,minor,batting strike rate within 0-600,ODI_M_2007,885,0,,,0.01,1.0
-gold.performance_strike_rate,gold.fact_player_performances,validity,minor,batting strike rate within 0-600,ODI_M_2003,902,0,,,0.01,1.0
-gold.performance_strike_rate,gold.fact_player_performances,validity,minor,batting strike rate within 0-600,ODI_M_2019,812,0,,,0.01,1.0
-gold.performance_strike_rate,gold.fact_player_performances,validity,minor,batting strike rate within 0-600,T20_M_2024,852,0,,,0.01,1.0
-gold.performance_strike_rate,gold.fact_player_performances,validity,minor,batting strike rate within 0-600,T20_M_2009,436,0,,,0.01,1.0
-gold.performance_strike_rate,gold.fact_player_performances,validity,minor,batting strike rate within 0-600,T20_M_2010,439,0,,,0.01,1.0
-gold.performance_strike_rate,gold.fact_player_performances,validity,minor,batting strike rate within 0-600,T20_M_2012,404,0,,,0.01,1.0
-gold.innings_runs_match_deliveries,gold.fact_innings,consistency,critical,innings total equals the sum of its deliveries (ball-by-ball innings),ODI_M_2003,97,0,,,0.049,1.0
-gold.innings_runs_match_deliveries,gold.fact_innings,consistency,critical,innings total equals the sum of its deliveries (ball-by-ball innings),ODI_M_2007,100,0,,,0.049,1.0
-gold.innings_runs_match_deliveries,gold.fact_innings,consistency,critical,innings total equals the sum of its deliveries (ball-by-ball innings),ODI_M_2011,97,0,,,0.049,1.0
-gold.innings_runs_match_deliveries,gold.fact_innings,consistency,critical,innings total equals the sum of its deliveries (ball-by-ball innings),ODI_M_2015,84,0,,,0.049,1.0
-gold.innings_runs_match_deliveries,gold.fact_innings,consistency,critical,innings total equals the sum of its deliveries (ball-by-ball innings),ODI_M_2019,73,0,,,0.049,1.0
-gold.innings_runs_match_deliveries,gold.fact_innings,consistency,critical,innings total equals the sum of its deliveries (ball-by-ball innings),ODI_M_2023,78,0,,,0.049,1.0
-gold.innings_runs_match_deliveries,gold.fact_innings,consistency,critical,innings total equals the sum of its deliveries (ball-by-ball innings),T20_M_2014,64,0,,,0.049,1.0
-gold.innings_runs_match_deliveries,gold.fact_innings,consistency,critical,innings total equals the sum of its deliveries (ball-by-ball innings),T20_M_2016,51,0,,,0.049,1.0
-gold.innings_runs_match_deliveries,gold.fact_innings,consistency,critical,innings total equals the sum of its deliveries (ball-by-ball innings),T20_M_2021,80,0,,,0.049,1.0
-gold.innings_runs_match_deliveries,gold.fact_innings,consistency,critical,innings total equals the sum of its deliveries (ball-by-ball innings),T20_M_2022,78,0,,,0.049,1.0
-gold.innings_runs_match_deliveries,gold.fact_innings,consistency,critical,innings total equals the sum of its deliveries (ball-by-ball innings),T20_M_2024,91,0,,,0.049,1.0
-gold.innings_runs_match_deliveries,gold.fact_innings,consistency,critical,innings total equals the sum of its deliveries (ball-by-ball innings),T20_M_2026,98,0,,,0.049,1.0
-gold.innings_wickets_match_deliveries,gold.fact_innings,consistency,critical,innings wickets equal the wickets recorded on its deliveries,ODI_M_2003,97,0,,"Bangladesh v Sri Lanka 2023-11-06: Mathews was timed out, which the scorecard counts as a wicket but no ball was bowled, so it has no delivery row",0.106,1.0
-gold.innings_wickets_match_deliveries,gold.fact_innings,consistency,critical,innings wickets equal the wickets recorded on its deliveries,ODI_M_2007,100,0,,"Bangladesh v Sri Lanka 2023-11-06: Mathews was timed out, which the scorecard counts as a wicket but no ball was bowled, so it has no delivery row",0.106,1.0
-gold.innings_wickets_match_deliveries,gold.fact_innings,consistency,critical,innings wickets equal the wickets recorded on its deliveries,ODI_M_2011,97,0,,"Bangladesh v Sri Lanka 2023-11-06: Mathews was timed out, which the scorecard counts as a wicket but no ball was bowled, so it has no delivery row",0.106,1.0
-gold.innings_wickets_match_deliveries,gold.fact_innings,consistency,critical,innings wickets equal the wickets recorded on its deliveries,ODI_M_2015,84,0,,"Bangladesh v Sri Lanka 2023-11-06: Mathews was timed out, which the scorecard counts as a wicket but no ball was bowled, so it has no delivery row",0.106,1.0
-gold.innings_wickets_match_deliveries,gold.fact_innings,consistency,critical,innings wickets equal the wickets recorded on its deliveries,ODI_M_2019,73,0,,"Bangladesh v Sri Lanka 2023-11-06: Mathews was timed out, which the scorecard counts as a wicket but no ball was bowled, so it has no delivery row",0.106,1.0
-gold.innings_wickets_match_deliveries,gold.fact_innings,consistency,critical,innings wickets equal the wickets recorded on its deliveries,ODI_M_2023,78,1,1384429_1,"Bangladesh v Sri Lanka 2023-11-06: Mathews was timed out, which the scorecard counts as a wicket but no ball was bowled, so it has no delivery row",0.106,0.987179
-gold.innings_wickets_match_deliveries,gold.fact_innings,consistency,critical,innings wickets equal the wickets recorded on its deliveries,T20_M_2014,64,0,,"Bangladesh v Sri Lanka 2023-11-06: Mathews was timed out, which the scorecard counts as a wicket but no ball was bowled, so it has no delivery row",0.106,1.0
-gold.innings_wickets_match_deliveries,gold.fact_innings,consistency,critical,innings wickets equal the wickets recorded on its deliveries,T20_M_2016,51,0,,"Bangladesh v Sri Lanka 2023-11-06: Mathews was timed out, which the scorecard counts as a wicket but no ball was bowled, so it has no delivery row",0.106,1.0
-gold.innings_wickets_match_deliveries,gold.fact_innings,consistency,critical,innings wickets equal the wickets recorded on its deliveries,T20_M_2021,80,0,,"Bangladesh v Sri Lanka 2023-11-06: Mathews was timed out, which the scorecard counts as a wicket but no ball was bowled, so it has no delivery row",0.106,1.0
-gold.innings_wickets_match_deliveries,gold.fact_innings,consistency,critical,innings wickets equal the wickets recorded on its deliveries,T20_M_2022,78,0,,"Bangladesh v Sri Lanka 2023-11-06: Mathews was timed out, which the scorecard counts as a wicket but no ball was bowled, so it has no delivery row",0.106,1.0
-gold.innings_wickets_match_deliveries,gold.fact_innings,consistency,critical,innings wickets equal the wickets recorded on its deliveries,T20_M_2024,91,0,,"Bangladesh v Sri Lanka 2023-11-06: Mathews was timed out, which the scorecard counts as a wicket but no ball was bowled, so it has no delivery row",0.106,1.0
-gold.innings_wickets_match_deliveries,gold.fact_innings,consistency,critical,innings wickets equal the wickets recorded on its deliveries,T20_M_2026,98,0,,"Bangladesh v Sri Lanka 2023-11-06: Mathews was timed out, which the scorecard counts as a wicket but no ball was bowled, so it has no delivery row",0.106,1.0
-gold.match_winner_has_more_runs,gold.fact_matches,consistency,major,"the winner scored more runs than the loser (no DLS, tie or super over)",T20_M_2021,45,0,,matches decided on run rate or a bowl-out can legitimately differ,0.004,1.0
-gold.match_winner_has_more_runs,gold.fact_matches,consistency,major,"the winner scored more runs than the loser (no DLS, tie or super over)",ODI_M_2011,46,0,,matches decided on run rate or a bowl-out can legitimately differ,0.004,1.0
-gold.match_winner_has_more_runs,gold.fact_matches,consistency,major,"the winner scored more runs than the loser (no DLS, tie or super over)",ODI_M_2023,47,0,,matches decided on run rate or a bowl-out can legitimately differ,0.004,1.0
-gold.match_winner_has_more_runs,gold.fact_matches,consistency,major,"the winner scored more runs than the loser (no DLS, tie or super over)",T20_M_2014,32,0,,matches decided on run rate or a bowl-out can legitimately differ,0.004,1.0
-gold.match_winner_has_more_runs,gold.fact_matches,consistency,major,"the winner scored more runs than the loser (no DLS, tie or super over)",T20_M_2007,25,0,,matches decided on run rate or a bowl-out can legitimately differ,0.004,1.0
-gold.match_winner_has_more_runs,gold.fact_matches,consistency,major,"the winner scored more runs than the loser (no DLS, tie or super over)",T20_M_2026,52,0,,matches decided on run rate or a bowl-out can legitimately differ,0.004,1.0
-gold.match_winner_has_more_runs,gold.fact_matches,consistency,major,"the winner scored more runs than the loser (no DLS, tie or super over)",T20_M_2016,31,0,,matches decided on run rate or a bowl-out can legitimately differ,0.004,1.0
-gold.match_winner_has_more_runs,gold.fact_matches,consistency,major,"the winner scored more runs than the loser (no DLS, tie or super over)",T20_M_2022,38,0,,matches decided on run rate or a bowl-out can legitimately differ,0.004,1.0
-gold.match_winner_has_more_runs,gold.fact_matches,consistency,major,"the winner scored more runs than the loser (no DLS, tie or super over)",ODI_M_2015,44,0,,matches decided on run rate or a bowl-out can legitimately differ,0.004,1.0
-gold.match_winner_has_more_runs,gold.fact_matches,consistency,major,"the winner scored more runs than the loser (no DLS, tie or super over)",ODI_M_2007,43,0,,matches decided on run rate or a bowl-out can legitimately differ,0.004,1.0
-gold.match_winner_has_more_runs,gold.fact_matches,consistency,major,"the winner scored more runs than the loser (no DLS, tie or super over)",ODI_M_2003,45,0,,matches decided on run rate or a bowl-out can legitimately differ,0.004,1.0
-gold.match_winner_has_more_runs,gold.fact_matches,consistency,major,"the winner scored more runs than the loser (no DLS, tie or super over)",ODI_M_2019,40,0,,matches decided on run rate or a bowl-out can legitimately differ,0.004,1.0
-gold.match_winner_has_more_runs,gold.fact_matches,consistency,major,"the winner scored more runs than the loser (no DLS, tie or super over)",T20_M_2024,45,0,,matches decided on run rate or a bowl-out can legitimately differ,0.004,1.0
-gold.match_winner_has_more_runs,gold.fact_matches,consistency,major,"the winner scored more runs than the loser (no DLS, tie or super over)",T20_M_2009,26,0,,matches decided on run rate or a bowl-out can legitimately differ,0.004,1.0
-gold.match_winner_has_more_runs,gold.fact_matches,consistency,major,"the winner scored more runs than the loser (no DLS, tie or super over)",T20_M_2010,23,0,,matches decided on run rate or a bowl-out can legitimately differ,0.004,1.0
-gold.match_winner_has_more_runs,gold.fact_matches,consistency,major,"the winner scored more runs than the loser (no DLS, tie or super over)",T20_M_2012,23,0,,matches decided on run rate or a bowl-out can legitimately differ,0.004,1.0
-gold.performance_runs_match_scorecard_total,gold.fact_innings,consistency,major,batters' runs + extras equal the innings total (scorecard reconciliation),ODI_M_2003,103,0,,penalty runs or missing scorecard rows can cause a small difference,0.012,1.0
-gold.performance_runs_match_scorecard_total,gold.fact_innings,consistency,major,batters' runs + extras equal the innings total (scorecard reconciliation),ODI_M_2007,102,0,,penalty runs or missing scorecard rows can cause a small difference,0.012,1.0
-gold.performance_runs_match_scorecard_total,gold.fact_innings,consistency,major,batters' runs + extras equal the innings total (scorecard reconciliation),ODI_M_2011,97,0,,penalty runs or missing scorecard rows can cause a small difference,0.012,1.0
-gold.performance_runs_match_scorecard_total,gold.fact_innings,consistency,major,batters' runs + extras equal the innings total (scorecard reconciliation),ODI_M_2015,96,0,,penalty runs or missing scorecard rows can cause a small difference,0.012,1.0
-gold.performance_runs_match_scorecard_total,gold.fact_innings,consistency,major,batters' runs + extras equal the innings total (scorecard reconciliation),ODI_M_2019,89,0,,penalty runs or missing scorecard rows can cause a small difference,0.012,1.0
-gold.performance_runs_match_scorecard_total,gold.fact_innings,consistency,major,batters' runs + extras equal the innings total (scorecard reconciliation),ODI_M_2023,96,0,,penalty runs or missing scorecard rows can cause a small difference,0.012,1.0
-gold.performance_runs_match_scorecard_total,gold.fact_innings,consistency,major,batters' runs + extras equal the innings total (scorecard reconciliation),T20_M_2007,52,0,,penalty runs or missing scorecard rows can cause a small difference,0.012,1.0
-gold.performance_runs_match_scorecard_total,gold.fact_innings,consistency,major,batters' runs + extras equal the innings total (scorecard reconciliation),T20_M_2009,54,0,,penalty runs or missing scorecard rows can cause a small difference,0.012,1.0
-gold.performance_runs_match_scorecard_total,gold.fact_innings,consistency,major,batters' runs + extras equal the innings total (scorecard reconciliation),T20_M_2010,54,0,,penalty runs or missing scorecard rows can cause a small difference,0.012,1.0
-gold.performance_runs_match_scorecard_total,gold.fact_innings,consistency,major,batters' runs + extras equal the innings total (scorecard reconciliation),T20_M_2012,53,0,,penalty runs or missing scorecard rows can cause a small difference,0.012,1.0
-gold.performance_runs_match_scorecard_total,gold.fact_innings,consistency,major,batters' runs + extras equal the innings total (scorecard reconciliation),T20_M_2014,70,0,,penalty runs or missing scorecard rows can cause a small difference,0.012,1.0
-gold.performance_runs_match_scorecard_total,gold.fact_innings,consistency,major,batters' runs + extras equal the innings total (scorecard reconciliation),T20_M_2016,67,0,,penalty runs or missing scorecard rows can cause a small difference,0.012,1.0
-gold.performance_runs_match_scorecard_total,gold.fact_innings,consistency,major,batters' runs + extras equal the innings total (scorecard reconciliation),T20_M_2021,90,0,,penalty runs or missing scorecard rows can cause a small difference,0.012,1.0
-gold.performance_runs_match_scorecard_total,gold.fact_innings,consistency,major,batters' runs + extras equal the innings total (scorecard reconciliation),T20_M_2022,84,0,,penalty runs or missing scorecard rows can cause a small difference,0.012,1.0
-gold.performance_runs_match_scorecard_total,gold.fact_innings,consistency,major,batters' runs + extras equal the innings total (scorecard reconciliation),T20_M_2024,103,0,,penalty runs or missing scorecard rows can cause a small difference,0.012,1.0
-gold.performance_runs_match_scorecard_total,gold.fact_innings,consistency,major,batters' runs + extras equal the innings total (scorecard reconciliation),T20_M_2026,106,0,,penalty runs or missing scorecard rows can cause a small difference,0.012,1.0
-gold.standings_wins_match_results,gold.fact_tournament_standings,consistency,major,"standings wins reconcile with match results, allowing only carried-over matches",T20_M_2021,20,0,,"Super Sixes (2003) and Super Eights (2007) carry earlier-round results into the table, so derived wins may fall short by at most the matches carried over; any other gap fails",0.006,1.0
-gold.standings_wins_match_results,gold.fact_tournament_standings,consistency,major,"standings wins reconcile with match results, allowing only carried-over matches",ODI_M_2011,14,0,,"Super Sixes (2003) and Super Eights (2007) carry earlier-round results into the table, so derived wins may fall short by at most the matches carried over; any other gap fails",0.006,1.0
-gold.standings_wins_match_results,gold.fact_tournament_standings,consistency,major,"standings wins reconcile with match results, allowing only carried-over matches",ODI_M_2023,10,0,,"Super Sixes (2003) and Super Eights (2007) carry earlier-round results into the table, so derived wins may fall short by at most the matches carried over; any other gap fails",0.006,1.0
-gold.standings_wins_match_results,gold.fact_tournament_standings,consistency,major,"standings wins reconcile with match results, allowing only carried-over matches",T20_M_2014,18,0,,"Super Sixes (2003) and Super Eights (2007) carry earlier-round results into the table, so derived wins may fall short by at most the matches carried over; any other gap fails",0.006,1.0
-gold.standings_wins_match_results,gold.fact_tournament_standings,consistency,major,"standings wins reconcile with match results, allowing only carried-over matches",T20_M_2007,20,0,,"Super Sixes (2003) and Super Eights (2007) carry earlier-round results into the table, so derived wins may fall short by at most the matches carried over; any other gap fails",0.006,1.0
-gold.standings_wins_match_results,gold.fact_tournament_standings,consistency,major,"standings wins reconcile with match results, allowing only carried-over matches",T20_M_2026,28,0,,"Super Sixes (2003) and Super Eights (2007) carry earlier-round results into the table, so derived wins may fall short by at most the matches carried over; any other gap fails",0.006,1.0
-gold.standings_wins_match_results,gold.fact_tournament_standings,consistency,major,"standings wins reconcile with match results, allowing only carried-over matches",T20_M_2022,20,0,,"Super Sixes (2003) and Super Eights (2007) carry earlier-round results into the table, so derived wins may fall short by at most the matches carried over; any other gap fails",0.006,1.0
-gold.standings_wins_match_results,gold.fact_tournament_standings,consistency,major,"standings wins reconcile with match results, allowing only carried-over matches",T20_M_2016,18,0,,"Super Sixes (2003) and Super Eights (2007) carry earlier-round results into the table, so derived wins may fall short by at most the matches carried over; any other gap fails",0.006,1.0
-gold.standings_wins_match_results,gold.fact_tournament_standings,consistency,major,"standings wins reconcile with match results, allowing only carried-over matches",ODI_M_2015,14,0,,"Super Sixes (2003) and Super Eights (2007) carry earlier-round results into the table, so derived wins may fall short by at most the matches carried over; any other gap fails",0.006,1.0
-gold.standings_wins_match_results,gold.fact_tournament_standings,consistency,major,"standings wins reconcile with match results, allowing only carried-over matches",ODI_M_2007,24,0,,"Super Sixes (2003) and Super Eights (2007) carry earlier-round results into the table, so derived wins may fall short by at most the matches carried over; any other gap fails",0.006,1.0
-gold.standings_wins_match_results,gold.fact_tournament_standings,consistency,major,"standings wins reconcile with match results, allowing only carried-over matches",ODI_M_2003,20,0,,"Super Sixes (2003) and Super Eights (2007) carry earlier-round results into the table, so derived wins may fall short by at most the matches carried over; any other gap fails",0.006,1.0
-gold.standings_wins_match_results,gold.fact_tournament_standings,consistency,major,"standings wins reconcile with match results, allowing only carried-over matches",ODI_M_2019,10,0,,"Super Sixes (2003) and Super Eights (2007) carry earlier-round results into the table, so derived wins may fall short by at most the matches carried over; any other gap fails",0.006,1.0
-gold.standings_wins_match_results,gold.fact_tournament_standings,consistency,major,"standings wins reconcile with match results, allowing only carried-over matches",T20_M_2024,28,0,,"Super Sixes (2003) and Super Eights (2007) carry earlier-round results into the table, so derived wins may fall short by at most the matches carried over; any other gap fails",0.006,1.0
-gold.standings_wins_match_results,gold.fact_tournament_standings,consistency,major,"standings wins reconcile with match results, allowing only carried-over matches",T20_M_2009,20,0,,"Super Sixes (2003) and Super Eights (2007) carry earlier-round results into the table, so derived wins may fall short by at most the matches carried over; any other gap fails",0.006,1.0
-gold.standings_wins_match_results,gold.fact_tournament_standings,consistency,major,"standings wins reconcile with match results, allowing only carried-over matches",T20_M_2010,20,0,,"Super Sixes (2003) and Super Eights (2007) carry earlier-round results into the table, so derived wins may fall short by at most the matches carried over; any other gap fails",0.006,1.0
-gold.standings_wins_match_results,gold.fact_tournament_standings,consistency,major,"standings wins reconcile with match results, allowing only carried-over matches",T20_M_2012,20,0,,"Super Sixes (2003) and Super Eights (2007) carry earlier-round results into the table, so derived wins may fall short by at most the matches carried over; any other gap fails",0.006,1.0
-gold.deliveries_player_resolved,gold.fact_deliveries,referential_integrity,minor,batter resolved to an ESPN player id (not a Cricsheet-only identity),ODI_M_2003,25390,0,,share of deliveries whose batter could not be matched safely to a scorecard player,0.044,1.0
-gold.deliveries_player_resolved,gold.fact_deliveries,referential_integrity,minor,batter resolved to an ESPN player id (not a Cricsheet-only identity),ODI_M_2007,26163,0,,share of deliveries whose batter could not be matched safely to a scorecard player,0.044,1.0
-gold.deliveries_player_resolved,gold.fact_deliveries,referential_integrity,minor,batter resolved to an ESPN player id (not a Cricsheet-only identity),ODI_M_2011,26036,0,,share of deliveries whose batter could not be matched safely to a scorecard player,0.044,1.0
-gold.deliveries_player_resolved,gold.fact_deliveries,referential_integrity,minor,batter resolved to an ESPN player id (not a Cricsheet-only identity),ODI_M_2015,22541,0,,share of deliveries whose batter could not be matched safely to a scorecard player,0.044,1.0
-gold.deliveries_player_resolved,gold.fact_deliveries,referential_integrity,minor,batter resolved to an ESPN player id (not a Cricsheet-only identity),ODI_M_2019,19933,0,,share of deliveries whose batter could not be matched safely to a scorecard player,0.044,1.0
-gold.deliveries_player_resolved,gold.fact_deliveries,referential_integrity,minor,batter resolved to an ESPN player id (not a Cricsheet-only identity),ODI_M_2023,21195,0,,share of deliveries whose batter could not be matched safely to a scorecard player,0.044,1.0
-gold.deliveries_player_resolved,gold.fact_deliveries,referential_integrity,minor,batter resolved to an ESPN player id (not a Cricsheet-only identity),T20_M_2014,7304,0,,share of deliveries whose batter could not be matched safely to a scorecard player,0.044,1.0
-gold.deliveries_player_resolved,gold.fact_deliveries,referential_integrity,minor,batter resolved to an ESPN player id (not a Cricsheet-only identity),T20_M_2016,5791,0,,share of deliveries whose batter could not be matched safely to a scorecard player,0.044,1.0
-gold.deliveries_player_resolved,gold.fact_deliveries,referential_integrity,minor,batter resolved to an ESPN player id (not a Cricsheet-only identity),T20_M_2021,9023,0,,share of deliveries whose batter could not be matched safely to a scorecard player,0.044,1.0
-gold.deliveries_player_resolved,gold.fact_deliveries,referential_integrity,minor,batter resolved to an ESPN player id (not a Cricsheet-only identity),T20_M_2022,9126,23,"1298135_2_66, 1298135_2_67, 1298135_2_68, 1298135_2_69, 1298135_2_72",share of deliveries whose batter could not be matched safely to a scorecard player,0.044,0.99748
-gold.deliveries_player_resolved,gold.fact_deliveries,referential_integrity,minor,batter resolved to an ESPN player id (not a Cricsheet-only identity),T20_M_2024,9722,0,,share of deliveries whose batter could not be matched safely to a scorecard player,0.044,1.0
-gold.deliveries_player_resolved,gold.fact_deliveries,referential_integrity,minor,batter resolved to an ESPN player id (not a Cricsheet-only identity),T20_M_2026,11555,0,,share of deliveries whose batter could not be matched safely to a scorecard player,0.044,1.0
-gold.match_has_innings,gold.fact_matches,referential_integrity,critical,completed non-walkover match has at least two innings rows,ODI_M_2003,50,0,,,0.004,1.0
-gold.match_has_innings,gold.fact_matches,referential_integrity,critical,completed non-walkover match has at least two innings rows,ODI_M_2007,51,0,,,0.004,1.0
-gold.match_has_innings,gold.fact_matches,referential_integrity,critical,completed non-walkover match has at least two innings rows,ODI_M_2011,48,0,,,0.004,1.0
-gold.match_has_innings,gold.fact_matches,referential_integrity,critical,completed non-walkover match has at least two innings rows,ODI_M_2015,48,0,,,0.004,1.0
-gold.match_has_innings,gold.fact_matches,referential_integrity,critical,completed non-walkover match has at least two innings rows,ODI_M_2019,44,0,,,0.004,1.0
-gold.match_has_innings,gold.fact_matches,referential_integrity,critical,completed non-walkover match has at least two innings rows,ODI_M_2023,48,0,,,0.004,1.0
-gold.match_has_innings,gold.fact_matches,referential_integrity,critical,completed non-walkover match has at least two innings rows,T20_M_2007,26,0,,,0.004,1.0
-gold.match_has_innings,gold.fact_matches,referential_integrity,critical,completed non-walkover match has at least two innings rows,T20_M_2009,27,0,,,0.004,1.0
-gold.match_has_innings,gold.fact_matches,referential_integrity,critical,completed non-walkover match has at least two innings rows,T20_M_2010,26,0,,,0.004,1.0
-gold.match_has_innings,gold.fact_matches,referential_integrity,critical,completed non-walkover match has at least two innings rows,T20_M_2012,26,0,,,0.004,1.0
-gold.match_has_innings,gold.fact_matches,referential_integrity,critical,completed non-walkover match has at least two innings rows,T20_M_2014,35,0,,,0.004,1.0
-gold.match_has_innings,gold.fact_matches,referential_integrity,critical,completed non-walkover match has at least two innings rows,T20_M_2016,33,0,,,0.004,1.0
-gold.match_has_innings,gold.fact_matches,referential_integrity,critical,completed non-walkover match has at least two innings rows,T20_M_2021,45,0,,,0.004,1.0
-gold.match_has_innings,gold.fact_matches,referential_integrity,critical,completed non-walkover match has at least two innings rows,T20_M_2022,41,0,,,0.004,1.0
-gold.match_has_innings,gold.fact_matches,referential_integrity,critical,completed non-walkover match has at least two innings rows,T20_M_2024,51,0,,,0.004,1.0
-gold.match_has_innings,gold.fact_matches,referential_integrity,critical,completed non-walkover match has at least two innings rows,T20_M_2026,53,0,,,0.004,1.0
-gold.ball_by_ball_available,gold.fact_matches,historical_coverage,minor,played match has ball-by-ball data,T20_M_2021,45,5,"247459, 656411, 656421, 656431, 656449",source limitation: not in Cricsheet's World Cup bundle (see ball_by_ball_gap_reason),0.004,0.888889
-gold.ball_by_ball_available,gold.fact_matches,historical_coverage,minor,played match has ball-by-ball data,ODI_M_2011,48,0,,source limitation: not in Cricsheet's World Cup bundle (see ball_by_ball_gap_reason),0.004,1.0
-gold.ball_by_ball_available,gold.fact_matches,historical_coverage,minor,played match has ball-by-ball data,ODI_M_2023,48,9,"247459, 656411, 656421, 656431, 656449",source limitation: not in Cricsheet's World Cup bundle (see ball_by_ball_gap_reason),0.004,0.8125
-gold.ball_by_ball_available,gold.fact_matches,historical_coverage,minor,played match has ball-by-ball data,T20_M_2014,35,3,"247459, 656411, 656421, 656431, 656449",source limitation: not in Cricsheet's World Cup bundle (see ball_by_ball_gap_reason),0.004,0.914286
-gold.ball_by_ball_available,gold.fact_matches,historical_coverage,minor,played match has ball-by-ball data,T20_M_2007,26,26,"247459, 656411, 656421, 656431, 656449",source limitation: not in Cricsheet's World Cup bundle (see ball_by_ball_gap_reason),0.004,0.0
-gold.ball_by_ball_available,gold.fact_matches,historical_coverage,minor,played match has ball-by-ball data,T20_M_2026,53,4,"247459, 656411, 656421, 656431, 656449",source limitation: not in Cricsheet's World Cup bundle (see ball_by_ball_gap_reason),0.004,0.924528
-gold.ball_by_ball_available,gold.fact_matches,historical_coverage,minor,played match has ball-by-ball data,T20_M_2016,33,8,"247459, 656411, 656421, 656431, 656449",source limitation: not in Cricsheet's World Cup bundle (see ball_by_ball_gap_reason),0.004,0.757576
-gold.ball_by_ball_available,gold.fact_matches,historical_coverage,minor,played match has ball-by-ball data,T20_M_2022,41,3,"247459, 656411, 656421, 656431, 656449",source limitation: not in Cricsheet's World Cup bundle (see ball_by_ball_gap_reason),0.004,0.926829
-gold.ball_by_ball_available,gold.fact_matches,historical_coverage,minor,played match has ball-by-ball data,ODI_M_2015,48,6,"247459, 656411, 656421, 656431, 656449",source limitation: not in Cricsheet's World Cup bundle (see ball_by_ball_gap_reason),0.004,0.875
-gold.ball_by_ball_available,gold.fact_matches,historical_coverage,minor,played match has ball-by-ball data,ODI_M_2007,51,1,"247459, 656411, 656421, 656431, 656449",source limitation: not in Cricsheet's World Cup bundle (see ball_by_ball_gap_reason),0.004,0.980392
-gold.ball_by_ball_available,gold.fact_matches,historical_coverage,minor,played match has ball-by-ball data,ODI_M_2003,50,3,"247459, 656411, 656421, 656431, 656449",source limitation: not in Cricsheet's World Cup bundle (see ball_by_ball_gap_reason),0.004,0.94
-gold.ball_by_ball_available,gold.fact_matches,historical_coverage,minor,played match has ball-by-ball data,ODI_M_2019,44,9,"247459, 656411, 656421, 656431, 656449",source limitation: not in Cricsheet's World Cup bundle (see ball_by_ball_gap_reason),0.004,0.795455
-gold.ball_by_ball_available,gold.fact_matches,historical_coverage,minor,played match has ball-by-ball data,T20_M_2024,51,8,"247459, 656411, 656421, 656431, 656449",source limitation: not in Cricsheet's World Cup bundle (see ball_by_ball_gap_reason),0.004,0.843137
-gold.ball_by_ball_available,gold.fact_matches,historical_coverage,minor,played match has ball-by-ball data,T20_M_2009,27,27,"247459, 656411, 656421, 656431, 656449",source limitation: not in Cricsheet's World Cup bundle (see ball_by_ball_gap_reason),0.004,0.0
-gold.ball_by_ball_available,gold.fact_matches,historical_coverage,minor,played match has ball-by-ball data,T20_M_2010,26,26,"247459, 656411, 656421, 656431, 656449",source limitation: not in Cricsheet's World Cup bundle (see ball_by_ball_gap_reason),0.004,0.0
-gold.ball_by_ball_available,gold.fact_matches,historical_coverage,minor,played match has ball-by-ball data,T20_M_2012,26,26,"247459, 656411, 656421, 656431, 656449",source limitation: not in Cricsheet's World Cup bundle (see ball_by_ball_gap_reason),0.004,0.0
-gold.ball_by_ball_gap_explained,gold.fact_matches,historical_coverage,major,every match either has ball-by-ball data or states why not,T20_M_2021,45,0,,,0.003,1.0
-gold.ball_by_ball_gap_explained,gold.fact_matches,historical_coverage,major,every match either has ball-by-ball data or states why not,ODI_M_2011,49,0,,,0.003,1.0
-gold.ball_by_ball_gap_explained,gold.fact_matches,historical_coverage,major,every match either has ball-by-ball data or states why not,ODI_M_2023,48,0,,,0.003,1.0
-gold.ball_by_ball_gap_explained,gold.fact_matches,historical_coverage,major,every match either has ball-by-ball data or states why not,T20_M_2014,35,0,,,0.003,1.0
-gold.ball_by_ball_gap_explained,gold.fact_matches,historical_coverage,major,every match either has ball-by-ball data or states why not,T20_M_2007,27,0,,,0.003,1.0
-gold.ball_by_ball_gap_explained,gold.fact_matches,historical_coverage,major,every match either has ball-by-ball data or states why not,T20_M_2026,55,0,,,0.003,1.0
-gold.ball_by_ball_gap_explained,gold.fact_matches,historical_coverage,major,every match either has ball-by-ball data or states why not,T20_M_2016,35,0,,,0.003,1.0
-gold.ball_by_ball_gap_explained,gold.fact_matches,historical_coverage,major,every match either has ball-by-ball data or states why not,T20_M_2022,45,0,,,0.003,1.0
-gold.ball_by_ball_gap_explained,gold.fact_matches,historical_coverage,major,every match either has ball-by-ball data or states why not,ODI_M_2015,49,0,,,0.003,1.0
-gold.ball_by_ball_gap_explained,gold.fact_matches,historical_coverage,major,every match either has ball-by-ball data or states why not,ODI_M_2007,51,0,,,0.003,1.0
-gold.ball_by_ball_gap_explained,gold.fact_matches,historical_coverage,major,every match either has ball-by-ball data or states why not,ODI_M_2003,54,0,,,0.003,1.0
-gold.ball_by_ball_gap_explained,gold.fact_matches,historical_coverage,major,every match either has ball-by-ball data or states why not,ODI_M_2019,48,0,,,0.003,1.0
-gold.ball_by_ball_gap_explained,gold.fact_matches,historical_coverage,major,every match either has ball-by-ball data or states why not,T20_M_2024,55,0,,,0.003,1.0
-gold.ball_by_ball_gap_explained,gold.fact_matches,historical_coverage,major,every match either has ball-by-ball data or states why not,T20_M_2009,27,0,,,0.003,1.0
-gold.ball_by_ball_gap_explained,gold.fact_matches,historical_coverage,major,every match either has ball-by-ball data or states why not,T20_M_2010,27,0,,,0.003,1.0
-gold.ball_by_ball_gap_explained,gold.fact_matches,historical_coverage,major,every match either has ball-by-ball data or states why not,T20_M_2012,27,0,,,0.003,1.0
-gold.tournament_has_standings,gold.mart_data_coverage,historical_coverage,major,tournament has a points table,T20_M_2009,1,0,,,0.003,1.0
-gold.tournament_has_standings,gold.mart_data_coverage,historical_coverage,major,tournament has a points table,T20_M_2021,1,0,,,0.003,1.0
-gold.tournament_has_standings,gold.mart_data_coverage,historical_coverage,major,tournament has a points table,ODI_M_2007,1,0,,,0.003,1.0
-gold.tournament_has_standings,gold.mart_data_coverage,historical_coverage,major,tournament has a points table,ODI_M_2003,1,0,,,0.003,1.0
-gold.tournament_has_standings,gold.mart_data_coverage,historical_coverage,major,tournament has a points table,T20_M_2024,1,0,,,0.003,1.0
-gold.tournament_has_standings,gold.mart_data_coverage,historical_coverage,major,tournament has a points table,T20_M_2014,1,0,,,0.003,1.0
-gold.tournament_has_standings,gold.mart_data_coverage,historical_coverage,major,tournament has a points table,T20_M_2016,1,0,,,0.003,1.0
-gold.tournament_has_standings,gold.mart_data_coverage,historical_coverage,major,tournament has a points table,ODI_M_2015,1,0,,,0.003,1.0
-gold.tournament_has_standings,gold.mart_data_coverage,historical_coverage,major,tournament has a points table,ODI_M_2019,1,0,,,0.003,1.0
-gold.tournament_has_standings,gold.mart_data_coverage,historical_coverage,major,tournament has a points table,T20_M_2010,1,0,,,0.003,1.0
-gold.tournament_has_standings,gold.mart_data_coverage,historical_coverage,major,tournament has a points table,T20_M_2007,1,0,,,0.003,1.0
-gold.tournament_has_standings,gold.mart_data_coverage,historical_coverage,major,tournament has a points table,ODI_M_2023,1,0,,,0.003,1.0
-gold.tournament_has_standings,gold.mart_data_coverage,historical_coverage,major,tournament has a points table,T20_M_2026,1,0,,,0.003,1.0
-gold.tournament_has_standings,gold.mart_data_coverage,historical_coverage,major,tournament has a points table,ODI_M_2011,1,0,,,0.003,1.0
-gold.tournament_has_standings,gold.mart_data_coverage,historical_coverage,major,tournament has a points table,T20_M_2022,1,0,,,0.003,1.0
-gold.tournament_has_standings,gold.mart_data_coverage,historical_coverage,major,tournament has a points table,T20_M_2012,1,0,,,0.003,1.0
-gold.team_has_squad,gold.mart_data_coverage,historical_coverage,major,every participating team has a squad,T20_M_2009,1,0,,,0.002,1.0
-gold.team_has_squad,gold.mart_data_coverage,historical_coverage,major,every participating team has a squad,T20_M_2021,1,0,,,0.002,1.0
-gold.team_has_squad,gold.mart_data_coverage,historical_coverage,major,every participating team has a squad,ODI_M_2007,1,0,,,0.002,1.0
-gold.team_has_squad,gold.mart_data_coverage,historical_coverage,major,every participating team has a squad,ODI_M_2003,1,0,,,0.002,1.0
-gold.team_has_squad,gold.mart_data_coverage,historical_coverage,major,every participating team has a squad,T20_M_2024,1,0,,,0.002,1.0
-gold.team_has_squad,gold.mart_data_coverage,historical_coverage,major,every participating team has a squad,T20_M_2014,1,0,,,0.002,1.0
-gold.team_has_squad,gold.mart_data_coverage,historical_coverage,major,every participating team has a squad,T20_M_2016,1,0,,,0.002,1.0
-gold.team_has_squad,gold.mart_data_coverage,historical_coverage,major,every participating team has a squad,ODI_M_2015,1,0,,,0.002,1.0
-gold.team_has_squad,gold.mart_data_coverage,historical_coverage,major,every participating team has a squad,ODI_M_2019,1,0,,,0.002,1.0
-gold.team_has_squad,gold.mart_data_coverage,historical_coverage,major,every participating team has a squad,T20_M_2010,1,0,,,0.002,1.0
-gold.team_has_squad,gold.mart_data_coverage,historical_coverage,major,every participating team has a squad,T20_M_2007,1,0,,,0.002,1.0
-gold.team_has_squad,gold.mart_data_coverage,historical_coverage,major,every participating team has a squad,ODI_M_2023,1,0,,,0.002,1.0
-gold.team_has_squad,gold.mart_data_coverage,historical_coverage,major,every participating team has a squad,T20_M_2026,1,0,,,0.002,1.0
-gold.team_has_squad,gold.mart_data_coverage,historical_coverage,major,every participating team has a squad,ODI_M_2011,1,0,,,0.002,1.0
-gold.team_has_squad,gold.mart_data_coverage,historical_coverage,major,every participating team has a squad,T20_M_2022,1,0,,,0.002,1.0
-gold.team_has_squad,gold.mart_data_coverage,historical_coverage,major,every participating team has a squad,T20_M_2012,1,0,,,0.002,1.0
-gold.tournament_has_player_of_tournament,gold.mart_data_coverage,historical_coverage,minor,tournament names a player of the tournament,T20_M_2009,1,0,,,0.002,1.0
-gold.tournament_has_player_of_tournament,gold.mart_data_coverage,historical_coverage,minor,tournament names a player of the tournament,T20_M_2021,1,0,,,0.002,1.0
-gold.tournament_has_player_of_tournament,gold.mart_data_coverage,historical_coverage,minor,tournament names a player of the tournament,ODI_M_2007,1,0,,,0.002,1.0
-gold.tournament_has_player_of_tournament,gold.mart_data_coverage,historical_coverage,minor,tournament names a player of the tournament,ODI_M_2003,1,0,,,0.002,1.0
-gold.tournament_has_player_of_tournament,gold.mart_data_coverage,historical_coverage,minor,tournament names a player of the tournament,T20_M_2024,1,0,,,0.002,1.0
-gold.tournament_has_player_of_tournament,gold.mart_data_coverage,historical_coverage,minor,tournament names a player of the tournament,T20_M_2014,1,0,,,0.002,1.0
-gold.tournament_has_player_of_tournament,gold.mart_data_coverage,historical_coverage,minor,tournament names a player of the tournament,T20_M_2016,1,0,,,0.002,1.0
-gold.tournament_has_player_of_tournament,gold.mart_data_coverage,historical_coverage,minor,tournament names a player of the tournament,ODI_M_2015,1,0,,,0.002,1.0
-gold.tournament_has_player_of_tournament,gold.mart_data_coverage,historical_coverage,minor,tournament names a player of the tournament,ODI_M_2019,1,0,,,0.002,1.0
-gold.tournament_has_player_of_tournament,gold.mart_data_coverage,historical_coverage,minor,tournament names a player of the tournament,T20_M_2010,1,0,,,0.002,1.0
-gold.tournament_has_player_of_tournament,gold.mart_data_coverage,historical_coverage,minor,tournament names a player of the tournament,T20_M_2007,1,0,,,0.002,1.0
-gold.tournament_has_player_of_tournament,gold.mart_data_coverage,historical_coverage,minor,tournament names a player of the tournament,ODI_M_2023,1,0,,,0.002,1.0
-gold.tournament_has_player_of_tournament,gold.mart_data_coverage,historical_coverage,minor,tournament names a player of the tournament,T20_M_2026,1,0,,,0.002,1.0
-gold.tournament_has_player_of_tournament,gold.mart_data_coverage,historical_coverage,minor,tournament names a player of the tournament,ODI_M_2011,1,0,,,0.002,1.0
-gold.tournament_has_player_of_tournament,gold.mart_data_coverage,historical_coverage,minor,tournament names a player of the tournament,T20_M_2022,1,0,,,0.002,1.0
-gold.tournament_has_player_of_tournament,gold.mart_data_coverage,historical_coverage,minor,tournament names a player of the tournament,T20_M_2012,1,0,,,0.002,1.0
+gold.match_has_result,gold.fact_matches,completeness,critical,"completed match has a winner, or is a recorded tie",T20_M_2021,45,0,,open genuine ties have is_tie=true and are not counted here,0.208,1.0
+gold.match_has_result,gold.fact_matches,completeness,critical,"completed match has a winner, or is a recorded tie",ODI_M_2011,48,0,,open genuine ties have is_tie=true and are not counted here,0.208,1.0
+gold.match_has_result,gold.fact_matches,completeness,critical,"completed match has a winner, or is a recorded tie",ODI_M_2023,48,0,,open genuine ties have is_tie=true and are not counted here,0.208,1.0
+gold.match_has_result,gold.fact_matches,completeness,critical,"completed match has a winner, or is a recorded tie",T20_M_2014,35,0,,open genuine ties have is_tie=true and are not counted here,0.208,1.0
+gold.match_has_result,gold.fact_matches,completeness,critical,"completed match has a winner, or is a recorded tie",T20_M_2007,26,0,,open genuine ties have is_tie=true and are not counted here,0.208,1.0
+gold.match_has_result,gold.fact_matches,completeness,critical,"completed match has a winner, or is a recorded tie",T20_M_2026,53,0,,open genuine ties have is_tie=true and are not counted here,0.208,1.0
+gold.match_has_result,gold.fact_matches,completeness,critical,"completed match has a winner, or is a recorded tie",T20_M_2016,33,0,,open genuine ties have is_tie=true and are not counted here,0.208,1.0
+gold.match_has_result,gold.fact_matches,completeness,critical,"completed match has a winner, or is a recorded tie",T20_M_2022,41,0,,open genuine ties have is_tie=true and are not counted here,0.208,1.0
+gold.match_has_result,gold.fact_matches,completeness,critical,"completed match has a winner, or is a recorded tie",ODI_M_2015,48,0,,open genuine ties have is_tie=true and are not counted here,0.208,1.0
+gold.match_has_result,gold.fact_matches,completeness,critical,"completed match has a winner, or is a recorded tie",ODI_M_2007,51,0,,open genuine ties have is_tie=true and are not counted here,0.208,1.0
+gold.match_has_result,gold.fact_matches,completeness,critical,"completed match has a winner, or is a recorded tie",ODI_M_2003,52,0,,open genuine ties have is_tie=true and are not counted here,0.208,1.0
+gold.match_has_result,gold.fact_matches,completeness,critical,"completed match has a winner, or is a recorded tie",ODI_M_2019,44,0,,open genuine ties have is_tie=true and are not counted here,0.208,1.0
+gold.match_has_result,gold.fact_matches,completeness,critical,"completed match has a winner, or is a recorded tie",T20_M_2024,51,0,,open genuine ties have is_tie=true and are not counted here,0.208,1.0
+gold.match_has_result,gold.fact_matches,completeness,critical,"completed match has a winner, or is a recorded tie",T20_M_2009,27,0,,open genuine ties have is_tie=true and are not counted here,0.208,1.0
+gold.match_has_result,gold.fact_matches,completeness,critical,"completed match has a winner, or is a recorded tie",T20_M_2010,26,0,,open genuine ties have is_tie=true and are not counted here,0.208,1.0
+gold.match_has_result,gold.fact_matches,completeness,critical,"completed match has a winner, or is a recorded tie",T20_M_2012,26,0,,open genuine ties have is_tie=true and are not counted here,0.208,1.0
+gold.match_has_scores,gold.fact_matches,completeness,major,completed non-walkover match has both innings totals,T20_M_2021,45,0,,,0.014,1.0
+gold.match_has_scores,gold.fact_matches,completeness,major,completed non-walkover match has both innings totals,ODI_M_2011,48,0,,,0.014,1.0
+gold.match_has_scores,gold.fact_matches,completeness,major,completed non-walkover match has both innings totals,ODI_M_2023,48,0,,,0.014,1.0
+gold.match_has_scores,gold.fact_matches,completeness,major,completed non-walkover match has both innings totals,T20_M_2014,35,0,,,0.014,1.0
+gold.match_has_scores,gold.fact_matches,completeness,major,completed non-walkover match has both innings totals,T20_M_2007,26,0,,,0.014,1.0
+gold.match_has_scores,gold.fact_matches,completeness,major,completed non-walkover match has both innings totals,T20_M_2026,53,0,,,0.014,1.0
+gold.match_has_scores,gold.fact_matches,completeness,major,completed non-walkover match has both innings totals,T20_M_2016,33,0,,,0.014,1.0
+gold.match_has_scores,gold.fact_matches,completeness,major,completed non-walkover match has both innings totals,T20_M_2022,41,0,,,0.014,1.0
+gold.match_has_scores,gold.fact_matches,completeness,major,completed non-walkover match has both innings totals,ODI_M_2015,48,0,,,0.014,1.0
+gold.match_has_scores,gold.fact_matches,completeness,major,completed non-walkover match has both innings totals,ODI_M_2007,51,0,,,0.014,1.0
+gold.match_has_scores,gold.fact_matches,completeness,major,completed non-walkover match has both innings totals,ODI_M_2003,50,0,,,0.014,1.0
+gold.match_has_scores,gold.fact_matches,completeness,major,completed non-walkover match has both innings totals,ODI_M_2019,44,0,,,0.014,1.0
+gold.match_has_scores,gold.fact_matches,completeness,major,completed non-walkover match has both innings totals,T20_M_2024,51,0,,,0.014,1.0
+gold.match_has_scores,gold.fact_matches,completeness,major,completed non-walkover match has both innings totals,T20_M_2009,27,0,,,0.014,1.0
+gold.match_has_scores,gold.fact_matches,completeness,major,completed non-walkover match has both innings totals,T20_M_2010,26,0,,,0.014,1.0
+gold.match_has_scores,gold.fact_matches,completeness,major,completed non-walkover match has both innings totals,T20_M_2012,26,0,,,0.014,1.0
+gold.match_has_venue_city,gold.fact_matches,completeness,minor,match has a venue city,T20_M_2021,45,0,,,0.01,1.0
+gold.match_has_venue_city,gold.fact_matches,completeness,minor,match has a venue city,ODI_M_2011,49,0,,,0.01,1.0
+gold.match_has_venue_city,gold.fact_matches,completeness,minor,match has a venue city,ODI_M_2023,48,0,,,0.01,1.0
+gold.match_has_venue_city,gold.fact_matches,completeness,minor,match has a venue city,T20_M_2014,35,0,,,0.01,1.0
+gold.match_has_venue_city,gold.fact_matches,completeness,minor,match has a venue city,T20_M_2007,27,0,,,0.01,1.0
+gold.match_has_venue_city,gold.fact_matches,completeness,minor,match has a venue city,T20_M_2026,55,0,,,0.01,1.0
+gold.match_has_venue_city,gold.fact_matches,completeness,minor,match has a venue city,T20_M_2016,35,0,,,0.01,1.0
+gold.match_has_venue_city,gold.fact_matches,completeness,minor,match has a venue city,T20_M_2022,45,0,,,0.01,1.0
+gold.match_has_venue_city,gold.fact_matches,completeness,minor,match has a venue city,ODI_M_2015,49,0,,,0.01,1.0
+gold.match_has_venue_city,gold.fact_matches,completeness,minor,match has a venue city,ODI_M_2007,51,0,,,0.01,1.0
+gold.match_has_venue_city,gold.fact_matches,completeness,minor,match has a venue city,ODI_M_2003,54,0,,,0.01,1.0
+gold.match_has_venue_city,gold.fact_matches,completeness,minor,match has a venue city,ODI_M_2019,48,0,,,0.01,1.0
+gold.match_has_venue_city,gold.fact_matches,completeness,minor,match has a venue city,T20_M_2024,55,0,,,0.01,1.0
+gold.match_has_venue_city,gold.fact_matches,completeness,minor,match has a venue city,T20_M_2009,27,0,,,0.01,1.0
+gold.match_has_venue_city,gold.fact_matches,completeness,minor,match has a venue city,T20_M_2010,27,0,,,0.01,1.0
+gold.match_has_venue_city,gold.fact_matches,completeness,minor,match has a venue city,T20_M_2012,27,0,,,0.01,1.0
+gold.completed_match_has_player_of_match,gold.fact_matches,completeness,minor,completed non-walkover match names a player of the match,T20_M_2021,45,0,,some early-edition pages do not name one,0.009,1.0
+gold.completed_match_has_player_of_match,gold.fact_matches,completeness,minor,completed non-walkover match names a player of the match,ODI_M_2011,48,0,,some early-edition pages do not name one,0.009,1.0
+gold.completed_match_has_player_of_match,gold.fact_matches,completeness,minor,completed non-walkover match names a player of the match,ODI_M_2023,48,0,,some early-edition pages do not name one,0.009,1.0
+gold.completed_match_has_player_of_match,gold.fact_matches,completeness,minor,completed non-walkover match names a player of the match,T20_M_2014,35,0,,some early-edition pages do not name one,0.009,1.0
+gold.completed_match_has_player_of_match,gold.fact_matches,completeness,minor,completed non-walkover match names a player of the match,T20_M_2007,26,0,,some early-edition pages do not name one,0.009,1.0
+gold.completed_match_has_player_of_match,gold.fact_matches,completeness,minor,completed non-walkover match names a player of the match,T20_M_2026,53,0,,some early-edition pages do not name one,0.009,1.0
+gold.completed_match_has_player_of_match,gold.fact_matches,completeness,minor,completed non-walkover match names a player of the match,T20_M_2016,33,0,,some early-edition pages do not name one,0.009,1.0
+gold.completed_match_has_player_of_match,gold.fact_matches,completeness,minor,completed non-walkover match names a player of the match,T20_M_2022,41,0,,some early-edition pages do not name one,0.009,1.0
+gold.completed_match_has_player_of_match,gold.fact_matches,completeness,minor,completed non-walkover match names a player of the match,ODI_M_2015,48,0,,some early-edition pages do not name one,0.009,1.0
+gold.completed_match_has_player_of_match,gold.fact_matches,completeness,minor,completed non-walkover match names a player of the match,ODI_M_2007,51,0,,some early-edition pages do not name one,0.009,1.0
+gold.completed_match_has_player_of_match,gold.fact_matches,completeness,minor,completed non-walkover match names a player of the match,ODI_M_2003,50,0,,some early-edition pages do not name one,0.009,1.0
+gold.completed_match_has_player_of_match,gold.fact_matches,completeness,minor,completed non-walkover match names a player of the match,ODI_M_2019,44,0,,some early-edition pages do not name one,0.009,1.0
+gold.completed_match_has_player_of_match,gold.fact_matches,completeness,minor,completed non-walkover match names a player of the match,T20_M_2024,51,0,,some early-edition pages do not name one,0.009,1.0
+gold.completed_match_has_player_of_match,gold.fact_matches,completeness,minor,completed non-walkover match names a player of the match,T20_M_2009,27,0,,some early-edition pages do not name one,0.009,1.0
+gold.completed_match_has_player_of_match,gold.fact_matches,completeness,minor,completed non-walkover match names a player of the match,T20_M_2010,26,0,,some early-edition pages do not name one,0.009,1.0
+gold.completed_match_has_player_of_match,gold.fact_matches,completeness,minor,completed non-walkover match names a player of the match,T20_M_2012,26,0,,some early-edition pages do not name one,0.009,1.0
+gold.venue_unique_name,gold.dim_venues,uniqueness,major,no two venues share a canonical name in the same city,(global),79,0,,,0.054,1.0
+gold.player_unique_name_dob,gold.dim_players,uniqueness,minor,"player full names are unique (homonyms are listed, not merged)",(global),1418,4,"espn_1015399, espn_1160970, espn_1168651, espn_56167",different people can share a name; flagged for review only,0.05,0.997179
+gold.delivery_wicket_has_dismissal,gold.fact_deliveries,validity,major,a wicket ball names the dismissal type and dismissed player,ODI_M_2003,695,0,,,0.188,1.0
+gold.delivery_wicket_has_dismissal,gold.fact_deliveries,validity,major,a wicket ball names the dismissal type and dismissed player,ODI_M_2007,712,0,,,0.188,1.0
+gold.delivery_wicket_has_dismissal,gold.fact_deliveries,validity,major,a wicket ball names the dismissal type and dismissed player,ODI_M_2011,731,0,,,0.188,1.0
+gold.delivery_wicket_has_dismissal,gold.fact_deliveries,validity,major,a wicket ball names the dismissal type and dismissed player,ODI_M_2015,622,0,,,0.188,1.0
+gold.delivery_wicket_has_dismissal,gold.fact_deliveries,validity,major,a wicket ball names the dismissal type and dismissed player,ODI_M_2019,536,0,,,0.188,1.0
+gold.delivery_wicket_has_dismissal,gold.fact_deliveries,validity,major,a wicket ball names the dismissal type and dismissed player,ODI_M_2023,606,0,,,0.188,1.0
+gold.delivery_wicket_has_dismissal,gold.fact_deliveries,validity,major,a wicket ball names the dismissal type and dismissed player,T20_M_2014,390,0,,,0.188,1.0
+gold.delivery_wicket_has_dismissal,gold.fact_deliveries,validity,major,a wicket ball names the dismissal type and dismissed player,T20_M_2016,314,0,,,0.188,1.0
+gold.delivery_wicket_has_dismissal,gold.fact_deliveries,validity,major,a wicket ball names the dismissal type and dismissed player,T20_M_2021,468,0,,,0.188,1.0
+gold.delivery_wicket_has_dismissal,gold.fact_deliveries,validity,major,a wicket ball names the dismissal type and dismissed player,T20_M_2022,512,0,,,0.188,1.0
+gold.delivery_wicket_has_dismissal,gold.fact_deliveries,validity,major,a wicket ball names the dismissal type and dismissed player,T20_M_2024,563,0,,,0.188,1.0
+gold.delivery_wicket_has_dismissal,gold.fact_deliveries,validity,major,a wicket ball names the dismissal type and dismissed player,T20_M_2026,647,0,,,0.188,1.0
+gold.delivery_boundary_flags,gold.fact_deliveries,validity,major,four/six flags agree with batter runs,ODI_M_2003,25390,0,,,0.24,1.0
+gold.delivery_boundary_flags,gold.fact_deliveries,validity,major,four/six flags agree with batter runs,ODI_M_2007,26163,0,,,0.24,1.0
+gold.delivery_boundary_flags,gold.fact_deliveries,validity,major,four/six flags agree with batter runs,ODI_M_2011,26036,0,,,0.24,1.0
+gold.delivery_boundary_flags,gold.fact_deliveries,validity,major,four/six flags agree with batter runs,ODI_M_2015,22541,0,,,0.24,1.0
+gold.delivery_boundary_flags,gold.fact_deliveries,validity,major,four/six flags agree with batter runs,ODI_M_2019,19933,0,,,0.24,1.0
+gold.delivery_boundary_flags,gold.fact_deliveries,validity,major,four/six flags agree with batter runs,ODI_M_2023,21195,0,,,0.24,1.0
+gold.delivery_boundary_flags,gold.fact_deliveries,validity,major,four/six flags agree with batter runs,T20_M_2014,7304,0,,,0.24,1.0
+gold.delivery_boundary_flags,gold.fact_deliveries,validity,major,four/six flags agree with batter runs,T20_M_2016,5791,0,,,0.24,1.0
+gold.delivery_boundary_flags,gold.fact_deliveries,validity,major,four/six flags agree with batter runs,T20_M_2021,9023,0,,,0.24,1.0
+gold.delivery_boundary_flags,gold.fact_deliveries,validity,major,four/six flags agree with batter runs,T20_M_2022,9126,0,,,0.24,1.0
+gold.delivery_boundary_flags,gold.fact_deliveries,validity,major,four/six flags agree with batter runs,T20_M_2024,9722,0,,,0.24,1.0
+gold.delivery_boundary_flags,gold.fact_deliveries,validity,major,four/six flags agree with batter runs,T20_M_2026,11555,0,,,0.24,1.0
+gold.delivery_wide_no_legal,gold.fact_deliveries,validity,major,wides and no-balls are never counted as legal deliveries,ODI_M_2003,25390,0,,,0.191,1.0
+gold.delivery_wide_no_legal,gold.fact_deliveries,validity,major,wides and no-balls are never counted as legal deliveries,ODI_M_2007,26163,0,,,0.191,1.0
+gold.delivery_wide_no_legal,gold.fact_deliveries,validity,major,wides and no-balls are never counted as legal deliveries,ODI_M_2011,26036,0,,,0.191,1.0
+gold.delivery_wide_no_legal,gold.fact_deliveries,validity,major,wides and no-balls are never counted as legal deliveries,ODI_M_2015,22541,0,,,0.191,1.0
+gold.delivery_wide_no_legal,gold.fact_deliveries,validity,major,wides and no-balls are never counted as legal deliveries,ODI_M_2019,19933,0,,,0.191,1.0
+gold.delivery_wide_no_legal,gold.fact_deliveries,validity,major,wides and no-balls are never counted as legal deliveries,ODI_M_2023,21195,0,,,0.191,1.0
+gold.delivery_wide_no_legal,gold.fact_deliveries,validity,major,wides and no-balls are never counted as legal deliveries,T20_M_2014,7304,0,,,0.191,1.0
+gold.delivery_wide_no_legal,gold.fact_deliveries,validity,major,wides and no-balls are never counted as legal deliveries,T20_M_2016,5791,0,,,0.191,1.0
+gold.delivery_wide_no_legal,gold.fact_deliveries,validity,major,wides and no-balls are never counted as legal deliveries,T20_M_2021,9023,0,,,0.191,1.0
+gold.delivery_wide_no_legal,gold.fact_deliveries,validity,major,wides and no-balls are never counted as legal deliveries,T20_M_2022,9126,0,,,0.191,1.0
+gold.delivery_wide_no_legal,gold.fact_deliveries,validity,major,wides and no-balls are never counted as legal deliveries,T20_M_2024,9722,0,,,0.191,1.0
+gold.delivery_wide_no_legal,gold.fact_deliveries,validity,major,wides and no-balls are never counted as legal deliveries,T20_M_2026,11555,0,,,0.191,1.0
+gold.performance_strike_rate,gold.fact_player_performances,validity,minor,batting strike rate within 0-600,T20_M_2021,685,0,,,0.087,1.0
+gold.performance_strike_rate,gold.fact_player_performances,validity,minor,batting strike rate within 0-600,ODI_M_2011,878,0,,,0.087,1.0
+gold.performance_strike_rate,gold.fact_player_performances,validity,minor,batting strike rate within 0-600,ODI_M_2023,875,0,,,0.087,1.0
+gold.performance_strike_rate,gold.fact_player_performances,validity,minor,batting strike rate within 0-600,T20_M_2014,543,0,,,0.087,1.0
+gold.performance_strike_rate,gold.fact_player_performances,validity,minor,batting strike rate within 0-600,T20_M_2007,434,0,,,0.087,1.0
+gold.performance_strike_rate,gold.fact_player_performances,validity,minor,batting strike rate within 0-600,T20_M_2026,876,0,,,0.087,1.0
+gold.performance_strike_rate,gold.fact_player_performances,validity,minor,batting strike rate within 0-600,T20_M_2022,699,0,,,0.087,1.0
+gold.performance_strike_rate,gold.fact_player_performances,validity,minor,batting strike rate within 0-600,T20_M_2016,542,0,,,0.087,1.0
+gold.performance_strike_rate,gold.fact_player_performances,validity,minor,batting strike rate within 0-600,ODI_M_2015,863,0,,,0.087,1.0
+gold.performance_strike_rate,gold.fact_player_performances,validity,minor,batting strike rate within 0-600,ODI_M_2007,885,0,,,0.087,1.0
+gold.performance_strike_rate,gold.fact_player_performances,validity,minor,batting strike rate within 0-600,ODI_M_2003,902,0,,,0.087,1.0
+gold.performance_strike_rate,gold.fact_player_performances,validity,minor,batting strike rate within 0-600,ODI_M_2019,812,0,,,0.087,1.0
+gold.performance_strike_rate,gold.fact_player_performances,validity,minor,batting strike rate within 0-600,T20_M_2024,852,0,,,0.087,1.0
+gold.performance_strike_rate,gold.fact_player_performances,validity,minor,batting strike rate within 0-600,T20_M_2009,436,0,,,0.087,1.0
+gold.performance_strike_rate,gold.fact_player_performances,validity,minor,batting strike rate within 0-600,T20_M_2010,439,0,,,0.087,1.0
+gold.performance_strike_rate,gold.fact_player_performances,validity,minor,batting strike rate within 0-600,T20_M_2012,404,0,,,0.087,1.0
+gold.innings_runs_match_deliveries,gold.fact_innings,consistency,critical,innings total equals the sum of its deliveries (ball-by-ball innings),ODI_M_2003,97,0,,,0.198,1.0
+gold.innings_runs_match_deliveries,gold.fact_innings,consistency,critical,innings total equals the sum of its deliveries (ball-by-ball innings),ODI_M_2007,100,0,,,0.198,1.0
+gold.innings_runs_match_deliveries,gold.fact_innings,consistency,critical,innings total equals the sum of its deliveries (ball-by-ball innings),ODI_M_2011,97,0,,,0.198,1.0
+gold.innings_runs_match_deliveries,gold.fact_innings,consistency,critical,innings total equals the sum of its deliveries (ball-by-ball innings),ODI_M_2015,84,0,,,0.198,1.0
+gold.innings_runs_match_deliveries,gold.fact_innings,consistency,critical,innings total equals the sum of its deliveries (ball-by-ball innings),ODI_M_2019,73,0,,,0.198,1.0
+gold.innings_runs_match_deliveries,gold.fact_innings,consistency,critical,innings total equals the sum of its deliveries (ball-by-ball innings),ODI_M_2023,78,0,,,0.198,1.0
+gold.innings_runs_match_deliveries,gold.fact_innings,consistency,critical,innings total equals the sum of its deliveries (ball-by-ball innings),T20_M_2014,64,0,,,0.198,1.0
+gold.innings_runs_match_deliveries,gold.fact_innings,consistency,critical,innings total equals the sum of its deliveries (ball-by-ball innings),T20_M_2016,51,0,,,0.198,1.0
+gold.innings_runs_match_deliveries,gold.fact_innings,consistency,critical,innings total equals the sum of its deliveries (ball-by-ball innings),T20_M_2021,80,0,,,0.198,1.0
+gold.innings_runs_match_deliveries,gold.fact_innings,consistency,critical,innings total equals the sum of its deliveries (ball-by-ball innings),T20_M_2022,78,0,,,0.198,1.0
+gold.innings_runs_match_deliveries,gold.fact_innings,consistency,critical,innings total equals the sum of its deliveries (ball-by-ball innings),T20_M_2024,91,0,,,0.198,1.0
+gold.innings_runs_match_deliveries,gold.fact_innings,consistency,critical,innings total equals the sum of its deliveries (ball-by-ball innings),T20_M_2026,98,0,,,0.198,1.0
+gold.innings_wickets_match_deliveries,gold.fact_innings,consistency,critical,innings wickets equal the wickets recorded on its deliveries,ODI_M_2003,97,0,,"Bangladesh v Sri Lanka 2023-11-06: Mathews was timed out, which the scorecard counts as a wicket but no ball was bowled, so it has no delivery row",0.587,1.0
+gold.innings_wickets_match_deliveries,gold.fact_innings,consistency,critical,innings wickets equal the wickets recorded on its deliveries,ODI_M_2007,100,0,,"Bangladesh v Sri Lanka 2023-11-06: Mathews was timed out, which the scorecard counts as a wicket but no ball was bowled, so it has no delivery row",0.587,1.0
+gold.innings_wickets_match_deliveries,gold.fact_innings,consistency,critical,innings wickets equal the wickets recorded on its deliveries,ODI_M_2011,97,0,,"Bangladesh v Sri Lanka 2023-11-06: Mathews was timed out, which the scorecard counts as a wicket but no ball was bowled, so it has no delivery row",0.587,1.0
+gold.innings_wickets_match_deliveries,gold.fact_innings,consistency,critical,innings wickets equal the wickets recorded on its deliveries,ODI_M_2015,84,0,,"Bangladesh v Sri Lanka 2023-11-06: Mathews was timed out, which the scorecard counts as a wicket but no ball was bowled, so it has no delivery row",0.587,1.0
+gold.innings_wickets_match_deliveries,gold.fact_innings,consistency,critical,innings wickets equal the wickets recorded on its deliveries,ODI_M_2019,73,0,,"Bangladesh v Sri Lanka 2023-11-06: Mathews was timed out, which the scorecard counts as a wicket but no ball was bowled, so it has no delivery row",0.587,1.0
+gold.innings_wickets_match_deliveries,gold.fact_innings,consistency,critical,innings wickets equal the wickets recorded on its deliveries,ODI_M_2023,78,1,1384429_1,"Bangladesh v Sri Lanka 2023-11-06: Mathews was timed out, which the scorecard counts as a wicket but no ball was bowled, so it has no delivery row",0.587,0.987179
+gold.innings_wickets_match_deliveries,gold.fact_innings,consistency,critical,innings wickets equal the wickets recorded on its deliveries,T20_M_2014,64,0,,"Bangladesh v Sri Lanka 2023-11-06: Mathews was timed out, which the scorecard counts as a wicket but no ball was bowled, so it has no delivery row",0.587,1.0
+gold.innings_wickets_match_deliveries,gold.fact_innings,consistency,critical,innings wickets equal the wickets recorded on its deliveries,T20_M_2016,51,0,,"Bangladesh v Sri Lanka 2023-11-06: Mathews was timed out, which the scorecard counts as a wicket but no ball was bowled, so it has no delivery row",0.587,1.0
+gold.innings_wickets_match_deliveries,gold.fact_innings,consistency,critical,innings wickets equal the wickets recorded on its deliveries,T20_M_2021,80,0,,"Bangladesh v Sri Lanka 2023-11-06: Mathews was timed out, which the scorecard counts as a wicket but no ball was bowled, so it has no delivery row",0.587,1.0
+gold.innings_wickets_match_deliveries,gold.fact_innings,consistency,critical,innings wickets equal the wickets recorded on its deliveries,T20_M_2022,78,0,,"Bangladesh v Sri Lanka 2023-11-06: Mathews was timed out, which the scorecard counts as a wicket but no ball was bowled, so it has no delivery row",0.587,1.0
+gold.innings_wickets_match_deliveries,gold.fact_innings,consistency,critical,innings wickets equal the wickets recorded on its deliveries,T20_M_2024,91,0,,"Bangladesh v Sri Lanka 2023-11-06: Mathews was timed out, which the scorecard counts as a wicket but no ball was bowled, so it has no delivery row",0.587,1.0
+gold.innings_wickets_match_deliveries,gold.fact_innings,consistency,critical,innings wickets equal the wickets recorded on its deliveries,T20_M_2026,98,0,,"Bangladesh v Sri Lanka 2023-11-06: Mathews was timed out, which the scorecard counts as a wicket but no ball was bowled, so it has no delivery row",0.587,1.0
+gold.match_winner_has_more_runs,gold.fact_matches,consistency,major,"the winner scored more runs than the loser (no DLS, tie or super over)",T20_M_2021,45,0,,matches decided on run rate or a bowl-out can legitimately differ,0.011,1.0
+gold.match_winner_has_more_runs,gold.fact_matches,consistency,major,"the winner scored more runs than the loser (no DLS, tie or super over)",ODI_M_2011,46,0,,matches decided on run rate or a bowl-out can legitimately differ,0.011,1.0
+gold.match_winner_has_more_runs,gold.fact_matches,consistency,major,"the winner scored more runs than the loser (no DLS, tie or super over)",ODI_M_2023,47,0,,matches decided on run rate or a bowl-out can legitimately differ,0.011,1.0
+gold.match_winner_has_more_runs,gold.fact_matches,consistency,major,"the winner scored more runs than the loser (no DLS, tie or super over)",T20_M_2014,32,0,,matches decided on run rate or a bowl-out can legitimately differ,0.011,1.0
+gold.match_winner_has_more_runs,gold.fact_matches,consistency,major,"the winner scored more runs than the loser (no DLS, tie or super over)",T20_M_2007,25,0,,matches decided on run rate or a bowl-out can legitimately differ,0.011,1.0
+gold.match_winner_has_more_runs,gold.fact_matches,consistency,major,"the winner scored more runs than the loser (no DLS, tie or super over)",T20_M_2026,52,0,,matches decided on run rate or a bowl-out can legitimately differ,0.011,1.0
+gold.match_winner_has_more_runs,gold.fact_matches,consistency,major,"the winner scored more runs than the loser (no DLS, tie or super over)",T20_M_2016,31,0,,matches decided on run rate or a bowl-out can legitimately differ,0.011,1.0
+gold.match_winner_has_more_runs,gold.fact_matches,consistency,major,"the winner scored more runs than the loser (no DLS, tie or super over)",T20_M_2022,38,0,,matches decided on run rate or a bowl-out can legitimately differ,0.011,1.0
+gold.match_winner_has_more_runs,gold.fact_matches,consistency,major,"the winner scored more runs than the loser (no DLS, tie or super over)",ODI_M_2015,44,0,,matches decided on run rate or a bowl-out can legitimately differ,0.011,1.0
+gold.match_winner_has_more_runs,gold.fact_matches,consistency,major,"the winner scored more runs than the loser (no DLS, tie or super over)",ODI_M_2007,43,0,,matches decided on run rate or a bowl-out can legitimately differ,0.011,1.0
+gold.match_winner_has_more_runs,gold.fact_matches,consistency,major,"the winner scored more runs than the loser (no DLS, tie or super over)",ODI_M_2003,45,0,,matches decided on run rate or a bowl-out can legitimately differ,0.011,1.0
+gold.match_winner_has_more_runs,gold.fact_matches,consistency,major,"the winner scored more runs than the loser (no DLS, tie or super over)",ODI_M_2019,40,0,,matches decided on run rate or a bowl-out can legitimately differ,0.011,1.0
+gold.match_winner_has_more_runs,gold.fact_matches,consistency,major,"the winner scored more runs than the loser (no DLS, tie or super over)",T20_M_2024,45,0,,matches decided on run rate or a bowl-out can legitimately differ,0.011,1.0
+gold.match_winner_has_more_runs,gold.fact_matches,consistency,major,"the winner scored more runs than the loser (no DLS, tie or super over)",T20_M_2009,26,0,,matches decided on run rate or a bowl-out can legitimately differ,0.011,1.0
+gold.match_winner_has_more_runs,gold.fact_matches,consistency,major,"the winner scored more runs than the loser (no DLS, tie or super over)",T20_M_2010,23,0,,matches decided on run rate or a bowl-out can legitimately differ,0.011,1.0
+gold.match_winner_has_more_runs,gold.fact_matches,consistency,major,"the winner scored more runs than the loser (no DLS, tie or super over)",T20_M_2012,23,0,,matches decided on run rate or a bowl-out can legitimately differ,0.011,1.0
+gold.performance_runs_match_scorecard_total,gold.fact_innings,consistency,major,batters' runs + extras equal the innings total (scorecard reconciliation),ODI_M_2003,103,0,,penalty runs or missing scorecard rows can cause a small difference,0.044,1.0
+gold.performance_runs_match_scorecard_total,gold.fact_innings,consistency,major,batters' runs + extras equal the innings total (scorecard reconciliation),ODI_M_2007,102,0,,penalty runs or missing scorecard rows can cause a small difference,0.044,1.0
+gold.performance_runs_match_scorecard_total,gold.fact_innings,consistency,major,batters' runs + extras equal the innings total (scorecard reconciliation),ODI_M_2011,97,0,,penalty runs or missing scorecard rows can cause a small difference,0.044,1.0
+gold.performance_runs_match_scorecard_total,gold.fact_innings,consistency,major,batters' runs + extras equal the innings total (scorecard reconciliation),ODI_M_2015,96,0,,penalty runs or missing scorecard rows can cause a small difference,0.044,1.0
+gold.performance_runs_match_scorecard_total,gold.fact_innings,consistency,major,batters' runs + extras equal the innings total (scorecard reconciliation),ODI_M_2019,89,0,,penalty runs or missing scorecard rows can cause a small difference,0.044,1.0
+gold.performance_runs_match_scorecard_total,gold.fact_innings,consistency,major,batters' runs + extras equal the innings total (scorecard reconciliation),ODI_M_2023,96,0,,penalty runs or missing scorecard rows can cause a small difference,0.044,1.0
+gold.performance_runs_match_scorecard_total,gold.fact_innings,consistency,major,batters' runs + extras equal the innings total (scorecard reconciliation),T20_M_2007,52,0,,penalty runs or missing scorecard rows can cause a small difference,0.044,1.0
+gold.performance_runs_match_scorecard_total,gold.fact_innings,consistency,major,batters' runs + extras equal the innings total (scorecard reconciliation),T20_M_2009,54,0,,penalty runs or missing scorecard rows can cause a small difference,0.044,1.0
+gold.performance_runs_match_scorecard_total,gold.fact_innings,consistency,major,batters' runs + extras equal the innings total (scorecard reconciliation),T20_M_2010,54,0,,penalty runs or missing scorecard rows can cause a small difference,0.044,1.0
+gold.performance_runs_match_scorecard_total,gold.fact_innings,consistency,major,batters' runs + extras equal the innings total (scorecard reconciliation),T20_M_2012,53,0,,penalty runs or missing scorecard rows can cause a small difference,0.044,1.0
+gold.performance_runs_match_scorecard_total,gold.fact_innings,consistency,major,batters' runs + extras equal the innings total (scorecard reconciliation),T20_M_2014,70,0,,penalty runs or missing scorecard rows can cause a small difference,0.044,1.0
+gold.performance_runs_match_scorecard_total,gold.fact_innings,consistency,major,batters' runs + extras equal the innings total (scorecard reconciliation),T20_M_2016,67,0,,penalty runs or missing scorecard rows can cause a small difference,0.044,1.0
+gold.performance_runs_match_scorecard_total,gold.fact_innings,consistency,major,batters' runs + extras equal the innings total (scorecard reconciliation),T20_M_2021,90,0,,penalty runs or missing scorecard rows can cause a small difference,0.044,1.0
+gold.performance_runs_match_scorecard_total,gold.fact_innings,consistency,major,batters' runs + extras equal the innings total (scorecard reconciliation),T20_M_2022,84,0,,penalty runs or missing scorecard rows can cause a small difference,0.044,1.0
+gold.performance_runs_match_scorecard_total,gold.fact_innings,consistency,major,batters' runs + extras equal the innings total (scorecard reconciliation),T20_M_2024,103,0,,penalty runs or missing scorecard rows can cause a small difference,0.044,1.0
+gold.performance_runs_match_scorecard_total,gold.fact_innings,consistency,major,batters' runs + extras equal the innings total (scorecard reconciliation),T20_M_2026,106,0,,penalty runs or missing scorecard rows can cause a small difference,0.044,1.0
+gold.standings_wins_match_results,gold.fact_tournament_standings,consistency,major,"standings wins reconcile with match results, allowing only carried-over matches",T20_M_2021,20,0,,"Super Sixes (2003) and Super Eights (2007) carry earlier-round results into the table, so derived wins may fall short by at most the matches carried over; any other gap fails",0.034,1.0
+gold.standings_wins_match_results,gold.fact_tournament_standings,consistency,major,"standings wins reconcile with match results, allowing only carried-over matches",ODI_M_2011,14,0,,"Super Sixes (2003) and Super Eights (2007) carry earlier-round results into the table, so derived wins may fall short by at most the matches carried over; any other gap fails",0.034,1.0
+gold.standings_wins_match_results,gold.fact_tournament_standings,consistency,major,"standings wins reconcile with match results, allowing only carried-over matches",ODI_M_2023,10,0,,"Super Sixes (2003) and Super Eights (2007) carry earlier-round results into the table, so derived wins may fall short by at most the matches carried over; any other gap fails",0.034,1.0
+gold.standings_wins_match_results,gold.fact_tournament_standings,consistency,major,"standings wins reconcile with match results, allowing only carried-over matches",T20_M_2014,18,0,,"Super Sixes (2003) and Super Eights (2007) carry earlier-round results into the table, so derived wins may fall short by at most the matches carried over; any other gap fails",0.034,1.0
+gold.standings_wins_match_results,gold.fact_tournament_standings,consistency,major,"standings wins reconcile with match results, allowing only carried-over matches",T20_M_2007,20,0,,"Super Sixes (2003) and Super Eights (2007) carry earlier-round results into the table, so derived wins may fall short by at most the matches carried over; any other gap fails",0.034,1.0
+gold.standings_wins_match_results,gold.fact_tournament_standings,consistency,major,"standings wins reconcile with match results, allowing only carried-over matches",T20_M_2026,28,0,,"Super Sixes (2003) and Super Eights (2007) carry earlier-round results into the table, so derived wins may fall short by at most the matches carried over; any other gap fails",0.034,1.0
+gold.standings_wins_match_results,gold.fact_tournament_standings,consistency,major,"standings wins reconcile with match results, allowing only carried-over matches",T20_M_2022,20,0,,"Super Sixes (2003) and Super Eights (2007) carry earlier-round results into the table, so derived wins may fall short by at most the matches carried over; any other gap fails",0.034,1.0
+gold.standings_wins_match_results,gold.fact_tournament_standings,consistency,major,"standings wins reconcile with match results, allowing only carried-over matches",T20_M_2016,18,0,,"Super Sixes (2003) and Super Eights (2007) carry earlier-round results into the table, so derived wins may fall short by at most the matches carried over; any other gap fails",0.034,1.0
+gold.standings_wins_match_results,gold.fact_tournament_standings,consistency,major,"standings wins reconcile with match results, allowing only carried-over matches",ODI_M_2015,14,0,,"Super Sixes (2003) and Super Eights (2007) carry earlier-round results into the table, so derived wins may fall short by at most the matches carried over; any other gap fails",0.034,1.0
+gold.standings_wins_match_results,gold.fact_tournament_standings,consistency,major,"standings wins reconcile with match results, allowing only carried-over matches",ODI_M_2007,24,0,,"Super Sixes (2003) and Super Eights (2007) carry earlier-round results into the table, so derived wins may fall short by at most the matches carried over; any other gap fails",0.034,1.0
+gold.standings_wins_match_results,gold.fact_tournament_standings,consistency,major,"standings wins reconcile with match results, allowing only carried-over matches",ODI_M_2003,20,0,,"Super Sixes (2003) and Super Eights (2007) carry earlier-round results into the table, so derived wins may fall short by at most the matches carried over; any other gap fails",0.034,1.0
+gold.standings_wins_match_results,gold.fact_tournament_standings,consistency,major,"standings wins reconcile with match results, allowing only carried-over matches",ODI_M_2019,10,0,,"Super Sixes (2003) and Super Eights (2007) carry earlier-round results into the table, so derived wins may fall short by at most the matches carried over; any other gap fails",0.034,1.0
+gold.standings_wins_match_results,gold.fact_tournament_standings,consistency,major,"standings wins reconcile with match results, allowing only carried-over matches",T20_M_2024,28,0,,"Super Sixes (2003) and Super Eights (2007) carry earlier-round results into the table, so derived wins may fall short by at most the matches carried over; any other gap fails",0.034,1.0
+gold.standings_wins_match_results,gold.fact_tournament_standings,consistency,major,"standings wins reconcile with match results, allowing only carried-over matches",T20_M_2009,20,0,,"Super Sixes (2003) and Super Eights (2007) carry earlier-round results into the table, so derived wins may fall short by at most the matches carried over; any other gap fails",0.034,1.0
+gold.standings_wins_match_results,gold.fact_tournament_standings,consistency,major,"standings wins reconcile with match results, allowing only carried-over matches",T20_M_2010,20,0,,"Super Sixes (2003) and Super Eights (2007) carry earlier-round results into the table, so derived wins may fall short by at most the matches carried over; any other gap fails",0.034,1.0
+gold.standings_wins_match_results,gold.fact_tournament_standings,consistency,major,"standings wins reconcile with match results, allowing only carried-over matches",T20_M_2012,20,0,,"Super Sixes (2003) and Super Eights (2007) carry earlier-round results into the table, so derived wins may fall short by at most the matches carried over; any other gap fails",0.034,1.0
+gold.deliveries_player_resolved,gold.fact_deliveries,referential_integrity,minor,batter resolved to an ESPN player id (not a Cricsheet-only identity),ODI_M_2003,25390,0,,share of deliveries whose batter could not be matched safely to a scorecard player,0.222,1.0
+gold.deliveries_player_resolved,gold.fact_deliveries,referential_integrity,minor,batter resolved to an ESPN player id (not a Cricsheet-only identity),ODI_M_2007,26163,0,,share of deliveries whose batter could not be matched safely to a scorecard player,0.222,1.0
+gold.deliveries_player_resolved,gold.fact_deliveries,referential_integrity,minor,batter resolved to an ESPN player id (not a Cricsheet-only identity),ODI_M_2011,26036,0,,share of deliveries whose batter could not be matched safely to a scorecard player,0.222,1.0
+gold.deliveries_player_resolved,gold.fact_deliveries,referential_integrity,minor,batter resolved to an ESPN player id (not a Cricsheet-only identity),ODI_M_2015,22541,0,,share of deliveries whose batter could not be matched safely to a scorecard player,0.222,1.0
+gold.deliveries_player_resolved,gold.fact_deliveries,referential_integrity,minor,batter resolved to an ESPN player id (not a Cricsheet-only identity),ODI_M_2019,19933,0,,share of deliveries whose batter could not be matched safely to a scorecard player,0.222,1.0
+gold.deliveries_player_resolved,gold.fact_deliveries,referential_integrity,minor,batter resolved to an ESPN player id (not a Cricsheet-only identity),ODI_M_2023,21195,0,,share of deliveries whose batter could not be matched safely to a scorecard player,0.222,1.0
+gold.deliveries_player_resolved,gold.fact_deliveries,referential_integrity,minor,batter resolved to an ESPN player id (not a Cricsheet-only identity),T20_M_2014,7304,0,,share of deliveries whose batter could not be matched safely to a scorecard player,0.222,1.0
+gold.deliveries_player_resolved,gold.fact_deliveries,referential_integrity,minor,batter resolved to an ESPN player id (not a Cricsheet-only identity),T20_M_2016,5791,0,,share of deliveries whose batter could not be matched safely to a scorecard player,0.222,1.0
+gold.deliveries_player_resolved,gold.fact_deliveries,referential_integrity,minor,batter resolved to an ESPN player id (not a Cricsheet-only identity),T20_M_2021,9023,0,,share of deliveries whose batter could not be matched safely to a scorecard player,0.222,1.0
+gold.deliveries_player_resolved,gold.fact_deliveries,referential_integrity,minor,batter resolved to an ESPN player id (not a Cricsheet-only identity),T20_M_2022,9126,23,"1298135_2_66, 1298135_2_67, 1298135_2_68, 1298135_2_69, 1298135_2_72",share of deliveries whose batter could not be matched safely to a scorecard player,0.222,0.99748
+gold.deliveries_player_resolved,gold.fact_deliveries,referential_integrity,minor,batter resolved to an ESPN player id (not a Cricsheet-only identity),T20_M_2024,9722,0,,share of deliveries whose batter could not be matched safely to a scorecard player,0.222,1.0
+gold.deliveries_player_resolved,gold.fact_deliveries,referential_integrity,minor,batter resolved to an ESPN player id (not a Cricsheet-only identity),T20_M_2026,11555,0,,share of deliveries whose batter could not be matched safely to a scorecard player,0.222,1.0
+gold.match_has_innings,gold.fact_matches,referential_integrity,critical,completed non-walkover match has at least two innings rows,ODI_M_2003,50,0,,,0.045,1.0
+gold.match_has_innings,gold.fact_matches,referential_integrity,critical,completed non-walkover match has at least two innings rows,ODI_M_2007,51,0,,,0.045,1.0
+gold.match_has_innings,gold.fact_matches,referential_integrity,critical,completed non-walkover match has at least two innings rows,ODI_M_2011,48,0,,,0.045,1.0
+gold.match_has_innings,gold.fact_matches,referential_integrity,critical,completed non-walkover match has at least two innings rows,ODI_M_2015,48,0,,,0.045,1.0
+gold.match_has_innings,gold.fact_matches,referential_integrity,critical,completed non-walkover match has at least two innings rows,ODI_M_2019,44,0,,,0.045,1.0
+gold.match_has_innings,gold.fact_matches,referential_integrity,critical,completed non-walkover match has at least two innings rows,ODI_M_2023,48,0,,,0.045,1.0
+gold.match_has_innings,gold.fact_matches,referential_integrity,critical,completed non-walkover match has at least two innings rows,T20_M_2007,26,0,,,0.045,1.0
+gold.match_has_innings,gold.fact_matches,referential_integrity,critical,completed non-walkover match has at least two innings rows,T20_M_2009,27,0,,,0.045,1.0
+gold.match_has_innings,gold.fact_matches,referential_integrity,critical,completed non-walkover match has at least two innings rows,T20_M_2010,26,0,,,0.045,1.0
+gold.match_has_innings,gold.fact_matches,referential_integrity,critical,completed non-walkover match has at least two innings rows,T20_M_2012,26,0,,,0.045,1.0
+gold.match_has_innings,gold.fact_matches,referential_integrity,critical,completed non-walkover match has at least two innings rows,T20_M_2014,35,0,,,0.045,1.0
+gold.match_has_innings,gold.fact_matches,referential_integrity,critical,completed non-walkover match has at least two innings rows,T20_M_2016,33,0,,,0.045,1.0
+gold.match_has_innings,gold.fact_matches,referential_integrity,critical,completed non-walkover match has at least two innings rows,T20_M_2021,45,0,,,0.045,1.0
+gold.match_has_innings,gold.fact_matches,referential_integrity,critical,completed non-walkover match has at least two innings rows,T20_M_2022,41,0,,,0.045,1.0
+gold.match_has_innings,gold.fact_matches,referential_integrity,critical,completed non-walkover match has at least two innings rows,T20_M_2024,51,0,,,0.045,1.0
+gold.match_has_innings,gold.fact_matches,referential_integrity,critical,completed non-walkover match has at least two innings rows,T20_M_2026,53,0,,,0.045,1.0
+gold.ball_by_ball_available,gold.fact_matches,historical_coverage,minor,played match has ball-by-ball data,T20_M_2021,45,5,"247459, 656411, 656421, 656431, 656449",source limitation: not in Cricsheet's World Cup bundle (see ball_by_ball_gap_reason),0.019,0.888889
+gold.ball_by_ball_available,gold.fact_matches,historical_coverage,minor,played match has ball-by-ball data,ODI_M_2011,48,0,,source limitation: not in Cricsheet's World Cup bundle (see ball_by_ball_gap_reason),0.019,1.0
+gold.ball_by_ball_available,gold.fact_matches,historical_coverage,minor,played match has ball-by-ball data,ODI_M_2023,48,9,"247459, 656411, 656421, 656431, 656449",source limitation: not in Cricsheet's World Cup bundle (see ball_by_ball_gap_reason),0.019,0.8125
+gold.ball_by_ball_available,gold.fact_matches,historical_coverage,minor,played match has ball-by-ball data,T20_M_2014,35,3,"247459, 656411, 656421, 656431, 656449",source limitation: not in Cricsheet's World Cup bundle (see ball_by_ball_gap_reason),0.019,0.914286
+gold.ball_by_ball_available,gold.fact_matches,historical_coverage,minor,played match has ball-by-ball data,T20_M_2007,26,26,"247459, 656411, 656421, 656431, 656449",source limitation: not in Cricsheet's World Cup bundle (see ball_by_ball_gap_reason),0.019,0.0
+gold.ball_by_ball_available,gold.fact_matches,historical_coverage,minor,played match has ball-by-ball data,T20_M_2026,53,4,"247459, 656411, 656421, 656431, 656449",source limitation: not in Cricsheet's World Cup bundle (see ball_by_ball_gap_reason),0.019,0.924528
+gold.ball_by_ball_available,gold.fact_matches,historical_coverage,minor,played match has ball-by-ball data,T20_M_2016,33,8,"247459, 656411, 656421, 656431, 656449",source limitation: not in Cricsheet's World Cup bundle (see ball_by_ball_gap_reason),0.019,0.757576
+gold.ball_by_ball_available,gold.fact_matches,historical_coverage,minor,played match has ball-by-ball data,T20_M_2022,41,3,"247459, 656411, 656421, 656431, 656449",source limitation: not in Cricsheet's World Cup bundle (see ball_by_ball_gap_reason),0.019,0.926829
+gold.ball_by_ball_available,gold.fact_matches,historical_coverage,minor,played match has ball-by-ball data,ODI_M_2015,48,6,"247459, 656411, 656421, 656431, 656449",source limitation: not in Cricsheet's World Cup bundle (see ball_by_ball_gap_reason),0.019,0.875
+gold.ball_by_ball_available,gold.fact_matches,historical_coverage,minor,played match has ball-by-ball data,ODI_M_2007,51,1,"247459, 656411, 656421, 656431, 656449",source limitation: not in Cricsheet's World Cup bundle (see ball_by_ball_gap_reason),0.019,0.980392
+gold.ball_by_ball_available,gold.fact_matches,historical_coverage,minor,played match has ball-by-ball data,ODI_M_2003,50,3,"247459, 656411, 656421, 656431, 656449",source limitation: not in Cricsheet's World Cup bundle (see ball_by_ball_gap_reason),0.019,0.94
+gold.ball_by_ball_available,gold.fact_matches,historical_coverage,minor,played match has ball-by-ball data,ODI_M_2019,44,9,"247459, 656411, 656421, 656431, 656449",source limitation: not in Cricsheet's World Cup bundle (see ball_by_ball_gap_reason),0.019,0.795455
+gold.ball_by_ball_available,gold.fact_matches,historical_coverage,minor,played match has ball-by-ball data,T20_M_2024,51,8,"247459, 656411, 656421, 656431, 656449",source limitation: not in Cricsheet's World Cup bundle (see ball_by_ball_gap_reason),0.019,0.843137
+gold.ball_by_ball_available,gold.fact_matches,historical_coverage,minor,played match has ball-by-ball data,T20_M_2009,27,27,"247459, 656411, 656421, 656431, 656449",source limitation: not in Cricsheet's World Cup bundle (see ball_by_ball_gap_reason),0.019,0.0
+gold.ball_by_ball_available,gold.fact_matches,historical_coverage,minor,played match has ball-by-ball data,T20_M_2010,26,26,"247459, 656411, 656421, 656431, 656449",source limitation: not in Cricsheet's World Cup bundle (see ball_by_ball_gap_reason),0.019,0.0
+gold.ball_by_ball_available,gold.fact_matches,historical_coverage,minor,played match has ball-by-ball data,T20_M_2012,26,26,"247459, 656411, 656421, 656431, 656449",source limitation: not in Cricsheet's World Cup bundle (see ball_by_ball_gap_reason),0.019,0.0
+gold.ball_by_ball_gap_explained,gold.fact_matches,historical_coverage,major,every match either has ball-by-ball data or states why not,T20_M_2021,45,0,,,0.018,1.0
+gold.ball_by_ball_gap_explained,gold.fact_matches,historical_coverage,major,every match either has ball-by-ball data or states why not,ODI_M_2011,49,0,,,0.018,1.0
+gold.ball_by_ball_gap_explained,gold.fact_matches,historical_coverage,major,every match either has ball-by-ball data or states why not,ODI_M_2023,48,0,,,0.018,1.0
+gold.ball_by_ball_gap_explained,gold.fact_matches,historical_coverage,major,every match either has ball-by-ball data or states why not,T20_M_2014,35,0,,,0.018,1.0
+gold.ball_by_ball_gap_explained,gold.fact_matches,historical_coverage,major,every match either has ball-by-ball data or states why not,T20_M_2007,27,0,,,0.018,1.0
+gold.ball_by_ball_gap_explained,gold.fact_matches,historical_coverage,major,every match either has ball-by-ball data or states why not,T20_M_2026,55,0,,,0.018,1.0
+gold.ball_by_ball_gap_explained,gold.fact_matches,historical_coverage,major,every match either has ball-by-ball data or states why not,T20_M_2016,35,0,,,0.018,1.0
+gold.ball_by_ball_gap_explained,gold.fact_matches,historical_coverage,major,every match either has ball-by-ball data or states why not,T20_M_2022,45,0,,,0.018,1.0
+gold.ball_by_ball_gap_explained,gold.fact_matches,historical_coverage,major,every match either has ball-by-ball data or states why not,ODI_M_2015,49,0,,,0.018,1.0
+gold.ball_by_ball_gap_explained,gold.fact_matches,historical_coverage,major,every match either has ball-by-ball data or states why not,ODI_M_2007,51,0,,,0.018,1.0
+gold.ball_by_ball_gap_explained,gold.fact_matches,historical_coverage,major,every match either has ball-by-ball data or states why not,ODI_M_2003,54,0,,,0.018,1.0
+gold.ball_by_ball_gap_explained,gold.fact_matches,historical_coverage,major,every match either has ball-by-ball data or states why not,ODI_M_2019,48,0,,,0.018,1.0
+gold.ball_by_ball_gap_explained,gold.fact_matches,historical_coverage,major,every match either has ball-by-ball data or states why not,T20_M_2024,55,0,,,0.018,1.0
+gold.ball_by_ball_gap_explained,gold.fact_matches,historical_coverage,major,every match either has ball-by-ball data or states why not,T20_M_2009,27,0,,,0.018,1.0
+gold.ball_by_ball_gap_explained,gold.fact_matches,historical_coverage,major,every match either has ball-by-ball data or states why not,T20_M_2010,27,0,,,0.018,1.0
+gold.ball_by_ball_gap_explained,gold.fact_matches,historical_coverage,major,every match either has ball-by-ball data or states why not,T20_M_2012,27,0,,,0.018,1.0
+gold.tournament_has_standings,gold.mart_data_coverage,historical_coverage,major,tournament has a points table,T20_M_2009,1,0,,,0.019,1.0
+gold.tournament_has_standings,gold.mart_data_coverage,historical_coverage,major,tournament has a points table,T20_M_2021,1,0,,,0.019,1.0
+gold.tournament_has_standings,gold.mart_data_coverage,historical_coverage,major,tournament has a points table,ODI_M_2007,1,0,,,0.019,1.0
+gold.tournament_has_standings,gold.mart_data_coverage,historical_coverage,major,tournament has a points table,ODI_M_2003,1,0,,,0.019,1.0
+gold.tournament_has_standings,gold.mart_data_coverage,historical_coverage,major,tournament has a points table,T20_M_2024,1,0,,,0.019,1.0
+gold.tournament_has_standings,gold.mart_data_coverage,historical_coverage,major,tournament has a points table,T20_M_2014,1,0,,,0.019,1.0
+gold.tournament_has_standings,gold.mart_data_coverage,historical_coverage,major,tournament has a points table,T20_M_2016,1,0,,,0.019,1.0
+gold.tournament_has_standings,gold.mart_data_coverage,historical_coverage,major,tournament has a points table,ODI_M_2015,1,0,,,0.019,1.0
+gold.tournament_has_standings,gold.mart_data_coverage,historical_coverage,major,tournament has a points table,ODI_M_2019,1,0,,,0.019,1.0
+gold.tournament_has_standings,gold.mart_data_coverage,historical_coverage,major,tournament has a points table,T20_M_2010,1,0,,,0.019,1.0
+gold.tournament_has_standings,gold.mart_data_coverage,historical_coverage,major,tournament has a points table,T20_M_2007,1,0,,,0.019,1.0
+gold.tournament_has_standings,gold.mart_data_coverage,historical_coverage,major,tournament has a points table,ODI_M_2023,1,0,,,0.019,1.0
+gold.tournament_has_standings,gold.mart_data_coverage,historical_coverage,major,tournament has a points table,T20_M_2026,1,0,,,0.019,1.0
+gold.tournament_has_standings,gold.mart_data_coverage,historical_coverage,major,tournament has a points table,ODI_M_2011,1,0,,,0.019,1.0
+gold.tournament_has_standings,gold.mart_data_coverage,historical_coverage,major,tournament has a points table,T20_M_2022,1,0,,,0.019,1.0
+gold.tournament_has_standings,gold.mart_data_coverage,historical_coverage,major,tournament has a points table,T20_M_2012,1,0,,,0.019,1.0
+gold.team_has_squad,gold.mart_data_coverage,historical_coverage,major,every participating team has a squad,T20_M_2009,1,0,,,0.014,1.0
+gold.team_has_squad,gold.mart_data_coverage,historical_coverage,major,every participating team has a squad,T20_M_2021,1,0,,,0.014,1.0
+gold.team_has_squad,gold.mart_data_coverage,historical_coverage,major,every participating team has a squad,ODI_M_2007,1,0,,,0.014,1.0
+gold.team_has_squad,gold.mart_data_coverage,historical_coverage,major,every participating team has a squad,ODI_M_2003,1,0,,,0.014,1.0
+gold.team_has_squad,gold.mart_data_coverage,historical_coverage,major,every participating team has a squad,T20_M_2024,1,0,,,0.014,1.0
+gold.team_has_squad,gold.mart_data_coverage,historical_coverage,major,every participating team has a squad,T20_M_2014,1,0,,,0.014,1.0
+gold.team_has_squad,gold.mart_data_coverage,historical_coverage,major,every participating team has a squad,T20_M_2016,1,0,,,0.014,1.0
+gold.team_has_squad,gold.mart_data_coverage,historical_coverage,major,every participating team has a squad,ODI_M_2015,1,0,,,0.014,1.0
+gold.team_has_squad,gold.mart_data_coverage,historical_coverage,major,every participating team has a squad,ODI_M_2019,1,0,,,0.014,1.0
+gold.team_has_squad,gold.mart_data_coverage,historical_coverage,major,every participating team has a squad,T20_M_2010,1,0,,,0.014,1.0
+gold.team_has_squad,gold.mart_data_coverage,historical_coverage,major,every participating team has a squad,T20_M_2007,1,0,,,0.014,1.0
+gold.team_has_squad,gold.mart_data_coverage,historical_coverage,major,every participating team has a squad,ODI_M_2023,1,0,,,0.014,1.0
+gold.team_has_squad,gold.mart_data_coverage,historical_coverage,major,every participating team has a squad,T20_M_2026,1,0,,,0.014,1.0
+gold.team_has_squad,gold.mart_data_coverage,historical_coverage,major,every participating team has a squad,ODI_M_2011,1,0,,,0.014,1.0
+gold.team_has_squad,gold.mart_data_coverage,historical_coverage,major,every participating team has a squad,T20_M_2022,1,0,,,0.014,1.0
+gold.team_has_squad,gold.mart_data_coverage,historical_coverage,major,every participating team has a squad,T20_M_2012,1,0,,,0.014,1.0
+gold.tournament_has_player_of_tournament,gold.mart_data_coverage,historical_coverage,minor,tournament names a player of the tournament,T20_M_2009,1,0,,,0.015,1.0
+gold.tournament_has_player_of_tournament,gold.mart_data_coverage,historical_coverage,minor,tournament names a player of the tournament,T20_M_2021,1,0,,,0.015,1.0
+gold.tournament_has_player_of_tournament,gold.mart_data_coverage,historical_coverage,minor,tournament names a player of the tournament,ODI_M_2007,1,0,,,0.015,1.0
+gold.tournament_has_player_of_tournament,gold.mart_data_coverage,historical_coverage,minor,tournament names a player of the tournament,ODI_M_2003,1,0,,,0.015,1.0
+gold.tournament_has_player_of_tournament,gold.mart_data_coverage,historical_coverage,minor,tournament names a player of the tournament,T20_M_2024,1,0,,,0.015,1.0
+gold.tournament_has_player_of_tournament,gold.mart_data_coverage,historical_coverage,minor,tournament names a player of the tournament,T20_M_2014,1,0,,,0.015,1.0
+gold.tournament_has_player_of_tournament,gold.mart_data_coverage,historical_coverage,minor,tournament names a player of the tournament,T20_M_2016,1,0,,,0.015,1.0
+gold.tournament_has_player_of_tournament,gold.mart_data_coverage,historical_coverage,minor,tournament names a player of the tournament,ODI_M_2015,1,0,,,0.015,1.0
+gold.tournament_has_player_of_tournament,gold.mart_data_coverage,historical_coverage,minor,tournament names a player of the tournament,ODI_M_2019,1,0,,,0.015,1.0
+gold.tournament_has_player_of_tournament,gold.mart_data_coverage,historical_coverage,minor,tournament names a player of the tournament,T20_M_2010,1,0,,,0.015,1.0
+gold.tournament_has_player_of_tournament,gold.mart_data_coverage,historical_coverage,minor,tournament names a player of the tournament,T20_M_2007,1,0,,,0.015,1.0
+gold.tournament_has_player_of_tournament,gold.mart_data_coverage,historical_coverage,minor,tournament names a player of the tournament,ODI_M_2023,1,0,,,0.015,1.0
+gold.tournament_has_player_of_tournament,gold.mart_data_coverage,historical_coverage,minor,tournament names a player of the tournament,T20_M_2026,1,0,,,0.015,1.0
+gold.tournament_has_player_of_tournament,gold.mart_data_coverage,historical_coverage,minor,tournament names a player of the tournament,ODI_M_2011,1,0,,,0.015,1.0
+gold.tournament_has_player_of_tournament,gold.mart_data_coverage,historical_coverage,minor,tournament names a player of the tournament,T20_M_2022,1,0,,,0.015,1.0
+gold.tournament_has_player_of_tournament,gold.mart_data_coverage,historical_coverage,minor,tournament names a player of the tournament,T20_M_2012,1,0,,,0.015,1.0

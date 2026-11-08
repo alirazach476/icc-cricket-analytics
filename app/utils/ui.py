@@ -51,8 +51,8 @@ def coverage_note() -> None:
 
     if database.competition() == "wc":
         st.caption(
-            "Ball-by-ball detail exists for about 75% of played matches; the rest are scorecard-only "
-            "(see Data Engineering > Coverage). ODI data starts at the 2003 World Cup."
+            "Ball-by-ball detail exists for about 85% of played matches; the rest are scorecard-only "
+            "(see Data Engineering > Coverage). ODI data starts at the 1999 World Cup (scorecards only until 2003)."
         )
         return
     try:

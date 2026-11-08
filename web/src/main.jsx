@@ -5,6 +5,8 @@ import './styles.css'
 import './matchcentre.css'
 import './design.css'
 import './matchview.css'
+import './fixtures.css'
+import './backdrop.css'
 
 createRoot(document.getElementById('root')).render(<App />)
 

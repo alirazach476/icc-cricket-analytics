@@ -65,7 +65,7 @@ def test_orm_metadata_matches_required_count() -> None:
 def test_seed_tournaments_and_sources(engine) -> None:
     with session_scope() as session:
         result = seed_reference_data(session)
-    assert result["tournament_count"] == 16
+    assert result["tournament_count"] == 17
     assert "ESPNcricinfo" in result["sources"]
     assert "Cricsheet" in result["sources"]
     assert set(result["tournament_ids"]) == EXPECTED_TOURNAMENT_IDS

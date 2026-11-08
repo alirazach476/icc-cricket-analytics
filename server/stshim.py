@@ -318,6 +318,9 @@ class Container:
             }
         )
 
+    def fixtures(self, data: Any) -> None:
+        self._add({"t": "fixtures", "data": jsonable(data)})
+
     def match_centre(self, payload: Any) -> None:
         self._add({"t": "matchcentre", "data": jsonable(payload)})
 
@@ -601,6 +604,7 @@ def install() -> types.ModuleType:
         "table",
         "graphviz_chart",
         "match_centre",
+        "fixtures",
         "download_button",
         "button",
         "selectbox",

@@ -76,6 +76,6 @@ def test_ambiguous_or_unknown_names_fail_loudly(session) -> None:
         load_awards(session, [{**_row(), "tournament_id": "NOPE"}])
 
 
-def test_shipped_awards_file_covers_all_sixteen_editions() -> None:
+def test_shipped_awards_file_covers_all_seventeen_editions() -> None:
     rows = read_awards()
-    assert len(rows) == 16 and len({r["tournament_id"] for r in rows}) == 16
+    assert len(rows) == 17 and len({r["tournament_id"] for r in rows}) == 17

@@ -1,6 +1,6 @@
 # Data Quality Report
 
-_Generated 2026-11-03 19:42 UTC by `scripts/run_data_quality.py` from the live PostgreSQL data. All figures are computed; re-run to refresh._
+_Generated 2026-11-06 13:50 UTC by `scripts/run_data_quality.py` from the live PostgreSQL data. All figures are computed; re-run to refresh._
 
 ## 1. Research objective
 

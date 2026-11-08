@@ -3,6 +3,7 @@ import { Calendar, MapPin, Trophy, Coins, Crown, Target, ChevronLeft, ChevronRig
 import Flag from './Flag.jsx'
 import { teamColor } from '../teamColors.js'
 import { mix } from '../theme.js'
+import Portrait from './Portrait.jsx'
 
 const dash = (v) => (v === null || v === undefined || v === '' ? '–' : v)
 const fmtDate = (d) => {
@@ -176,7 +177,7 @@ function Batting({ inn, format }) {
             <tbody>
               {rows.map((r, i) => (
                 <tr key={i} className={`${r.out ? '' : 'notout'} ${r.runs === best && best > 0 ? 'top' : ''}`}>
-                  <td className="name">{r.batter}</td>
+                  <td className="name"><Portrait name={r.batter} team={inn.team.name} /> {r.batter}</td>
                   <td className="how">{r.how}</td>
                   <td className="num strong">{dash(r.runs)}</td>
                   <td className="num">{dash(r.balls)}</td>
@@ -224,6 +225,8 @@ function Batting({ inn, format }) {
 function Bowling({ inn }) {
   const rows = inn.bowling
   const hasDots = rows.some((r) => r.dots !== null && r.dots !== undefined)
+  const hasBd = rows.some((r) => r.fours !== null && r.fours !== undefined)
+  const hasWn = rows.some((r) => (r.wd || 0) + (r.nb || 0) > 0)
   const bestW = rows.length ? Math.max(...rows.map((r) => r.w ?? 0)) : 0
   return (
     <div className="mc-card">
@@ -234,18 +237,22 @@ function Bowling({ inn }) {
         <div className="mc-scroll">
           <table className="mc-table">
             <thead>
-              <tr><th>Bowler</th><th>O</th><th>M</th><th>R</th><th>W</th><th>Econ</th>{hasDots && <th>0s</th>}</tr>
+              <tr><th>Bowler</th><th>O</th><th>M</th><th>R</th><th>W</th><th>Econ</th>{hasDots && <th>0s</th>}{hasBd && <th>4s</th>}{hasBd && <th>6s</th>}{hasWn && <th>Wd</th>}{hasWn && <th>Nb</th>}</tr>
             </thead>
             <tbody>
               {rows.map((r, i) => (
                 <tr key={i} className={r.w === bestW && bestW > 0 ? 'top' : ''}>
-                  <td className="name">{r.bowler}</td>
+                  <td className="name"><Portrait name={r.bowler} team={inn.bowling_team} /> {r.bowler}</td>
                   <td className="num">{dash(r.overs)}</td>
                   <td className="num">{dash(r.m)}</td>
                   <td className="num">{dash(r.runs)}</td>
                   <td className="num strong">{dash(r.w)}</td>
                   <td className="num">{r.econ !== null && r.econ !== undefined ? Number(r.econ).toFixed(2) : '–'}</td>
                   {hasDots && <td className="num">{dash(r.dots)}</td>}
+                  {hasBd && <td className="num">{dash(r.fours)}</td>}
+                  {hasBd && <td className="num">{dash(r.sixes)}</td>}
+                  {hasWn && <td className="num">{dash(r.wd)}</td>}
+                  {hasWn && <td className="num">{dash(r.nb)}</td>}
                 </tr>
               ))}
             </tbody>

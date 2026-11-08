@@ -7,6 +7,7 @@ from src.utils.helpers import utc_now_iso
 
 
 EXPECTED_TOURNAMENT_IDS = {
+    "ODI_M_1999",
     "ODI_M_2003",
     "ODI_M_2007",
     "ODI_M_2011",
@@ -42,7 +43,7 @@ def test_settings_load() -> None:
 
 def test_tournament_scope() -> None:
     tournaments = load_tournaments()
-    assert len(tournaments) == 16
+    assert len(tournaments) == 17
     ids = {t["tournament_id"] for t in tournaments}
     assert ids == EXPECTED_TOURNAMENT_IDS
     assert all(t.get("gender") == "Men" for t in tournaments)

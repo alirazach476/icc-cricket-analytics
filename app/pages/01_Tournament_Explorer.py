@@ -251,7 +251,11 @@ if setup(
 
     with tabs[2]:
         m = Q.matches_of(tid)
-        pick = st.selectbox("Stage", ["All"] + sorted(m["stage"].dropna().unique().tolist()))
+        pick = (
+            "All"
+            if hasattr(st, "match_centre")  # the React fixtures centre has its own stage filters
+            else st.selectbox("Stage", ["All"] + sorted(m["stage"].dropna().unique().tolist()))
+        )
         view = m if pick == "All" else m[m["stage"] == pick]
         mt = view["margin_type"].fillna("")
         val = view["margin_value"].fillna(0).astype(int)
@@ -261,12 +265,13 @@ if setup(
             result=(val.astype(str) + " " + unit).where(scored, mt.str.replace("_", " "))
         )
         shown = ["match_date", "stage", "team1", "team2", "winner", "result", "venue"]
-        st.dataframe(
-            view[["match_id", *shown]],
-            column_order=shown,
-            hide_index=True,
-            width="stretch",
-        )
+        if hasattr(st, "match_centre"):
+            # React dashboard: broadcast-style fixture graphics (click a fixture to open its match centre)
+            st.fixtures({"tournament": row["tournament_name"], "fixtures": X.fixtures(tid)})
+            with st.expander("Table view of the same fixtures"):
+                st.dataframe(view[["match_id", *shown]], column_order=shown, hide_index=True, width="stretch")
+        else:
+            st.dataframe(view[["match_id", *shown]], column_order=shown, hide_index=True, width="stretch")
         res = inn.assign(match=lambda d: d["match_id"])
         fig = px.line(
             inn.sort_values("match_date"),
@@ -537,6 +542,24 @@ if setup(
                     fig.add_bar(y=top["player"], x=top[col], orientation="h", marker_color=colour, showlegend=False, hovertemplate="%{y}: %{x}<extra></extra>", row=1, col=i)
                 fig.update_layout(title="Overs, runs conceded and wickets: the 10 leading wicket-takers", height=430)
                 st.plotly_chart(fig, width="stretch")
+        if len(q):
+            a, b = st.columns(2)
+            with a:
+                dq = q[q["dots"].fillna(0) > 0].nlargest(12, "dots").sort_values("dots")
+                if len(dq):
+                    fig = px.bar(dq, x="dots", y="player", orientation="h", color="team", hover_data={"balls_bowled": True, "economy": ":.2f"}, title="Dot balls bowled (top 12)", labels={"dots": "Dot balls", "player": ""})
+                    fig.update_layout(height=420, legend=dict(orientation="h", y=-0.2))
+                    st.plotly_chart(fig, width="stretch")
+                else:
+                    st.info("Dot balls come from ball-by-ball data, which this edition does not have for these bowlers.")
+            with b:
+                mq = q[q["maidens"].fillna(0) > 0].nlargest(12, "maidens").sort_values("maidens")
+                if len(mq):
+                    fig = px.bar(mq, x="maidens", y="player", orientation="h", color="team", hover_data={"overs": True, "wickets": True}, title="Maiden overs (top 12)", labels={"maidens": "Maiden overs", "player": ""})
+                    fig.update_layout(height=420, legend=dict(orientation="h", y=-0.2), xaxis=dict(dtick=1))
+                    st.plotly_chart(fig, width="stretch")
+                else:
+                    st.info("No maiden overs bowled in this edition (with this minimum).")
         em = X.bowling_economy_matrix(fmt, 12)
         if len(em):
             pv = em.pivot_table(index="player", columns="year", values="economy")

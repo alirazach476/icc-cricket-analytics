@@ -106,6 +106,13 @@ _P = {
         "#0C0C0E",
         ["#9AB4D8", "#D8C7A8", "#6FD3C0", "#E07A6A", "#9B7BFF", "#8FD36B", "#7CCBF2", "#E05A5A"],
     ),
+    "odi-1999": (
+        "#E5342D",
+        "#2A5DB0",
+        "#D4A82A",
+        "#0D1022",
+        ["#E5342D", "#2A5DB0", "#D4A82A", "#2FB67C", "#9B7BFF", "#6BDB6B", "#5CC8F2", "#FF8A5C"],
+    ),
     "odi-2003": (
         "#F2B632",
         "#FFFFFF",
@@ -256,17 +263,25 @@ COMPETITIONS = {
     },
 }
 BANNERS = {
-    "wc27-2027": "banner-wc27-2027",
-    "ct-2009": "banner-ct-2009",
-    "ct-2013": "banner-ct-2013",
-    "ct-2017": "banner-ct-2017",
-    "ct-2025": "banner-ct-2025",
-    "wtc-2021": "banner-wtc-2021",
-    "wtc-2023": "banner-wtc-2023",
-    "odi-2019": "banner-odi-2019",
-    "odi-2023": "banner-odi-2023",
-    "t20-2022": "banner-t20-2022",
-    "t20-2024": "banner-t20-2024",
+    "wc27-2027": "banner-wc27-2027.jpg",
+    "ct-2009": "banner-ct-2009.jpg",
+    "ct-2017": "banner-ct-2017.jpg",
+    "ct-2025": "banner-ct-2025.jpg",
+    "wtc-2021": "banner-wtc-2021.jpg",
+    "wtc-2023": "banner-wtc-2023.jpg",
+    "odi-2011": "banner-odi-2011.jpg",
+    "odi-2015": "banner-odi-2015.jpg",
+    "odi-2019": "banner-odi-2019.jpg",
+    "odi-2023": "banner-odi-2023.jpg",
+    "t20-2007": "banner-t20-2007.jpg",
+    "t20-2012": "banner-t20-2012.jpg",
+    "t20-2014": "banner-t20-2014.jpg",
+    "t20-2016": "banner-t20-2016.jpg",
+    "t20-2021": "banner-t20-2021.jpg",
+    "t20-2022": "banner-t20-2022.jpg",
+    "t20-2024": "banner-t20-2024.jpg",
+    "t20-2026": "banner-t20-2026.jpg",
+    "ct-2013": "banner-ct-2013.png",
 }
 
 
@@ -315,4 +330,4 @@ def logo_for(eid: str) -> str:
 
 
 def banner_for(eid: str) -> str | None:
-    return f"/logos/{BANNERS[eid]}.png" if eid in BANNERS else None
+    return f"/logos/{BANNERS[eid]}" if eid in BANNERS else None

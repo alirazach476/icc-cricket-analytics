@@ -1,0 +1,19 @@
+/* ============ the whole page wears the tournament: artwork, stadium lights, overlays ============ */
+:root { --page-bg: none; }
+body { background: var(--bg); }
+body::before { content: ''; position: fixed; inset: 0; z-index: -2; pointer-events: none;
+  background-image: var(--page-bg); background-size: cover; background-position: center top; background-repeat: no-repeat; opacity: .5; filter: blur(2px) saturate(1.15); transition: background-image .4s; }
+body::after { content: ''; position: fixed; inset: 0; z-index: -1; pointer-events: none;
+  background:
+    radial-gradient(700px 420px at 12% -6%, color-mix(in srgb, var(--primary) 34%, transparent), transparent 62%),
+    radial-gradient(700px 420px at 88% -8%, color-mix(in srgb, var(--secondary) 30%, transparent), transparent 62%),
+    radial-gradient(520px 260px at 50% -10%, rgba(255, 244, 214, .16), transparent 70%),
+    linear-gradient(180deg, color-mix(in srgb, var(--bg) 40%, transparent) 0%, color-mix(in srgb, var(--bg) 84%, transparent) 38%, var(--bg) 92%); }
+.main { background: transparent; }
+.nav { background: color-mix(in srgb, var(--bg) 78%, #000) !important; backdrop-filter: blur(10px); }
+
+/* player portraits */
+.pt { display: inline-grid; place-items: center; flex: none; border-radius: 50%; vertical-align: middle; margin-right: 8px; font-size: 11px; font-weight: 800; letter-spacing: .02em; color: #fff;
+  background: radial-gradient(circle at 30% 25%, color-mix(in srgb, var(--tc) 70%, #fff), var(--tc) 55%, color-mix(in srgb, var(--tc) 55%, #000)); box-shadow: 0 0 0 2px rgba(255, 255, 255, .22), 0 3px 8px rgba(0, 0, 0, .4); }
+.pt-img { object-fit: cover; }
+@media (max-width: 700px) { .pt { width: 24px !important; height: 24px !important; font-size: 9px; margin-right: 6px; } }

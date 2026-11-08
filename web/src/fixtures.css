@@ -1,0 +1,45 @@
+/* ============ tournament results centre: fixtures as broadcast graphics ============ */
+.fx { display: flex; flex-direction: column; gap: 14px; margin: 6px 0 16px; }
+.fx-hero { position: relative; overflow: hidden; display: flex; justify-content: space-between; align-items: center; gap: 18px; flex-wrap: wrap; padding: 18px 22px; border-radius: 20px;
+  background: linear-gradient(100deg, color-mix(in srgb, var(--primary) 34%, #070b16), color-mix(in srgb, var(--secondary) 26%, #070b16) 70%, #070b16); border: 1px solid color-mix(in srgb, var(--primary) 30%, var(--border)); }
+.fx-hero::after { content: ''; position: absolute; inset: 0; background: repeating-linear-gradient(115deg, rgba(255,255,255,.035) 0 2px, transparent 2px 20px); pointer-events: none; }
+.fx-kicker { text-transform: uppercase; letter-spacing: .18em; font-size: 11.5px; font-weight: 800; color: var(--tertiary); }
+.fx-hero h3 { margin: 4px 0 2px; font-size: clamp(20px, 2.6vw, 30px); letter-spacing: .02em; }
+.fx-hero p { margin: 0; color: var(--muted); font-size: 13px; }
+.fx-flags { position: relative; z-index: 1; display: flex; flex-wrap: wrap; gap: 8px; max-width: 560px; justify-content: flex-end; }
+.fx-filters { display: flex; align-items: center; gap: 10px; flex-wrap: wrap; }
+.fx-filters select { font: inherit; font-size: 13px; color: var(--text); background: color-mix(in srgb, var(--panel2) 90%, transparent); border: 1px solid var(--border); border-radius: 10px; padding: 8px 10px; max-width: 190px; }
+.fx-count { margin-left: auto; color: var(--muted); font-size: 12.5px; }
+.fx-group { display: flex; flex-direction: column; gap: 10px; }
+.fx-gh { display: flex; align-items: baseline; gap: 12px; margin: 8px 0 0; font-size: 15px; text-transform: uppercase; letter-spacing: .12em; }
+.fx-gh span { position: relative; padding-left: 14px; font-weight: 800; }
+.fx-gh span::before { content: ''; position: absolute; left: 0; top: 2px; bottom: 2px; width: 5px; border-radius: 3px; background: linear-gradient(var(--primary), var(--tertiary)); }
+.fx-gh i { font-style: normal; text-transform: none; letter-spacing: 0; font-size: 12px; color: var(--muted); }
+.fx-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(330px, 1fr)); gap: 12px; }
+.fx-card { text-align: left; font: inherit; color: var(--text); cursor: pointer; display: flex; flex-direction: column; gap: 8px; padding: 0 0 10px; border-radius: 16px; overflow: hidden; position: relative;
+  background: linear-gradient(180deg, color-mix(in srgb, var(--panel2) 80%, #04070f), color-mix(in srgb, var(--panel) 92%, #04070f)); border: 1px solid color-mix(in srgb, var(--primary) 16%, var(--border));
+  transition: transform .18s, border-color .18s, box-shadow .18s; }
+.fx-card::before { content: ''; position: absolute; inset: 0 auto 0 0; width: 5px; background: linear-gradient(var(--primary), var(--secondary)); }
+.fx-card:hover { transform: translateY(-3px); border-color: var(--primary); box-shadow: 0 16px 34px rgba(0, 0, 0, .4), 0 0 0 1px color-mix(in srgb, var(--primary) 30%, transparent); }
+.fx-card:focus-visible { outline: 2px solid var(--tertiary); outline-offset: 2px; }
+.fx-top { display: flex; align-items: center; gap: 10px; flex-wrap: wrap; padding: 9px 14px 8px 18px; font-size: 11px; text-transform: uppercase; letter-spacing: .09em; color: var(--muted); background: rgba(0, 0, 0, .28); }
+.fx-stage { color: var(--tertiary); font-weight: 800; }
+.fx-date { display: inline-flex; align-items: center; gap: 4px; }
+.fx-status { margin-left: auto; font-weight: 800; color: var(--primary); border: 1px solid color-mix(in srgb, var(--primary) 45%, transparent); border-radius: 999px; padding: 1px 9px; }
+.fx-status.dim { color: #ffb020; border-color: #ffb02066; }
+.fx-teams { display: flex; flex-direction: column; gap: 2px; padding: 4px 14px 0 18px; }
+.fx-team { --tc: #4c8dff; display: grid; grid-template-columns: 34px minmax(0, 1fr) auto auto auto; align-items: center; gap: 4px 10px; padding: 7px 10px 7px 8px; border-radius: 8px; opacity: .9;
+  background: linear-gradient(90deg, color-mix(in srgb, var(--tc) 16%, transparent), transparent 70%); border-left: 3px solid var(--tc); }
+.fx-team.win { opacity: 1; background: linear-gradient(90deg, color-mix(in srgb, var(--tertiary) 18%, transparent), transparent 75%); border-left-color: var(--tertiary); }
+.fx-name { font-size: 15px; letter-spacing: .02em; text-transform: uppercase; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.fx-crown { color: var(--tertiary); }
+.fx-score { font-size: 20px; font-weight: 800; font-variant-numeric: tabular-nums; text-align: right; grid-column: 4; }
+.fx-score i { font-style: normal; color: var(--muted); font-weight: 600; }
+.fx-ov { grid-column: 5; min-width: 52px; color: var(--muted); font-size: 12px; }
+.fx-team.win .fx-score { color: var(--tertiary); }
+.fx-result { display: flex; align-items: center; justify-content: space-between; gap: 8px; margin: 2px 14px 0 18px; padding: 7px 12px; font-size: 13px; font-weight: 700; border-radius: 6px; color: #11161f;
+  background: linear-gradient(90deg, var(--tertiary), color-mix(in srgb, var(--tertiary) 55%, #fff)); }
+.s-abandoned .fx-result, .s-no-result .fx-result, .s-upcoming .fx-result { color: var(--text); background: color-mix(in srgb, var(--panel2) 90%, transparent); border: 1px solid var(--border); }
+.fx-venue { display: flex; align-items: center; gap: 5px; padding: 0 14px 0 18px; font-size: 12px; color: var(--muted); }
+.fx-venue em { margin-left: auto; font-style: normal; font-size: 10.5px; text-transform: uppercase; letter-spacing: .08em; color: var(--primary); }
+@media (max-width: 700px) { .fx-grid { grid-template-columns: 1fr; } .fx-filters select { max-width: 46%; flex: 1; } }

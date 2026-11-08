@@ -190,6 +190,7 @@ _CHART_GROUPS = [
     ("Overs and wickets", ["Over by over", "Wickets timeline"]),
     ("Innings and chase", ["Innings comparison", "Chase"]),
     ("Partnerships and wickets", ["Partnerships", "Fall of wickets"]),
+    ("Bowling", ["Dot balls", "Maidens"]),
 ]
 
 

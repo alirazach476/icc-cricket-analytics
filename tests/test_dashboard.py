@@ -94,7 +94,7 @@ def test_home_shows_every_required_kpi() -> None:
         "Ball-by-ball coverage",
     ):
         assert k in labels, k
-    assert labels["Matches"] == "677" and labels["Tournaments"] == "16" and labels["Teams"] == "26"
+    assert labels["Matches"] == "719" and labels["Tournaments"] == "17" and labels["Teams"] == "26"
     assert (
         int(labels["Total runs"].replace(",", "")) > 100_000
         and int(labels["Total wickets"].replace(",", "")) > 5_000
@@ -117,7 +117,7 @@ def test_page_renders_with_hero_and_without_leaks(path: Path) -> None:
     [
         (
             "01_Tournament_Explorer.py",
-            ["Overview", "Standings", "Results", "Awards", "Statistics", "Batting and bowling"],
+            ["Overview", "Standings", "Results", "Awards", "Statistics", "Batting and bowling", "Batting analytics", "Bowling analytics"],
         ),
         (
             "02_Player_Analytics.py",
@@ -139,6 +139,7 @@ def test_page_renders_with_hero_and_without_leaks(path: Path) -> None:
                 "Comparison",
                 "Head-to-head",
                 "Players",
+                "By stage and trend",
             ],
         ),
         ("04_Squads.py", ["Squad", "Composition", "Compare squads", "Continuity", "Player lookup"]),
@@ -165,6 +166,7 @@ def test_page_renders_with_hero_and_without_leaks(path: Path) -> None:
                 "Delivery patterns",
                 "First-innings projection",
                 "Deliveries",
+                "Matchups",
             ],
         ),
         (
@@ -175,6 +177,7 @@ def test_page_renders_with_hero_and_without_leaks(path: Path) -> None:
                 "Visualisations",
                 "Regression",
                 "Written conclusions",
+                "Stage comparison",
             ],
         ),
         (
@@ -186,6 +189,7 @@ def test_page_renders_with_hero_and_without_leaks(path: Path) -> None:
                 "Player models",
                 "Importance and SHAP",
                 "Model comparison",
+                "Diagnostics",
             ],
         ),
         (
@@ -375,9 +379,9 @@ def test_squad_data_is_complete_and_sane() -> None:
     from app.utils import viz_data as V
 
     sq = V.squads_all()
-    assert len(sq) == 3624 and sq["team_id"].nunique() == 26 and sq["tournament_id"].nunique() == 16
+    assert len(sq) == 3805 and sq["team_id"].nunique() == 26 and sq["tournament_id"].nunique() == 17
     sizes = sq.groupby(["tournament_id", "team_id"]).size()
-    assert len(sizes) == 230 and sizes.min() >= 14 and sizes.max() <= 20
+    assert len(sizes) == 242 and sizes.min() >= 14 and sizes.max() <= 20
     assert sq.groupby(["tournament_id", "team_id"])["is_captain"].sum().min() >= 1
     assert sq["age_at_tournament"].dropna().between(15, 50).all()
     usa = sq[
@@ -390,12 +394,12 @@ def test_queries_return_known_facts() -> None:
     from app.utils import queries as Q
 
     t = Q.tournaments()
-    assert len(t) == 16 and set(t["format"]) == {"ODI", "T20"}
+    assert len(t) == 17 and set(t["format"]) == {"ODI", "T20"}
     tid = t[(t["format"] == "ODI") & (t["year"] == 2023)]["tournament_id"].iloc[0]
     assert Q.top_batters(tid, 1)["player"].iloc[0] == "Virat Kohli"
     assert int(Q.top_batters(tid, 1)["runs"].iloc[0]) == 765
     assert len(Q.matches_of(tid)) == 48 and not Q.standings(tid).empty
-    assert len(Q.parse_library()) >= 30 and Q.coverage()["played_matches"].sum() == 652
+    assert len(Q.parse_library()) >= 30 and Q.coverage()["played_matches"].sum() == 693
     assert (
         Q.team_record(Q.teams().set_index("team_name").loc["India", "team_id"])["tournament"]
         .str.match(r"^(ODI|T20) \d{4}$")

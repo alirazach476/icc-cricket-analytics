@@ -138,7 +138,7 @@ def test_react_has_the_same_tabs_as_streamlit(probe: dict) -> None:
 
 
 def test_each_world_cup_has_a_logo_and_theme(probe: dict) -> None:
-    assert len(probe["editions"]) == 16
+    assert len(probe["editions"]) == 17
     for eid, e in probe["editions"].items():
         assert (ROOT / "web" / "public" / e["logo"].lstrip("/")).exists(), eid
         assert e["chart"] == 8

@@ -42,7 +42,7 @@ print(json.dumps(out))
 
 REQUIRED = {
     "wc/home": ["Matches played by edition and format", "Participating teams by edition", "Champions timeline"],
-    "wc/tournaments": ["Centuries and half-centuries", "Boundaries: fours and sixes", "Runs against balls faced", "Runs by player and tournament", "Batting average by edition", "Bowling average against strike rate", "Overs, runs conceded and wickets", "Economy rate by player and edition", "Economy rate distribution by edition", "Strike rate distribution by edition", "Top run scorers", "Top wicket takers"],
+    "wc/tournaments": ["Centuries and half-centuries", "Boundaries: fours and sixes", "Runs against balls faced", "Runs by player and tournament", "Batting average by edition", "Bowling average against strike rate", "Overs, runs conceded and wickets", "Economy rate by player and edition", "Economy rate distribution by edition", "Strike rate distribution by edition", "Dot balls bowled", "Maiden overs", "Top run scorers", "Top wicket takers"],
     "wc/teams": ["results by match stage", "Average runs scored per innings, by edition", "Win % by edition"],
     "wc/ball-by-ball": ["Batter v bowler strike rate", "Every matchup", "Run progression", "Dot-ball % by phase"],
     "wc/research": ["mean first-innings total by stage group", "batting-first win rate by stage group", "Residuals against fitted", "Residuals of the trend line", "Feature correlations"],

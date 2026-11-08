@@ -173,6 +173,15 @@ def _dismissal_texts(d: pd.DataFrame, names: dict) -> dict[tuple[int, str], str]
     return out
 
 
+def _boundaries_conceded(d: pd.DataFrame, names: dict, inn: int, bowler: str) -> dict:
+    """Fours and sixes a bowler conceded in an innings (only when the match has ball-by-ball)."""
+    if not len(d):
+        return {"fours": None, "sixes": None}
+    ids = [k for k, v in names.items() if v == bowler]
+    g = d[(d["inn"] == inn) & (d["bowler_id"].isin(ids))]
+    return {"fours": int(g["four"].sum()), "sixes": int(g["six"].sum())} if len(g) else {"fours": None, "sixes": None}
+
+
 def _bowling_from_deliveries(d: pd.DataFrame, names: dict) -> dict[int, list[dict]]:
     """Per-innings bowling figures from the ball-by-ball (used for Tests, where the stored line sums both innings)."""
     out: dict[int, list[dict]] = {}
@@ -194,6 +203,10 @@ def _bowling_from_deliveries(d: pd.DataFrame, names: dict) -> dict[int, list[dic
                     "w": wk,
                     "econ": round(charged / (legal / 6), 2) if legal else None,
                     "dots": int(bg["legal"].mul(bg["tr"].eq(0)).sum()),
+                    "wd": int(bg["wd"].sum()),
+                    "nb": int(bg["nb"].sum()),
+                    "fours": int(bg["four"].sum()),
+                    "sixes": int(bg["six"].sum()),
                 }
             )
         out[int(inn)] = rows
@@ -372,7 +385,7 @@ def payload(mid: str) -> dict | None:
     )
     bowl = run(
         "select t.team_name team, p.full_name bowler, f.balls_bowled lb, f.maidens m, f.runs_conceded runs, f.wickets w, "
-        "f.economy econ, f.dots from gold.fact_player_performances f join gold.dim_players p using (player_id) "
+        "f.economy econ, f.dots, f.wides wd, f.no_balls nb from gold.fact_player_performances f join gold.dim_players p using (player_id) "
         "join gold.dim_teams t on t.team_id = f.team_id where f.match_id = ? and f.did_bowl "
         "order by f.wickets desc, f.runs_conceded",
         (mid,),
@@ -425,6 +438,9 @@ def payload(mid: str) -> dict | None:
                     "w": _num(r["w"]),
                     "econ": _num(r["econ"]),
                     "dots": _num(r["dots"]) if _num(r["dots"]) else None,
+                    "wd": _num(r["wd"]),
+                    "nb": _num(r["nb"]),
+                    **_boundaries_conceded(d, names, i["n"], r["bowler"]),
                 }
                 for r in sub.to_dict("records")
             ]
@@ -643,6 +659,38 @@ def charts(mid: str, pl: dict) -> dict[str, go.Figure]:
     if len(ff.data):
         ff.update_layout(title="Fall of wickets (label = wicket number)", xaxis_title="Overs", yaxis_title="Team score", height=380, legend=dict(orientation="h", y=-0.2))
         figs["Fall of wickets"] = ff
+
+    # dot balls and maiden overs by bowler (both innings; limited-overs and Test)
+    rows = [
+        {"bowler": b["bowler"], "side": i["bowling_team"], "dots": b.get("dots"), "maidens": b.get("m"), "overs": b.get("overs"), "inn": i["n"]}
+        for i in pl["innings"]
+        if not i["super_over"]
+        for b in i["bowling"]
+    ]
+    bd = pd.DataFrame(rows)
+    if len(bd) and bd["dots"].notna().any():
+        top = bd.dropna(subset=["dots"]).sort_values("dots").tail(14)
+        sides = list(dict.fromkeys(bd["side"]))
+        f = go.Figure()
+        for k, side in enumerate(sides):
+            t = top[top["side"] == side]
+            f.add_trace(go.Bar(y=[f"{b} ({i})" if pl["format"] == "Test" else b for b, i in zip(t["bowler"], t["inn"], strict=True)], x=t["dots"], orientation="h", name=side, marker_color=_INN_COLORS[k % len(_INN_COLORS)], hovertemplate="%{y}: %{x} dot balls<extra>" + side + "</extra>"))
+        f.update_layout(title="Dot balls by bowler (balls conceding no run)", xaxis_title="Dot balls", height=max(340, 28 * len(top) + 120), barmode="stack", legend=dict(orientation="h", y=-0.18))
+        figs["Dot balls"] = f
+    if len(bd) and bd["maidens"].fillna(0).sum() > 0:
+        top = bd[bd["maidens"].fillna(0) > 0].sort_values("maidens")
+        f = go.Figure()
+        for k, side in enumerate(dict.fromkeys(bd["side"])):
+            t = top[top["side"] == side]
+            if len(t):
+                f.add_trace(go.Bar(y=[f"{b} ({i})" if pl["format"] == "Test" else b for b, i in zip(t["bowler"], t["inn"], strict=True)], x=t["maidens"], orientation="h", name=side, marker_color=_INN_COLORS[k % len(_INN_COLORS)], hovertemplate="%{y}: %{x} maidens<extra>" + side + "</extra>"))
+        f.update_layout(title="Maiden overs by bowler", xaxis_title="Maiden overs", height=max(300, 30 * len(top) + 110), barmode="stack", legend=dict(orientation="h", y=-0.2), xaxis=dict(dtick=1))
+        figs["Maidens"] = f
+    elif len(bd):
+        f = go.Figure()
+        f.add_annotation(text="No maiden overs in this match", showarrow=False, font=dict(size=16))
+        f.update_layout(title="Maiden overs by bowler", height=240, xaxis=dict(visible=False), yaxis=dict(visible=False))
+        figs["Maidens"] = f
 
     # chase: required vs actual run rate (limited-overs chases with a known target)
     mo = LIMITED_OVERS.get(pl["format"])

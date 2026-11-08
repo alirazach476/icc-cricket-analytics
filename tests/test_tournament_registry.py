@@ -15,19 +15,19 @@ from src.discovery.tournament_registry import (
 )
 
 
-def test_load_registry_has_sixteen_unique_ids() -> None:
+def test_load_registry_has_seventeen_unique_ids() -> None:
     registry = load_tournament_registry()
     ids = [t.tournament_id for t in registry.tournaments]
-    assert len(ids) == 16
+    assert len(ids) == 17
     assert set(ids) == EXPECTED_TOURNAMENT_IDS
 
 
 def test_registry_summary() -> None:
     summary = load_tournament_registry().summary()
-    assert summary["odi"] == 6
+    assert summary["odi"] == 7
     assert summary["t20"] == 10
-    assert summary["completed"] == 16
-    assert summary["with_source_url"] == 16
+    assert summary["completed"] == 17
+    assert summary["with_source_url"] == 17
     assert summary["match_counts_verified"] == 0
 
 
@@ -53,7 +53,7 @@ def test_t20_2026_marked_completed_with_winner() -> None:
 
 def test_by_format_filters() -> None:
     registry = load_tournament_registry()
-    assert len(registry.by_format("ODI")) == 6
+    assert len(registry.by_format("ODI")) == 7
     assert len(registry.by_format("T20")) == 10
 
 
@@ -66,9 +66,9 @@ def test_duplicate_tournament_id_rejected() -> None:
 def test_out_of_scope_id_rejected() -> None:
     with pytest.raises(ValidationError):
         TournamentRecord(
-            tournament_id="ODI_M_1999",
+            tournament_id="ODI_M_2002",
             tournament_name="Out of scope",
-            year=1999,
+            year=2002,
             format="ODI",
             gender="Men",
         )

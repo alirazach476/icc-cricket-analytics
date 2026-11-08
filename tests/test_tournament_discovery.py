@@ -34,8 +34,8 @@ def test_parse_tournament_fixture() -> None:
 
 def test_dry_run_discovery_does_not_http() -> None:
     report = discover_tournaments(live=False)
-    assert report["total_targeted"] == 16
-    assert report["summary"]["dry_run"] == 16
+    assert report["total_targeted"] == 17
+    assert report["summary"]["dry_run"] == 17
     assert report["collector_stopped"] is False
 
 

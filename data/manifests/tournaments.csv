@@ -1,10 +1,11 @@
 tournament_id,tournament_name,year,format,gender,host_country,start_date,end_date,winner,runner_up,number_of_teams,number_of_matches,source_url,collection_status,completion_status
+ODI_M_1999,ICC Cricket World Cup 1999,1999,ODI,Men,England; Ireland; Netherlands; Scotland; Wales,1999-05-14,1999-06-20,Australia,Pakistan,12,,https://www.espncricinfo.com/series/icc-world-cup-1999-61046,not_started,completed
 ODI_M_2003,ICC Cricket World Cup 2003,2003,ODI,Men,South Africa; Kenya; Zimbabwe,2003-02-09,2003-03-23,Australia,India,14,,https://www.espncricinfo.com/series/icc-world-cup-2002-03-61124,not_started,completed
 ODI_M_2007,ICC Cricket World Cup 2007,2007,ODI,Men,West Indies,2007-03-13,2007-04-28,Australia,Sri Lanka,16,,https://www.espncricinfo.com/series/icc-world-cup-2006-07-125929,not_started,completed
 ODI_M_2011,ICC Cricket World Cup 2011,2011,ODI,Men,India; Sri Lanka; Bangladesh,2011-02-19,2011-04-02,India,Sri Lanka,14,,https://www.espncricinfo.com/series/icc-cricket-world-cup-2010-11-381449,not_started,completed
 ODI_M_2015,ICC Cricket World Cup 2015,2015,ODI,Men,Australia; New Zealand,2015-02-14,2015-03-29,Australia,New Zealand,14,,https://www.espncricinfo.com/series/icc-cricket-world-cup-2014-15-509587,not_started,completed
-ODI_M_2019,ICC Cricket World Cup 2019,2019,ODI,Men,England; Wales,2019-05-30,2019-07-14,England,New Zealand,10,,https://www.espncricinfo.com/series/icc-cricket-world-cup-2019-1144415,not_started,completed
-ODI_M_2023,ICC Cricket World Cup 2023,2023,ODI,Men,India,2023-10-05,2023-11-19,Australia,India,10,,https://www.espncricinfo.com/series/icc-cricket-world-cup-2023-24-1367856,not_started,completed
+ODI_M_2019,ICC Cricket World Cup 2019,2019,ODI,Men,England; Wales,2019-05-30,2019-07-14,England,New Zealand,10,,https://www.espncricinfo.com/series/icc-cricket-world-cup-2019-1144415,failed,completed
+ODI_M_2023,ICC Cricket World Cup 2023,2023,ODI,Men,India,2023-10-05,2023-11-19,Australia,India,10,,https://www.espncricinfo.com/series/icc-cricket-world-cup-2023-24-1367856,failed,completed
 T20_M_2007,ICC World Twenty20 2007,2007,T20,Men,South Africa,2007-09-11,2007-09-24,India,Pakistan,12,,https://www.espncricinfo.com/series/icc-world-twenty20-2007-08-286109,not_started,completed
 T20_M_2009,ICC World Twenty20 2009,2009,T20,Men,England,2009-06-05,2009-06-21,Pakistan,Sri Lanka,12,,https://www.espncricinfo.com/series/icc-world-twenty20-2009-335113,not_started,completed
 T20_M_2010,ICC World Twenty20 2010,2010,T20,Men,West Indies,2010-04-30,2010-05-16,England,Australia,12,,https://www.espncricinfo.com/series/icc-world-twenty20-2010-412671,not_started,completed

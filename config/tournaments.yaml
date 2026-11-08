@@ -1,4 +1,4 @@
-# Tournament registry — Men's ICC ODI & T20 World Cups only (16 editions)
+# Tournament registry — Men's ICC ODI & T20 World Cups only (17 editions)
 #
 # Tournament-level metadata below is filled from publicly documented ICC /
 # major cricket reference sources (hosts, winners, dates, team counts).
@@ -10,6 +10,7 @@ scope:
   formats: [ODI, T20]
   gender: Men
   allowed_tournament_ids:
+    - ODI_M_1999
     - ODI_M_2003
     - ODI_M_2007
     - ODI_M_2011
@@ -29,6 +30,23 @@ scope:
 
 tournaments:
   # --- Men's ODI World Cup ---
+  - tournament_id: ODI_M_1999
+    tournament_name: ICC Cricket World Cup 1999
+    year: 1999
+    format: ODI
+    gender: Men
+    host_country: England; Ireland; Netherlands; Scotland; Wales
+    start_date: "1999-05-14"
+    end_date: "1999-06-20"
+    winner: Australia
+    runner_up: Pakistan
+    number_of_teams: 12
+    number_of_matches: null
+    source_url: "https://www.espncricinfo.com/series/icc-world-cup-1999-61046"
+    collection_status: not_started
+    completion_status: completed
+    metadata_notes: "Tournament-level facts from public cricket references; match count pending discovery. No ball-by-ball exists in any open source for 1999 (scorecards only)."
+
   - tournament_id: ODI_M_2003
     tournament_name: ICC Cricket World Cup 2003
     year: 2003

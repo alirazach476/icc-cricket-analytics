@@ -25,10 +25,10 @@ _HOME = {
         "CricketWorldCup Analytics",
         "Every men's ODI and T20 World Cup in one place: matches, players, squads, ball-by-ball, statistics and predictive models.",
         [
-            "ODI 2003-2023",
+            "ODI 1999-2023",
             "T20 2007-2026",
             "ESPNcricinfo + Cricsheet",
-            "ball-by-ball for 75% of matches",
+            "ball-by-ball for 85% of played matches",
         ],
     ),
     "ct": (
@@ -264,7 +264,7 @@ if setup(_h[0], "🏏", _h[1], _h[2]):
             width="stretch",
         )
 
-    section("Hall of fame", "Career leaders across all editions in the data (ODI from 2003).")
+    section("Hall of fame", "Career leaders across all editions in the data (ODI from 1999).")
     fmt = st.radio("Format", Q.formats(), horizontal=True)
     a, b = st.columns(2)
     with a:

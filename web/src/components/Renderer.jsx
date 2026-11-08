@@ -7,6 +7,7 @@ import Graphviz from './Graphviz.jsx'
 import Widget from './Widgets.jsx'
 import { WithFlag } from './Flag.jsx'
 import MatchCentre from './MatchCentre.jsx'
+import Fixtures from './Fixtures.jsx'
 
 const ALERT_ICON = { info: Info, warning: AlertTriangle, error: XCircle, success: CheckCircle2 }
 
@@ -69,6 +70,7 @@ export function Node({ n, ctx }) {
     case 'plot': return <Plot fig={n.fig} />
     case 'table': return <Table node={n} />
     case 'graphviz': return <div className="plotcard"><Graphviz src={n.src} /></div>
+    case 'fixtures': return <Fixtures data={n.data} />
     case 'matchcentre': return <MatchCentre d={n.data} />
     case 'w': return <Widget w={n} onChange={ctx.setWidget} />
     default: return null

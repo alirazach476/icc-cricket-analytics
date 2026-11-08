@@ -147,3 +147,65 @@ def wilson(k: int, n: int, z: float = 1.96) -> tuple[float, float, float]:
 def tournament_id_of(match_id: str) -> str | None:
     d = run("select tournament_id from gold.fact_matches where match_id = ?", (match_id,))
     return None if d.empty else d.iloc[0, 0]
+
+
+def fixtures(tid: str) -> list[dict]:
+    """Every match of a tournament as a broadcast-style fixture record (scores only where they were played)."""
+    m = run(
+        "select m.match_id, cast(m.match_date as varchar) as date, m.stage, m.group_name, m.match_number, t1.team_name as team1, t2.team_name as team2, "
+        "w.team_name as winner, m.margin_type, m.margin_value, m.result_type, m.is_completed, m.is_tie, m.is_dls, m.has_ball_by_ball, "
+        "v.venue_name as venue, v.city as city from gold.fact_matches m join gold.dim_teams t1 on t1.team_id = m.team1_id "
+        "join gold.dim_teams t2 on t2.team_id = m.team2_id left join gold.dim_teams w on w.team_id = m.winner_id "
+        "left join gold.dim_venues v on v.venue_id = m.venue_id where m.tournament_id = ? order by m.match_date, m.match_number, m.match_id",
+        (tid,),
+    )
+    inn = run(
+        "select i.match_id, i.batting_team as team, i.total_runs as runs, i.wickets, i.legal_balls as lb, i.overs "
+        "from gold.fact_innings i where i.tournament_id = ? and not i.is_super_over order by i.match_id, i.innings_number",
+        (tid,),
+    )
+    by: dict[str, dict[str, list[dict]]] = {}
+    for r in inn.to_dict("records"):
+        lb = r["lb"]
+        ov = f"{int(lb) // 6}.{int(lb) % 6}" if lb == lb and lb else (str(r["overs"]) if r["overs"] == r["overs"] else None)
+        by.setdefault(r["match_id"], {}).setdefault(r["team"], []).append({"runs": int(r["runs"]), "wickets": int(r["wickets"]), "overs": ov})
+    out = []
+    for r in m.to_dict("records"):
+        rt, mt = str(r["result_type"] or ""), r["margin_type"]
+        if mt == "abandoned" or rt == "ABANDONED":
+            status, result = "Abandoned", "Match abandoned"
+        elif mt == "no_result" or rt == "NO RESULT":
+            status, result = "No result", "No result"
+        elif not r["is_completed"]:
+            status, result = "Upcoming", "Scheduled"
+        elif mt == "walkover":
+            status, result = "Walkover", f"{r['winner']} won by walkover"
+        elif r["is_tie"] or mt == "tie":
+            status, result = "Tied", "Match tied" + (f" · {r['winner']} won the tie-break" if r["winner"] else "")
+        elif r["winner"] and mt in ("runs", "wickets") and r["margin_value"] == r["margin_value"]:
+            n = int(r["margin_value"])
+            status, result = "Completed", f"{r['winner']} won by {n} {mt[:-1] if n == 1 else mt}" + (" (DLS)" if r["is_dls"] else "")
+        elif r["winner"]:
+            status, result = "Completed", f"{r['winner']} won"
+        elif mt == "draw":
+            status, result = "Completed", "Match drawn"
+        else:
+            status, result = "Completed", "Result not recorded"
+        sc = by.get(r["match_id"], {})
+        out.append(
+            {
+                "id": r["match_id"],
+                "date": r["date"][:10],
+                "stage": r["stage"],
+                "group": r["group_name"] if r["group_name"] == r["group_name"] else None,
+                "no": None if r["match_number"] is None or r["match_number"] != r["match_number"] else int(r["match_number"]),
+                "venue": r["venue"],
+                "city": r["city"],
+                "status": status,
+                "result": result,
+                "winner": r["winner"],
+                "bbb": bool(r["has_ball_by_ball"]),
+                "teams": [{"name": n, "innings": sc.get(n, [])} for n in (r["team1"], r["team2"])],
+            }
+        )
+    return out

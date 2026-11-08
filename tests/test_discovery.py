@@ -4,9 +4,9 @@ from src.discovery import EXPECTED_TOURNAMENT_IDS, load_tournament_registry
 from src.utils.config import load_tournaments
 
 
-def test_tournament_registry_has_exactly_sixteen_editions() -> None:
+def test_tournament_registry_has_exactly_seventeen_editions() -> None:
     tournaments = load_tournaments()
-    assert len(tournaments) == 16
+    assert len(tournaments) == 17
 
 
 def test_tournament_ids_are_unique() -> None:

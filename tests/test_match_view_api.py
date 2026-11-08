@@ -53,7 +53,7 @@ def test_every_competition_returns_a_branded_scoreboard(probe: dict) -> None:
 
 
 def test_ball_by_ball_matches_come_with_charts_and_abandoned_ones_do_not(probe: dict) -> None:
-    assert probe["wc"]["groups"] == ["Progression", "Overs and wickets", "Innings and chase", "Partnerships and wickets"] and probe["wc"]["figs"] >= 7
+    assert probe["wc"]["groups"] == ["Progression", "Overs and wickets", "Innings and chase", "Partnerships and wickets", "Bowling"] and probe["wc"]["figs"] >= 9
     assert probe["ct"]["kind"] == "abandoned" and probe["ct"]["figs"] == 0
 
 

@@ -350,7 +350,7 @@ def test_gold_facts_have_unique_keys_and_no_orphans() -> None:
     players = set(read_gold(ROOT, "dim_players")["player_id"])
     teams = set(read_gold(ROOT, "dim_teams")["team_id"])
     assert not fp.duplicated(["match_id", "player_id"]).any()
-    assert fm["match_id"].is_unique and len(fm) == 677
+    assert fm["match_id"].is_unique and len(fm) == 719
     assert set(fp["player_id"]) <= players
     assert set(fm["team1_id"]) | set(fm["team2_id"]) | set(fm["winner_id"].dropna()) <= teams
 
@@ -395,6 +395,7 @@ def test_bowl_out_winner_comes_from_evidenced_override_and_other_ties_stay_open(
     assert sorted(open_ties) == [
         "247461",
         "433568",
+        "65233",  # 1999 semi-final: tied; Australia went through on Super Six position, not a tie-break
         "65272",
     ]  # genuine ties with no tie-break in the data
     assert (m["winner_source"] == "manual_override").sum() == 1
@@ -421,14 +422,14 @@ def test_venues_are_merged_for_renamed_grounds_and_variants_are_kept() -> None:
     from src.transformations.gold import read_gold
 
     v = read_gold(ROOT, "dim_venues").set_index("venue_name")
-    assert len(v) == 79 and v["possible_duplicate_of"].isna().all()
+    assert len(v) == 91 and v["possible_duplicate_of"].isna().all()
     assert "Feroz Shah Kotla" in v.loc["Arun Jaitley Stadium, Delhi", "name_variants"]
     assert v.loc["M Chinnaswamy Stadium, Bengaluru", "matches"] == 13
     assert "Perth Stadium" in v.index and any(
         "Western Australia" in n for n in v.index
     )  # different grounds stay apart
     fm = read_gold(ROOT, "fact_matches")
-    assert fm["venue_id"].notna().all() and fm["venue_id"].nunique() == 79
+    assert fm["venue_id"].notna().all() and fm["venue_id"].nunique() == 91
 
 
 @needs_gold
@@ -436,7 +437,7 @@ def test_every_match_has_ball_by_ball_or_an_explicit_gap_reason() -> None:
     from src.transformations.gold import read_gold
 
     fm = read_gold(ROOT, "fact_matches")
-    assert len(fm) == 677
+    assert len(fm) == 719
     assert not (fm["has_ball_by_ball"] & fm["ball_by_ball_gap_reason"].notna()).any()
     assert not (~fm["has_ball_by_ball"] & fm["ball_by_ball_gap_reason"].isna()).any()
     reasons = fm["ball_by_ball_gap_reason"].value_counts().to_dict()
@@ -447,7 +448,7 @@ def test_every_match_has_ball_by_ball_or_an_explicit_gap_reason() -> None:
     }
     cov = read_gold(ROOT, "mart_data_coverage")
     assert (
-        len(cov) == 16
+        len(cov) == 17
         and (cov["teams"] == cov["teams_with_squad"]).all()
         and cov["has_player_of_tournament"].all()
     )
