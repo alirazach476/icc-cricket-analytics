@@ -21,7 +21,7 @@ function Board({ d, inn, kind }) {
   const ex = inn.extras || {}
   const batters = [...inn.batting].filter((r) => r.runs !== null && r.runs !== undefined)
     .sort((a, b) => b.runs - a.runs).slice(0, 4)
-  const bowlers = [...inn.bowling].sort((a, b) => (b.w || 0) - (a.w || 0) || (a.r || 0) - (b.r || 0)).slice(0, 4)
+  const bowlers = [...inn.bowling].sort((a, b) => (b.w || 0) - (a.w || 0) || (a.runs || 0) - (b.runs || 0)).slice(0, 4)
   const ed = d.edition
   const total = `${inn.runs}${inn.wickets !== null && inn.wickets < 10 ? `-${inn.wickets}` : ''}`
   return (
@@ -52,8 +52,8 @@ function Board({ d, inn, kind }) {
             {bowlers.slice(0, 3).map((r) => (
               <div className="tv-row" key={r.bowler}>
                 <span>{short(r.bowler)}</span>
-                <b>{r.w}-{r.r}</b>
-                <i>{r.o}</i>
+                <b>{r.w}-{r.runs}</b>
+                <i>{r.overs}</i>
               </div>
             ))}
           </div>
@@ -63,7 +63,7 @@ function Board({ d, inn, kind }) {
             <tbody>
               {inn.bowling.slice(0, 6).map((r) => (
                 <tr key={r.bowler}>
-                  <td>{short(r.bowler)}</td><td>{r.o}</td><td>{r.m ?? '–'}</td><td>{r.r}</td><td>{r.w}</td>
+                  <td>{short(r.bowler)}</td><td>{r.overs}</td><td>{r.m ?? '–'}</td><td>{r.runs}</td><td>{r.w}</td>
                   <td>{r.econ !== null && r.econ !== undefined ? Number(r.econ).toFixed(2) : '–'}</td>
                 </tr>
               ))}
@@ -91,10 +91,10 @@ export default function TvBoards({ d }) {
   return (
     <section className="tvwrap" aria-label="Broadcast scoreboards">
       {inns.slice(0, 2).map((i) => (
-        <React.Fragment key={i.n}>
+        <div className="tvpair" key={i.n}>
           <Board d={d} inn={i} kind="bat" />
           {i.bowling && i.bowling.length > 0 && <Board d={d} inn={i} kind="bowl" />}
-        </React.Fragment>
+        </div>
       ))}
     </section>
   )

@@ -1,5 +1,8 @@
 /* TV-graphic scoreboards in the tournament's own colours */
-.tvwrap { display: grid; grid-template-columns: repeat(auto-fit, minmax(330px, 1fr)); gap: 18px; margin: 18px 0; }
+.tvwrap { display: grid; gap: 22px; margin: 18px 0; }
+.tvpair { display: grid; grid-template-columns: repeat(auto-fit, minmax(360px, 1fr)); gap: 18px; }
+.tv-tot, .tv-ex, .tv-ov, .tv-tag { white-space: nowrap; }
+.tv-bowl th, .tv-bowl td { white-space: nowrap; }
 .tv { font-family: inherit; }
 .tv-flags { display: flex; justify-content: center; align-items: center; gap: 10px; margin-bottom: 6px; }
 .tv-stage { background: var(--tertiary); color: #11161f; font-weight: 800; font-size: 11px; letter-spacing: .12em; padding: 4px 22px; clip-path: polygon(10px 0, calc(100% - 10px) 0, 100% 100%, 0 100%); }
@@ -27,3 +30,11 @@
 .tv-ex, .tv-ov { font-size: 15px; } .tv-foot small { font-size: 10px; letter-spacing: .06em; }
 .tv-tot { background: var(--tertiary); color: #11161f; font-size: 26px; padding: 6px 22px 6px 34px; clip-path: polygon(16px 0, 100% 0, 100% 100%, 0 100%); }
 .tv-result { margin-top: 6px; text-align: center; background: color-mix(in srgb, var(--secondary) 80%, #000); color: #fff; font-weight: 800; letter-spacing: .06em; font-size: 13px; padding: 7px; text-transform: uppercase; border-radius: 0 0 6px 6px; }
+
+/* broadcast fixture cards in the match picker */
+.mp-item { padding-left: 52px !important; border-left: 4px solid var(--primary) !important; background: linear-gradient(100deg, color-mix(in srgb, var(--primary) 14%, var(--panel2)), var(--panel2) 55%) !important; }
+.mp-no { position: absolute; left: 0; top: 0; bottom: 0; width: 40px; display: grid; place-content: center; text-align: center; font-weight: 900; font-size: 16px; background: linear-gradient(180deg, var(--primary), color-mix(in srgb, var(--primary) 55%, #000)); color: #fff; border-radius: 8px 0 0 8px; line-height: 1; }
+.mp-no small { font-size: 9px; letter-spacing: .12em; opacity: .75; margin-bottom: 2px; }
+.mp-teams b { opacity: .78; } .mp-teams b.w { opacity: 1; color: var(--tertiary); }
+.mp-result { display: inline-block; justify-self: start; background: color-mix(in srgb, var(--tertiary) 18%, transparent); padding: 1px 9px; border-radius: 999px; font-weight: 700; }
+.mp-item .mp-tag { top: auto !important; bottom: 8px; right: 10px; }
