@@ -86,7 +86,6 @@ if setup(
         if centre:
             # the premium match centre (React dashboard); the classic charts and tables stay below
             pl = MC.payload(mid)
-            centre(pl)
             figs = MC.charts(mid, pl) if pl and pl["has_ball_by_ball"] else {}
             if figs:
                 st.markdown("### Match analysis")
@@ -105,6 +104,7 @@ if setup(
                         for col, n in zip(cols, names_, strict=True):
                             with col:
                                 st.plotly_chart(figs[n], width="stretch")
+            centre(pl)  # the scoreboard and scorecards sit below the analysis
             box = st.expander("Classic charts and tables")
         else:
             box = contextlib.nullcontext()
