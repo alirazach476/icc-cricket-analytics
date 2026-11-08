@@ -541,6 +541,7 @@ def payload(mid: str) -> dict | None:
         "stage": h.get("stage"),
         "group": h.get("group_name"),
         "match_number": _num(h.get("match_number")),
+        "match_total": int(run("select count(*) n from gold.fact_matches where tournament_id = ?", (h["tournament_id"],)).iloc[0, 0]),
         "date": _py(h["match_date"]),
         "venue": h.get("venue"),
         "city": None if (h.get("venue_city") and str(h.get("venue") or "").endswith(str(h["venue_city"]))) else h.get("venue_city"),

@@ -110,7 +110,7 @@ function Hero({ d }) {
         <span className="sb-tournament">{d.tournament}</span>
         {d.stage && <em>{d.stage}</em>}
         {d.match_number && <span>Match {d.match_number}</span>}
-        {d.group && <span>{d.group}</span>}
+        {d.group && !/^overall$/i.test(d.group) && <span>{d.group}</span>}
         <span className="fmt">{d.format}</span>
         <span className={`mc-status s-${d.status.toLowerCase().replace(/\s/g, '-')}`}>{d.status}</span>
       </div>

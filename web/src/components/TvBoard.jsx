@@ -12,6 +12,7 @@ export function hashtag(d) {
   return ''
 }
 
+const fshort = (t) => t.replace(/^(c & |c |st |run out ?\(?)(.*)$/, (_, p, n) => p + (n.trim().split(' ').slice(-1)[0] || '').toUpperCase().replace(/\)$/, ''))
 const short = (name) => (name || '').split(' ').slice(-1)[0].toUpperCase()
 
 function Board({ d, inn, kind }) {
@@ -23,12 +24,13 @@ function Board({ d, inn, kind }) {
     .sort((a, b) => b.runs - a.runs).slice(0, 4)
   const bowlers = [...inn.bowling].sort((a, b) => (b.w || 0) - (a.w || 0) || (a.runs || 0) - (b.runs || 0)).slice(0, 4)
   const ed = d.edition
+  const topRuns = Math.max(0, ...inn.batting.map((r) => r.runs ?? 0))
   const total = `${inn.runs}${inn.wickets !== null && inn.wickets < 10 ? `-${inn.wickets}` : ''}`
   return (
     <div className="tv">
       <div className="tv-flags">
         <Flag team={bat} h={22} />
-        <span className="tv-stage">{(d.stage || d.format).toUpperCase()}{d.match_number ? ` · MATCH ${d.match_number}` : ''}</span>
+        <span className="tv-stage">{d.match_number ? `MATCH ${d.match_number}${d.match_total ? ` OF ${d.match_total}` : ''}` : (d.stage || d.format).toUpperCase()}</span>
         <Flag team={bowl} h={22} />
       </div>
       <div className="tv-body">
@@ -39,23 +41,23 @@ function Board({ d, inn, kind }) {
         </div>
         <div className="tv-venue">{(d.city || d.venue || '').toUpperCase()}</div>
         {kind === 'bat' ? (
-          <div className="tv-rows">
-            <div className="tv-sec bat">{total}</div>
-            {batters.map((r) => (
-              <div className="tv-row" key={r.batter}>
-                <span>{short(r.batter)}</span>
-                <b>{r.runs}{r.how && /not out/i.test(r.how) ? '*' : ''}</b>
-                <i>{r.balls ?? '–'}</i>
-              </div>
-            ))}
-            <div className="tv-sec ball">{inn.overs} OVERS</div>
-            {bowlers.slice(0, 3).map((r) => (
-              <div className="tv-row" key={r.bowler}>
-                <span>{short(r.bowler)}</span>
-                <b>{r.w}-{r.runs}</b>
-                <i>{r.overs}</i>
-              </div>
-            ))}
+          <div className="tv-card">
+            {inn.batting.map((r, i) => {
+              const out = r.how && !/not out|retired hurt|^$/i.test(r.how)
+              const m = out ? r.how.match(/^(.*?)\s+b\s+(.+)$/) : null
+              const field = m ? m[1].replace(/^c & /, 'c & ') : out ? r.how : ''
+              const hot = !out || (i === 0 && false)
+              return (
+                <div className={`tv-bat ${r.runs === topRuns && topRuns > 0 ? 'top' : ''} ${!out ? 'live' : ''}`} key={i}>
+                  <span className="n">{short(r.batter)}</span>
+                  <span className="f">{m ? fshort(m[1]) : (out && !/^b /.test(r.how) ? r.how : '')}</span>
+                  <span className="bw">{m ? `b ${short(m[2])}` : /^b /.test(r.how || '') ? `b ${short(r.how.slice(2))}` : (!out ? (r.how || '') : '')}</span>
+                  <b>{r.runs ?? '–'}</b>
+                  <i>{r.balls ?? ''}</i>
+                </div>
+              )
+            })}
+            {inn.batting.length < 11 && <div className="tv-dnb">{11 - inn.batting.length} yet to bat or did not bat</div>}
           </div>
         ) : (
           <table className="tv-bowl">
