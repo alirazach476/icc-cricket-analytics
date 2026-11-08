@@ -4,6 +4,7 @@ import Flag from './Flag.jsx'
 import { teamColor } from '../teamColors.js'
 import { mix } from '../theme.js'
 import Portrait from './Portrait.jsx'
+import TvBoards from './TvBoard.jsx'
 
 const dash = (v) => (v === null || v === undefined || v === '' ? '–' : v)
 const fmtDate = (d) => {
@@ -455,6 +456,7 @@ export default function MatchCentre({ d }) {
   return (
     <div className="matchcentre">
       <Hero d={view} />
+      <TvBoards d={view} />
       {view.innings.length === 0 && (
         <div className="mc-card"><div className="mc-empty"><Trophy size={16} /> No innings were played in this match, so there is no scorecard.</div></div>
       )}

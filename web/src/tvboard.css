@@ -1,0 +1,29 @@
+/* TV-graphic scoreboards in the tournament's own colours */
+.tvwrap { display: grid; grid-template-columns: repeat(auto-fit, minmax(330px, 1fr)); gap: 18px; margin: 18px 0; }
+.tv { font-family: inherit; }
+.tv-flags { display: flex; justify-content: center; align-items: center; gap: 10px; margin-bottom: 6px; }
+.tv-stage { background: var(--tertiary); color: #11161f; font-weight: 800; font-size: 11px; letter-spacing: .12em; padding: 4px 22px; clip-path: polygon(10px 0, calc(100% - 10px) 0, 100% 100%, 0 100%); }
+.tv-body { background: #f4f1fb; color: #1a1030; border: 3px solid var(--secondary); border-radius: 6px; overflow: hidden; box-shadow: 0 16px 36px rgba(0, 0, 0, .4); position: relative; }
+.tv-title { display: grid; grid-template-columns: 1fr auto 1fr; align-items: center; gap: 10px; padding: 8px 14px; font-weight: 900; font-size: 18px; letter-spacing: .03em; }
+.tv-side { color: var(--primary); text-align: center; opacity: .55; }
+.tv-side.on { opacity: 1; }
+.tv-logo { height: 46px; width: auto; filter: drop-shadow(0 2px 4px rgba(0, 0, 0, .25)); }
+.tv-venue { background: var(--primary); color: #fff; text-align: center; font-size: 11px; font-weight: 700; letter-spacing: .14em; padding: 3px; }
+.tv-rows { padding: 10px 12px; background: repeating-linear-gradient(#fff 0 30px, #ece7f8 30px 31px); }
+.tv-sec { display: flex; align-items: center; padding: 5px 14px; margin: 4px -4px; font-weight: 900; font-size: 20px; color: #fff; border-radius: 4px; background: linear-gradient(90deg, #17a6d8, #4cc3ee); }
+.tv-sec.ball { background: linear-gradient(90deg, #17a6d8, #4cc3ee); font-size: 16px; letter-spacing: .06em; margin-top: 8px; }
+.tv-sec.bat { background: linear-gradient(90deg, var(--primary), color-mix(in srgb, var(--primary) 70%, #fff)); }
+.tv-row { display: grid; grid-template-columns: 1fr 64px 44px; align-items: center; padding: 3px 8px; font-weight: 800; letter-spacing: .02em; }
+.tv-row b { text-align: right; color: var(--primary); font-size: 17px; }
+.tv-row i { text-align: right; font-style: normal; font-size: 13px; opacity: .65; font-weight: 700; }
+.tv-bowl { width: 100%; border-collapse: collapse; padding: 6px; font-weight: 800; }
+.tv-bowl th { color: var(--secondary); font-size: 10.5px; letter-spacing: .08em; padding: 6px 4px; text-align: center; }
+.tv-bowl td { text-align: center; padding: 5px 4px; border-bottom: 1px solid #e3dcf3; font-size: 14px; }
+.tv-bowl td:first-child { text-align: left; padding-left: 14px; }
+.tv-fow { display: flex; gap: 14px; align-items: center; background: #e6177f; color: #fff; padding: 5px 14px; font-size: 12px; font-weight: 800; }
+.tv-fow b { letter-spacing: .1em; margin-right: auto; }
+.tv-foot { display: flex; align-items: center; gap: 16px; background: #17a6d8; color: #fff; font-weight: 900; padding: 0 0 0 14px; }
+.tv-tag { margin-right: auto; font-size: 16px; }
+.tv-ex, .tv-ov { font-size: 15px; } .tv-foot small { font-size: 10px; letter-spacing: .06em; }
+.tv-tot { background: var(--tertiary); color: #11161f; font-size: 26px; padding: 6px 22px 6px 34px; clip-path: polygon(16px 0, 100% 0, 100% 100%, 0 100%); }
+.tv-result { margin-top: 6px; text-align: center; background: color-mix(in srgb, var(--secondary) 80%, #000); color: #fff; font-weight: 800; letter-spacing: .06em; font-size: 13px; padding: 7px; text-transform: uppercase; border-radius: 0 0 6px 6px; }
