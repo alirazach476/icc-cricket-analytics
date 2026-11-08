@@ -355,6 +355,32 @@ def neighbours(mid: str, tid: str) -> dict:
     return {"prev": pick(i - 1), "next": pick(i + 1)}
 
 
+def _lineups(mid: str, h: dict) -> list[dict]:
+    """Players recorded for each side (the playing XI plus any recorded substitute)."""
+    df = run(
+        "select p.team_id, p.player_id, d.full_name, p.batting_position, p.did_bat, p.runs, p.balls_faced, p.is_out, "
+        "p.did_bowl, p.balls_bowled, p.wickets, p.runs_conceded, p.catches, p.stumpings, p.run_outs "
+        "from gold.fact_player_performances p left join gold.dim_players d on d.player_id = p.player_id where p.match_id = ?",
+        (mid,),
+    )
+    out = []
+    for tid, name in ((h["team1_id"], h["t1n"]), (h["team2_id"], h["t2n"])):
+        g = df[df["team_id"] == tid].copy()
+        g["_o"] = g["batting_position"].fillna(99)
+        g = g.sort_values(["_o", "full_name"])
+        players = []
+        for r in g.itertuples():
+            players.append({
+                "name": r.full_name or str(r.player_id),
+                "pos": _num(r.batting_position),
+                "bat": f"{int(r.runs)}{'' if r.is_out else '*'} ({int(r.balls_faced)})" if r.did_bat and _num(r.runs) is not None else ("did not bat" if not r.did_bat else None),
+                "bowl": f"{int(r.wickets or 0)}/{int(r.runs_conceded)} ({cricket_overs(int(r.balls_bowled))})" if r.did_bowl and _num(r.balls_bowled) is not None and _num(r.runs_conceded) is not None else None,
+                "field": int((r.catches or 0) + (r.stumpings or 0) + (r.run_outs or 0)) or None,
+            })
+        out.append({"team": name, "players": players})
+    return out
+
+
 def payload(mid: str) -> dict | None:
     h = header(mid)
     if not h:
@@ -542,6 +568,7 @@ def payload(mid: str) -> dict | None:
         "group": h.get("group_name"),
         "match_number": _num(h.get("match_number")),
         "match_total": int(run("select count(*) n from gold.fact_matches where tournament_id = ?", (h["tournament_id"],)).iloc[0, 0]),
+        "lineups": _lineups(mid, h),
         "date": _py(h["match_date"]),
         "venue": h.get("venue"),
         "city": None if (h.get("venue_city") and str(h.get("venue") or "").endswith(str(h["venue_city"]))) else h.get("venue_city"),

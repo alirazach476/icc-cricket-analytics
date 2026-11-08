@@ -450,6 +450,38 @@ function Info_({ d }) {
   )
 }
 
+function PlayingXI({ d }) {
+  const L = (d.lineups || []).filter((t) => t.players.length)
+  if (!L.length) return null
+  return (
+    <section className="mc-section">
+      <h3 className="mc-h">Playing XI</h3>
+      <div className="xi-grid">
+        {L.map((t) => (
+          <div className="mc-card sc xi" key={t.team} style={{ '--sc': teamColor(t.team) }}>
+            <div className="sc-head">
+              <Flag team={t.team} h={20} />
+              <span className="sc-team">{t.team}</span>
+              <span className="sc-total">{t.players.length} <small>players</small></span>
+            </div>
+            <ol className="xi-list">
+              {t.players.map((p, i) => (
+                <li key={p.name}>
+                  <span className="ord">{i + 1}</span>
+                  <Portrait name={p.name} team={t.team} />
+                  <b>{p.name}</b>
+                  <span className="xi-stat">{[p.bat, p.bowl ? `bowl ${p.bowl}` : null, p.field ? `${p.field} ct/ro/st` : null].filter(Boolean).join(' · ') || '–'}</span>
+                </li>
+              ))}
+            </ol>
+            {t.players.length !== 11 && <p className="mc-note"><Info size={14} /> {t.players.length} players are recorded for this side{t.players.length > 11 ? ' (including a substitute)' : ', so the full XI is not available'}.</p>}
+          </div>
+        ))}
+      </div>
+    </section>
+  )
+}
+
 export default function MatchCentre({ d }) {
   const view = useMemo(() => d, [d])
   if (!view) return <div className="alert warning">This match could not be loaded.</div>
@@ -461,6 +493,7 @@ export default function MatchCentre({ d }) {
         <div className="mc-card"><div className="mc-empty"><Trophy size={16} /> No innings were played in this match, so there is no scorecard.</div></div>
       )}
       <Stats stats={view.stats} />
+      <PlayingXI d={view} />
       <Scorecard d={view} />
       <BallByBall d={view} />
       <Info_ d={view} />
