@@ -13,10 +13,37 @@ export function hashtag(d) {
   return ''
 }
 
+const Bat = () => (
+  <svg className="tv-ico" viewBox="0 0 24 24" width="20" height="20" aria-label="batting" role="img">
+    <title>Batting</title>
+    <path fill="currentColor" d="M3.2 20.8l-.9-.9 2-4.5 3.4 3.4-4.5 2zM6 14.3l8.5-8.5a3 3 0 0 1 4.2 0l.5.5a3 3 0 0 1 0 4.2L10.7 19 6 14.3z" />
+  </svg>
+)
+const Ball = () => (
+  <svg className="tv-ico" viewBox="0 0 24 24" width="20" height="20" aria-label="bowling" role="img">
+    <title>Bowling</title>
+    <circle cx="12" cy="12" r="9" fill="currentColor" />
+    <path d="M6 5.5c3 3 3 10 0 13M18 5.5c-3 3-3 10 0 13" fill="none" stroke="#fff" strokeWidth="1.3" strokeDasharray="2 1.6" />
+  </svg>
+)
+
+// full names: a dismissal such as "c Khan b Riaz" only carries surnames, so look the person up among the fielding team's players
+const lastTok = (n) => (n || '').trim().split(' ').slice(-1)[0].toLowerCase()
+function fullFrom(text, pool) {
+  const t = (text || '').trim().replace(/\)$/, '')
+  if (!t) return ''
+  const exact = pool.filter((n) => n.toLowerCase() === t.toLowerCase())
+  if (exact.length === 1) return exact[0]
+  const k = lastTok(t)
+  const hits = pool.filter((n) => lastTok(n) === k)
+  if (hits.length === 1) return hits[0]
+  const sub = hits.filter((n) => n.toLowerCase().includes(t.toLowerCase()))
+  return sub.length === 1 ? sub[0] : t
+}
 const fshort = (t) => t.replace(/^(c & |c |st |run out ?\(?)(.*)$/, (_, p, n) => p + (n.trim().split(' ').slice(-1)[0] || '').toUpperCase().replace(/\)$/, ''))
 const short = (name) => (name || '').split(' ').slice(-1)[0].toUpperCase()
 
-function Board({ d, inn, kind }) {
+function Board({ d, inn, kind, other }) {
   const bat = inn.team.name
   const bowl = inn.bowling_team
   const tag = hashtag(d)
@@ -25,6 +52,9 @@ function Board({ d, inn, kind }) {
     .sort((a, b) => b.runs - a.runs).slice(0, 4)
   const bowlers = [...inn.bowling].sort((a, b) => (b.w || 0) - (a.w || 0) || (a.runs || 0) - (b.runs || 0)).slice(0, 4)
   const ed = d.edition
+  const pool = [...new Set([...(inn.bowling || []).map((r) => r.bowler), ...((other && other.batting) || []).map((r) => r.batter)])].filter(Boolean)
+  const full = (t) => fullFrom(t, pool)
+  const dism = (t) => (t || '').replace(/^(c & |c |st |run out ?\(?)(.*)$/, (_, p, n) => p + full(n))
   const topRuns = Math.max(0, ...inn.batting.map((r) => r.runs ?? 0))
   const total = `${inn.runs}${inn.wickets !== null && inn.wickets < 10 ? `-${inn.wickets}` : ''}`
   return (
@@ -36,9 +66,9 @@ function Board({ d, inn, kind }) {
       </div>
       <div className="tv-body">
         <div className="tv-title">
-          <span className={`tv-side ${kind === 'bat' ? 'on' : ''}`}>{bat.toUpperCase()}</span>
+          <span className={`tv-side ${kind === 'bat' ? 'on' : ''}`}>{kind === 'bat' && <Bat />}{bat.toUpperCase()}</span>
           {ed && <img className="tv-logo" src={ed.logo} alt="" />}
-          <span className={`tv-side ${kind === 'bowl' ? 'on' : ''}`}>{bowl.toUpperCase()}</span>
+          <span className={`tv-side ${kind === 'bowl' ? 'on' : ''}`}>{kind === 'bowl' && <Ball />}{bowl.toUpperCase()}</span>
         </div>
         <div className="tv-venue">{(d.city || d.venue || '').toUpperCase()}</div>
         {kind === 'bat' ? (
@@ -50,9 +80,9 @@ function Board({ d, inn, kind }) {
               const hot = !out || (i === 0 && false)
               return (
                 <div className={`tv-bat ${r.runs === topRuns && topRuns > 0 ? 'top' : ''} ${!out ? 'live' : ''}`} key={i}>
-                  <span className="n">{short(r.batter)}</span>
-                  <span className="f">{m ? fshort(m[1]) : (out && !/^b /.test(r.how) ? r.how : '')}</span>
-                  <span className="bw">{m ? `b ${short(m[2])}` : /^b /.test(r.how || '') ? `b ${short(r.how.slice(2))}` : (!out ? (r.how || '') : '')}</span>
+                  <span className="n">{r.batter}</span>
+                  <span className="f">{m ? dism(m[1]) : (out && !/^b /.test(r.how) ? dism(r.how) : '')}</span>
+                  <span className="bw">{m ? `b ${full(m[2])}` : /^b /.test(r.how || '') ? `b ${full(r.how.slice(2))}` : (!out ? (r.how || '') : '')}</span>
                   <b>{r.runs ?? '–'}</b>
                   <i>{r.balls ?? ''}</i>
                 </div>
@@ -66,7 +96,7 @@ function Board({ d, inn, kind }) {
             <tbody>
               {inn.bowling.slice(0, 6).map((r) => (
                 <tr key={r.bowler}>
-                  <td>{short(r.bowler)}</td><td>{r.overs}</td><td>{r.m ?? '–'}</td><td>{r.runs}</td><td>{r.w}</td>
+                  <td>{r.bowler}</td><td>{r.overs}</td><td>{r.m ?? '–'}</td><td>{r.runs}</td><td>{r.w}</td>
                   <td>{r.econ !== null && r.econ !== undefined ? Number(r.econ).toFixed(2) : '–'}</td>
                 </tr>
               ))}
@@ -93,10 +123,10 @@ export default function TvBoards({ d }) {
   if (!inns.length) return null
   return (
     <section className="tvwrap" aria-label="Broadcast scoreboards">
-      {inns.slice(0, 2).map((i) => (
+      {inns.slice(0, 2).map((i, ix, arr) => (
         <div className="tvpair" key={i.n}>
-          <Board d={d} inn={i} kind="bat" />
-          {i.bowling && i.bowling.length > 0 && <Board d={d} inn={i} kind="bowl" />}
+          <Board d={d} inn={i} kind="bat" other={arr[1 - ix]} />
+          {i.bowling && i.bowling.length > 0 && <Board d={d} inn={i} kind="bowl" other={arr[1 - ix]} />}
         </div>
       ))}
     </section>
