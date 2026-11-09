@@ -932,6 +932,14 @@ def build_competition(code: str, batch: str | None = None) -> dict[str, Any]:
     return {"root": str(root), "rows": {k: int(len(v)) for k, v in out.items()}}
 
 
+def _full_name(ident: Identities, pid: str) -> str | None:
+    extra = (ident.extra_players.get(pid) or {}).get("full_name")
+    if extra:
+        return str(extra)
+    n = ident.display_name(pid)
+    return None if n == pid else n
+
+
 def _add_tournament_awards(
     awards: pd.DataFrame, ident: Identities, code: str, tables: dict
 ) -> pd.DataFrame:
@@ -943,7 +951,7 @@ def _add_tournament_awards(
     names: dict[str, str] = {}
     for key in ("batting", "bowling", "fielding"):
         for r in tables[key]:
-            names.setdefault(r["player_id"], r.get("player_name"))
+            names.setdefault(r["player_id"], r.get("player_name") or (ident.extra_players.get(r["player_id"]) or {}).get("full_name") or ident.display_name(r["player_id"]))
     for r in pd.read_csv(path, dtype=str).itertuples():
         if not str(r.tournament_id).startswith(f"{code}_"):
             continue
@@ -956,8 +964,13 @@ def _add_tournament_awards(
             if len(perf)
             else perf
         )
+        local: dict[str, str] = {}  # the name a player carries in THIS edition (e.g. Yousuf Youhana -> Mohammad Yousuf)
+        for key in ("batting", "bowling", "fielding"):
+            for row in tables[key]:
+                if row["match_id"] in match_ids and row.get("player_name"):
+                    local.setdefault(row["player_id"], row["player_name"])
         roster = [
-            RosterPlayer(pid, nm or "", nm or "", team_id)
+            RosterPlayer(pid, _full_name(ident, pid) or local.get(pid) or nm or "", local.get(pid) or nm or "", team_id)
             for pid, nm in names.items()
             if pid in set(pool["player_id"])
         ]

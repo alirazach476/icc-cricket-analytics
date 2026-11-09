@@ -1,5 +1,5 @@
 {
- "started": "2026-11-09T06:04:24.846538+00:00",
+ "started": "2026-11-09T06:59:45.219160+00:00",
  "competitions": {
   "ASIA": {
    "silver_rows": {
@@ -14,7 +14,7 @@
     "fielding": 975,
     "squads": 999,
     "standings": 79,
-    "awards": 128
+    "awards": 139
    },
    "gold_rows": {
     "dim_tournaments": 11,
@@ -75,5 +75,5 @@
    "coverage_gaps": []
   }
  },
- "finished": "2026-11-09T06:15:22.975588+00:00"
+ "finished": "2026-11-09T07:01:24.607830+00:00"
 }

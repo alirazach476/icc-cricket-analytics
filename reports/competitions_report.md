@@ -1,6 +1,6 @@
 # Champions Trophy and World Test Championship data
 
-Built: 2026-11-09T06:15:22.975588+00:00
+Built: 2026-11-09T07:01:24.607830+00:00
 
 ## ASIA
 
