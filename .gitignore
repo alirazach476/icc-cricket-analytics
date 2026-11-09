@@ -85,6 +85,7 @@ dbt_gold/dbt_packages/
 !data/warehouse/cricket_gold.duckdb
 !data/warehouse/cricket_gold_ct.duckdb
 !data/warehouse/cricket_gold_wtc.duckdb
+!data/warehouse/cricket_gold_asia.duckdb
 !data/warehouse/cricket_gold_wc27.duckdb
 
 # Frontend / deployment

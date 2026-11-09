@@ -1,0 +1,1485 @@
+{
+ "tournament_id": "ASIA_M_2014",
+ "squads": [
+  {
+   "tournament_id": "ASIA_M_2014",
+   "source_name": "ESPNcricinfo",
+   "source_url": "https://www.espncricinfo.com/series/asia-cup-2013-14-671665/afghanistan-squad-719971/series-squads",
+   "parse_status": "ok",
+   "warnings": [],
+   "team_id": "espn_40",
+   "team_name": "Afghanistan",
+   "announced_at": "2014-02-17",
+   "players": [
+    {
+     "player_id": "espn_25913",
+     "source_player_id": "25913",
+     "full_name": "Mohammad Nabi",
+     "batting_name": "Mohammad Nabi",
+     "role_code": "C",
+     "is_captain": true,
+     "is_wicketkeeper": false,
+     "playing_roles": [
+      "allrounder"
+     ],
+     "batting_style": "right-hand bat",
+     "bowling_style": "right-arm offbreak",
+     "date_of_birth": "1985-01-01",
+     "is_overseas": false,
+     "is_withdrawn": false,
+     "note": null
+    },
+    {
+     "player_id": "espn_402245",
+     "source_player_id": "402245",
+     "full_name": "Amir Hamza",
+     "batting_name": "Amir Hamza",
+     "role_code": "P",
+     "is_captain": false,
+     "is_wicketkeeper": false,
+     "playing_roles": [
+      "bowling allrounder"
+     ],
+     "batting_style": "right-hand bat",
+     "bowling_style": "slow left-arm orthodox",
+     "date_of_birth": "1991-08-15",
+     "is_overseas": false,
+     "is_withdrawn": false,
+     "note": null
+    },
+    {
+     "player_id": "espn_320652",
+     "source_player_id": "320652",
+     "full_name": "Asghar Afghan",
+     "batting_name": "Asghar Afghan",
+     "role_code": "P",
+     "is_captain": false,
+     "is_wicketkeeper": false,
+     "playing_roles": [
+      "middle-order batter"
+     ],
+     "batting_style": "right-hand bat",
+     "bowling_style": "right-arm medium-fast",
+     "date_of_birth": "1987-12-26",
+     "is_overseas": false,
+     "is_withdrawn": false,
+     "note": null
+    },
+    {
+     "player_id": "espn_516561",
+     "source_player_id": "516561",
+     "full_name": "Dawlat Zadran",
+     "batting_name": "Dawlat Zadran",
+     "role_code": "P",
+     "is_captain": false,
+     "is_wicketkeeper": false,
+     "playing_roles": [
+      "bowler"
+     ],
+     "batting_style": "right-hand bat",
+     "bowling_style": "right-arm fast-medium",
+     "date_of_birth": "1988-03-19",
+     "is_overseas": false,
+     "is_withdrawn": false,
+     "note": null
+    },
+    {
+     "player_id": "espn_533949",
+     "source_player_id": "533949",
+     "full_name": "Fazal Niazai",
+     "batting_name": "Fazal Niazai",
+     "role_code": "P",
+     "is_captain": false,
+     "is_wicketkeeper": false,
+     "playing_roles": [],
+     "batting_style": "right-hand bat",
+     "bowling_style": "right-arm medium",
+     "date_of_birth": "1990-07-11",
+     "is_overseas": false,
+     "is_withdrawn": false,
+     "note": null
+    },
+    {
+     "player_id": "espn_311427",
+     "source_player_id": "311427",
+     "full_name": "Hamid Hassan",
+     "batting_name": "Hamid Hassan",
+     "role_code": "P",
+     "is_captain": false,
+     "is_wicketkeeper": false,
+     "playing_roles": [
+      "bowler"
+     ],
+     "batting_style": "right-hand bat",
+     "bowling_style": "right-arm fast",
+     "date_of_birth": "1987-06-01",
+     "is_overseas": false,
+     "is_withdrawn": false,
+     "note": null
+    },
+    {
+     "player_id": "espn_319758",
+     "source_player_id": "319758",
+     "full_name": "Karim Sadiq",
+     "batting_name": "Karim Sadiq",
+     "role_code": "P",
+     "is_captain": false,
+     "is_wicketkeeper": false,
+     "playing_roles": [
+      "opening batter"
+     ],
+     "batting_style": "right-hand bat",
+     "bowling_style": "right-arm offbreak",
+     "date_of_birth": "1984-01-05",
+     "is_overseas": false,
+     "is_withdrawn": false,
+     "note": null
+    },
+    {
+     "player_id": "espn_387420",
+     "source_player_id": "387420",
+     "full_name": "Mirwais Ashraf",
+     "batting_name": "Mirwais Ashraf",
+     "role_code": "P",
+     "is_captain": false,
+     "is_wicketkeeper": false,
+     "playing_roles": [
+      "bowler"
+     ],
+     "batting_style": "right-hand bat",
+     "bowling_style": "right-arm fast-medium",
+     "date_of_birth": "1988-09-04",
+     "is_overseas": false,
+     "is_withdrawn": false,
+     "note": null
+    },
+    {
+     "player_id": "espn_419873",
+     "source_player_id": "419873",
+     "full_name": "Mohammad Shahzad",
+     "batting_name": "Mohammad Shahzad",
+     "role_code": "WK",
+     "is_captain": false,
+     "is_wicketkeeper": true,
+     "playing_roles": [
+      "wicketkeeper batter"
+     ],
+     "batting_style": "right-hand bat",
+     "bowling_style": null,
+     "date_of_birth": "1987-01-10",
+     "is_overseas": false,
+     "is_withdrawn": false,
+     "note": null
+    },
+    {
+     "player_id": "espn_524049",
+     "source_player_id": "524049",
+     "full_name": "Najibullah Zadran",
+     "batting_name": "Najibullah Zadran",
+     "role_code": "P",
+     "is_captain": false,
+     "is_wicketkeeper": false,
+     "playing_roles": [
+      "middle-order batter"
+     ],
+     "batting_style": "left-hand bat",
+     "bowling_style": "right-arm offbreak",
+     "date_of_birth": "1993-02-18",
+     "is_overseas": false,
+     "is_withdrawn": false,
+     "note": null
+    },
+    {
+     "player_id": "espn_318334",
+     "source_player_id": "318334",
+     "full_name": "Nawroz Mangal",
+     "batting_name": "Nawroz Mangal",
+     "role_code": "P",
+     "is_captain": false,
+     "is_wicketkeeper": false,
+     "playing_roles": [
+      "top-order batter"
+     ],
+     "batting_style": "right-hand bat",
+     "bowling_style": "right-arm offbreak",
+     "date_of_birth": "1984-07-15",
+     "is_overseas": false,
+     "is_withdrawn": false,
+     "note": null
+    },
+    {
+     "player_id": "espn_318340",
+     "source_player_id": "318340",
+     "full_name": "Noor Ali Zadran",
+     "batting_name": "Noor Ali Zadran",
+     "role_code": "P",
+     "is_captain": false,
+     "is_wicketkeeper": false,
+     "playing_roles": [
+      "opening batter"
+     ],
+     "batting_style": "right-hand bat",
+     "bowling_style": "right-arm medium-fast",
+     "date_of_birth": "1988-07-10",
+     "is_overseas": false,
+     "is_withdrawn": false,
+     "note": null
+    },
+    {
+     "player_id": "espn_533956",
+     "source_player_id": "533956",
+     "full_name": "Rahmat Shah",
+     "batting_name": "Rahmat Shah",
+     "role_code": "P",
+     "is_captain": false,
+     "is_wicketkeeper": false,
+     "playing_roles": [
+      "allrounder"
+     ],
+     "batting_style": "right-hand bat",
+     "bowling_style": "legbreak googly",
+     "date_of_birth": "1993-07-06",
+     "is_overseas": false,
+     "is_withdrawn": false,
+     "note": null
+    },
+    {
+     "player_id": "espn_318339",
+     "source_player_id": "318339",
+     "full_name": "Samiullah Shinwari",
+     "batting_name": "Samiullah Shinwari",
+     "role_code": "P",
+     "is_captain": false,
+     "is_wicketkeeper": false,
+     "playing_roles": [
+      "allrounder"
+     ],
+     "batting_style": "right-hand bat",
+     "bowling_style": "legbreak",
+     "date_of_birth": "1987-12-31",
+     "is_overseas": false,
+     "is_withdrawn": false,
+     "note": null
+    },
+    {
+     "player_id": "espn_319746",
+     "source_player_id": "319746",
+     "full_name": "Shapoor Zadran",
+     "batting_name": "Shapoor Zadran",
+     "role_code": "P",
+     "is_captain": false,
+     "is_wicketkeeper": false,
+     "playing_roles": [
+      "bowler"
+     ],
+     "batting_style": "left-hand bat",
+     "bowling_style": "left-arm fast-medium",
+     "date_of_birth": "1987-07-08",
+     "is_overseas": false,
+     "is_withdrawn": false,
+     "note": null
+    }
+   ]
+  },
+  {
+   "tournament_id": "ASIA_M_2014",
+   "source_name": "ESPNcricinfo",
+   "source_url": "https://www.espncricinfo.com/series/asia-cup-2013-14-671665/bangladesh-squad-721691/series-squads",
+   "parse_status": "ok",
+   "warnings": [],
+   "team_id": "espn_25",
+   "team_name": "Bangladesh",
+   "announced_at": "2014-03-01",
+   "players": [
+    {
+     "player_id": "espn_56029",
+     "source_player_id": "56029",
+     "full_name": "Mushfiqur Rahim",
+     "batting_name": "Mushfiqur Rahim",
+     "role_code": "CWK",
+     "is_captain": true,
+     "is_wicketkeeper": true,
+     "playing_roles": [
+      "wicketkeeper batter"
+     ],
+     "batting_style": "right-hand bat",
+     "bowling_style": null,
+     "date_of_birth": "1987-05-09",
+     "is_overseas": false,
+     "is_withdrawn": false,
+     "note": null
+    },
+    {
+     "player_id": "espn_56283",
+     "source_player_id": "56283",
+     "full_name": "Abdur Razzak",
+     "batting_name": "Abdur Razzak",
+     "role_code": "P",
+     "is_captain": false,
+     "is_wicketkeeper": false,
+     "playing_roles": [
+      "bowler"
+     ],
+     "batting_style": "left-hand bat",
+     "bowling_style": "slow left-arm orthodox",
+     "date_of_birth": "1982-06-15",
+     "is_overseas": false,
+     "is_withdrawn": false,
+     "note": null
+    },
+    {
+     "player_id": "espn_511532",
+     "source_player_id": "511532",
+     "full_name": "Al-Amin Hossain",
+     "batting_name": "Al-Amin Hossain",
+     "role_code": "P",
+     "is_captain": false,
+     "is_wicketkeeper": false,
+     "playing_roles": [
+      "bowler"
+     ],
+     "batting_style": "right-hand bat",
+     "bowling_style": "right-arm medium-fast",
+     "date_of_birth": "1992-12-27",
+     "is_overseas": false,
+     "is_withdrawn": false,
+     "note": null
+    },
+    {
+     "player_id": "espn_380354",
+     "source_player_id": "380354",
+     "full_name": "Anamul Haque",
+     "batting_name": "Anamul Haque",
+     "role_code": "P",
+     "is_captain": false,
+     "is_wicketkeeper": false,
+     "playing_roles": [
+      "wicketkeeper batter"
+     ],
+     "batting_style": "right-hand bat",
+     "bowling_style": null,
+     "date_of_birth": "1992-12-16",
+     "is_overseas": false,
+     "is_withdrawn": false,
+     "note": null
+    },
+    {
+     "player_id": "espn_56268",
+     "source_player_id": "56268",
+     "full_name": "Arafat Sunny",
+     "batting_name": "Arafat Sunny",
+     "role_code": "P",
+     "is_captain": false,
+     "is_wicketkeeper": false,
+     "playing_roles": [
+      "bowler"
+     ],
+     "batting_style": "left-hand bat",
+     "bowling_style": "slow left-arm orthodox",
+     "date_of_birth": "1986-09-29",
+     "is_overseas": false,
+     "is_withdrawn": false,
+     "note": null
+    },
+    {
+     "player_id": "espn_280734",
+     "source_player_id": "280734",
+     "full_name": "Imrul Kayes",
+     "batting_name": "Imrul Kayes",
+     "role_code": "P",
+     "is_captain": false,
+     "is_wicketkeeper": false,
+     "playing_roles": [
+      "opening batter"
+     ],
+     "batting_style": "left-hand bat",
+     "bowling_style": "slow left-arm orthodox",
+     "date_of_birth": "1987-02-02",
+     "is_overseas": false,
+     "is_withdrawn": false,
+     "note": null
+    },
+    {
+     "player_id": "espn_56025",
+     "source_player_id": "56025",
+     "full_name": "Mahmudullah",
+     "batting_name": "Mahmudullah",
+     "role_code": "P",
+     "is_captain": false,
+     "is_wicketkeeper": false,
+     "playing_roles": [
+      "allrounder"
+     ],
+     "batting_style": "right-hand bat",
+     "bowling_style": "right-arm offbreak",
+     "date_of_birth": "1986-02-04",
+     "is_overseas": false,
+     "is_withdrawn": false,
+     "note": null
+    },
+    {
+     "player_id": "espn_373696",
+     "source_player_id": "373696",
+     "full_name": "Mominul Haque",
+     "batting_name": "Mominul Haque",
+     "role_code": "P",
+     "is_captain": false,
+     "is_wicketkeeper": false,
+     "playing_roles": [
+      "batting allrounder"
+     ],
+     "batting_style": "left-hand bat",
+     "bowling_style": "slow left-arm orthodox",
+     "date_of_birth": "1991-09-29",
+     "is_overseas": false,
+     "is_withdrawn": false,
+     "note": null
+    },
+    {
+     "player_id": "espn_56054",
+     "source_player_id": "56054",
+     "full_name": "Naeem Islam",
+     "batting_name": "Naeem Islam",
+     "role_code": "P",
+     "is_captain": false,
+     "is_wicketkeeper": false,
+     "playing_roles": [
+      "allrounder"
+     ],
+     "batting_style": "right-hand bat",
+     "bowling_style": "right-arm offbreak",
+     "date_of_birth": "1986-12-31",
+     "is_overseas": false,
+     "is_withdrawn": false,
+     "note": null
+    },
+    {
+     "player_id": "espn_300618",
+     "source_player_id": "300618",
+     "full_name": "Nasir Hossain",
+     "batting_name": "Nasir Hossain",
+     "role_code": "P",
+     "is_captain": false,
+     "is_wicketkeeper": false,
+     "playing_roles": [
+      "allrounder"
+     ],
+     "batting_style": "right-hand bat",
+     "bowling_style": "right-arm offbreak",
+     "date_of_birth": "1991-11-30",
+     "is_overseas": false,
+     "is_withdrawn": false,
+     "note": null
+    },
+    {
+     "player_id": "espn_300619",
+     "source_player_id": "300619",
+     "full_name": "Rubel Hossain",
+     "batting_name": "Rubel Hossain",
+     "role_code": "P",
+     "is_captain": false,
+     "is_wicketkeeper": false,
+     "playing_roles": [
+      "bowler"
+     ],
+     "batting_style": "right-hand bat",
+     "bowling_style": "right-arm fast",
+     "date_of_birth": "1990-01-01",
+     "is_overseas": false,
+     "is_withdrawn": false,
+     "note": null
+    },
+    {
+     "player_id": "espn_288305",
+     "source_player_id": "288305",
+     "full_name": "Shafiul Islam",
+     "batting_name": "Shafiul Islam",
+     "role_code": "P",
+     "is_captain": false,
+     "is_wicketkeeper": false,
+     "playing_roles": [
+      "bowler"
+     ],
+     "batting_style": "right-hand bat",
+     "bowling_style": "right-arm fast-medium",
+     "date_of_birth": "1989-10-06",
+     "is_overseas": false,
+     "is_withdrawn": false,
+     "note": null
+    },
+    {
+     "player_id": "espn_56143",
+     "source_player_id": "56143",
+     "full_name": "Shakib Al Hasan",
+     "batting_name": "Shakib Al Hasan",
+     "role_code": "P",
+     "is_captain": false,
+     "is_wicketkeeper": false,
+     "playing_roles": [
+      "allrounder"
+     ],
+     "batting_style": "left-hand bat",
+     "bowling_style": "slow left-arm orthodox",
+     "date_of_birth": "1987-03-24",
+     "is_overseas": false,
+     "is_withdrawn": false,
+     "note": "To join the team after the 2nd match of the Asia Cup"
+    },
+    {
+     "player_id": "espn_56154",
+     "source_player_id": "56154",
+     "full_name": "Shamsur Rahman",
+     "batting_name": "Shamsur Rahman",
+     "role_code": "P",
+     "is_captain": false,
+     "is_wicketkeeper": false,
+     "playing_roles": [
+      "opening batter"
+     ],
+     "batting_style": "right-hand bat",
+     "bowling_style": null,
+     "date_of_birth": "1988-06-05",
+     "is_overseas": false,
+     "is_withdrawn": false,
+     "note": null
+    },
+    {
+     "player_id": "espn_56167",
+     "source_player_id": "56167",
+     "full_name": "Ziaur Rahman",
+     "batting_name": "Ziaur Rahman",
+     "role_code": "P",
+     "is_captain": false,
+     "is_wicketkeeper": false,
+     "playing_roles": [
+      "allrounder"
+     ],
+     "batting_style": "right-hand bat",
+     "bowling_style": "right-arm fast-medium",
+     "date_of_birth": "1986-12-02",
+     "is_overseas": false,
+     "is_withdrawn": false,
+     "note": null
+    },
+    {
+     "player_id": "espn_56007",
+     "source_player_id": "56007",
+     "full_name": "Mashrafe Mortaza",
+     "batting_name": "Mashrafe Mortaza",
+     "role_code": "P",
+     "is_captain": false,
+     "is_wicketkeeper": false,
+     "playing_roles": [
+      "bowler"
+     ],
+     "batting_style": "right-hand bat",
+     "bowling_style": "right-arm fast-medium",
+     "date_of_birth": "1983-10-05",
+     "is_overseas": false,
+     "is_withdrawn": true,
+     "note": null
+    },
+    {
+     "player_id": "espn_444135",
+     "source_player_id": "444135",
+     "full_name": "Sohag Gazi",
+     "batting_name": "Sohag Gazi",
+     "role_code": "P",
+     "is_captain": false,
+     "is_wicketkeeper": false,
+     "playing_roles": [
+      "allrounder"
+     ],
+     "batting_style": "right-hand bat",
+     "bowling_style": "right-arm offbreak",
+     "date_of_birth": "1991-08-05",
+     "is_overseas": false,
+     "is_withdrawn": true,
+     "note": null
+    }
+   ]
+  },
+  {
+   "tournament_id": "ASIA_M_2014",
+   "source_name": "ESPNcricinfo",
+   "source_url": "https://www.espncricinfo.com/series/asia-cup-2013-14-671665/india-squad-718059/series-squads",
+   "parse_status": "ok",
+   "warnings": [],
+   "team_id": "espn_6",
+   "team_name": "India",
+   "announced_at": "2014-02-20",
+   "players": [
+    {
+     "player_id": "espn_253802",
+     "source_player_id": "253802",
+     "full_name": "Virat Kohli",
+     "batting_name": "V Kohli",
+     "role_code": "C",
+     "is_captain": true,
+     "is_wicketkeeper": false,
+     "playing_roles": [
+      "top-order batter"
+     ],
+     "batting_style": "right-hand bat",
+     "bowling_style": "right-arm medium",
+     "date_of_birth": "1988-11-05",
+     "is_overseas": false,
+     "is_withdrawn": false,
+     "note": null
+    },
+    {
+     "player_id": "espn_360911",
+     "source_player_id": "360911",
+     "full_name": "Varun Aaron",
+     "batting_name": "VR Aaron",
+     "role_code": "P",
+     "is_captain": false,
+     "is_wicketkeeper": false,
+     "playing_roles": [
+      "bowler"
+     ],
+     "batting_style": "right-hand bat",
+     "bowling_style": "right-arm fast",
+     "date_of_birth": "1989-10-29",
+     "is_overseas": false,
+     "is_withdrawn": false,
+     "note": null
+    },
+    {
+     "player_id": "espn_26421",
+     "source_player_id": "26421",
+     "full_name": "Ravichandran Ashwin",
+     "batting_name": "R Ashwin",
+     "role_code": "P",
+     "is_captain": false,
+     "is_wicketkeeper": false,
+     "playing_roles": [
+      "bowling allrounder"
+     ],
+     "batting_style": "right-hand bat",
+     "bowling_style": "right-arm offbreak",
+     "date_of_birth": "1986-09-17",
+     "is_overseas": false,
+     "is_withdrawn": false,
+     "note": null
+    },
+    {
+     "player_id": "espn_27223",
+     "source_player_id": "27223",
+     "full_name": "Stuart Binny",
+     "batting_name": "STR Binny",
+     "role_code": "P",
+     "is_captain": false,
+     "is_wicketkeeper": false,
+     "playing_roles": [
+      "allrounder"
+     ],
+     "batting_style": "right-hand bat",
+     "bowling_style": "right-arm medium",
+     "date_of_birth": "1984-06-03",
+     "is_overseas": false,
+     "is_withdrawn": false,
+     "note": null
+    },
+    {
+     "player_id": "espn_28235",
+     "source_player_id": "28235",
+     "full_name": "Shikhar Dhawan",
+     "batting_name": "S Dhawan",
+     "role_code": "P",
+     "is_captain": false,
+     "is_wicketkeeper": false,
+     "playing_roles": [
+      "opening batter"
+     ],
+     "batting_style": "left-hand bat",
+     "bowling_style": "right-arm offbreak",
+     "date_of_birth": "1985-12-05",
+     "is_overseas": false,
+     "is_withdrawn": false,
+     "note": null
+    },
+    {
+     "player_id": "espn_234675",
+     "source_player_id": "234675",
+     "full_name": "Ravindra Jadeja",
+     "batting_name": "RA Jadeja",
+     "role_code": "P",
+     "is_captain": false,
+     "is_wicketkeeper": false,
+     "playing_roles": [
+      "allrounder"
+     ],
+     "batting_style": "left-hand bat",
+     "bowling_style": "slow left-arm orthodox",
+     "date_of_birth": "1988-12-06",
+     "is_overseas": false,
+     "is_withdrawn": false,
+     "note": null
+    },
+    {
+     "player_id": "espn_30045",
+     "source_player_id": "30045",
+     "full_name": "Dinesh Karthik",
+     "batting_name": "KD Karthik",
+     "role_code": "WK",
+     "is_captain": false,
+     "is_wicketkeeper": true,
+     "playing_roles": [
+      "wicketkeeper batter"
+     ],
+     "batting_style": "right-hand bat",
+     "bowling_style": "right-arm offbreak",
+     "date_of_birth": "1985-06-01",
+     "is_overseas": false,
+     "is_withdrawn": false,
+     "note": null
+    },
+    {
+     "player_id": "espn_326016",
+     "source_player_id": "326016",
+     "full_name": "Bhuvneshwar Kumar",
+     "batting_name": "B Kumar",
+     "role_code": "P",
+     "is_captain": false,
+     "is_wicketkeeper": false,
+     "playing_roles": [
+      "bowler"
+     ],
+     "batting_style": "right-hand bat",
+     "bowling_style": "right-arm medium",
+     "date_of_birth": "1990-02-05",
+     "is_overseas": false,
+     "is_withdrawn": false,
+     "note": null
+    },
+    {
+     "player_id": "espn_31107",
+     "source_player_id": "31107",
+     "full_name": "Amit Mishra",
+     "batting_name": "A Mishra",
+     "role_code": "P",
+     "is_captain": false,
+     "is_wicketkeeper": false,
+     "playing_roles": [
+      "bowler"
+     ],
+     "batting_style": "right-hand bat",
+     "bowling_style": "legbreak",
+     "date_of_birth": "1982-11-24",
+     "is_overseas": false,
+     "is_withdrawn": false,
+     "note": null
+    },
+    {
+     "player_id": "espn_481896",
+     "source_player_id": "481896",
+     "full_name": "Mohammed Shami",
+     "batting_name": "Mohammed Shami",
+     "role_code": "P",
+     "is_captain": false,
+     "is_wicketkeeper": false,
+     "playing_roles": [
+      "bowler"
+     ],
+     "batting_style": "right-hand bat",
+     "bowling_style": "right-arm fast",
+     "date_of_birth": "1990-09-03",
+     "is_overseas": false,
+     "is_withdrawn": false,
+     "note": null
+    },
+    {
+     "player_id": "espn_447439",
+     "source_player_id": "447439",
+     "full_name": "Ishwar Pandey",
+     "batting_name": "IC Pandey",
+     "role_code": "P",
+     "is_captain": false,
+     "is_wicketkeeper": false,
+     "playing_roles": [
+      "bowler"
+     ],
+     "batting_style": "right-hand bat",
+     "bowling_style": "right-arm medium",
+     "date_of_birth": "1989-08-15",
+     "is_overseas": false,
+     "is_withdrawn": false,
+     "note": null
+    },
+    {
+     "player_id": "espn_32540",
+     "source_player_id": "32540",
+     "full_name": "Cheteshwar Pujara",
+     "batting_name": "CA Pujara",
+     "role_code": "P",
+     "is_captain": false,
+     "is_wicketkeeper": false,
+     "playing_roles": [
+      "top-order batter"
+     ],
+     "batting_style": "right-hand bat",
+     "bowling_style": "legbreak",
+     "date_of_birth": "1988-01-25",
+     "is_overseas": false,
+     "is_withdrawn": false,
+     "note": null
+    },
+    {
+     "player_id": "espn_277916",
+     "source_player_id": "277916",
+     "full_name": "Ajinkya Rahane",
+     "batting_name": "AM Rahane",
+     "role_code": "P",
+     "is_captain": false,
+     "is_wicketkeeper": false,
+     "playing_roles": [
+      "top-order batter"
+     ],
+     "batting_style": "right-hand bat",
+     "bowling_style": "right-arm medium",
+     "date_of_birth": "1988-06-06",
+     "is_overseas": false,
+     "is_withdrawn": false,
+     "note": null
+    },
+    {
+     "player_id": "espn_33141",
+     "source_player_id": "33141",
+     "full_name": "Ambati Rayudu",
+     "batting_name": "AT Rayudu",
+     "role_code": "P",
+     "is_captain": false,
+     "is_wicketkeeper": false,
+     "playing_roles": [
+      "middle-order batter"
+     ],
+     "batting_style": "right-hand bat",
+     "bowling_style": "right-arm offbreak",
+     "date_of_birth": "1985-09-23",
+     "is_overseas": false,
+     "is_withdrawn": false,
+     "note": null
+    },
+    {
+     "player_id": "espn_34102",
+     "source_player_id": "34102",
+     "full_name": "Rohit Sharma",
+     "batting_name": "RG Sharma",
+     "role_code": "P",
+     "is_captain": false,
+     "is_wicketkeeper": false,
+     "playing_roles": [
+      "top-order batter"
+     ],
+     "batting_style": "right-hand bat",
+     "bowling_style": "right-arm offbreak",
+     "date_of_birth": "1987-04-30",
+     "is_overseas": false,
+     "is_withdrawn": false,
+     "note": null
+    },
+    {
+     "player_id": "espn_28081",
+     "source_player_id": "28081",
+     "full_name": "MS Dhoni",
+     "batting_name": "MS Dhoni",
+     "role_code": "P",
+     "is_captain": false,
+     "is_wicketkeeper": false,
+     "playing_roles": [
+      "wicketkeeper batter"
+     ],
+     "batting_style": "right-hand bat",
+     "bowling_style": "right-arm medium",
+     "date_of_birth": "1981-07-07",
+     "is_overseas": false,
+     "is_withdrawn": true,
+     "note": null
+    }
+   ]
+  },
+  {
+   "tournament_id": "ASIA_M_2014",
+   "source_name": "ESPNcricinfo",
+   "source_url": "https://www.espncricinfo.com/series/asia-cup-2013-14-671665/pakistan-squad-719083/series-squads",
+   "parse_status": "ok",
+   "warnings": [],
+   "team_id": "espn_7",
+   "team_name": "Pakistan",
+   "announced_at": "2014-02-14",
+   "players": [
+    {
+     "player_id": "espn_41378",
+     "source_player_id": "41378",
+     "full_name": "Misbah-ul-Haq",
+     "batting_name": "Misbah-ul-Haq",
+     "role_code": "C",
+     "is_captain": true,
+     "is_wicketkeeper": false,
+     "playing_roles": [
+      "middle-order batter"
+     ],
+     "batting_style": "right-hand bat",
+     "bowling_style": "legbreak",
+     "date_of_birth": "1974-05-28",
+     "is_overseas": false,
+     "is_withdrawn": false,
+     "note": null
+    },
+    {
+     "player_id": "espn_39091",
+     "source_player_id": "39091",
+     "full_name": "Abdur Rehman",
+     "batting_name": "Abdur Rehman",
+     "role_code": "P",
+     "is_captain": false,
+     "is_wicketkeeper": false,
+     "playing_roles": [
+      "bowler"
+     ],
+     "batting_style": "left-hand bat",
+     "bowling_style": "slow left-arm orthodox",
+     "date_of_birth": "1980-03-01",
+     "is_overseas": false,
+     "is_withdrawn": false,
+     "note": null
+    },
+    {
+     "player_id": "espn_259410",
+     "source_player_id": "259410",
+     "full_name": "Ahmed Shehzad",
+     "batting_name": "Ahmed Shehzad",
+     "role_code": "P",
+     "is_captain": false,
+     "is_wicketkeeper": false,
+     "playing_roles": [
+      "opening batter"
+     ],
+     "batting_style": "right-hand bat",
+     "bowling_style": "legbreak",
+     "date_of_birth": "1991-11-23",
+     "is_overseas": false,
+     "is_withdrawn": false,
+     "note": null
+    },
+    {
+     "player_id": "espn_232491",
+     "source_player_id": "232491",
+     "full_name": "Anwar Ali",
+     "batting_name": "Anwar Ali",
+     "role_code": "P",
+     "is_captain": false,
+     "is_wicketkeeper": false,
+     "playing_roles": [
+      "bowler"
+     ],
+     "batting_style": "right-hand bat",
+     "bowling_style": "right-arm medium-fast",
+     "date_of_birth": "1987-11-25",
+     "is_overseas": false,
+     "is_withdrawn": false,
+     "note": null
+    },
+    {
+     "player_id": "espn_343305",
+     "source_player_id": "343305",
+     "full_name": "Bilawal Bhatti",
+     "batting_name": "Bilawal Bhatti",
+     "role_code": "P",
+     "is_captain": false,
+     "is_wicketkeeper": false,
+     "playing_roles": [
+      "bowler"
+     ],
+     "batting_style": "right-hand bat",
+     "bowling_style": "right-arm medium-fast",
+     "date_of_birth": "1991-09-17",
+     "is_overseas": false,
+     "is_withdrawn": false,
+     "note": null
+    },
+    {
+     "player_id": "espn_40250",
+     "source_player_id": "40250",
+     "full_name": "Fawad Alam",
+     "batting_name": "Fawad Alam",
+     "role_code": "P",
+     "is_captain": false,
+     "is_wicketkeeper": false,
+     "playing_roles": [
+      "top-order batter"
+     ],
+     "batting_style": "left-hand bat",
+     "bowling_style": "slow left-arm orthodox",
+     "date_of_birth": "1985-10-08",
+     "is_overseas": false,
+     "is_withdrawn": false,
+     "note": null
+    },
+    {
+     "player_id": "espn_259551",
+     "source_player_id": "259551",
+     "full_name": "Junaid Khan",
+     "batting_name": "Junaid Khan",
+     "role_code": "P",
+     "is_captain": false,
+     "is_wicketkeeper": false,
+     "playing_roles": [
+      "bowler"
+     ],
+     "batting_style": "right-hand bat",
+     "bowling_style": "left-arm fast",
+     "date_of_birth": "1989-12-24",
+     "is_overseas": false,
+     "is_withdrawn": false,
+     "note": null
+    },
+    {
+     "player_id": "espn_41434",
+     "source_player_id": "41434",
+     "full_name": "Mohammad Hafeez",
+     "batting_name": "Mohammad Hafeez",
+     "role_code": "P",
+     "is_captain": false,
+     "is_wicketkeeper": false,
+     "playing_roles": [
+      "allrounder"
+     ],
+     "batting_style": "right-hand bat",
+     "bowling_style": "right-arm offbreak",
+     "date_of_birth": "1980-10-17",
+     "is_overseas": false,
+     "is_withdrawn": false,
+     "note": null
+    },
+    {
+     "player_id": "espn_227771",
+     "source_player_id": "227771",
+     "full_name": "Mohammad Talha",
+     "batting_name": "Mohammad Talha",
+     "role_code": "P",
+     "is_captain": false,
+     "is_wicketkeeper": false,
+     "playing_roles": [
+      "bowler"
+     ],
+     "batting_style": "right-hand bat",
+     "bowling_style": "right-arm medium-fast",
+     "date_of_birth": "1988-10-15",
+     "is_overseas": false,
+     "is_withdrawn": false,
+     "note": null
+    },
+    {
+     "player_id": "espn_42699",
+     "source_player_id": "42699",
+     "full_name": "Saeed Ajmal",
+     "batting_name": "Saeed Ajmal",
+     "role_code": "P",
+     "is_captain": false,
+     "is_wicketkeeper": false,
+     "playing_roles": [
+      "bowler"
+     ],
+     "batting_style": "right-hand bat",
+     "bowling_style": "right-arm offbreak",
+     "date_of_birth": "1977-10-14",
+     "is_overseas": false,
+     "is_withdrawn": false,
+     "note": null
+    },
+    {
+     "player_id": "espn_42639",
+     "source_player_id": "42639",
+     "full_name": "Shahid Afridi",
+     "batting_name": "Shahid Afridi",
+     "role_code": "P",
+     "is_captain": false,
+     "is_wicketkeeper": false,
+     "playing_roles": [
+      "allrounder"
+     ],
+     "batting_style": "right-hand bat",
+     "bowling_style": "legbreak googly",
+     "date_of_birth": "1980-03-01",
+     "is_overseas": false,
+     "is_withdrawn": false,
+     "note": null
+    },
+    {
+     "player_id": "espn_227762",
+     "source_player_id": "227762",
+     "full_name": "Sharjeel Khan",
+     "batting_name": "Sharjeel Khan",
+     "role_code": "P",
+     "is_captain": false,
+     "is_wicketkeeper": false,
+     "playing_roles": [
+      "opening batter"
+     ],
+     "batting_style": "left-hand bat",
+     "bowling_style": "legbreak",
+     "date_of_birth": "1989-08-14",
+     "is_overseas": false,
+     "is_withdrawn": false,
+     "note": null
+    },
+    {
+     "player_id": "espn_43266",
+     "source_player_id": "43266",
+     "full_name": "Sohaib Maqsood",
+     "batting_name": "Sohaib Maqsood",
+     "role_code": "P",
+     "is_captain": false,
+     "is_wicketkeeper": false,
+     "playing_roles": [
+      "middle-order batter"
+     ],
+     "batting_style": "right-hand bat",
+     "bowling_style": "right-arm offbreak",
+     "date_of_birth": "1987-04-15",
+     "is_overseas": false,
+     "is_withdrawn": false,
+     "note": null
+    },
+    {
+     "player_id": "espn_317273",
+     "source_player_id": "317273",
+     "full_name": "Umar Akmal",
+     "batting_name": "Umar Akmal",
+     "role_code": "WK",
+     "is_captain": false,
+     "is_wicketkeeper": true,
+     "playing_roles": [
+      "middle-order batter"
+     ],
+     "batting_style": "right-hand bat",
+     "bowling_style": "right-arm offbreak",
+     "date_of_birth": "1990-05-26",
+     "is_overseas": false,
+     "is_withdrawn": false,
+     "note": null
+    },
+    {
+     "player_id": "espn_43524",
+     "source_player_id": "43524",
+     "full_name": "Umar Gul",
+     "batting_name": "Umar Gul",
+     "role_code": "P",
+     "is_captain": false,
+     "is_wicketkeeper": false,
+     "playing_roles": [
+      "bowler"
+     ],
+     "batting_style": "right-hand bat",
+     "bowling_style": "right-arm fast-medium",
+     "date_of_birth": "1982-10-15",
+     "is_overseas": false,
+     "is_withdrawn": false,
+     "note": null
+    }
+   ]
+  },
+  {
+   "tournament_id": "ASIA_M_2014",
+   "source_name": "ESPNcricinfo",
+   "source_url": "https://www.espncricinfo.com/series/asia-cup-2013-14-671665/sri-lanka-squad-719915/series-squads",
+   "parse_status": "ok",
+   "warnings": [],
+   "team_id": "espn_8",
+   "team_name": "Sri Lanka",
+   "announced_at": "2014-02-21",
+   "players": [
+    {
+     "player_id": "espn_49764",
+     "source_player_id": "49764",
+     "full_name": "Angelo Mathews",
+     "batting_name": "AD Mathews",
+     "role_code": "C",
+     "is_captain": true,
+     "is_wicketkeeper": false,
+     "playing_roles": [
+      "allrounder"
+     ],
+     "batting_style": "right-hand bat",
+     "bowling_style": "right-arm medium",
+     "date_of_birth": "1987-06-02",
+     "is_overseas": false,
+     "is_withdrawn": false,
+     "note": null
+    },
+    {
+     "player_id": "espn_300628",
+     "source_player_id": "300628",
+     "full_name": "Dinesh Chandimal",
+     "batting_name": "LD Chandimal",
+     "role_code": "VC",
+     "is_captain": false,
+     "is_wicketkeeper": false,
+     "playing_roles": [
+      "wicketkeeper batter"
+     ],
+     "batting_style": "right-hand bat",
+     "bowling_style": "right-arm offbreak",
+     "date_of_birth": "1989-11-18",
+     "is_overseas": false,
+     "is_withdrawn": false,
+     "note": null
+    },
+    {
+     "player_id": "espn_345825",
+     "source_player_id": "345825",
+     "full_name": "Chaturanga de Silva",
+     "batting_name": "PC de Silva",
+     "role_code": "P",
+     "is_captain": false,
+     "is_wicketkeeper": false,
+     "playing_roles": [
+      "allrounder"
+     ],
+     "batting_style": "left-hand bat",
+     "bowling_style": "slow left-arm orthodox",
+     "date_of_birth": "1990-01-17",
+     "is_overseas": false,
+     "is_withdrawn": false,
+     "note": null
+    },
+    {
+     "player_id": "espn_49289",
+     "source_player_id": "49289",
+     "full_name": "Mahela Jayawardene",
+     "batting_name": "DPMD Jayawardene",
+     "role_code": "P",
+     "is_captain": false,
+     "is_wicketkeeper": false,
+     "playing_roles": [
+      "batter"
+     ],
+     "batting_style": "right-hand bat",
+     "bowling_style": "right-arm medium",
+     "date_of_birth": "1977-05-27",
+     "is_overseas": false,
+     "is_withdrawn": false,
+     "note": null
+    },
+    {
+     "player_id": "espn_49619",
+     "source_player_id": "49619",
+     "full_name": "Suranga Lakmal",
+     "batting_name": "RAS Lakmal",
+     "role_code": "P",
+     "is_captain": false,
+     "is_wicketkeeper": false,
+     "playing_roles": [
+      "bowler"
+     ],
+     "batting_style": "right-hand bat",
+     "bowling_style": "right-arm fast-medium",
+     "date_of_birth": "1987-03-10",
+     "is_overseas": false,
+     "is_withdrawn": false,
+     "note": null
+    },
+    {
+     "player_id": "espn_49758",
+     "source_player_id": "49758",
+     "full_name": "Lasith Malinga",
+     "batting_name": "SL Malinga",
+     "role_code": "P",
+     "is_captain": false,
+     "is_wicketkeeper": false,
+     "playing_roles": [
+      "bowler"
+     ],
+     "batting_style": "right-hand bat",
+     "bowling_style": "right-arm fast",
+     "date_of_birth": "1983-08-28",
+     "is_overseas": false,
+     "is_withdrawn": false,
+     "note": null
+    },
+    {
+     "player_id": "espn_268739",
+     "source_player_id": "268739",
+     "full_name": "Ajantha Mendis",
+     "batting_name": "BAW Mendis",
+     "role_code": "P",
+     "is_captain": false,
+     "is_wicketkeeper": false,
+     "playing_roles": [
+      "bowler"
+     ],
+     "batting_style": "right-hand bat",
+     "bowling_style": "right-arm offbreak",
+     "date_of_birth": "1985-03-11",
+     "is_overseas": false,
+     "is_withdrawn": false,
+     "note": null
+    },
+    {
+     "player_id": "espn_300631",
+     "source_player_id": "300631",
+     "full_name": "Kusal Perera",
+     "batting_name": "MDKJ Perera",
+     "role_code": "WK",
+     "is_captain": false,
+     "is_wicketkeeper": true,
+     "playing_roles": [
+      "wicketkeeper batter"
+     ],
+     "batting_style": "left-hand bat",
+     "bowling_style": null,
+     "date_of_birth": "1990-08-17",
+     "is_overseas": false,
+     "is_withdrawn": false,
+     "note": null
+    },
+    {
+     "player_id": "espn_233514",
+     "source_player_id": "233514",
+     "full_name": "Thisara Perera",
+     "batting_name": "NLTC Perera",
+     "role_code": "P",
+     "is_captain": false,
+     "is_wicketkeeper": false,
+     "playing_roles": [
+      "bowling allrounder"
+     ],
+     "batting_style": "left-hand bat",
+     "bowling_style": "right-arm medium-fast",
+     "date_of_birth": "1989-04-03",
+     "is_overseas": false,
+     "is_withdrawn": false,
+     "note": null
+    },
+    {
+     "player_id": "espn_50163",
+     "source_player_id": "50163",
+     "full_name": "Dhammika Prasad",
+     "batting_name": "KTGD Prasad",
+     "role_code": "P",
+     "is_captain": false,
+     "is_wicketkeeper": false,
+     "playing_roles": [
+      "bowler"
+     ],
+     "batting_style": "right-hand bat",
+     "bowling_style": "right-arm fast-medium",
+     "date_of_birth": "1983-05-30",
+     "is_overseas": false,
+     "is_withdrawn": false,
+     "note": null
+    },
+    {
+     "player_id": "espn_233802",
+     "source_player_id": "233802",
+     "full_name": "Ashan Priyanjan",
+     "batting_name": "SMA Priyanjan",
+     "role_code": "P",
+     "is_captain": false,
+     "is_wicketkeeper": false,
+     "playing_roles": [
+      "allrounder"
+     ],
+     "batting_style": "right-hand bat",
+     "bowling_style": "right-arm offbreak",
+     "date_of_birth": "1989-08-14",
+     "is_overseas": false,
+     "is_withdrawn": false,
+     "note": null
+    },
+    {
+     "player_id": "espn_50710",
+     "source_player_id": "50710",
+     "full_name": "Kumar Sangakkara",
+     "batting_name": "KC Sangakkara",
+     "role_code": "WK",
+     "is_captain": false,
+     "is_wicketkeeper": true,
+     "playing_roles": [
+      "wicketkeeper batter"
+     ],
+     "batting_style": "left-hand bat",
+     "bowling_style": "right-arm offbreak",
+     "date_of_birth": "1977-10-27",
+     "is_overseas": false,
+     "is_withdrawn": false,
+     "note": null
+    },
+    {
+     "player_id": "espn_273439",
+     "source_player_id": "273439",
+     "full_name": "Sachithra Senanayake",
+     "batting_name": "SMSM Senanayake",
+     "role_code": "P",
+     "is_captain": false,
+     "is_wicketkeeper": false,
+     "playing_roles": [
+      "bowler"
+     ],
+     "batting_style": "right-hand bat",
+     "bowling_style": "right-arm offbreak",
+     "date_of_birth": "1985-02-09",
+     "is_overseas": false,
+     "is_withdrawn": false,
+     "note": null
+    },
+    {
+     "player_id": "espn_301236",
+     "source_player_id": "301236",
+     "full_name": "Lahiru Thirimanne",
+     "batting_name": "HDRL Thirimanne",
+     "role_code": "P",
+     "is_captain": false,
+     "is_wicketkeeper": false,
+     "playing_roles": [
+      "top-order batter"
+     ],
+     "batting_style": "left-hand bat",
+     "bowling_style": "right-arm medium-fast",
+     "date_of_birth": "1989-08-09",
+     "is_overseas": false,
+     "is_withdrawn": false,
+     "note": null
+    },
+    {
+     "player_id": "espn_48472",
+     "source_player_id": "48472",
+     "full_name": "Tillakaratne Dilshan",
+     "batting_name": "TM Dilshan",
+     "role_code": "P",
+     "is_captain": false,
+     "is_wicketkeeper": false,
+     "playing_roles": [
+      "allrounder"
+     ],
+     "batting_style": "right-hand bat",
+     "bowling_style": "right-arm offbreak",
+     "date_of_birth": "1976-10-14",
+     "is_overseas": false,
+     "is_withdrawn": true,
+     "note": null
+    },
+    {
+     "player_id": "espn_49535",
+     "source_player_id": "49535",
+     "full_name": "Nuwan Kulasekara",
+     "batting_name": "KMDN Kulasekara",
+     "role_code": "P",
+     "is_captain": false,
+     "is_wicketkeeper": false,
+     "playing_roles": [
+      "bowler"
+     ],
+     "batting_style": "right-hand bat",
+     "bowling_style": "right-arm fast-medium",
+     "date_of_birth": "1982-07-22",
+     "is_overseas": false,
+     "is_withdrawn": true,
+     "note": null
+    }
+   ]
+  }
+ ]
+}

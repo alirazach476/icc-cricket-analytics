@@ -19,7 +19,7 @@ WAREHOUSE = ROOT / "data" / "warehouse"
 
 
 def run(
-    codes: tuple[str, ...] = ("CT", "WTC", "WC27"),
+    codes: tuple[str, ...] = ("CT", "WTC", "ASIA", "WC27"),
     download: bool = True,
     force_download: bool = False,
 ) -> dict:

@@ -63,6 +63,7 @@ PAGE_OVERRIDES = {
     ("wtc", "data"): "app/competition_pages/competition_data_engineering.py",
     ("ct", "ml"): "app/competition_pages/competition_ml.py",
     ("wtc", "ml"): "app/competition_pages/competition_ml.py",
+    ("asia", "data"): "app/competition_pages/competition_data_engineering.py",
 }
 
 COMPETITION_PAGES = {
@@ -78,6 +79,18 @@ COMPETITION_PAGES = {
         "ball-by-ball",
         "insights",
         "ml",
+        "data",
+        "records",
+    ],
+    "asia": [
+        "home",
+        "tournaments",
+        "players",
+        "teams",
+        "squads",
+        "matches",
+        "ball-by-ball",
+        "insights",
         "data",
         "records",
     ],

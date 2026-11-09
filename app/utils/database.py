@@ -20,6 +20,7 @@ DB_PATHS = {
     "wc": WAREHOUSE / "cricket_gold.duckdb",
     "ct": WAREHOUSE / "cricket_gold_ct.duckdb",
     "wtc": WAREHOUSE / "cricket_gold_wtc.duckdb",
+    "asia": WAREHOUSE / "cricket_gold_asia.duckdb",
     "wc27": WAREHOUSE / "cricket_gold_wc27.duckdb",
 }
 DB_PATH = DB_PATHS["wc"]

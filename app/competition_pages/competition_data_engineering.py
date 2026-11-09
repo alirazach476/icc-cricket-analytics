@@ -108,7 +108,7 @@ if setup(
 ):
     comp = database.competition()
     is_test = comp == "wtc"
-    name = "World Test Championship" if is_test else "Champions Trophy"
+    name = {"wtc": "World Test Championship", "asia": "Asia Cup"}.get(comp, "Champions Trophy")
     cov = run("select * from gold.mart_data_coverage order by year")
     tables = run(
         "select table_name from information_schema.tables where table_schema = 'gold' order by 1"

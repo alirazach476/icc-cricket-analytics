@@ -17,11 +17,15 @@ RAW = ROOT / "data" / "raw" / "competitions"
 URLS = {
     "odis": "https://cricsheet.org/downloads/odis_male_json.zip",
     "tests": "https://cricsheet.org/downloads/tests_male_json.zip",
+    "t20s": "https://cricsheet.org/downloads/t20s_male_json.zip",
 }
 # (archive, event name, competition code)
 SELECT = [
     ("odis", "ICC Champions Trophy", "CT"),
     ("tests", "ICC World Test Championship", "WTC"),
+    ("odis", "Asia Cup", "ASIA"),
+    ("t20s", "Asia Cup", "ASIA"),
+    ("t20s", "Men's T20 Asia Cup", "ASIA"),
 ]
 
 

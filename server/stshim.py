@@ -41,6 +41,15 @@ LOCAL_WORDS = {
         ("World Cups", "Champions Trophies"),
         ("World Cup", "Champions Trophy"),
     ],
+    "asia": [
+        ("ODI data starts at the 2003 World Cup, so career records cover 2003-2023 only.", ""),
+        (
+            "Super-stage tables (Super Six / Super Eight) include results carried over from the first round, as in the source.",
+            "",
+        ),
+        ("World Cups", "Asia Cups"),
+        ("World Cup", "Asia Cup"),
+    ],
     "wtc": [
         ("ODI data starts at the 2003 World Cup, so career records cover 2003-2023 only.", ""),
         (

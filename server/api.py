@@ -148,7 +148,7 @@ def meta() -> JSONResponse:
                     "pages": runner.COMPETITION_PAGES[code],
                     "editions": _editions(code),
                 }
-                for code in ("wc", "wc27", "ct", "wtc")
+                for code in ("wc", "wc27", "ct", "wtc", "asia")
                 if _db_exists(code)
         ]
         # the upcoming 2027 World Cup is an edition of the World Cups (ODI rail), not a separate tab
@@ -196,7 +196,7 @@ def match(match_id: str, competition: str = "wc") -> Response:
     from app.utils import database, match_centre
     from server import stshim
 
-    if competition not in ("wc", "ct", "wtc"):
+    if competition not in ("wc", "ct", "wtc", "asia"):
         raise HTTPException(404, "unknown competition")
     key = (competition, match_id)
     if key in _MATCH_CACHE:

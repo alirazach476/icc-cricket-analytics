@@ -31,7 +31,7 @@ import duckdb
 
 ROOT = Path(__file__).resolve().parents[1]
 OUT = Path(sys.argv[1] if len(sys.argv) > 1 else ROOT / "build" / "vercel").resolve()
-DBS = ["cricket_gold.duckdb", "cricket_gold_ct.duckdb", "cricket_gold_wtc.duckdb", "cricket_gold_wc27.duckdb"]
+DBS = ["cricket_gold.duckdb", "cricket_gold_ct.duckdb", "cricket_gold_wtc.duckdb", "cricket_gold_asia.duckdb", "cricket_gold_wc27.duckdb"]
 # libraries the pages import at run time (pinned to the versions the project was built with)
 PINNED = ["fastapi", "pandas", "numpy", "duckdb", "plotly", "scipy", "scikit-learn", "joblib", "sqlalchemy", "statsmodels", "PyYAML", "pydantic", "pydantic-settings"]
 

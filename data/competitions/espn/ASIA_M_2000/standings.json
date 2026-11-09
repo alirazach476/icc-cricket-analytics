@@ -1,0 +1,105 @@
+{
+ "tournament_id": "ASIA_M_2000",
+ "source_name": "ESPNcricinfo",
+ "source_url": "https://www.espncricinfo.com/series/asia-cup-2000-61067/points-table-standings",
+ "parse_status": "ok",
+ "warnings": [],
+ "rows": [
+  {
+   "tournament_id": "ASIA_M_2000",
+   "group_name": "Overall",
+   "team_id": "espn_7",
+   "team_name": "Pakistan",
+   "short_name": "PAK",
+   "source_team_id": "7",
+   "position": 1,
+   "matches_played": 3,
+   "wins": 3,
+   "losses": 0,
+   "ties": 0,
+   "no_results": 0,
+   "points": 6.0,
+   "net_run_rate": 1.866,
+   "runs_for": "808/148.2",
+   "runs_against": "530/148.0",
+   "group_match_ids": [
+    "65702",
+    "65703",
+    "65704"
+   ],
+   "qualified": null
+  },
+  {
+   "tournament_id": "ASIA_M_2000",
+   "group_name": "Overall",
+   "team_id": "espn_8",
+   "team_name": "Sri Lanka",
+   "short_name": "SL",
+   "source_team_id": "8",
+   "position": 2,
+   "matches_played": 3,
+   "wins": 2,
+   "losses": 1,
+   "ties": 0,
+   "no_results": 0,
+   "points": 4.0,
+   "net_run_rate": 1.081,
+   "runs_for": "646/130.4",
+   "runs_against": "573/148.2",
+   "group_match_ids": [
+    "65699",
+    "65701",
+    "65704"
+   ],
+   "qualified": null
+  },
+  {
+   "tournament_id": "ASIA_M_2000",
+   "group_name": "Overall",
+   "team_id": "espn_6",
+   "team_name": "India",
+   "short_name": "IND",
+   "source_team_id": "6",
+   "position": 3,
+   "matches_played": 3,
+   "wins": 1,
+   "losses": 2,
+   "ties": 0,
+   "no_results": 0,
+   "points": 2.0,
+   "net_run_rate": -0.342,
+   "runs_for": "708/138.1",
+   "runs_against": "820/150.0",
+   "group_match_ids": [
+    "65700",
+    "65701",
+    "65703"
+   ],
+   "qualified": null
+  },
+  {
+   "tournament_id": "ASIA_M_2000",
+   "group_name": "Overall",
+   "team_id": "espn_25",
+   "team_name": "Bangladesh",
+   "short_name": "BAN",
+   "source_team_id": "25",
+   "position": 4,
+   "matches_played": 3,
+   "wins": 0,
+   "losses": 3,
+   "ties": 0,
+   "no_results": 0,
+   "points": 0.0,
+   "net_run_rate": -2.8,
+   "runs_for": "511/150.0",
+   "runs_against": "750/120.5",
+   "group_match_ids": [
+    "65699",
+    "65700",
+    "65702"
+   ],
+   "qualified": null
+  }
+ ]
+}

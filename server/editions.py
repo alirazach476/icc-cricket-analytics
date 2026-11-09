@@ -243,6 +243,13 @@ COMPETITION_THEMES = {
         ["#8E7CFF", "#E6B450", "#22D3B6", "#FF5C8A", "#4C8DFF", "#6BDB6B", "#38E1FF", "#FF6B6B"],
     ),
 }
+COMPETITION_THEMES["asia"] = (
+    "#FF8A1F",
+    "#1F6FEB",
+    "#22A559",
+    "#0A1530",
+    ["#1F6FEB", "#FF8A1F", "#22A559", "#E63946", "#9B7BFF", "#38E1FF", "#F5C518", "#FF6B6B"],
+)
 COMPETITIONS = {
     "wc27": {
         "name": "World Cup 2027",
@@ -256,6 +263,7 @@ COMPETITIONS = {
         "long": "ICC Champions Trophy",
         "kicker": "ICC Champions Trophy",
     },
+    "asia": {"name": "Asia Cup", "long": "Asia Cup (ACC)", "kicker": "Asia Cup"},
     "wtc": {
         "name": "Test Championship",
         "long": "ICC World Test Championship (finals)",

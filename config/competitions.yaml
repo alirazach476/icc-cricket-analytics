@@ -26,3 +26,23 @@ competitions:
       - {year: 2023, label: "2021-23", host_country: "England", source: cricsheet, espn_series: icc-world-test-championship-2021-2023-1268315}
       - {year: 2025, label: "2023-25", host_country: "England", source: cricsheet, espn_series: icc-world-test-championship-2023-2025-1345943}
       - {year: 2027, label: "2025-27", host_country: "Various", source: cricsheet, in_progress: true, espn_series: icc-world-test-championship-2025-2027-1472510}
+  ASIA:
+    name: Asia Cup
+    short: Asia Cup
+    format: ODI  # default; every edition states its own format (ODI or T20)
+    # Ball-by-ball comes from Cricsheet (event "Asia Cup" / "Men's T20 Asia Cup"). Cricsheet does not hold every match of
+    # every edition, so match counts per edition are whatever it publishes; nothing is invented.
+    # 2000 (Bangladesh) is not in Cricsheet and no scorecard source is wired in: listed as unavailable.
+    # There is no Asia Cup 2020/2021 (cancelled) and no 2026 edition has been played.
+    editions:
+      - {year: 2000, format: ODI, scheduled_matches: 7, host_country: "Bangladesh", source: espncricinfo, espn_series: asia-cup-2000-61067}
+      - {year: 2004, format: ODI, scheduled_matches: 13, host_country: "Sri Lanka", source: cricsheet, espn_series: asia-cup-2004-61152}
+      - {year: 2008, format: ODI, scheduled_matches: 13, host_country: "Pakistan", source: cricsheet, espn_series: asia-cup-2008-298014}
+      - {year: 2010, format: ODI, host_country: "Sri Lanka", source: cricsheet, espn_series: asia-cup-2010-424694}
+      - {year: 2012, format: ODI, host_country: "Bangladesh", source: cricsheet, espn_series: asia-cup-2012-524504}
+      - {year: 2014, format: ODI, host_country: "Bangladesh", source: cricsheet, espn_series: asia-cup-2013-14-671665}
+      - {year: 2016, format: T20, host_country: "Bangladesh", source: cricsheet, espn_series: asia-cup-2015-16-966595}
+      - {year: 2018, format: ODI, scheduled_matches: 13, host_country: "United Arab Emirates", source: cricsheet, espn_series: asia-cup-2018-1153237}
+      - {year: 2022, format: T20, scheduled_matches: 13, host_country: "United Arab Emirates", source: cricsheet, espn_series: men-s-twenty20-asia-cup-2022-1327237}
+      - {year: 2023, format: ODI, scheduled_matches: 13, host_country: "Pakistan; Sri Lanka", source: cricsheet, espn_series: asia-cup-2023-1388374}
+      - {year: 2025, format: T20, scheduled_matches: 19, host_country: "United Arab Emirates", source: cricsheet, espn_series: men-s-t20-asia-cup-2025-1496919}

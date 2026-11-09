@@ -729,7 +729,7 @@ def build_competition(code: str, batch: str | None = None) -> dict[str, Any]:
             if year not in editions or code == "WTC" and espn:
                 continue  # a Test that is not in any championship cycle
             tid = f"{code}_M_{year}"
-        m = build_match(doc, ident, tid, fmt)
+        m = build_match(doc, ident, tid, editions[int(tid.rsplit('_', 1)[1])].get("format", fmt))
         in_cricsheet.add(m["match"]["match_id"])
         rec = (espn.get(tid) or {}).get("schedule", {}).get(m["match"]["match_id"])
         if rec:  # ESPNcricinfo's own match numbering and title
@@ -779,7 +779,7 @@ def build_competition(code: str, batch: str | None = None) -> dict[str, Any]:
             winner = " & ".join(e["joint_winners"]) + " (joint)"
         name = (
             f"{reg['name']} {year}"
-            if code == "CT"
+            if code in ("CT", "ASIA")
             else f"ICC World Test Championship {e['label']}"
             + (" (in progress)" if e.get("in_progress") else "")
         )
@@ -793,7 +793,7 @@ def build_competition(code: str, batch: str | None = None) -> dict[str, Any]:
                 "tournament_id": tid,
                 "tournament_name": name,
                 "year": year,
-                "format": fmt,
+                "format": e.get("format", fmt),
                 "gender": "Men",
                 "host_country": e["host_country"],
                 "start_date": mm["match_date"].min(),
