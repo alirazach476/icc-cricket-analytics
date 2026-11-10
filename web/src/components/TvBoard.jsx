@@ -43,6 +43,8 @@ function fullFrom(text, pool) {
 const fshort = (t) => t.replace(/^(c & |c |st |run out ?\(?)(.*)$/, (_, p, n) => p + (n.trim().split(' ').slice(-1)[0] || '').toUpperCase().replace(/\)$/, ''))
 const short = (name) => (name || '').split(' ').slice(-1)[0].toUpperCase()
 
+const ORD = { 1: '1ST', 2: '2ND', 3: '3RD', 4: '4TH' }
+
 function Board({ d, inn, kind, other }) {
   const bat = inn.team.name
   const bowl = inn.bowling_team
@@ -70,7 +72,7 @@ function Board({ d, inn, kind, other }) {
           {ed && <img className="tv-logo" src={ed.logo} alt="" />}
           <span className={`tv-side ${kind === 'bowl' ? 'on' : ''}`}>{kind === 'bowl' && <Ball />}{bowl.toUpperCase()}</span>
         </div>
-        <div className="tv-venue">{(d.city || d.venue || '').toUpperCase()}</div>
+        <div className="tv-venue">{(d.city || d.venue || '').toUpperCase()}<b>{ORD[inn.n] ? ` · ${ORD[inn.n]} INNINGS` : ''}</b></div>
         {kind === 'bat' ? (
           <div className="tv-card">
             {inn.batting.map((r, i) => {
@@ -120,13 +122,28 @@ function Board({ d, inn, kind, other }) {
 
 export default function TvBoards({ d }) {
   const inns = d.innings.filter((i) => !i.super_over && i.batting && i.batting.length)
+  const [sel, setSel] = React.useState(0)
+  React.useEffect(() => setSel(0), [d.match_id])
   if (!inns.length) return null
+  const test = d.format === 'Test'
+  const shown = test ? [inns[Math.min(sel, inns.length - 1)]] : inns.slice(0, 2)
+  // the other side's batting card supplies fielders' full names
+  const oppo = (i) => inns.find((x) => x.team.name === i.bowling_team && x.n !== i.n) || inns.find((x) => x.n !== i.n)
   return (
     <section className="tvwrap" aria-label="Broadcast scoreboards">
-      {inns.slice(0, 2).map((i, ix, arr) => (
+      {test && (
+        <div className="mc-seg tv-seg" role="tablist" aria-label="Innings">
+          {inns.map((i, ix) => (
+            <button key={i.n} role="tab" aria-selected={ix === sel} className={ix === sel ? 'on' : ''} onClick={() => setSel(ix)}>
+              {ORD[i.n] || `${i.n}TH`} innings <b>{i.team.name} {i.runs}{i.wickets !== null && i.wickets < 10 ? `/${i.wickets}` : ''}</b>
+            </button>
+          ))}
+        </div>
+      )}
+      {shown.map((i) => (
         <div className="tvpair" key={i.n}>
-          <Board d={d} inn={i} kind="bat" other={arr[1 - ix]} />
-          {i.bowling && i.bowling.length > 0 && <Board d={d} inn={i} kind="bowl" other={arr[1 - ix]} />}
+          <Board d={d} inn={i} kind="bat" other={oppo(i)} />
+          {i.bowling && i.bowling.length > 0 && <Board d={d} inn={i} kind="bowl" other={oppo(i)} />}
         </div>
       ))}
     </section>

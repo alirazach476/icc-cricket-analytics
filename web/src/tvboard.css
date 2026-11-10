@@ -62,3 +62,6 @@
 .mp-no.ko { background: linear-gradient(180deg, var(--tertiary), color-mix(in srgb, var(--tertiary) 60%, #000)) !important; color: #11161f !important; font-size: 17px; }
 .mp-no.ko small { opacity: .8; font-size: 8px; }
 .fx-stage.ko { background: var(--tertiary) !important; color: #11161f !important; font-weight: 900; letter-spacing: .06em; }
+
+.tv-venue b { font-weight: 900; color: #fff; letter-spacing: .14em; }
+.tv-seg { margin-bottom: 4px; }
