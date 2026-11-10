@@ -208,7 +208,7 @@ def match(match_id: str, competition: str = "wc") -> Response:
     figs = match_centre.charts(match_id, pl) if pl["has_ball_by_ball"] else {}
     groups = []
     for g, names in _CHART_GROUPS:
-        items = [{"name": n, "fig": stshim.figure_to_json(figs[n])} for n in names if n in figs]
+        items = [{"name": k, "fig": stshim.figure_to_json(figs[k])} for n in names for k in figs if k == n or k.startswith(n + " ·")]
         if items:
             groups.append({"group": g, "figs": items})
     body = {"payload": pl, "charts": groups, "neighbours": match_centre.neighbours(match_id, pl["tournament_id"])}

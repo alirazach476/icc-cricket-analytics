@@ -47,6 +47,15 @@ export default function App() {
     return () => window.removeEventListener('hashchange', on)
   }, [])
 
+  // every page opens at its top (never mid-page); the browser back button still returns to the previous page
+  useEffect(() => {
+    try { window.history.scrollRestoration = 'manual' } catch { /* older browsers */ }
+  }, [])
+  useEffect(() => {
+    window.scrollTo(0, 0)
+    document.querySelectorAll('.main, main, .content').forEach((el) => { el.scrollTop = 0 })
+  }, [route.slug, route.edition, route.comp])
+
   const go = useCallback((slug, edition, comp) => {
     window.location.hash = hashFor(slug, edition, comp)
   }, [])

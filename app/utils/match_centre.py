@@ -357,7 +357,7 @@ def neighbours(mid: str, tid: str) -> dict:
 
 CHART_GROUPS = [
     ("Progression", ["Worm", "Run rate"]),
-    ("Overs and wickets", ["Over by over", "Wickets timeline"]),
+    ("Overs and wickets", ["Over by over", "Wickets timeline"]),  # "Over by over" expands to one chart per innings
     ("Innings and chase", ["Innings comparison", "Chase"]),
     ("Partnerships and wickets", ["Partnerships", "Fall of wickets"]),
     ("Bowling", ["Dot balls", "Maidens"]),
@@ -628,6 +628,52 @@ def _color_map(pl: dict) -> dict[int, str]:
     return cm
 
 
+_PHASE_COLORS = {"Powerplay": "#2f6bff", "Middle overs": "#ffc933", "Death overs": "#ff3b4d"}
+
+
+def _over_bars(per_over: pd.DataFrame, label: str, fmt: str, team_col: str) -> go.Figure:
+    """Broadcast-style runs-per-over bars for one innings: colour = phase, a dot above the bar for each wicket."""
+    overs = [int(o) for o in per_over.index]
+    runs = [int(v) for v in per_over["runs"]]
+    wk = [int(v) for v in per_over["wk"]]
+    if fmt == "ODI":
+        edges, names = (10, 40), ["Powerplay (1-10)", "Middle overs (11-40)", "Death overs (41-50)"]
+    elif fmt == "T20":
+        edges, names = (6, 20), ["Powerplay (1-6)", "Overs 7-20", "Death overs"]
+    else:
+        edges, names = (), []
+    fig = go.Figure()
+    if edges:
+        cols = list(_PHASE_COLORS.values())
+        phase = [0 if o <= edges[0] else (1 if o <= edges[1] else 2) for o in overs]
+        for k, nm in enumerate(names):
+            idx = [i for i, p in enumerate(phase) if p == k]
+            if idx:
+                fig.add_trace(go.Bar(x=[overs[i] for i in idx], y=[runs[i] for i in idx], name=nm, marker_color=cols[k],
+                                     hovertemplate="Over %{x}: %{y} runs<extra>" + nm + "</extra>"))
+    else:
+        fig.add_trace(go.Bar(x=overs, y=runs, name="Runs in the over", marker_color=team_col,
+                             hovertemplate="Over %{x}: %{y} runs<extra></extra>"))
+    dx, dy, dt = [], [], []
+    top = max(runs) if runs else 0
+    step = max(0.8, top * 0.06)
+    for o, r, w in zip(overs, runs, wk, strict=True):
+        for j in range(w):  # one dot per wicket, stacked above the bar
+            dx.append(o)
+            dy.append(r + step * (j + 1))
+            dt.append(f"Over {o}: wicket {j + 1} of {w}")
+    if dx:
+        fig.add_trace(go.Scatter(x=dx, y=dy, mode="markers", name="Wicket", marker=dict(color="#ffffff", size=8, line=dict(color="#111", width=1.5)),
+                                 text=dt, hovertemplate="%{text}<extra></extra>"))
+    cap = {"ODI": 50, "T20": 20}.get(fmt)
+    fig.update_layout(
+        title=f"{label}: runs in each over", xaxis_title="Overs", yaxis_title="Runs", barmode="overlay", height=380, bargap=0.12,
+        legend=dict(orientation="h", y=-0.22), yaxis=dict(range=[0, top + step * (max(wk, default=0) + 2)]),
+        xaxis=dict(range=[0.4, (cap or max(overs, default=1)) + 0.6], dtick=5 if (cap or 0) > 20 else 1),
+    )
+    return fig
+
+
 def charts(mid: str, pl: dict) -> dict[str, go.Figure]:
     """Plotly figures (the dashboard theme is applied by the template). Only what the data supports."""
     d = deliveries(mid)
@@ -639,7 +685,7 @@ def charts(mid: str, pl: dict) -> dict[str, go.Figure]:
     inn_info = {i["n"]: i for i in pl["innings"]}
     figs: dict[str, go.Figure] = {}
 
-    worm, rr, ovr, wkt = go.Figure(), go.Figure(), go.Figure(), go.Figure()
+    worm, rr, wkt = go.Figure(), go.Figure(), go.Figure()
     for inn, g in d.groupby("inn"):
         info = inn_info[int(inn)]
         label = f"{info['team']['name']}" + (f" inns {sum(1 for x in pl['innings'] if x['team']['name'] == info['team']['name'] and x['n'] <= info['n'])}" if pl["format"] == "Test" else "")
@@ -658,17 +704,15 @@ def charts(mid: str, pl: dict) -> dict[str, go.Figure]:
                                       hovertemplate="%{text}<extra></extra>"))
         rate = [r / max(o, 0.1667) for r, o in zip(y[1:], x[1:], strict=True)]
         rr.add_trace(go.Scatter(x=x[1:], y=[round(v, 2) for v in rate], mode="lines", name=label, line=dict(color=col, width=3, dash=dash), hovertemplate="%{y:.2f} runs/over at %{x} overs<extra>" + label + "</extra>"))
-        ovr.add_trace(go.Bar(x=per_over.index, y=per_over["runs"], name=label, marker_color=col, hovertemplate="Over %{x}: %{y} runs<extra>" + label + "</extra>"))
+        figs[f"Over by over · {label}"] = _over_bars(per_over, label, pl["format"], col)
         wb = per_over[per_over["wk"] > 0]
         if len(wb):
             wkt.add_trace(go.Bar(x=wb.index, y=wb["wk"], name=label, marker_color=col, hovertemplate="Over %{x}: %{y} wicket(s)<extra>" + label + "</extra>"))
     worm.update_layout(title="Worm: cumulative runs", xaxis_title="Overs", yaxis_title="Runs", height=380, hovermode="x unified", legend=dict(orientation="h", y=-0.2))
     rr.update_layout(title="Run rate progression (cumulative)", xaxis_title="Overs", yaxis_title="Runs per over", height=380, hovermode="x unified", legend=dict(orientation="h", y=-0.2))
-    ovr.update_layout(title="Runs in each over", xaxis_title="Over", yaxis_title="Runs", barmode="group", height=380, legend=dict(orientation="h", y=-0.2))
     wkt.update_layout(title="Wickets by over", xaxis_title="Over", yaxis_title="Wickets", barmode="stack", height=380, yaxis=dict(dtick=1), legend=dict(orientation="h", y=-0.2))
     figs["Worm"] = worm
     figs["Run rate"] = rr
-    figs["Over by over"] = ovr
     if len(wkt.data):
         figs["Wickets timeline"] = wkt
 

@@ -335,7 +335,7 @@ class Container:
 
         groups = []
         for g, names in CHART_GROUPS:
-            items = [{"name": n, "fig": figure_to_json(figs[n])} for n in names if figs and n in figs]
+            items = [{"name": k, "fig": figure_to_json(figs[k])} for n in names for k in (figs or {}) if k == n or k.startswith(n + " ·")]
             if items:
                 groups.append({"group": g, "figs": items})
         self._add({"t": "matchcentre", "data": jsonable(payload), "charts": groups})
