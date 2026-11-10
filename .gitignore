@@ -99,3 +99,5 @@ build/
 server/precomputed/
 archive/
 archive (1)/
+data/*_deliveries.csv
+data/cwc 2023.csv
