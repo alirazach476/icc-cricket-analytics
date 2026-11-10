@@ -151,7 +151,7 @@ def player_info(pid: str) -> pd.Series | None:
 # ------------------------------------------------------------------ player
 def player_innings_full(pid: str) -> pd.DataFrame:
     return run(
-        "select f.match_date, f.year, f.format, f.stage, f.runs, f.balls_faced, f.fours, f.sixes, f.batting_position as pos, f.is_out, f.dismissal_type, "
+        "select f.match_id, f.match_date, f.year, f.format, f.stage, f.runs, f.balls_faced, f.fours, f.sixes, f.batting_position as pos, f.is_out, f.dismissal_type, "
         "o.team_name as opposition, d.format || ' ' || d.year as tournament, f.team_won "
         "from gold.fact_player_performances f join gold.dim_teams o on o.team_id = f.opposition_team_id join gold.dim_tournaments d using (tournament_id) "
         "where f.player_id = ? and f.did_bat and f.runs is not null order by f.match_date",
@@ -161,7 +161,7 @@ def player_innings_full(pid: str) -> pd.DataFrame:
 
 def player_bowling_full(pid: str) -> pd.DataFrame:
     return run(
-        "select f.match_date, f.year, f.format, f.wickets, f.runs_conceded, f.overs_bowled, f.economy, f.maidens, f.dots, o.team_name as opposition, d.format || ' ' || d.year as tournament "
+        "select f.match_id, f.match_date, f.year, f.format, f.wickets, f.runs_conceded, f.overs_bowled, f.economy, f.maidens, f.dots, o.team_name as opposition, d.format || ' ' || d.year as tournament "
         "from gold.fact_player_performances f join gold.dim_teams o on o.team_id = f.opposition_team_id join gold.dim_tournaments d using (tournament_id) "
         "where f.player_id = ? and f.did_bowl order by f.match_date",
         (pid,),
@@ -192,12 +192,12 @@ def player_bowling_phases(pid: str) -> pd.DataFrame:
     )
 
 
-def batting_percentiles(pid: str, fmt: str, min_balls: int = 300) -> dict[str, float] | None:
+def batting_percentiles(pid: str, fmt: str, min_balls: int = 300, min_runs: int = 0) -> dict[str, float] | None:
     d = run(
         "select * from (select player_id, percent_rank() over (order by runs) as runs, percent_rank() over (order by average) as average, "
         "percent_rank() over (order by strike_rate) as strike_rate, percent_rank() over (order by sixes * 1.0 / innings) as sixes, "
-        "percent_rank() over (order by (hundreds + fifties) * 1.0 / innings) as milestones from gold.mart_batting_career where format = ? and balls_faced >= ?) where player_id = ?",
-        (fmt, int(min_balls), pid),
+        "percent_rank() over (order by (hundreds + fifties) * 1.0 / innings) as milestones from gold.mart_batting_career where format = ? and balls_faced >= ? and runs >= ?) where player_id = ?",
+        (fmt, int(min_balls), int(min_runs), pid),
     )
     return (
         None

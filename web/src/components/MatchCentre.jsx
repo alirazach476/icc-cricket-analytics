@@ -4,6 +4,12 @@ import Flag from './Flag.jsx'
 import { teamColor } from '../teamColors.js'
 import { mix } from '../theme.js'
 import Portrait from './Portrait.jsx'
+import { useDash } from '../ctx.js'
+
+function PName({ name }) {
+  const { openPlayer } = useDash() || {}
+  return openPlayer ? <button className="plink" title="Open player profile" onClick={() => openPlayer(name)}>{name}</button> : <>{name}</>
+}
 import TvBoards from './TvBoard.jsx'
 import MatchAnalysis from './MatchAnalysis.jsx'
 
@@ -185,7 +191,7 @@ function Batting({ inn, format }) {
             <tbody>
               {rows.map((r, i) => (
                 <tr key={i} className={`${r.out ? '' : 'notout'} ${r.runs === best && best > 0 ? 'top' : ''}`}>
-                  <td className="name"><span className="ord">{i + 1}</span><Portrait name={r.batter} team={inn.team.name} /> {r.batter}</td>
+                  <td className="name"><span className="ord">{i + 1}</span><Portrait name={r.batter} team={inn.team.name} /> <PName name={r.batter} /></td>
                   <td className="how">{r.how}</td>
                   <td className="num runs"><span className="bar" style={{ width: `${((r.runs || 0) / maxRuns) * 100}%` }} /><b>{dash(r.runs)}</b></td>
                   <td className="num">{dash(r.balls)}</td>
@@ -257,7 +263,7 @@ function Bowling({ inn }) {
             <tbody>
               {rows.map((r, i) => (
                 <tr key={i} className={r.w === bestW && bestW > 0 ? 'top' : ''}>
-                  <td className="name"><Portrait name={r.bowler} team={inn.bowling_team} /> {r.bowler}</td>
+                  <td className="name"><Portrait name={r.bowler} team={inn.bowling_team} /> <PName name={r.bowler} /></td>
                   <td className="num">{dash(r.overs)}</td>
                   <td className="num">{dash(r.m)}</td>
                   <td className="num">{dash(r.runs)}</td>
@@ -470,7 +476,7 @@ function PlayingXI({ d }) {
                 <li key={p.name}>
                   <span className="ord">{i + 1}</span>
                   <Portrait name={p.name} team={t.team} />
-                  <b>{p.name}</b>
+                  <b><PName name={p.name} /></b>
                   <span className="xi-stat">{[p.bat, p.bowl ? `bowl ${p.bowl}` : null, p.field ? `${p.field} ct/ro/st` : null].filter(Boolean).join(' · ') || '–'}</span>
                 </li>
               ))}

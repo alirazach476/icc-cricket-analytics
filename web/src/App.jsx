@@ -130,6 +130,19 @@ export default function App() {
     [dc, go],
   )
 
+  // a player name anywhere opens that player's profile (the Players page with the player selected)
+  const openPlayer = useCallback(
+    (name) => {
+      if (!name) return
+      const ed = isMatch ? null : route.edition
+      const k = `${dc}|players|${ed || ''}`
+      states.current[k] = { ...(states.current[k] || {}), s_a: name, p_a: name }
+      if (!isMatch && route.slug === 'players') load('players', ed, dc)
+      else go('players', ed, dc)
+    },
+    [dc, go, isMatch, route.edition, route.slug, load],
+  )
+
   const back = useCallback(() => {
     if (window.history.length > 1) window.history.back()
     else go('matches', matchEdId, comp ? comp.code : 'wc')
@@ -170,7 +183,7 @@ export default function App() {
       </div>
     )
 
-  const ctx = { template, recolor, setWidget, openMatch }
+  const ctx = { template, recolor, setWidget, openMatch, openPlayer }
   const side = data?.sidebar || []
   const sideWidgets = side.filter((n) => n.t === 'w')
   const sideOther = side.filter((n) => n.t !== 'w')

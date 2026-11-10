@@ -330,6 +330,10 @@ class Container:
     def fixtures(self, data: Any) -> None:
         self._add({"t": "fixtures", "data": jsonable(data)})
 
+    def flags(self, items: Any) -> None:
+        """A row of national flags with a caption each (used on the player profile)."""
+        self._add({"t": "flags", "items": jsonable(items)})
+
     def match_centre(self, payload: Any, figs: dict | None = None) -> None:
         from app.utils.match_centre import CHART_GROUPS
 
@@ -620,6 +624,7 @@ def install() -> types.ModuleType:
         "table",
         "graphviz_chart",
         "match_centre",
+        "flags",
         "fixtures",
         "download_button",
         "button",

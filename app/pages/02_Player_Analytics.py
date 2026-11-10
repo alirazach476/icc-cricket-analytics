@@ -30,14 +30,14 @@ def pick_player(label: str, default: str, key: str):
     return who, found.loc[found["full_name"] == who, "player_id"].iloc[0]
 
 
-MIN_BALLS_OPTIONS = [10, 20, 50, 100, 150, 300]
+MIN_BALLS_OPTIONS = [50, 100, 150, 200, 250, 300]  # radar qualification thresholds (runs / balls)
 
 
-def radar_for(pid: str, min_balls: int = 300) -> tuple[list[str], dict[str, list[float]]]:
+def radar_for(pid: str, min_balls: int = 300, min_runs: int = 0) -> tuple[list[str], dict[str, list[float]]]:
     out: dict[str, list[float]] = {}
     cats = ["runs", "average", "strike_rate", "sixes", "milestones"]
     for fmt in Q.formats():  # ODI / T20 (World Cups), ODI (Champions Trophy), Test (Test Championship)
-        p = V.batting_percentiles(pid, fmt, min_balls)
+        p = V.batting_percentiles(pid, fmt, min_balls, min_runs)
         if p:
             out[f"{fmt}"] = [p[c] for c in cats]
     return cats, out
@@ -64,11 +64,14 @@ if setup(
 ):
     who, pid = pick_player("player", "Kohli", "a")
     # radar percentiles rank a player against everyone with at least this many balls faced in the format
+    min_runs = st.sidebar.select_slider(
+        "Minimum runs scored (batting radar)", options=MIN_BALLS_OPTIONS, value=50, key="radar_min_runs"
+    )
     min_balls = st.sidebar.select_slider(
-        "Minimum balls faced (radar)", options=MIN_BALLS_OPTIONS, value=300, key="radar_min_balls"
+        "Minimum balls faced (batting radar)", options=MIN_BALLS_OPTIONS, value=50, key="radar_min_balls"
     )
     min_bowled = st.sidebar.select_slider(
-        "Minimum balls bowled (radar)", options=MIN_BALLS_OPTIONS, value=300, key="radar_min_bowled"
+        "Minimum balls bowled (bowling radar)", options=MIN_BALLS_OPTIONS, value=50, key="radar_min_bowled"
     )
     tabs = st.tabs(
         ["Profile", "Batting detail", "Bowling detail", "Comparison", "Consistency", "Clustering"]
@@ -83,9 +86,15 @@ if setup(
             bat = Q.player_batting_career(pid)
             bowl = Q.player_bowling_career(pid)
             st.subheader(who)
+            if hasattr(st, "flags") and len(hist):
+                g = hist.groupby("team").agg(n=("tournament", "count"), first=("year", "min"), last=("year", "max")).reset_index().sort_values("n", ascending=False)
+                st.flags([
+                    {"team": r["team"], "note": f"{int(r['n'])} squad{'s' if r['n'] != 1 else ''} · {int(r['first'])}-{int(r['last'])}" if r["first"] != r["last"] else f"{int(r['n'])} squad · {int(r['last'])}"}
+                    for _, r in g.iterrows()
+                ])
             cards(
                 [
-                    ("Role", str(info["role"] or "n/a"), str(info["teams"] or "")),
+                    ("Role", str(info["role"] or "n/a"), ""),
                     (
                         "Batting style",
                         str(info["batting_style"] or "n/a"),
@@ -113,7 +122,7 @@ if setup(
                     st.dataframe(bowl, hide_index=True, width="stretch")
                 else:
                     st.caption("No bowling record.")
-            cats, series = radar_for(pid, min_balls)
+            cats, series = radar_for(pid, min_balls, min_runs)
             a, b = st.columns(2)
             with a:
                 if series:
@@ -121,13 +130,13 @@ if setup(
                         C.radar(
                             ["runs", "average", "strike rate", "sixes/inn", "milestones/inn"],
                             series,
-                            f"Batting percentile vs other qualified batters (>= {min_balls} balls)",
+                            f"Batting percentile vs other qualified batters (>= {min_runs} runs and >= {min_balls} balls)",
                         ),
                         width="stretch",
                     )
                 else:
                     st.info(
-                        f"Not enough batting history for a percentile radar (minimum {min_balls} balls). "
+                        f"Not enough batting history for a percentile radar (minimum {min_runs} runs and {min_balls} balls). "
                         "Lower the minimum in the filters."
                     )
                 if len(bowl):
@@ -399,7 +408,7 @@ if setup(
         if pid is None or pid2 is None:
             st.info("Pick two players in the sidebar.")
         else:
-            c1, c2 = radar_for(pid, min_balls)[1], radar_for(pid2, min_balls)[1]
+            c1, c2 = radar_for(pid, min_balls, min_runs)[1], radar_for(pid2, min_balls, min_runs)[1]
             fmt = st.radio("Format for the radar", Q.formats(), horizontal=True)
             series = {}
             if fmt in c1:

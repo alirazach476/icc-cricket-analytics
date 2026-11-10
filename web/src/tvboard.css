@@ -65,3 +65,11 @@
 
 .tv-venue b { font-weight: 900; color: #fff; letter-spacing: .14em; }
 .tv-seg { margin-bottom: 4px; }
+
+/* clickable player names */
+.plink { background: none; border: 0; padding: 0; margin: 0; font: inherit; color: inherit; cursor: pointer; text-align: left; border-bottom: 1px dotted color-mix(in srgb, currentColor 45%, transparent); }
+.plink:hover { color: var(--primary); border-bottom-style: solid; }
+
+.flagrow { display: flex; flex-wrap: wrap; gap: 10px; margin: 6px 0 14px; }
+.flagchip { display: inline-flex; align-items: center; gap: 10px; padding: 6px 14px 6px 8px; border-radius: 999px; background: color-mix(in srgb, var(--panel2) 90%, transparent); border: 1px solid var(--border); }
+.flagchip b { font-weight: 700; } .flagchip i { font-style: normal; color: var(--muted); font-size: 12.5px; }

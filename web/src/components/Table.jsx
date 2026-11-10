@@ -15,7 +15,8 @@ function fmt(v, numeric) {
 
 export default function Table({ node }) {
   const { columns, numeric, rows: plain, total, links } = node
-  const { openMatch } = useDash()
+  const { openMatch, openPlayer } = useDash()
+  const playerCol = useMemo(() => columns.map((c) => /^(player|batter|bowler|batsman|striker|full name|captain|player of the match|top scorer|best batter|best bowler|player of the tournament)$/i.test(c.replace(/_/g, ' ').trim())), [columns])
   const rows = useMemo(() => plain.map((r, i) => ({ r, link: links ? links[i] : null })), [plain, links])
   const clickable = !!links && links.some(Boolean)
   const [q, setQ] = useState('')
@@ -55,7 +56,7 @@ export default function Table({ node }) {
       <div className="tablebar">
         <span className="tablecount">
           {total.toLocaleString()} rows
-          {clickable && <em className="clickhint"><MousePointerClick size={13} /> click a match to open its scorecard</em>}
+          {clickable && <em className="clickhint"><MousePointerClick size={13} /> click a match to open its scorecard · click a player name for the profile</em>}
         </span>
         {rows.length > 8 && (
           <label className="search">
@@ -81,7 +82,12 @@ export default function Table({ node }) {
             {view.slice(0, shown).map(({ r, link }, ri) => (
               <tr key={ri} className={link ? 'link' : ''} onClick={link ? () => openMatch(link) : undefined}>
                 {r.map((c, ci) => (
-                  <td key={ci} className={numeric[ci] ? 'num' : ''}>{isTeam(c) && <Flag team={c} h={14} className="inline" />}{fmt(c, numeric[ci])}</td>
+                  <td key={ci} className={numeric[ci] ? 'num' : ''}>
+                    {isTeam(c) && <Flag team={c} h={14} className="inline" />}
+                    {playerCol[ci] && typeof c === 'string' && c.trim() && !/[&,/]/.test(c) && !isTeam(c) && openPlayer ? (
+                      <button className="plink" title="Open player profile" onClick={(e) => { e.stopPropagation(); openPlayer(c) }}>{c}</button>
+                    ) : fmt(c, numeric[ci])}
+                  </td>
                 ))}
               </tr>
             ))}

@@ -5,7 +5,7 @@ import Table from './Table.jsx'
 import Markdown from './Markdown.jsx'
 import Graphviz from './Graphviz.jsx'
 import Widget from './Widgets.jsx'
-import { WithFlag } from './Flag.jsx'
+import Flag, { WithFlag } from './Flag.jsx'
 import MatchCentre from './MatchCentre.jsx'
 import Fixtures from './Fixtures.jsx'
 
@@ -65,6 +65,18 @@ export function Node({ n, ctx }) {
           <div className="mlabel">{n.label}</div>
           <div className="mvalue"><WithFlag text={n.value} h={20} /></div>
           {n.delta && <div className="mdelta">{n.delta}</div>}
+        </div>
+      )
+    case 'flags':
+      return (
+        <div className="flagrow">
+          {(n.items || []).map((it) => (
+            <span className="flagchip" key={it.team}>
+              <Flag team={it.team} h={26} />
+              <b>{it.team}</b>
+              {it.note && <i>{it.note}</i>}
+            </span>
+          ))}
         </div>
       )
     case 'plot': return <Plot fig={n.fig} />
