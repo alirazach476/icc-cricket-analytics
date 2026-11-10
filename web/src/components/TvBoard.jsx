@@ -125,13 +125,12 @@ export default function TvBoards({ d }) {
   const [sel, setSel] = React.useState(0)
   React.useEffect(() => setSel(0), [d.match_id])
   if (!inns.length) return null
-  const test = d.format === 'Test'
-  const shown = test ? [inns[Math.min(sel, inns.length - 1)]] : inns.slice(0, 2)
+  const shown = [inns[Math.min(sel, inns.length - 1)]]
   // the other side's batting card supplies fielders' full names
   const oppo = (i) => inns.find((x) => x.team.name === i.bowling_team && x.n !== i.n) || inns.find((x) => x.n !== i.n)
   return (
     <section className="tvwrap" aria-label="Broadcast scoreboards">
-      {test && (
+      {inns.length > 1 && (
         <div className="mc-seg tv-seg" role="tablist" aria-label="Innings">
           {inns.map((i, ix) => (
             <button key={i.n} role="tab" aria-selected={ix === sel} className={ix === sel ? 'on' : ''} onClick={() => setSel(ix)}>
