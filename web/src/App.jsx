@@ -77,7 +77,7 @@ export default function App() {
   }, [theme])
   // the whole page wears the selected tournament's artwork
   useEffect(() => {
-    document.documentElement.style.setProperty('--page-bg', edition && edition.banner ? `url(${edition.banner})` : 'none')
+    document.documentElement.style.setProperty('--page-bg', edition && edition.banner ? `url(${edition.banner})` : 'url(/bg-wc2023.jpg)')
   }, [edition])
   const recolor = useMemo(() => (meta ? makeRecolor(meta.base_slots, theme) : (x) => x), [meta, theme])
   const template = useMemo(() => (meta ? recolor(meta.template) : null), [meta, recolor])
