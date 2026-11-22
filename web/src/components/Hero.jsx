@@ -19,6 +19,7 @@ export function EditionBanner({ e, comp }) {
     <section className="edition" style={e.banner ? { '--banner': `url(${e.banner})` } : undefined}>
       <div className="edbg" />
       <LogoTile e={e} size={132} />
+      {e.mascot && <img className="edmascot" src={e.mascot} alt="" loading="lazy" />}
       <div className="edtext">
         <div className="edkicker">{comp && comp.kicker ? comp.kicker : e.format === 'ODI' ? "ICC Men's Cricket World Cup" : "ICC Men's T20 World Cup"}</div>
         <h2>{e.name}</h2>

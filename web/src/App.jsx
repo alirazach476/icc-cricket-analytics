@@ -77,6 +77,7 @@ export default function App() {
   }, [theme])
   // the whole page wears the selected tournament's artwork
   useEffect(() => {
+    document.documentElement.style.setProperty('--edition-mark', edition && edition.logo ? `url(${edition.logo})` : 'none')
     document.documentElement.style.setProperty('--page-bg', edition && edition.banner ? `url(${edition.banner})` : 'url(/bg-wc2023.jpg)')
   }, [edition])
   const recolor = useMemo(() => (meta ? makeRecolor(meta.base_slots, theme) : (x) => x), [meta, theme])
@@ -191,6 +192,7 @@ export default function App() {
 
   return (
     <DashCtx.Provider value={ctx}>
+      <div className="bgmark" aria-hidden="true" />
       <div className="shell">
         <aside className="nav">
           <div className="brand" onClick={() => go('home', null, 'wc')}>

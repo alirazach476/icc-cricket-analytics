@@ -337,5 +337,16 @@ def logo_for(eid: str) -> str:
     return f"/logos/{eid}.png" if ok else "/icc-logo.png"
 
 
+def mascot_for(eid: str) -> str | None:
+    """The edition's mascot picture if one is in web/public/mascots (any web image type)."""
+    from pathlib import Path
+
+    d = Path(__file__).resolve().parents[1] / "web" / "public" / "mascots"
+    for ext in ("webp", "png", "jpg"):
+        if (d / f"{eid}.{ext}").exists():
+            return f"/mascots/{eid}.{ext}"
+    return None
+
+
 def banner_for(eid: str) -> str | None:
     return f"/logos/{BANNERS[eid]}" if eid in BANNERS else None

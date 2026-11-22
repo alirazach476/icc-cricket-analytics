@@ -17,3 +17,10 @@ body::after { content: ''; position: fixed; inset: 0; z-index: -1; pointer-event
   background: radial-gradient(circle at 30% 25%, color-mix(in srgb, var(--tc) 70%, #fff), var(--tc) 55%, color-mix(in srgb, var(--tc) 55%, #000)); box-shadow: 0 0 0 2px rgba(255, 255, 255, .22), 0 3px 8px rgba(0, 0, 0, .4); }
 .pt-img { object-fit: cover; }
 @media (max-width: 700px) { .pt { width: 24px !important; height: 24px !important; font-size: 9px; margin-right: 6px; } }
+
+/* the selected edition's logo as a large, dull watermark behind the page */
+.bgmark { position: fixed; inset: 0; z-index: -1; pointer-events: none; background-image: var(--edition-mark, none); background-repeat: no-repeat; background-position: 78% 62%; background-size: min(46vw, 560px); opacity: .09; filter: grayscale(.4); }
+/* the edition's mascot stands on the right of its banner, next to the logo */
+.edition { position: relative; }
+.edmascot { position: absolute; right: 22px; bottom: 0; height: calc(100% + 16px); max-height: 230px; width: auto; max-width: 30%; object-fit: contain; object-position: bottom right; z-index: 1; filter: drop-shadow(0 8px 14px rgba(0,0,0,.45)); pointer-events: none; }
+@media (max-width: 900px) { .edmascot { display: none; } }

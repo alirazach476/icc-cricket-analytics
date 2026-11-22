@@ -56,6 +56,7 @@ def _editions_wc27() -> list[dict]:
             "end": b,
             "logo": E.logo_for(eid),
             "banner": E.banner_for(eid),
+            "mascot": E.mascot_for(eid),
             "theme": E.theme_for(eid),
             "upcoming": True,
             "stats": [
@@ -112,6 +113,7 @@ def _editions(code: str) -> list[dict]:
                 "end": (r["end_date"] or "9999-99-99")[:10],
                 "logo": E.logo_for(eid),
                 "banner": E.banner_for(eid),
+            "mascot": E.mascot_for(eid),
                 "theme": E.theme_for(eid),
             }
         )
