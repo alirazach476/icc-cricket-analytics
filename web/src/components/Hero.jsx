@@ -16,7 +16,7 @@ export function EditionBanner({ e, comp }) {
   ]
   const shown = e.stats ? e.stats.map(([label, value]) => [Calendar, label, value]) : stats
   return (
-    <section className="edition" style={e.banner ? { '--banner': `url(${e.banner})` } : undefined}>
+    <section className={`edition${e.mascot ? ' hasmascot' : ''}`} style={e.banner ? { '--banner': `url(${e.banner})` } : undefined}>
       <div className="edbg" />
       <LogoTile e={e} size={132} />
       {e.mascot && <img className="edmascot" src={e.mascot} alt="" loading="lazy" />}

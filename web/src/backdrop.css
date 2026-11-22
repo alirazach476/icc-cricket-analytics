@@ -22,5 +22,6 @@ body::after { content: ''; position: fixed; inset: 0; z-index: -1; pointer-event
 .bgmark { position: fixed; inset: 0; z-index: -1; pointer-events: none; background-image: var(--edition-mark, none); background-repeat: no-repeat; background-position: 78% 62%; background-size: min(46vw, 560px); opacity: .09; filter: grayscale(.4); }
 /* the edition's mascot stands on the right of its banner, next to the logo */
 .edition { position: relative; }
-.edmascot { position: absolute; right: 22px; bottom: 0; height: calc(100% + 16px); max-height: 230px; width: auto; max-width: 30%; object-fit: contain; object-position: bottom right; z-index: 1; filter: drop-shadow(0 8px 14px rgba(0,0,0,.45)); pointer-events: none; }
+.edmascot { position: absolute; right: 24px; top: 50%; transform: translateY(-50%); height: calc(100% - 36px); max-height: 190px; width: auto; max-width: 240px; object-fit: contain; background: #fff; border-radius: 20px; padding: 6px; z-index: 1; box-shadow: 0 8px 22px rgba(0,0,0,.4); pointer-events: none; }
+@media (min-width: 901px) { .edition.hasmascot { padding-right: 290px; } }
 @media (max-width: 900px) { .edmascot { display: none; } }
