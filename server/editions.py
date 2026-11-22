@@ -341,10 +341,15 @@ def mascot_for(eid: str) -> str | None:
     """The edition's mascot picture if one is in web/public/mascots (any web image type)."""
     from pathlib import Path
 
-    d = Path(__file__).resolve().parents[1] / "web" / "public" / "mascots"
+    import json
+
+    here = Path(__file__).resolve().parent
+    listed = here / "mascot_files.json"  # serverless bundles drop public/: the deploy step ships the list
+    d = here.parents[0] / "web" / "public" / "mascots"
     for ext in ("webp", "png", "jpg"):
-        if (d / f"{eid}.{ext}").exists():
-            return f"/mascots/{eid}.{ext}"
+        name = f"{eid}.{ext}"
+        if name in json.loads(listed.read_text()) if listed.exists() else (d / name).exists():
+            return f"/mascots/{name}"
     return None
 
 

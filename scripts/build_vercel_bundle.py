@@ -75,6 +75,9 @@ def main() -> None:
     (OUT / "server" / "logo_files.json").write_text(
         json.dumps(sorted(f.name for f in (ROOT / "web" / "public" / "logos").glob("*.png")))
     )
+    (OUT / "server" / "mascot_files.json").write_text(
+        json.dumps(sorted(f.name for f in (ROOT / "web" / "public" / "mascots").glob("*.*")))
+    )
     (OUT / "index.py").write_text(
         "import sys\nfrom pathlib import Path\n\nsys.path.insert(0, str(Path(__file__).resolve().parent))\n"
         "from server.api import app  # noqa: E402,F401\n",
